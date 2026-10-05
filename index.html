@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BY ARCH | Maxicon Incorporadora — Residências Autorais Assinadas</title>
+  <meta name="description" content="Uma curadoria inédita da Maxicon Incorporadora: residências de alto padrão com a assinatura dos principais escritórios de arquitetura contemporânea do Brasil.">
+  
+  <!-- Fontes Google (Montserrat & Geist/Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVBAR (Estilo VistaHaven)
+       ========================================================================== -->
+  <header class="navbar-wrap">
+    <nav class="navbar" aria-label="Navegação Principal">
+      <a href="#hero" class="brand-wrap" aria-label="BY ARCH by Maxicon">
+        <img src="assets/images/logo03.png" alt="BY ARCH by Maxicon" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#conceito" class="nav-link">O projeto</a></li>
+        <li><a href="#colecao" class="nav-link">Casas</a></li>
+        <li><a href="#arquitetos" class="nav-link">Arquitetos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#contato" class="button-primary hide-mobile">
+          <span class="pulse-dot"></span>
+          <span>Atendimento Exclusivo</span>
+          <span class="button-arrow">
+            <svg width="14" height="14" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-menu-btn" id="mobile-open-btn" aria-label="Abrir Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menu Mobile Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-close-btn" aria-label="Fechar Menu">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="#hero" class="mobile-nav-link">Início</a>
+    <a href="#conceito" class="mobile-nav-link">O projeto</a>
+    <a href="#colecao" class="mobile-nav-link">Casas</a>
+    <a href="#arquitetos" class="mobile-nav-link">Arquitetos</a>
+    <a href="#contato" class="mobile-nav-link">Atendimento</a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION (VistaHaven Style com Fillets Invertidos)
+         ========================================================================== -->
+    <section id="hero" class="hero-section container">
+      <div class="hero-card">
+        <!-- Imagem de Fundo de Arquitetura de Alto Padrão -->
+        <img 
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=85" 
+          alt="Residência Autoral BY ARCH - Arquitetura Contemporânea" 
+          class="hero-background-image"
+        >
+        <div class="hero-overlay-gradient"></div>
+
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>Maxicon Incorporadora Apresenta</span>
+          </div>
+
+          <h1 class="hero-title">Onde o traço do arquiteto se torna o seu refúgio.</h1>
+          
+          <p class="hero-desc">
+            Uma curadoria rara de residências de altíssimo padrão. Cada casa é uma obra de arte única, concebida pelos mais renomados escritórios de arquitetura contemporânea e executada com precisão absoluta.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#colecao" class="button-primary light">
+              <span>Explorar a Coleção</span>
+              <span class="button-arrow">
+                <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                  <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
+                </svg>
+              </span>
+            </a>
+
+            <a href="#conceito" class="button-primary" style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px);">
+              <span>Conhecer o Manifesto</span>
+              <span class="button-arrow" style="background: rgba(255,255,255,0.25);">
+                <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                  <path d="M14 26l1.41-1.41L7.83 17H28v-2H7.83l7.58-7.59L14 6L4 16l10 10z" fill="currentColor"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Métricas Editoriais -->
+          <div class="hero-stats-grid">
+            <div class="hero-stat-item">
+              <div class="stat-number">12 <span>Obras</span></div>
+              <div class="stat-label">Edição Rara & Limitada</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-number">4 <span>Estúdios</span></div>
+              <div class="stat-label">Assinaturas de Prestígio</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="stat-number">100% <span>Autoral</span></div>
+              <div class="stat-label">Plantas Exclusivas e Inéditas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Flutuante de Curadoria no Canto com Cantos Invertidos (VistaHaven) -->
+        <div class="hero-curator-card">
+          <!-- Inverted SVG Top Fillet -->
+          <svg class="corner-fillet-top" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0L0 20C0 8.95431 8.95431 0 20 0L0 0Z" fill="white"/>
+          </svg>
+          <!-- Inverted SVG Left Fillet -->
+          <svg class="corner-fillet-left" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0L0 20C0 8.95431 8.95431 0 20 0L0 0Z" fill="white"/>
+          </svg>
+
+          <div class="curator-avatars">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
+          </div>
+
+          <div class="curator-info">
+            <div class="curator-badge-title">Curadoria Arquitetônica</div>
+            <div class="curator-rating-stars">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
+              </svg>
+              <span class="curator-rating-score">4.9 / 5.0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: O CONCEITO / PILARES (VistaHaven 01, 02, 03 Interativo)
+         ========================================================================== -->
+    <section id="conceito" class="concept-section section-spacing">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 720px;">
+          <div class="section-badge">O Conceito BY ARCH</div>
+          <h2 class="section-heading">A arquitetura como valor absoluto e irreplicável.</h2>
+          <p class="section-subheading mx-auto">
+            O projeto BY ARCH nasce da recusa ao genérico. Reunimos grandes mentes da arquitetura para criar casas que respeitam a geografia do terreno, o movimento do sol e a relação íntima entre o morar e a arte.
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <!-- Coluna Esquerda: Lista de Pilares Clicáveis -->
+          <div class="concept-left">
+            <div class="concept-pillar-card active" data-index="0">
+              <div class="pillar-header">
+                <span class="pillar-num">01</span>
+                <h3 class="pillar-title">Arquitetura Autoral Única</h3>
+              </div>
+              <p class="pillar-desc">
+                Nenhuma casa se repete. Cada volume, balanço e pátio é desenhado a partir da topografia e insolação natural do terreno por um escritório consagrado.
+              </p>
+            </div>
+
+            <div class="concept-pillar-card" data-index="1">
+              <div class="pillar-header">
+                <span class="pillar-num">02</span>
+                <h3 class="pillar-title">Materialidade e o Efeito do Tempo</h3>
+              </div>
+              <p class="pillar-desc">
+                Concreto aparente ripado, pedras naturais esculpidas, madeira cumaru tratada e metais que ganham pátina e envelhecem com nobreza e dignidade.
+              </p>
+            </div>
+
+            <div class="concept-pillar-card" data-index="2">
+              <div class="pillar-header">
+                <span class="pillar-num">03</span>
+                <h3 class="pillar-title">Integração Biofílica & Luz Zenital</h3>
+              </div>
+              <p class="pillar-desc">
+                Grandes panos de vidro do chão ao teto eliminam a fronteira entre estar interno e vegetação nativa, favorecendo ventilação cruzada e conforto térmico.
+              </p>
+            </div>
+          </div>
+
+          <!-- Coluna Direita: Imagem Dinâmica e Badge Flutuante -->
+          <div class="concept-right">
+            <div class="concept-image-wrapper">
+              <img 
+                id="concept-interactive-img" 
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" 
+                alt="Conceito Arquitetônico BY ARCH" 
+                class="concept-large-img"
+              >
+              <div class="concept-card-floating-badge">
+                <h4 id="concept-badge-title">01. Autoria & Exclusividade</h4>
+                <p id="concept-badge-desc">Topografia respeitada e volumetria inédita assinada por mestres do traço.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: A COLEÇÃO DE RESIDÊNCIAS (PROPRIEDADES DISPONÍVEIS)
+         ========================================================================== -->
+    <section id="colecao" class="collection-section section-spacing">
+      <div class="container">
+        <div class="collection-header-row">
+          <div>
+            <div class="section-badge">Coleção Exclusiva</div>
+            <h2 class="section-heading" style="margin-bottom: 8px;">As Residências Assinadas</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem;">
+              Obras de arte habitáveis disponíveis para aquisição. Conheça o memorial de cada projeto.
+            </p>
+          </div>
+
+          <!-- Filtros de Navegação -->
+          <div class="collection-filters">
+            <button class="filter-btn active" data-filter="all">Todas as Obras</button>
+            <button class="filter-btn" data-filter="4-suites">4 Suítes</button>
+            <button class="filter-btn" data-filter="5-suites">5 Suítes</button>
+            <button class="filter-btn" data-filter="terrenos-amplos">Grandes Terrenos (>1.500m²)</button>
+          </div>
+        </div>
+
+        <!-- Grid de Casas -->
+        <div class="residences-grid" id="residences-container">
+
+          <!-- Card 1: Casa Horizonte -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Casa Horizonte" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Studio Bernardes
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Alameda das Sucupiras, Lote 14</span>
+              </div>
+              <h3 class="residence-title">Casa Horizonte</h3>
+              <div class="residence-concept-tag">Volumetria em Balanço & Espelho d'Água</div>
+              <p class="residence-excerpt">
+                Laje protendida em balanço contínuo que parece levitar sobre um espelho d'água de 22 metros, com integração total à mata.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">720 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">1.350 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-horizonte">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Casa Terra & Luz -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Casa Terra & Luz" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Em Obras</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  FGMF Arquitetos
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Boulevard dos Ipês, Lote 08</span>
+              </div>
+              <h3 class="residence-title">Casa Terra & Luz</h3>
+              <div class="residence-concept-tag">Pátio Interno & Arquitetura Biofílica</div>
+              <p class="residence-excerpt">
+                Articulada em torno de um generoso átrio central ajardinado com oliveira centenária e iluminação zenital poética.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">580 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">1.100 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">3 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-terra-luz">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Casa Brise Tropical -->
+          <article class="residence-card" data-category="5-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Casa Brise Tropical" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Jacobsen Arquitetura
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Trilha da Reserva, Lote 22</span>
+              </div>
+              <h3 class="residence-title">Casa Brise Tropical</h3>
+              <div class="residence-concept-tag">Transparência & Paisagismo Envolvente</div>
+              <p class="residence-excerpt">
+                Varanda gourmet contínua protegida por painéis ripados deslizantes em cumaru maciço, permitindo ventilação permanente.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">650 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">5 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">1.420 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-brise-tropical">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Casa Mirante da Mata -->
+          <article class="residence-card" data-category="5-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Casa Mirante da Mata" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Rara Oportunidade</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Studio MK27
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Colina dos Mirantes, Lote 01</span>
+              </div>
+              <h3 class="residence-title">Casa Mirante da Mata</h3>
+              <div class="residence-concept-tag">Vão Livre de 18 Metros & Vista Perene</div>
+              <p class="residence-excerpt">
+                Estrutura de engenharia surpreendente com living de vão livre monumental sem pilares, debruçado sobre a crista da colina.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">840 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">5 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">1.800 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">5 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-mirante-mata">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Villa Sensória -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Villa Sensória" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Arthur Casas Design
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Alameda das Palmeiras, Lote 05</span>
+              </div>
+              <h3 class="residence-title">Villa Sensória</h3>
+              <div class="residence-concept-tag">Harmonia Sensorial & Arquitetura Passiva</div>
+              <p class="residence-excerpt">
+                Equilíbrio magistral entre estética e conforto bioclimático: cobertura ajardinada, ventos dominantes canalizados e acolhimento singular.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">610 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">1.280 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">4 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="villa-sensoria">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: Casa Geometria Pura -->
+          <article class="residence-card" data-category="terrenos-amplos">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Casa Geometria Pura" class="residence-img">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Metro Arquitetos
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Planalto da Reserva, Lote 19</span>
+              </div>
+              <h3 class="residence-title">Casa Geometria Pura</h3>
+              <div class="residence-concept-tag">Linhas Claras & Ritmo Estrutural</div>
+              <p class="residence-excerpt">
+                Monumento residencial implantado em lote nobre de 2.100 m², com pergolados esculturais e contrastes de luz e sombra marcantes.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item">
+                  <span class="spec-text">780 m²</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">5 Suítes</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">2.100 m² Terreno</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-text">6 Vagas</span>
+                </div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-geometria-pura">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: OS ESCRITÓRIOS DE ARQUITETURA SELECIONADOS
+         ========================================================================== -->
+    <section id="arquitetos" class="architects-section section-spacing">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 680px;">
+          <div class="section-badge">Os Mestres do Traço</div>
+          <h2 class="section-heading">Assinaturas que moldam a arquitetura contemporânea.</h2>
+          <p class="section-subheading mx-auto">
+            A Maxicon Incorporadora selecionou escritórios consagrados, reconhecidos por prêmios internacionais e pela capacidade de transformar concreto, aço e madeira em poesia espacial.
+          </p>
+        </div>
+
+        <div class="architects-grid">
+          <!-- Escritório 1 -->
+          <div class="architect-card">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Studio Bernardes" class="architect-photo">
+            <h3 class="architect-name">Studio Bernardes</h3>
+            <div class="architect-origin">São Paulo / Rio de Janeiro</div>
+            <p class="architect-bio">
+              Reconhecido pela fusão entre sofisticação cosmopolita e calor tropical. Pioneiros em balanços estruturais arrojados integrados à natureza.
+            </p>
+            <span class="architect-signature-badge">Assina a Casa Horizonte</span>
+          </div>
+
+          <!-- Escritório 2 -->
+          <div class="architect-card">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="FGMF Arquitetos" class="architect-photo">
+            <h3 class="architect-name">FGMF Arquitetos</h3>
+            <div class="architect-origin">São Paulo</div>
+            <p class="architect-bio">
+              Referência em inovação volumétrica e conforto ambiental. Seus projetos exploram a relação contínua entre espaços internos e pátios verdes.
+            </p>
+            <span class="architect-signature-badge">Assina a Casa Terra & Luz</span>
+          </div>
+
+          <!-- Escritório 3 -->
+          <div class="architect-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" alt="Jacobsen Arquitetura" class="architect-photo">
+            <h3 class="architect-name">Jacobsen Arquitetura</h3>
+            <div class="architect-origin">Rio de Janeiro / Lisboa</div>
+            <p class="architect-bio">
+              Especialistas em criar atmosferas de leveza e transparência com o uso exemplar da madeira brasileira, beirais flutuantes e brises solares.
+            </p>
+            <span class="architect-signature-badge">Assina a Casa Brise Tropical</span>
+          </div>
+
+          <!-- Escritório 4 -->
+          <div class="architect-card">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80" alt="Studio MK27" class="architect-photo">
+            <h3 class="architect-name">Studio MK27</h3>
+            <div class="architect-origin">São Paulo</div>
+            <p class="architect-bio">
+              Famoso mundialmente pela simplicidade rigorosa e horizontalidade cinematográfica. Cada obra é um tributo ao modernismo brasileiro.
+            </p>
+            <span class="architect-signature-badge">Assina a Casa Mirante da Mata</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: RIGOR CONSTRUTIVO MAXICON (Grid de 6 Diferenciais)
+         ========================================================================== -->
+    <section id="rigor" class="rigor-section section-spacing">
+      <div class="container">
+        <div class="text-center mx-auto" style="max-width: 720px;">
+          <div class="section-badge">Engenharia de Alta Fidelidade</div>
+          <h2 class="section-heading">O compromisso Maxicon: da ideia à matéria exata.</h2>
+          <p class="section-subheading mx-auto">
+            Projetos autorais exigem uma engenharia que respeite cada milímetro do traço. Na Maxicon Incorporadora, a técnica serve à arte.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Item 1 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Fidelidade Absoluta ao Traço</h3>
+            <p class="feature-desc">
+              Coordenação em plataforma BIM tridimensional para assegurar que cada encontro de materiais, vãos e caixilhos saia exatamente como concebido.
+            </p>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Esquadrias de Alta Performance</h3>
+            <p class="feature-desc">
+              Perfis de alumínio minimalistas embutidos no piso e no teto com vidros de controle solar laminados e isolamento acústico superior.
+            </p>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="feature-title">Eficiência Passiva & Ativa</h3>
+            <p class="feature-desc">
+              Orientação bioclimática de ventilação, pré-disposição para energia solar fotovoltaica, aquecimento solar de água e reaproveitamento pluvial.
+            </p>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-title">Concreto e Materiais Nobres</h3>
+            <p class="feature-desc">
+              Concreto aparente usinado e tratado com hidrorrepelentes imperceptíveis, pedras naturais selecionadas em jazida e marcenaria autoral.
+            </p>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Segurança Construtiva & Garantia</h3>
+            <p class="feature-desc">
+              Padrão executivo corporativo Maxicon com laudos estruturais, certificações de impermeabilização técnica e acompanhamento com engenheiro sênior.
+            </p>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="feature-box">
+            <div class="feature-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3 class="feature-title">Concierge & Pós-Chave Dedicado</h3>
+            <p class="feature-desc">
+              Atendimento personalizado para customizações finas de acabamentos e assistência técnica permanente após a entrega das chaves.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: MANIFESTO & CITAÇÃO ARQUITETÔNICA
+         ========================================================================== -->
+    <section class="manifesto-section section-spacing">
+      <div class="manifesto-bg-pattern"></div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <blockquote class="manifesto-quote">
+          “Uma casa não deve ser uma imposição sobre a terra, mas sim uma <strong>conversa contínua</strong> com a luz, a brisa e a memória de quem a habita.”
+        </blockquote>
+        <div class="manifesto-author">
+          <div class="author-name">Curadoria de Arquitetura</div>
+          <div class="author-role">Iniciativa BY ARCH | Maxicon Incorporadora</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: ATENDIMENTO PRIVADO / CONCIERGE (CONTATO)
+         ========================================================================== -->
+    <section id="contato" class="contact-section section-spacing">
+      <div class="container">
+        <div class="contact-card-wrapper">
+          <!-- Coluna 1: Informações e Canais Diretos -->
+          <div class="contact-info-side">
+            <div>
+              <div class="section-badge" style="background: rgba(198,168,125,0.2); color: #e4c79f;">Privacidade & Discrição</div>
+              <h3>Atendimento Privado com a Curadoria</h3>
+              <p>
+                As residências do BY ARCH são apresentadas de maneira reservada. Agende uma conversa com nosso curador ou uma visita guiada às maquetes físicas e aos lotes.
+              </p>
+
+              <div class="contact-direct-items">
+                <div class="direct-item">
+                  <div class="direct-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div class="direct-text">
+                    <div class="direct-label">Concierge Exclusivo (WhatsApp)</div>
+                    <div class="direct-val">+55 (11) 98877-6655</div>
+                  </div>
+                </div>
+
+                <div class="direct-item">
+                  <div class="direct-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="direct-text">
+                    <div class="direct-label">E-mail Institucional</div>
+                    <div class="direct-val">byarch@maxicon.com.br</div>
+                  </div>
+                </div>
+
+                <div class="direct-item">
+                  <div class="direct-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="direct-text">
+                    <div class="direct-label">Espaço de Apresentação</div>
+                    <div class="direct-val">Lounge BY ARCH — Jardins, SP</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 36px;">
+              Maxicon Incorporadora — Todos os direitos reservados.
+            </div>
+          </div>
+
+          <!-- Coluna 2: Formulário de Solicitação de Apresentação -->
+          <div class="contact-form-side">
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Solicitar Caderno Arquitetônico</h3>
+            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 28px;">
+              Preencha os campos abaixo para receber o memorial descritivo completo e as plantas em alta definição.
+            </p>
+
+            <form id="private-consultation-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label class="form-label" for="input-name">Nome Completo</label>
+                  <input type="text" id="input-name" class="form-input" placeholder="Seu nome" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="input-phone">Telefone / WhatsApp</label>
+                  <input type="tel" id="input-phone" class="form-input" placeholder="(11) 99999-9999" required>
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label" for="input-email">E-mail Principal</label>
+                  <input type="email" id="input-email" class="form-input" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label" for="input-residence">Residência de Maior Interesse</label>
+                  <select id="input-residence" class="form-select">
+                    <option value="Todas / Consulta Geral">Apresentação Geral da Coleção BY ARCH</option>
+                    <option value="Casa Horizonte (Studio Bernardes)">Casa Horizonte — Studio Bernardes (720 m²)</option>
+                    <option value="Casa Terra & Luz (FGMF)">Casa Terra & Luz — FGMF Arquitetos (580 m²)</option>
+                    <option value="Casa Brise Tropical (Jacobsen)">Casa Brise Tropical — Jacobsen (650 m²)</option>
+                    <option value="Casa Mirante da Mata (Studio MK27)">Casa Mirante da Mata — Studio MK27 (840 m²)</option>
+                    <option value="Villa Sensória (Arthur Casas)">Villa Sensória — Arthur Casas (610 m²)</option>
+                    <option value="Casa Geometria Pura (Metro)">Casa Geometria Pura — Metro (780 m²)</option>
+                  </select>
+                </div>
+
+                <div class="form-group full-width">
+                  <label class="form-label" for="input-notes">Observações ou Preferências (Opcional)</label>
+                  <textarea id="input-notes" class="form-textarea" placeholder="Ex: Preferência por casa térrea, necessidade de suíte no térreo ou agendamento de visita no fim de semana..."></textarea>
+                </div>
+
+                <div class="form-group full-width" style="margin-top: 8px;">
+                  <button type="submit" class="button-primary" style="width: 100%; justify-content: center; padding: 14px 24px; font-size: 0.95rem;">
+                    <span>Solicitar Apresentação Privada</span>
+                    <span class="button-arrow">
+                      <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                        <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL DE DETALHES DO PROJETO ARQUITETÔNICO
+       ========================================================================== -->
+  <div class="modal-overlay" id="residence-modal" aria-hidden="true" role="dialog">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Fechar Detalhes">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <img id="modal-image" src="" alt="Residência" class="modal-hero-image">
+
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <div>
+            <h2 id="modal-title" class="modal-residence-title">Nome da Residência</h2>
+            <div id="modal-architect" class="modal-architect-badge" style="margin-top: 8px; display: inline-block;">
+              Assinada por Escritório
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-specs-grid">
+          <div>
+            <div class="modal-spec-label">Área Construída</div>
+            <div id="modal-area" class="modal-spec-val">000 m²</div>
+          </div>
+          <div>
+            <div class="modal-spec-label">Configuração</div>
+            <div id="modal-suites" class="modal-spec-val">0 Suítes</div>
+          </div>
+          <div>
+            <div class="modal-spec-label">Área do Lote</div>
+            <div id="modal-land" class="modal-spec-val">0.000 m²</div>
+          </div>
+          <div>
+            <div class="modal-spec-label">Estacionamento</div>
+            <div id="modal-garage" class="modal-spec-val">0 Vagas</div>
+          </div>
+        </div>
+
+        <h3 class="modal-section-title">O Conceito Arquitetônico</h3>
+        <p id="modal-desc" style="color: var(--text-muted); line-height: 1.65; margin-bottom: 18px;"></p>
+
+        <h3 class="modal-section-title">Destaque do Projeto</h3>
+        <p id="modal-highlight" style="color: var(--text-main); font-weight: 500; margin-bottom: 20px;"></p>
+
+        <h3 class="modal-section-title">Materiais & Soluções Construtivas Nobres</h3>
+        <div id="modal-materials" class="modal-materials-list"></div>
+
+        <div class="modal-cta-row">
+          <button id="modal-interest-btn" class="button-primary">
+            <span>Tenho Interesse Nesta Obra</span>
+            <span class="button-arrow">
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER (Estilo VistaHaven)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Coluna 1: Marca & Manifesto -->
+        <div class="footer-brand">
+          <div class="brand-wrap">
+            <span class="brand-logo-text">BY ARCH</span>
+            <span class="brand-subtext" style="color: var(--accent-gold);">by Maxicon</span>
+          </div>
+          <p class="footer-desc">
+            Iniciativa da Maxicon Incorporadora dedicada a aproximar a alta arquitetura autoral de quem valoriza o design atemporal e a arte de viver com exclusividade.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-circle-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-circle-btn" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+            <a href="#" class="social-circle-btn" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 20l4-9"></path>
+                <path d="M10.7 14c.4-1.2 1.5-2 2.8-2 1.7 0 2.5 1.1 2.5 2.5 0 2.2-1.3 4.5-3.3 4.5-.8 0-1.5-.4-1.7-1"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div>
+          <h4 class="footer-col-title">Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Início</a></li>
+            <li><a href="#conceito" class="footer-link">O Conceito BY ARCH</a></li>
+            <li><a href="#colecao" class="footer-link">Casas Disponíveis</a></li>
+            <li><a href="#arquitetos" class="footer-link">Escritórios Selecionados</a></li>
+            <li><a href="#rigor" class="footer-link">Rigor Construtivo</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Coleção -->
+        <div>
+          <h4 class="footer-col-title">As Obras</h4>
+          <ul class="footer-links">
+            <li><a href="#colecao" class="footer-link">Casa Horizonte</a></li>
+            <li><a href="#colecao" class="footer-link">Casa Terra & Luz</a></li>
+            <li><a href="#colecao" class="footer-link">Casa Brise Tropical</a></li>
+            <li><a href="#colecao" class="footer-link">Casa Mirante da Mata</a></li>
+            <li><a href="#colecao" class="footer-link">Villa Sensória</a></li>
+            <li><a href="#colecao" class="footer-link">Casa Geometria Pura</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4: Atendimento Exclusivo -->
+        <div>
+          <h4 class="footer-col-title">Privacidade</h4>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5;">
+            Todas as apresentações de projetos e visitas são confidenciais e coordenadas diretamente pela equipe de curadoria.
+          </p>
+          <a href="#contato" class="button-primary light" style="padding: 8px 16px; font-size: 0.82rem;">
+            <span>Agendar com Curador</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Rodapé Inferior -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH.
+        </div>
+        <div>
+          Arquitetura Autoral Contemporânea &bull; Brasil
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
