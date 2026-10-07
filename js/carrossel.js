@@ -5,6 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initHouseCarousel();
+  initScrollReveal();
 });
 
 function initHouseCarousel() {
@@ -175,6 +176,33 @@ function initHouseCarousel() {
         goToSlide(currentIndex - 1);
       }
     }
+  }
+}
+
+/**
+ * Animação Suave ao Rolar a Página (Scroll Reveal)
+ */
+function initScrollReveal() {
+  const elements = document.querySelectorAll(".scroll-reveal");
+  if (!elements.length) return;
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: "0px 0px -30px 0px"
+    });
+
+    elements.forEach(el => observer.observe(el));
+  } else {
+    // Fallback gracioso
+    elements.forEach(el => el.classList.add("is-visible"));
   }
 }
 
