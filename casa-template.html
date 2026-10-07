@@ -96,59 +96,69 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: CONCEITO ARQUITETÔNICO & AUTORIA (EDITORIAL 2 COLUNAS CONFORME TEMPLATE)
+         SEÇÃO: CONCEITO ARQUITETÔNICO & AUTORIA (CARD ACINZENTADO CHANFRADO)
          ========================================================================== -->
-    <section class="house-concept-grid-section container scroll-reveal">
-      <div class="house-concept-grid">
-        <!-- Coluna Esquerda: Imagem Conceito -->
-        <div class="concept-visual-col">
-          <img src="{{URL_IMAGEM_CONCEITO}}" alt="Conceito Arquitetônico {{NOME_DA_CASA}}">
-        </div>
+    <section class="house-concept-section container">
+      <div class="house-concept-card">
+        <!-- Fundo acinzentado com detalhe de corte chanfrado idêntico ao da HERO -->
+        <div class="concept-card-bg"></div>
 
-        <!-- Coluna Direita: Conteúdo Editorial -->
-        <div class="concept-content-col">
-          <!-- Autoria com Logo do Arquiteto -->
-          <div class="concept-author-bar">
-            <span class="concept-author-title">Arquitetura autoral por</span>
-            <img src="{{URL_LOGO_ESCRITORIO_PNG}}" alt="{{NOME_ESCRITORIO}}" class="concept-author-logo-img">
+        <div class="concept-card-inner">
+          <!-- Coluna Esquerda: Imagem Quadrada Sobreposta -->
+          <div class="concept-visual-col">
+            <div class="concept-square-img-wrap">
+              <img src="{{URL_IMAGEM_CONCEITO}}" alt="Conceito Arquitetônico {{NOME_DA_CASA}}" class="concept-square-img">
+            </div>
           </div>
 
-          <!-- Lote e Áreas -->
-          <div class="concept-lot-info">
-            <span class="concept-lot-tag"><strong>{{NUMERO_LOTE}}</strong> {{TAMANHO_TERRENO_M2}}</span>
-            <span class="concept-lot-sep">|</span>
-            <span class="concept-lot-area"><strong>{{AREA_PRIVATIVA_M2}}</strong> área privativa</span>
-          </div>
-
-          <!-- Título Conceitual H2 -->
-          <h2 class="concept-main-title">{{TITULO_CONCEITO_H1}}</h2>
-
-          <!-- Parágrafos Conceituais -->
-          <div class="concept-text-body">
-            {{CONCEITO_PARAGRAFOS}}
-          </div>
-
-          <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
-          <div class="concept-minimal-specs">
-            <div class="concept-minimal-spec-item">
-              <div class="concept-spec-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
-                </svg>
-              </div>
-              <span class="concept-spec-text">{{TIPOLOGIA}}</span>
+          <!-- Coluna Direita: Conteúdo Editorial -->
+          <div class="concept-content-col">
+            <!-- Autoria: Apenas "Por [logo]" -->
+            <div class="concept-author-bar">
+              <span class="concept-author-title">Por</span>
+              <img src="{{URL_LOGO_ESCRITORIO_PNG}}" alt="{{NOME_ESCRITORIO}}" class="concept-author-logo-img">
             </div>
 
-            <div class="concept-minimal-spec-item">
-              <div class="concept-spec-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="8" rx="2"/>
-                  <circle cx="7.5" cy="19.5" r="2.2"/>
-                  <circle cx="16.5" cy="19.5" r="2.2"/>
-                  <path d="M5 11l2.2-5h9.6l2.2 5"/>
-                </svg>
+            <!-- Lote e Áreas -->
+            <div class="concept-lot-info">
+              <span class="concept-lot-tag"><strong>{{NUMERO_LOTE}}</strong> {{TAMANHO_TERRENO_M2}}</span>
+              <span class="concept-lot-sep">|</span>
+              <span class="concept-lot-area"><strong>{{AREA_PRIVATIVA_M2}}</strong> área privativa</span>
+            </div>
+
+            <!-- Bloco de Texto com Efeito de Surgir Lentamente com Hover na Seção -->
+            <div class="concept-hover-reveal">
+              <!-- Título Conceitual H2 -->
+              <h2 class="concept-main-title">{{TITULO_CONCEITO_H1}}</h2>
+
+              <!-- Parágrafos Conceituais -->
+              <div class="concept-text-body">
+                {{CONCEITO_PARAGRAFOS}}
               </div>
-              <span class="concept-spec-text">{{VAGAS_GARAGEM}}</span>
+
+              <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
+              <div class="concept-minimal-specs">
+                <div class="concept-minimal-spec-item">
+                  <div class="concept-spec-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+                    </svg>
+                  </div>
+                  <span class="concept-spec-text">{{TIPOLOGIA}}</span>
+                </div>
+
+                <div class="concept-minimal-spec-item">
+                  <div class="concept-spec-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="8" rx="2"/>
+                      <circle cx="7.5" cy="19.5" r="2.2"/>
+                      <circle cx="16.5" cy="19.5" r="2.2"/>
+                      <path d="M5 11l2.2-5h9.6l2.2 5"/>
+                    </svg>
+                  </div>
+                  <span class="concept-spec-text">{{VAGAS_GARAGEM}}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

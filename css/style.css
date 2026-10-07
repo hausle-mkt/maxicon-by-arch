@@ -1668,40 +1668,68 @@ img {
 }
 
 /* ==========================================================================
-   SEÇÃO CONCEITO ARQUITETÔNICO & AUTORIA (EDITORIAL 2 COLUNAS)
+   SEÇÃO CONCEITO ARQUITETÔNICO & AUTORIA (CARD ACINZENTADO CHANFRADO)
    ========================================================================== */
-.house-concept-grid-section {
-  padding: 80px 0 64px 0;
+.house-concept-section {
+  padding: 70px 0 90px 0;
+  position: relative;
 }
 
-.house-concept-grid {
+.house-concept-card {
+  position: relative;
+  width: 100%;
+}
+
+/* Fundo acinzentado com detalhe de corte chanfrado idêntico ao da HERO */
+.concept-card-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: clamp(120px, 16vw, 200px); /* Inicia atrás da imagem quadrada, com sobreposição assimétrica */
+  background: #ebebeb;
+  /* Corte diagonal no canto inferior direito igual ao da HERO */
+  clip-path: polygon(0 0, 100% 0, 100% 76%, 84.5% 100%, 0 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.concept-card-inner {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
-  gap: 60px;
+  grid-template-columns: minmax(360px, 460px) 1fr;
+  gap: 56px;
   align-items: center;
+  padding: 60px 80px 72px 0;
 }
 
-/* Coluna Esquerda: Imagem Conceito */
+/* Coluna Esquerda: Imagem Quadrada Sobreposta */
 .concept-visual-col {
   position: relative;
   width: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
-  background-color: var(--color-bg-subtle, #f5f5f7);
 }
 
-.concept-visual-col img {
+.concept-square-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+  background: #f0f0f0;
+}
+
+.concept-square-img {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3.4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0; /* Imagem estritamente quadrada, seguindo a linguagem do site */
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.concept-visual-col:hover img {
-  transform: scale(1.025);
+.house-concept-card:hover .concept-square-img {
+  transform: scale(1.02);
 }
 
 /* Coluna Direita: Conteúdo Editorial */
@@ -1709,13 +1737,15 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 8px;
 }
 
+/* Autoria: Apenas "Por [logo]" */
 .concept-author-bar {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 8px;
   flex-wrap: wrap;
 }
 
@@ -1728,20 +1758,21 @@ img {
 }
 
 .concept-author-logo-img {
-  height: 24px;
+  height: 26px;
   width: auto;
   max-width: 220px;
   object-fit: contain;
   display: block;
 }
 
+/* Lote e Áreas */
 .concept-lot-info {
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 1.05rem;
   color: #1a1a1a;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
@@ -1753,6 +1784,20 @@ img {
 .concept-lot-sep {
   color: #c4c4c4;
   font-weight: 300;
+}
+
+/* Efeito de Surgir Lentamente com o Hover na Seção */
+.concept-hover-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.house-concept-section:hover .concept-hover-reveal,
+.house-concept-card:hover .concept-hover-reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .concept-main-title {
@@ -1816,27 +1861,34 @@ img {
   letter-spacing: -0.01em;
 }
 
-/* Animação Scroll Reveal para o bloco conceitual */
-.house-concept-grid-section.scroll-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.house-concept-grid-section.scroll-reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Responsividade Mobile / Tablet */
+@media (max-width: 991px), (hover: none) {
+  /* Em telas sensíveis ao toque, o texto fica visível por padrão */
+  .concept-hover-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 @media (max-width: 991px) {
-  .house-concept-grid {
+  .concept-card-inner {
     grid-template-columns: 1fr;
     gap: 36px;
+    padding: 36px 28px 64px 28px;
   }
 
-  .concept-visual-col img {
-    aspect-ratio: 16 / 10;
-    max-height: 420px;
+  .concept-card-bg {
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 78% 100%, 0 100%);
+  }
+
+  .concept-square-img-wrap {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .concept-content-col {
+    padding-left: 0;
   }
 
   .concept-minimal-specs {
@@ -1845,8 +1897,16 @@ img {
 }
 
 @media (max-width: 576px) {
-  .house-concept-grid-section {
-    padding: 50px 0 40px 0;
+  .house-concept-section {
+    padding: 40px 0 60px 0;
+  }
+
+  .concept-card-inner {
+    padding: 28px 20px 56px 20px;
+  }
+
+  .concept-card-bg {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 76% 100%, 0 100%);
   }
 
   .concept-author-title {
@@ -1854,16 +1914,18 @@ img {
   }
 
   .concept-author-logo-img {
-    height: 20px;
+    height: 22px;
   }
 
   .concept-lot-info {
     font-size: 0.95rem;
     gap: 8px;
+    margin-bottom: 20px;
   }
 
   .concept-main-title {
     font-size: 1.85rem;
+    margin-bottom: 18px;
   }
 
   .concept-text-body p {

@@ -96,61 +96,71 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: CONCEITO ARQUITETÔNICO & AUTORIA (EDITORIAL 2 COLUNAS CONFORME PRINT)
+         SEÇÃO: CONCEITO ARQUITETÔNICO & AUTORIA (CARD ACINZENTADO CHANFRADO)
          ========================================================================== -->
-    <section class="house-concept-grid-section container scroll-reveal">
-      <div class="house-concept-grid">
-        <!-- Coluna Esquerda: Imagem Conceito -->
-        <div class="concept-visual-col">
-          <img src="assets/casa-pinha/imagem-conceito-pinha.webp" alt="Conceito Arquitetônico Casa Pinha - Vista da Araucária">
-        </div>
+    <section class="house-concept-section container">
+      <div class="house-concept-card">
+        <!-- Fundo acinzentado com detalhe de corte chanfrado idêntico ao da HERO -->
+        <div class="concept-card-bg"></div>
 
-        <!-- Coluna Direita: Conteúdo Editorial -->
-        <div class="concept-content-col">
-          <!-- Autoria com Logo do Arquiteto -->
-          <div class="concept-author-bar">
-            <span class="concept-author-title">Arquitetura autoral por</span>
-            <img src="assets/casa-pinha/logo-polesello-muller-preto.png" alt="Polesello + Müller Arquitetura" class="concept-author-logo-img">
+        <div class="concept-card-inner">
+          <!-- Coluna Esquerda: Imagem Quadrada Sobreposta -->
+          <div class="concept-visual-col">
+            <div class="concept-square-img-wrap">
+              <img src="assets/casa-pinha/imagem-conceito-pinha.webp" alt="Conceito Arquitetônico Casa Pinha - Vista da Araucária" class="concept-square-img">
+            </div>
           </div>
 
-          <!-- Lote e Áreas -->
-          <div class="concept-lot-info">
-            <span class="concept-lot-tag"><strong>Lote D15</strong> 811,31 m²</span>
-            <span class="concept-lot-sep">|</span>
-            <span class="concept-lot-area"><strong>434,40 m²</strong> área privativa</span>
-          </div>
-
-          <!-- Título Conceitual H2 -->
-          <h2 class="concept-main-title">Arquitetura que abraça.</h2>
-
-          <!-- Parágrafos Conceituais -->
-          <div class="concept-text-body">
-            <p>Uma araucária existente no terreno deixa de ser uma condicionante para se tornar o <strong>coração da residência</strong>.</p>
-            <p>Ao redor dela, a arquitetura organiza percursos, enquadra paisagens e aproxima natureza e vida cotidiana. Implantada sobre a topografia elevada, a casa combina privacidade e contemplação em uma composição marcada por linhas curvas, madeira, pedra e grandes aberturas.</p>
-            <p>Uma casa concebida para morar, receber, trabalhar e desacelerar.</p>
-          </div>
-
-          <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
-          <div class="concept-minimal-specs">
-            <div class="concept-minimal-spec-item">
-              <div class="concept-spec-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
-                </svg>
-              </div>
-              <span class="concept-spec-text">3 suítes</span>
+          <!-- Coluna Direita: Conteúdo Editorial -->
+          <div class="concept-content-col">
+            <!-- Autoria: Apenas "Por [logo]" -->
+            <div class="concept-author-bar">
+              <span class="concept-author-title">Por</span>
+              <img src="assets/casa-pinha/logo-polesello-muller-preto.png" alt="Polesello + Müller Arquitetura" class="concept-author-logo-img">
             </div>
 
-            <div class="concept-minimal-spec-item">
-              <div class="concept-spec-icon" aria-hidden="true">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="11" width="18" height="8" rx="2"/>
-                  <circle cx="7.5" cy="19.5" r="2.2"/>
-                  <circle cx="16.5" cy="19.5" r="2.2"/>
-                  <path d="M5 11l2.2-5h9.6l2.2 5"/>
-                </svg>
+            <!-- Lote e Áreas -->
+            <div class="concept-lot-info">
+              <span class="concept-lot-tag"><strong>Lote D15</strong> 811,31 m²</span>
+              <span class="concept-lot-sep">|</span>
+              <span class="concept-lot-area"><strong>434,40 m²</strong> área privativa</span>
+            </div>
+
+            <!-- Bloco de Texto com Efeito de Surgir Lentamente com Hover na Seção -->
+            <div class="concept-hover-reveal">
+              <!-- Título Conceitual H2 -->
+              <h2 class="concept-main-title">Arquitetura que abraça.</h2>
+
+              <!-- Parágrafos Conceituais -->
+              <div class="concept-text-body">
+                <p>Uma araucária existente no terreno deixa de ser uma condicionante para se tornar o <strong>coração da residência</strong>.</p>
+                <p>Ao redor dela, a arquitetura organiza percursos, enquadra paisagens e aproxima natureza e vida cotidiana. Implantada sobre a topografia elevada, a casa combina privacidade e contemplação em uma composição marcada por linhas curvas, madeira, pedra e grandes aberturas.</p>
+                <p>Uma casa concebida para morar, receber, trabalhar e desacelerar.</p>
               </div>
-              <span class="concept-spec-text">3 vagas</span>
+
+              <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
+              <div class="concept-minimal-specs">
+                <div class="concept-minimal-spec-item">
+                  <div class="concept-spec-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+                    </svg>
+                  </div>
+                  <span class="concept-spec-text">3 suítes</span>
+                </div>
+
+                <div class="concept-minimal-spec-item">
+                  <div class="concept-spec-icon" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="8" rx="2"/>
+                      <circle cx="7.5" cy="19.5" r="2.2"/>
+                      <circle cx="16.5" cy="19.5" r="2.2"/>
+                      <path d="M5 11l2.2-5h9.6l2.2 5"/>
+                    </svg>
+                  </div>
+                  <span class="concept-spec-text">3 vagas</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
