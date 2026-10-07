@@ -1672,23 +1672,23 @@ img {
   background: transparent;
   border: none;
   box-shadow: none;
-  padding: 36px 0 48px 0;
+  padding: 32px 0 44px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 28px;
-  margin-bottom: 40px;
-  text-align: center;
+  gap: 20px;
+  margin-bottom: 36px;
 }
 
 .architect-phrase {
   font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
   font-weight: 400; /* Fonte regular */
   color: var(--text-main);
+  line-height: 1.25;
+  text-align: right;
   letter-spacing: -0.01em;
-  line-height: 1.35;
   margin: 0;
 }
 
@@ -1703,8 +1703,8 @@ img {
 }
 
 .architect-logo-box img {
-  max-height: 42px;
-  max-width: 240px;
+  max-height: 48px;
+  max-width: 250px;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -2171,8 +2171,12 @@ img {
   .architect-logo-box {
     width: auto;
   }
+  .architect-logo-box img {
+    max-height: 38px;
+  }
   .architect-phrase {
-    font-size: 1.15rem;
+    font-size: 0.92rem;
+    text-align: right;
   }
   .house-specs-grid {
     grid-template-columns: 1fr;
