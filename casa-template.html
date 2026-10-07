@@ -84,25 +84,15 @@
     </section>
 
     <!-- ==========================================================================
-         HERO DA RESIDÊNCIA & SEÇÃO PREÇO
+         HERO DA RESIDÊNCIA
          ========================================================================== -->
     <section class="container">
       <div class="house-hero-header">
         <div class="house-title-group">
-          <div class="house-tag-badge">{{CONDOMINIO_LOTE}}</div>
           <h1 class="house-title">{{NOME_DA_CASA}}</h1>
           <p style="font-size: 1.15rem; color: var(--text-muted); margin-top: 6px;">
-            Arquitetura autoral assinada por <strong>{{NOME_ESCRITORIO}}</strong>
+            Arquitetura autoral assinada por <strong>{{NOME_ESCRITORIO}}</strong> &bull; {{CONDOMINIO_LOTE}}
           </p>
-        </div>
-
-        <!-- Seção Preço -->
-        <div class="house-price-box">
-          <div class="house-price-label">Investimento Estimado</div>
-          <div class="house-price-value">{{PRECO_ESTIMADO}}</div>
-          <div style="font-size: 0.75rem; color: var(--accent-green); font-weight: 700; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
-            &bull; Projeto Autoral Disponível
-          </div>
         </div>
       </div>
 
@@ -121,7 +111,6 @@
     <section class="container">
       <div class="house-architect-section">
         <div class="architect-meta-left">
-          <div class="tag">Assinatura do Projeto</div>
           <h3>{{NOME_ESCRITORIO}}</h3>
           <p>
             {{BIO_ESCRITORIO}}
@@ -138,7 +127,6 @@
          SEÇÃO: FICHA TÉCNICA / IDENTIFICAÇÃO DO LOTE
          ========================================================================== -->
     <section class="house-specs-container container">
-      <div class="section-badge">Especificações Técnicas</div>
       <h2 class="section-heading">Ficha do Projeto & Terreno</h2>
       <p style="color: var(--text-muted); font-size: 1.05rem;">
         Métricas e distribuição dos ambientes concebidos para o {{CONDOMINIO_LOTE}}.
@@ -147,49 +135,90 @@
       <div class="house-specs-grid">
         <!-- Lote -->
         <div class="spec-tile">
-          <div class="spec-tile-label">Identificação do Lote</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                <circle cx="12" cy="9" r="2.5"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Identificação do Lote</div>
+          </div>
           <div class="spec-tile-val">{{NUMERO_LOTE}}</div>
           <div class="spec-tile-desc">{{CONDOMINIO_NOME}} &bull; Localização Privilegiada</div>
         </div>
 
         <!-- Terreno -->
         <div class="spec-tile">
-          <div class="spec-tile-label">Tamanho do Terreno</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="0" ry="0"/>
+                <path d="M3 9h18M9 21V9"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Tamanho do Terreno</div>
+          </div>
           <div class="spec-tile-val">{{TAMANHO_TERRENO_M2}}</div>
           <div class="spec-tile-desc">Área total privativa de terreno</div>
         </div>
 
         <!-- Área Privativa -->
         <div class="spec-tile">
-          <div class="spec-tile-label">Área Privativa Construída</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Área Privativa Construída</div>
+          </div>
           <div class="spec-tile-val">{{AREA_PRIVATIVA_M2}}</div>
           <div class="spec-tile-desc">Área útil coberta distribuída no projeto</div>
         </div>
 
         <!-- Tipologia -->
         <div class="spec-tile">
-          <div class="spec-tile-label">Tipologia Íntima</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Tipologia Íntima</div>
+          </div>
           <div class="spec-tile-val">{{TIPOLOGIA}}</div>
           <div class="spec-tile-desc">Suítes completas e integradas</div>
         </div>
 
         <!-- Vagas -->
         <div class="spec-tile">
-          <div class="spec-tile-label">Vagas de Garagem</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="8" rx="0"/>
+                <circle cx="7.5" cy="19.5" r="2.5"/>
+                <circle cx="16.5" cy="19.5" r="2.5"/>
+                <path d="M5 11l2-5h10l2 5"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Vagas de Garagem</div>
+          </div>
           <div class="spec-tile-val">{{VAGAS_GARAGEM}}</div>
           <div class="spec-tile-desc">Estacionamento privativo coberto</div>
         </div>
 
-        <!-- Investimento -->
-        <div class="spec-tile">
-          <div class="spec-tile-label">Valor Estimado</div>
-          <div class="spec-tile-val">{{PRECO_ESTIMADO}}</div>
-          <div class="spec-tile-desc">Valor aproximado com projeto arquitetônico</div>
-        </div>
-
         <!-- Área Social e Lazer (Linha Larga) -->
         <div class="spec-tile wide">
-          <div class="spec-tile-label">Área Social, Convivência & Lazer</div>
+          <div class="spec-tile-header">
+            <div class="spec-tile-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 21h8M12 17v4M5 3h14l-2 8a5 5 0 0 1-10 0L5 3z"/>
+              </svg>
+            </div>
+            <div class="spec-tile-label">Área Social, Convivência & Lazer</div>
+          </div>
           <div class="spec-tile-val" style="font-size: 1.35rem; margin-top: 4px;">
             {{AREA_SOCIAL}}
           </div>
@@ -201,13 +230,38 @@
     </section>
 
     <!-- ==========================================================================
+         SEÇÃO PREÇO / INVESTIMENTO ESTIMADO (APÓS A FICHA DO PROJETO)
+         ========================================================================== -->
+    <section class="house-price-section container">
+      <div class="house-price-card">
+        <div class="price-content">
+          <div class="price-eyebrow">Investimento do Projeto</div>
+          <div class="price-main-value">{{PRECO_ESTIMADO}}</div>
+          <p class="price-note">
+            Valor aproximado contemplando o projeto arquitetônico autoral completo concebido por {{NOME_ESCRITORIO}} para o {{CONDOMINIO_LOTE}}.
+          </p>
+        </div>
+
+        <div>
+          <a href="#contato-reserva" class="button-primary" style="padding: 16px 32px; font-size: 0.95rem;">
+            <span>Solicitar Memorial de Custos</span>
+            <span class="button-arrow">
+              <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
+                <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          SEÇÃO: CONCEITO DO PROJETO (H1 CONCEITUAL & TEXTO DE 500 CARACTERES)
          ========================================================================== -->
     <section class="container">
       <div class="house-concept-box">
         <div class="concept-inner-layout">
           <div class="concept-col-left">
-            <div class="section-badge">Manifesto Arquitetônico</div>
             <!-- TÍTULO DO CONCEITO PROJETO (H1) -->
             <h2 class="concept-main-headline">{{TITULO_CONCEITO_H1}}</h2>
             <div style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">
@@ -240,10 +294,9 @@
     <section class="house-carousel-section container">
       <div class="carousel-header-bar">
         <div>
-          <div class="section-badge">Galeria Visual</div>
           <h2 class="section-heading" style="margin-bottom: 6px;">Ambientes de Destaque</h2>
           <p style="color: var(--text-muted);">
-            Explore os espaços, iluminação e acabamentos selecionados para {{NOME_DA_CASA}}.
+            Explore os espaços, iluminação e acabamentos selecionados para {{NOME_DA_CASA}}. Clique na imagem para ampliar em tela cheia.
           </p>
         </div>
 
@@ -264,48 +317,72 @@
         </div>
       </div>
 
-      <!-- Viewport Principal do Carrossel -->
-      <div class="carousel-viewport">
+      <!-- Viewport Principal do Carrossel (clique abre modal) -->
+      <div class="carousel-viewport" id="carousel-viewport" title="Clique para ampliar">
         <!-- Slide 1 -->
-        <div class="carousel-slide active">
-          <img src="{{FOTO_SLIDE_1}}" alt="{{LEGENDA_SLIDE_1}}">
+        <div class="carousel-slide active" data-title="{{TITULO_SLIDE_1}}" data-full="{{FOTO_SLIDE_1}}">
+          <img src="{{FOTO_SLIDE_1}}" alt="{{TITULO_SLIDE_1}}">
           <div class="carousel-caption">
-            <div>
-              <h4>{{TITULO_SLIDE_1}}</h4>
-              <p>{{LEGENDA_SLIDE_1}}</p>
+            <h4>{{TITULO_SLIDE_1}}</h4>
+            <div class="carousel-zoom-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+              <span>Ampliar</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-slide">
-          <img src="{{FOTO_SLIDE_2}}" alt="{{LEGENDA_SLIDE_2}}">
+        <div class="carousel-slide" data-title="{{TITULO_SLIDE_2}}" data-full="{{FOTO_SLIDE_2}}">
+          <img src="{{FOTO_SLIDE_2}}" alt="{{TITULO_SLIDE_2}}">
           <div class="carousel-caption">
-            <div>
-              <h4>{{TITULO_SLIDE_2}}</h4>
-              <p>{{LEGENDA_SLIDE_2}}</p>
+            <h4>{{TITULO_SLIDE_2}}</h4>
+            <div class="carousel-zoom-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+              <span>Ampliar</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-slide">
-          <img src="{{FOTO_SLIDE_3}}" alt="{{LEGENDA_SLIDE_3}}">
+        <div class="carousel-slide" data-title="{{TITULO_SLIDE_3}}" data-full="{{FOTO_SLIDE_3}}">
+          <img src="{{FOTO_SLIDE_3}}" alt="{{TITULO_SLIDE_3}}">
           <div class="carousel-caption">
-            <div>
-              <h4>{{TITULO_SLIDE_3}}</h4>
-              <p>{{LEGENDA_SLIDE_3}}</p>
+            <h4>{{TITULO_SLIDE_3}}</h4>
+            <div class="carousel-zoom-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+              <span>Ampliar</span>
             </div>
           </div>
         </div>
 
         <!-- Slide 4 -->
-        <div class="carousel-slide">
-          <img src="{{FOTO_SLIDE_4}}" alt="{{LEGENDA_SLIDE_4}}">
+        <div class="carousel-slide" data-title="{{TITULO_SLIDE_4}}" data-full="{{FOTO_SLIDE_4}}">
+          <img src="{{FOTO_SLIDE_4}}" alt="{{TITULO_SLIDE_4}}">
           <div class="carousel-caption">
-            <div>
-              <h4>{{TITULO_SLIDE_4}}</h4>
-              <p>{{LEGENDA_SLIDE_4}}</p>
+            <h4>{{TITULO_SLIDE_4}}</h4>
+            <div class="carousel-zoom-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                <line x1="11" y1="8" x2="11" y2="14"/>
+                <line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+              <span>Ampliar</span>
             </div>
           </div>
         </div>
@@ -313,20 +390,50 @@
 
       <!-- Barra de Miniaturas Clicáveis -->
       <div class="carousel-thumbnails">
-        <div class="thumb-item active" data-index="0">
+        <div class="thumb-item active" data-index="0" title="{{TITULO_SLIDE_1}}">
           <img src="{{FOTO_SLIDE_1}}" alt="Miniatura 1">
         </div>
-        <div class="thumb-item" data-index="1">
+        <div class="thumb-item" data-index="1" title="{{TITULO_SLIDE_2}}">
           <img src="{{FOTO_SLIDE_2}}" alt="Miniatura 2">
         </div>
-        <div class="thumb-item" data-index="2">
+        <div class="thumb-item" data-index="2" title="{{TITULO_SLIDE_3}}">
           <img src="{{FOTO_SLIDE_3}}" alt="Miniatura 3">
         </div>
-        <div class="thumb-item" data-index="3">
+        <div class="thumb-item" data-index="3" title="{{TITULO_SLIDE_4}}">
           <img src="{{FOTO_SLIDE_4}}" alt="Miniatura 4">
         </div>
       </div>
     </section>
+
+    <!-- Modal Lightbox para Ampliar Fotos da Galeria -->
+    <div class="gallery-modal-overlay" id="gallery-modal" aria-hidden="true" role="dialog">
+      <div class="gallery-modal-container">
+        <button class="gallery-modal-close" id="gallery-modal-close" aria-label="Fechar Foto Ampliada">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="gallery-modal-image-wrapper">
+          <button class="gallery-modal-nav-btn gallery-modal-prev" id="gallery-modal-prev" aria-label="Foto Anterior">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+
+          <img src="" alt="" class="gallery-modal-img" id="gallery-modal-img">
+
+          <button class="gallery-modal-nav-btn gallery-modal-next" id="gallery-modal-next" aria-label="Próxima Foto">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="gallery-modal-caption" id="gallery-modal-caption"></div>
+      </div>
+    </div>
 
     <!-- ==========================================================================
          SEÇÃO: AGENDAMENTO PRIVADO / CONCIERGE DEDICADO
@@ -337,9 +444,6 @@
           <!-- Coluna 1: Informações e Canais Diretos -->
           <div class="contact-info-side">
             <div>
-              <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: #d1d5db; border: 1px solid rgba(255, 255, 255, 0.2);">
-                Atendimento Reservado
-              </div>
               <h3 style="color: #fff; font-size: 1.85rem; margin-bottom: 16px;">
                 Agende uma Apresentação Privada de {{NOME_DA_CASA}}
               </h3>
@@ -473,16 +577,6 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">{{NOME_DA_CASA}}</h4>
-          <ul class="footer-links">
-            <li><span style="color: rgba(255,255,255,0.7); font-size: 0.88rem;">{{NOME_ESCRITORIO}}</span></li>
-            <li><span style="color: rgba(255,255,255,0.7); font-size: 0.88rem;">{{CONDOMINIO_LOTE}}</span></li>
-            <li><span style="color: rgba(255,255,255,0.7); font-size: 0.88rem;">{{AREA_PRIVATIVA_M2}} &bull; {{TIPOLOGIA}}</span></li>
-            <li><a href="{{URL_ARQUIVO_DOWNLOAD_PDF}}" target="_blank" class="footer-link" style="color: #d1d5db; text-decoration: underline;">Baixar Book em PDF</a></li>
-          </ul>
-        </div>
-
-        <div>
           <h4 class="footer-col-title">Atendimento Privado</h4>
           <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5;">
             Apresentações de maquetes físicas e memoriais descritivos mediante agendamento prévio.
@@ -498,7 +592,7 @@
           &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH.
         </div>
         <div>
-          {{NOME_DA_CASA}} &bull; {{CONDOMINIO_LOTE}} &bull; Brasil
+          Arquitetura Autoral Contemporânea &bull; Brasil
         </div>
       </div>
     </div>
