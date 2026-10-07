@@ -1638,6 +1638,35 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.house-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.65) 100%);
+  pointer-events: none;
+}
+
+.house-title-overlay {
+  position: absolute;
+  left: 48px;
+  bottom: 40px;
+  right: 48px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  .house-title-overlay {
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+  }
+}
+
 /* Bloco do Escritório de Arquitetura */
 .house-architect-section {
   background: var(--color-bg-white);
