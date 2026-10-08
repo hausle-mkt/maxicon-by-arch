@@ -98,7 +98,7 @@
     <!-- ==========================================================================
          SEÇÃO: CONCEITO ARQUITETÔNICO & AUTORIA (CARD ACINZENTADO CHANFRADO)
          ========================================================================== -->
-    <section class="house-concept-section container">
+    <section class="house-concept-section container scroll-reveal">
       <div class="house-concept-card">
         <!-- Fundo acinzentado com detalhe de corte chanfrado idêntico ao da HERO -->
         <div class="concept-card-bg"></div>
@@ -111,7 +111,7 @@
             </div>
           </div>
 
-          <!-- Coluna Direita: Conteúdo Editorial -->
+          <!-- Coluna Direita: Conteúdo Editorial (Surge Suavemente com o Scroll) -->
           <div class="concept-content-col">
             <!-- Autoria: Apenas "Por [logo]" -->
             <div class="concept-author-bar">
@@ -126,38 +126,35 @@
               <span class="concept-lot-area"><strong>{{AREA_PRIVATIVA_M2}}</strong> área privativa</span>
             </div>
 
-            <!-- Bloco de Texto com Efeito de Surgir Lentamente com Hover na Seção -->
-            <div class="concept-hover-reveal">
-              <!-- Título Conceitual H2 -->
-              <h2 class="concept-main-title">{{TITULO_CONCEITO_H1}}</h2>
+            <!-- Título Conceitual H2 -->
+            <h2 class="concept-main-title">{{TITULO_CONCEITO_H1}}</h2>
 
-              <!-- Parágrafos Conceituais -->
-              <div class="concept-text-body">
-                {{CONCEITO_PARAGRAFOS}}
+            <!-- Parágrafos Conceituais -->
+            <div class="concept-text-body">
+              {{CONCEITO_PARAGRAFOS}}
+            </div>
+
+            <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
+            <div class="concept-minimal-specs">
+              <div class="concept-minimal-spec-item">
+                <div class="concept-spec-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+                  </svg>
+                </div>
+                <span class="concept-spec-text">{{TIPOLOGIA}}</span>
               </div>
 
-              <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
-              <div class="concept-minimal-specs">
-                <div class="concept-minimal-spec-item">
-                  <div class="concept-spec-icon" aria-hidden="true">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
-                    </svg>
-                  </div>
-                  <span class="concept-spec-text">{{TIPOLOGIA}}</span>
+              <div class="concept-minimal-spec-item">
+                <div class="concept-spec-icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="8" rx="2"/>
+                    <circle cx="7.5" cy="19.5" r="2.2"/>
+                    <circle cx="16.5" cy="19.5" r="2.2"/>
+                    <path d="M5 11l2.2-5h9.6l2.2 5"/>
+                  </svg>
                 </div>
-
-                <div class="concept-minimal-spec-item">
-                  <div class="concept-spec-icon" aria-hidden="true">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="3" y="11" width="18" height="8" rx="2"/>
-                      <circle cx="7.5" cy="19.5" r="2.2"/>
-                      <circle cx="16.5" cy="19.5" r="2.2"/>
-                      <path d="M5 11l2.2-5h9.6l2.2 5"/>
-                    </svg>
-                  </div>
-                  <span class="concept-spec-text">{{VAGAS_GARAGEM}}</span>
-                </div>
+                <span class="concept-spec-text">{{VAGAS_GARAGEM}}</span>
               </div>
             </div>
           </div>
