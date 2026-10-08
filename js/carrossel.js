@@ -1,12 +1,101 @@
 /**
  * BY ARCH | Maxicon Incorporadora
- * Controle do Carrossel Moderno de Fotos & Modal Lightbox da Residência
+ * Controle dos Cards de Momentos (Stack Cards), Carrossel & Modal Lightbox
  */
 
 document.addEventListener("DOMContentLoaded", () => {
+  initMomentsStackCards();
   initHouseCarousel();
+  initGalleryModal();
   initScrollReveal();
 });
+
+// Helper global para abrir o modal de galeria com qualquer foto
+function openGalleryModal(src, title) {
+  const modalOverlay = document.getElementById("gallery-modal");
+  const modalImg = document.getElementById("gallery-modal-img");
+  const modalCaption = document.getElementById("gallery-modal-caption");
+  if (!modalOverlay || !modalImg) return;
+  modalImg.src = src;
+  modalImg.alt = title || "";
+  if (modalCaption) {
+    modalCaption.textContent = title || "";
+  }
+  modalOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeGalleryModal() {
+  const modalOverlay = document.getElementById("gallery-modal");
+  if (!modalOverlay) return;
+  modalOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+/**
+ * Seção: Momentos da Vida - Stack Cards com ativação por Hover e Click
+ */
+function initMomentsStackCards() {
+  const container = document.getElementById("moments-stack");
+  if (!container) return;
+  const cards = container.querySelectorAll(".moment-stack-card");
+  if (!cards.length) return;
+
+  cards.forEach(card => {
+    // Hover: ativa o card imediatamente ao passar o mouse
+    card.addEventListener("mouseenter", () => {
+      cards.forEach(c => c.classList.remove("is-active"));
+      card.classList.add("is-active");
+    });
+
+    // Clique: no desktop ou mobile
+    card.addEventListener("click", (e) => {
+      // Se clicou no botão de zoom do card, abre o modal direto
+      if (e.target.closest(".moment-zoom-btn")) {
+        e.stopPropagation();
+        const fullSrc = card.getAttribute("data-full");
+        const title = card.getAttribute("data-title");
+        openGalleryModal(fullSrc, title);
+        return;
+      }
+
+      // Se já está ativo em tela mobile/tablet, clicar na imagem amplia
+      if (window.innerWidth <= 991 && card.classList.contains("is-active")) {
+        const fullSrc = card.getAttribute("data-full");
+        const title = card.getAttribute("data-title");
+        openGalleryModal(fullSrc, title);
+        return;
+      }
+
+      // Caso contrário, ativa o card
+      cards.forEach(c => c.classList.remove("is-active"));
+      card.classList.add("is-active");
+    });
+  });
+}
+
+function initGalleryModal() {
+  const modalOverlay = document.getElementById("gallery-modal");
+  const modalCloseBtn = document.getElementById("gallery-modal-close");
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", closeGalleryModal);
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) closeGalleryModal();
+    });
+  }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      if (modalOverlay && modalOverlay.classList.contains("active")) {
+        closeGalleryModal();
+      }
+    }
+  });
+}
 
 function initHouseCarousel() {
   const slides = document.querySelectorAll(".carousel-slide");

@@ -2132,6 +2132,385 @@ img {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: UMA CASA PENSADA PARA DIFERENTES MOMENTOS DA VIDA (STACK CARDS)
+   ========================================================================== */
+.house-moments-section {
+  padding: 100px 0 96px 0;
+  position: relative;
+}
+
+.moments-header {
+  margin-bottom: 40px;
+}
+
+.moments-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.9vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  max-width: 820px;
+  margin: 0;
+}
+
+/* Container dos Cards Empilhados / Expandíveis */
+.moments-stack-container {
+  display: flex;
+  gap: 14px;
+  height: 590px;
+  width: 100%;
+  position: relative;
+  user-select: none;
+}
+
+.moment-stack-card {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+  background-color: #0e1013;
+  transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease;
+  min-width: 72px;
+  will-change: flex, transform;
+}
+
+.moment-card-bg-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.moment-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+  filter: brightness(0.85) contrast(1.02);
+}
+
+.moment-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.88) 100%);
+  transition: background 0.6s ease;
+}
+
+/* Barra Superior do Card (Número e Botão de Zoom) */
+.moment-card-top {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.moment-card-num {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  line-height: 1;
+}
+
+.moment-zoom-btn {
+  pointer-events: auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.moment-zoom-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Rótulo Vertical exibido quando o card estiver recolhido */
+.moment-card-collapsed-label {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: center center;
+  white-space: nowrap;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.moment-card-collapsed-label span {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Conteúdo Principal do Card Expandido */
+.moment-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 44px 36px;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(22px);
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.moment-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.moment-card-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.55;
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   ESTADOS DE ATIVAÇÃO POR HOVER E CLASSE .is-active
+   ========================================================================== */
+/* Estado Ativo Padrão */
+.moment-stack-card.is-active {
+  flex: 4;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38);
+}
+
+.moment-stack-card.is-active .moment-card-img {
+  transform: scale(1.04);
+  filter: brightness(1) contrast(1.02);
+}
+
+.moment-stack-card.is-active .moment-card-collapsed-label {
+  opacity: 0;
+  transform: translateX(-50%) rotate(-90deg) translateY(12px);
+}
+
+.moment-stack-card.is-active .moment-card-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0.15s;
+}
+
+.moment-stack-card.is-active .moment-zoom-btn {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.2s;
+}
+
+/* Quando o cursor entra no container dos cards: os cards se preparam para o hover */
+.moments-stack-container:hover .moment-stack-card {
+  flex: 1;
+  box-shadow: none;
+}
+
+.moments-stack-container:hover .moment-stack-card .moment-card-img {
+  transform: scale(1);
+  filter: brightness(0.85);
+}
+
+.moments-stack-container:hover .moment-stack-card .moment-card-collapsed-label {
+  opacity: 1;
+  transform: translateX(-50%) rotate(-90deg);
+}
+
+.moments-stack-container:hover .moment-stack-card .moment-card-content {
+  opacity: 0;
+  transform: translateY(22px);
+  pointer-events: none;
+  transition-delay: 0s;
+}
+
+.moments-stack-container:hover .moment-stack-card .moment-zoom-btn {
+  opacity: 0;
+  transform: scale(0.9);
+  transition-delay: 0s;
+}
+
+/* Card ativado diretamente pelo Hover no container */
+.moments-stack-container:hover .moment-stack-card:hover {
+  flex: 4;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.45);
+  transform: translateY(-4px);
+  z-index: 5;
+}
+
+.moments-stack-container:hover .moment-stack-card:hover .moment-card-img {
+  transform: scale(1.04);
+  filter: brightness(1) contrast(1.02);
+}
+
+.moments-stack-container:hover .moment-stack-card:hover .moment-card-collapsed-label {
+  opacity: 0;
+  transform: translateX(-50%) rotate(-90deg) translateY(12px);
+}
+
+.moments-stack-container:hover .moment-stack-card:hover .moment-card-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: 0.12s;
+}
+
+.moments-stack-container:hover .moment-stack-card:hover .moment-zoom-btn {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 0.18s;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE: TABLET & MOBILE
+   ========================================================================== */
+@media (max-width: 991px) {
+  .house-moments-section {
+    padding: 70px 0 60px 0;
+  }
+
+  .moments-header {
+    margin-bottom: 28px;
+  }
+
+  .moments-stack-container {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+
+  .moment-stack-card {
+    min-height: 84px;
+    height: 84px;
+    flex: none !important;
+    min-width: auto;
+    transform: none !important;
+    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+  }
+
+  .moment-card-collapsed-label {
+    bottom: auto;
+    top: 50%;
+    left: 72px;
+    transform: translateY(-50%) !important;
+    white-space: normal;
+  }
+
+  .moment-card-collapsed-label span {
+    font-size: 1.05rem;
+    text-transform: none;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .moment-card-top {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: auto;
+    right: auto;
+  }
+
+  .moment-card-content {
+    padding: 28px 24px;
+  }
+
+  .moment-card-title {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+  }
+
+  .moment-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  /* Estado Ativo no Mobile */
+  .moment-stack-card.is-active {
+    height: 380px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .moment-stack-card.is-active .moment-card-top {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    transform: none;
+  }
+
+  .moment-stack-card.is-active .moment-card-collapsed-label {
+    opacity: 0 !important;
+  }
+
+  .moment-stack-card.is-active .moment-card-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto;
+  }
+
+  /* Anulação de comportamentos hover no container no mobile */
+  .moments-stack-container:hover .moment-stack-card {
+    flex: none !important;
+    height: 84px;
+  }
+
+  .moments-stack-container:hover .moment-stack-card.is-active {
+    height: 380px;
+  }
+
+  .moments-stack-container:hover .moment-stack-card.is-active .moment-card-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .moments-stack-container:hover .moment-stack-card.is-active .moment-card-collapsed-label {
+    opacity: 0 !important;
+  }
+}
+
 /* Bloco do Escritório de Arquitetura (Sem card, horizontal e centralizado) */
 .house-architect-section {
   background: transparent;
