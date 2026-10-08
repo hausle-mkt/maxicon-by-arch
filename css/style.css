@@ -1943,6 +1943,159 @@ img {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO DE VÍDEO CONCEITUAL (EXPERIÊNCIA CINEMATOGRÁFICA EM FUNDO PRETO)
+   ========================================================================== */
+.house-video-section {
+  background: #000000;
+  color: #ffffff;
+  padding: 100px 0 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.house-video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.house-video-headline {
+  color: #ffffff;
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin: 0 0 48px 0;
+  text-align: center;
+}
+
+.house-video-headline span {
+  display: block;
+}
+
+/* Player de Vídeo com Cantos Quadrados */
+.house-video-player-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto 40px auto;
+  border-radius: 0; /* Cantos quadrados */
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  background: #111113;
+  cursor: pointer;
+}
+
+.house-video-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.house-video-player-wrap:hover .house-video-cover-img {
+  transform: scale(1.02);
+  opacity: 0.92;
+}
+
+/* Botão Play Centralizado */
+.house-video-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 3.5px solid rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.house-video-play-btn svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+  display: block;
+}
+
+.house-video-player-wrap:hover .house-video-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(0, 0, 0, 0.55);
+  border-color: #ffffff;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Botão CTA Pill Branco "Tenho interesse" */
+.house-video-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.house-video-cta-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .house-video-section {
+    padding: 70px 0 80px 0;
+  }
+
+  .house-video-headline {
+    margin-bottom: 32px;
+    font-size: 1.5rem;
+  }
+
+  .house-video-player-wrap {
+    margin-bottom: 32px;
+  }
+
+  .house-video-play-btn {
+    width: 68px;
+    height: 68px;
+    border-width: 2.5px;
+  }
+
+  .house-video-play-btn svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 3px;
+  }
+
+  .house-video-cta-btn {
+    font-size: 0.95rem;
+    padding: 14px 28px;
+  }
+}
+
 /* Bloco do Escritório de Arquitetura (Sem card, horizontal e centralizado) */
 .house-architect-section {
   background: transparent;
@@ -2405,6 +2558,66 @@ img {
 
 .gallery-modal-next {
   right: -20px;
+}
+
+/* ==========================================================================
+   MODAL DE VÍDEO CONCEITUAL
+   ========================================================================== */
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.video-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 1080px;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -46px;
+  right: 0;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.video-modal-close:hover {
+  transform: scale(1.15);
+  color: var(--accent-gold, #c5a059);
+}
+
+.video-modal-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Responsividade da Página Individual */
