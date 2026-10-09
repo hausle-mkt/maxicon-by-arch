@@ -345,6 +345,57 @@
     </section>
 
     <!-- ==========================================================================
+         SEÇÃO: CARROSSEL DE TODAS AS IMAGENS DA CASA (FUNDO PRETO)
+         ========================================================================== -->
+    <section class="house-full-carousel-section" id="album-completo">
+      <div class="full-carousel-wrapper">
+        <!-- Botão Navegação Anterior (Esquerda) -->
+        <button class="full-carousel-nav-btn prev" id="full-carousel-prev" aria-label="Imagem anterior de {{NOME_DA_CASA}}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+
+        <!-- Viewport Principal do Carrossel (clique abre modal) -->
+        <div class="full-carousel-viewport" id="full-carousel-viewport" title="Clique para ampliar em tela cheia">
+          <!-- Slide 1 -->
+          <div class="full-carousel-slide active" data-index="0" data-full="{{ALBUM_FOTO_1}}">
+            <img src="{{ALBUM_FOTO_1}}" alt="{{ALBUM_TITULO_1}} - {{NOME_DA_CASA}}">
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="full-carousel-slide" data-index="1" data-full="{{ALBUM_FOTO_2}}">
+            <img src="{{ALBUM_FOTO_2}}" alt="{{ALBUM_TITULO_2}} - {{NOME_DA_CASA}}" loading="lazy">
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="full-carousel-slide" data-index="2" data-full="{{ALBUM_FOTO_3}}">
+            <img src="{{ALBUM_FOTO_3}}" alt="{{ALBUM_TITULO_3}} - {{NOME_DA_CASA}}" loading="lazy">
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="full-carousel-slide" data-index="3" data-full="{{ALBUM_FOTO_4}}">
+            <img src="{{ALBUM_FOTO_4}}" alt="{{ALBUM_TITULO_4}} - {{NOME_DA_CASA}}" loading="lazy">
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="full-carousel-slide" data-index="4" data-full="{{ALBUM_FOTO_5}}">
+            <img src="{{ALBUM_FOTO_5}}" alt="{{ALBUM_TITULO_5}} - {{NOME_DA_CASA}}" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Botão Navegação Próximo (Direita) -->
+        <button class="full-carousel-nav-btn next" id="full-carousel-next" aria-label="Próxima imagem de {{NOME_DA_CASA}}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          SEÇÃO PREÇO / INVESTIMENTO ESTIMADO
          ========================================================================== -->
     <section class="house-price-section container">

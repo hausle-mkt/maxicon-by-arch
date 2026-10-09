@@ -2497,6 +2497,149 @@ img {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: CARROSSEL DE TODAS AS IMAGENS DA CASA (FUNDO PRETO)
+   ========================================================================== */
+.house-full-carousel-section {
+  background-color: #000000;
+  padding: 88px 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.full-carousel-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  position: relative;
+}
+
+.full-carousel-viewport {
+  flex: 1;
+  max-width: 1080px;
+  height: clamp(380px, 60vh, 600px);
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #0a0a0a;
+  cursor: pointer;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+  user-select: none;
+}
+
+.full-carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.02);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.55s ease;
+  will-change: opacity, transform;
+}
+
+.full-carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.full-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 28px;
+}
+
+/* Botões Circulares Brancos de Navegação com Seta */
+.full-carousel-nav-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #111111;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.25s ease, 
+              box-shadow 0.25s ease;
+  z-index: 5;
+}
+
+.full-carousel-nav-btn:hover {
+  transform: scale(1.1);
+  background-color: #f5f5f5;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+.full-carousel-nav-btn:active {
+  transform: scale(0.96);
+}
+
+.full-carousel-nav-btn svg {
+  display: block;
+}
+
+/* Responsividade Mobile & Tablet */
+@media (max-width: 900px) {
+  .house-full-carousel-section {
+    padding: 56px 0;
+  }
+
+  .full-carousel-wrapper {
+    padding: 0 16px;
+    gap: 0;
+  }
+
+  .full-carousel-viewport {
+    height: clamp(260px, 50vh, 440px);
+    border-radius: 20px;
+  }
+
+  .full-carousel-slide img {
+    border-radius: 20px;
+  }
+
+  .full-carousel-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .full-carousel-nav-btn.prev {
+    left: 28px;
+  }
+
+  .full-carousel-nav-btn.next {
+    right: 28px;
+  }
+
+  .full-carousel-nav-btn:hover {
+    transform: translateY(-50%) scale(1.08);
+  }
+}
+
 /* Bloco do Escritório de Arquitetura (Sem card, horizontal e centralizado) */
 .house-architect-section {
   background: transparent;

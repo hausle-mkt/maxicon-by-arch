@@ -5,6 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initMomentsStackCards();
+  initFullHouseCarousel();
   initHouseCarousel();
   initGalleryModal();
   initScrollReveal();
@@ -266,6 +267,85 @@ function initHouseCarousel() {
       }
     }
   }
+}
+
+/**
+ * Carrossel Completo de Fotos da Casa (Fundo Preto)
+ */
+function initFullHouseCarousel() {
+  const viewport = document.getElementById("full-carousel-viewport");
+  if (!viewport) return;
+  const slides = viewport.querySelectorAll(".full-carousel-slide");
+  const prevBtn = document.getElementById("full-carousel-prev");
+  const nextBtn = document.getElementById("full-carousel-next");
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function goToSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex + 1);
+    });
+  }
+
+  // Clique na imagem para ampliar no Lightbox
+  viewport.addEventListener("click", () => {
+    const activeSlide = slides[currentIndex];
+    if (!activeSlide) return;
+    const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
+    const title = activeSlide.querySelector("img")?.alt || "Casa Pinha";
+    openGalleryModal(fullSrc, title);
+  });
+
+  // Navegação por teclado quando o carrossel estiver visível
+  document.addEventListener("keydown", (e) => {
+    const modal = document.getElementById("gallery-modal");
+    if (modal && modal.classList.contains("active")) return;
+    if (e.key === "ArrowLeft") goToSlide(currentIndex - 1);
+    if (e.key === "ArrowRight") goToSlide(currentIndex + 1);
+  });
+
+  // Touch Swipe para Mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  viewport.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const threshold = 40;
+    if (touchEndX < touchStartX - threshold) {
+      goToSlide(currentIndex + 1);
+    } else if (touchEndX > touchStartX + threshold) {
+      goToSlide(currentIndex - 1);
+    }
+  }, { passive: true });
 }
 
 /**
