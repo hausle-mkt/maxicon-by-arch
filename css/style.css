@@ -2203,31 +2203,16 @@ img {
   transition: background 0.6s ease;
 }
 
-/* Barra Superior do Card (Número e Botão de Zoom) */
+/* Barra Superior do Card (Botão de Zoom) */
 .moment-card-top {
   position: absolute;
   top: 24px;
-  left: 24px;
   right: 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   z-index: 3;
   pointer-events: none;
-}
-
-.moment-card-num {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.85);
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 4px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  line-height: 1;
 }
 
 .moment-zoom-btn {
@@ -2254,12 +2239,12 @@ img {
   border-color: #ffffff;
 }
 
-/* Rótulo Vertical exibido quando o card estiver recolhido */
+/* Rótulo Vertical exibido no centro do card quando recolhido */
 .moment-card-collapsed-label {
   position: absolute;
-  bottom: 36px;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%) rotate(-90deg);
+  transform: translate(-50%, -50%) rotate(-90deg);
   transform-origin: center center;
   white-space: nowrap;
   z-index: 3;
@@ -2271,10 +2256,11 @@ img {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.92);
-  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+  display: block;
 }
 
 /* Conteúdo Principal do Card Expandido */
@@ -2327,7 +2313,7 @@ img {
 
 .moment-stack-card.is-active .moment-card-collapsed-label {
   opacity: 0;
-  transform: translateX(-50%) rotate(-90deg) translateY(12px);
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.92);
 }
 
 .moment-stack-card.is-active .moment-card-content {
@@ -2356,7 +2342,7 @@ img {
 
 .moments-stack-container:hover .moment-stack-card .moment-card-collapsed-label {
   opacity: 1;
-  transform: translateX(-50%) rotate(-90deg);
+  transform: translate(-50%, -50%) rotate(-90deg);
 }
 
 .moments-stack-container:hover .moment-stack-card .moment-card-content {
@@ -2387,7 +2373,7 @@ img {
 
 .moments-stack-container:hover .moment-stack-card:hover .moment-card-collapsed-label {
   opacity: 0;
-  transform: translateX(-50%) rotate(-90deg) translateY(12px);
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.92);
 }
 
 .moments-stack-container:hover .moment-stack-card:hover .moment-card-content {
@@ -2433,24 +2419,24 @@ img {
   .moment-card-collapsed-label {
     bottom: auto;
     top: 50%;
-    left: 72px;
+    left: 24px;
     transform: translateY(-50%) !important;
     white-space: normal;
   }
 
   .moment-card-collapsed-label span {
     font-size: 1.05rem;
-    text-transform: none;
+    text-transform: uppercase;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.04em;
   }
 
   .moment-card-top {
     top: 50%;
-    left: 20px;
+    right: 20px;
+    left: auto;
     transform: translateY(-50%);
     width: auto;
-    right: auto;
   }
 
   .moment-card-content {
