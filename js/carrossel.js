@@ -6,6 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initMomentsStackCards();
   initFullHouseCarousel();
+  initPlantsCarousel();
   initHouseCarousel();
   initGalleryModal();
   initScrollReveal();
@@ -330,6 +331,127 @@ function initFullHouseCarousel() {
   });
 
   // Touch Swipe para Mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  viewport.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const threshold = 40;
+    if (touchEndX < touchStartX - threshold) {
+      goToSlide(currentIndex + 1);
+    } else if (touchEndX > touchStartX + threshold) {
+      goToSlide(currentIndex - 1);
+    }
+  }, { passive: true });
+}
+
+/**
+ * Carrossel com Miniaturas do Álbum de Plantas da Casa
+ */
+function initPlantsCarousel() {
+  const viewport = document.getElementById("plants-viewport");
+  if (!viewport) return;
+
+  const slides = viewport.querySelectorAll(".plants-slide");
+  const thumbs = document.querySelectorAll(".plants-thumb-item");
+  const prevBtn = document.getElementById("plants-prev");
+  const nextBtn = document.getElementById("plants-next");
+  const titleEl = document.getElementById("plants-active-title");
+  const descEl = document.getElementById("plants-active-desc");
+  const counterCurrent = document.getElementById("plants-counter-current");
+  const counterTotal = document.getElementById("plants-counter-total");
+  const zoomBtn = document.getElementById("plants-zoom-btn");
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  if (counterTotal) {
+    counterTotal.textContent = String(totalSlides).padStart(2, "0");
+  }
+
+  function goToSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === currentIndex);
+    });
+
+    thumbs.forEach((thumb, i) => {
+      const isActive = i === currentIndex;
+      thumb.classList.toggle("active", isActive);
+      if (isActive && thumb.scrollIntoView) {
+        thumb.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
+      }
+    });
+
+    const activeSlide = slides[currentIndex];
+    if (activeSlide) {
+      const title = activeSlide.getAttribute("data-title") || "";
+      const desc = activeSlide.getAttribute("data-desc") || "";
+      if (titleEl) titleEl.textContent = title;
+      if (descEl) descEl.textContent = desc;
+    }
+
+    if (counterCurrent) {
+      counterCurrent.textContent = String(currentIndex + 1).padStart(2, "0");
+    }
+  }
+
+  // Cliques nas miniaturas
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener("click", () => {
+      goToSlide(idx);
+    });
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      goToSlide(currentIndex + 1);
+    });
+  }
+
+  // Zoom / Lightbox
+  function openActiveInModal() {
+    const activeSlide = slides[currentIndex];
+    if (!activeSlide) return;
+    const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
+    const title = activeSlide.getAttribute("data-title") || "Planta Arquitetônica";
+    openGalleryModal(fullSrc, title);
+  }
+
+  viewport.addEventListener("click", (e) => {
+    if (e.target.closest(".plants-nav-btn")) return;
+    openActiveInModal();
+  });
+
+  if (zoomBtn) {
+    zoomBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openActiveInModal();
+    });
+  }
+
+  // Touch Swipe para Mobile no Viewport
   let touchStartX = 0;
   let touchEndX = 0;
 

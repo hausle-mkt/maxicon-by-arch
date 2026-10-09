@@ -2640,6 +2640,360 @@ img {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: ÁLBUM DE PLANTAS DA CASA (CARROSSEL COM MINIATURAS)
+   ========================================================================== */
+.house-plants-section {
+  padding: 96px 0 88px 0;
+  position: relative;
+}
+
+.plants-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.plants-header-text {
+  max-width: 820px;
+}
+
+.plants-main-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.9vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 8px;
+}
+
+.plants-subtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.plants-counter-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: 0.05em;
+  padding: 8px 18px;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 0;
+}
+
+.plants-counter-box .plants-counter-sep {
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.plants-counter-box #plants-counter-total {
+  color: var(--text-muted);
+}
+
+.plants-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.plants-viewport-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.plants-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 62vh, 620px);
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  user-select: none;
+}
+
+.plants-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s ease;
+  will-change: opacity;
+}
+
+.plants-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.plants-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+  filter: contrast(1.02);
+}
+
+.plants-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.plants-nav-btn.prev {
+  left: 20px;
+}
+
+.plants-nav-btn.next {
+  right: 20px;
+}
+
+.plants-nav-btn:hover {
+  background-color: var(--accent-lead);
+  color: #ffffff;
+  border-color: var(--accent-lead);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.plants-nav-btn:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.plants-active-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 0;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.plants-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.plants-active-title {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.plants-active-desc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.plants-zoom-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: #f8f9fa;
+  border: 1px solid var(--border-card);
+  border-radius: 0;
+  color: var(--text-main);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.plants-zoom-action:hover {
+  background: var(--text-main);
+  color: #ffffff;
+  border-color: var(--text-main);
+}
+
+.plants-thumbnails-bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.plants-thumb-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: 0;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  outline: none;
+}
+
+.plants-thumb-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.plants-thumb-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.plants-thumb-label {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+
+.plants-thumb-item:hover {
+  border-color: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.plants-thumb-item:hover .plants-thumb-preview img {
+  transform: scale(1.05);
+}
+
+.plants-thumb-item:hover .plants-thumb-label {
+  color: var(--text-main);
+}
+
+.plants-thumb-item.active {
+  border: 2px solid var(--accent-lead);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 7px;
+}
+
+.plants-thumb-item.active .plants-thumb-label {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+@media (max-width: 991px) {
+  .house-plants-section {
+    padding: 70px 0 60px 0;
+  }
+
+  .plants-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .plants-viewport {
+    height: clamp(280px, 50vh, 420px);
+    padding: 12px;
+  }
+
+  .plants-slide {
+    padding: 12px;
+  }
+
+  .plants-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .plants-nav-btn.prev {
+    left: 12px;
+  }
+
+  .plants-nav-btn.next {
+    right: 12px;
+  }
+
+  .plants-active-info {
+    padding: 14px 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .plants-zoom-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .plants-thumbnails-bar {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .plants-thumb-item {
+    flex: 0 0 145px;
+    scroll-snap-align: start;
+  }
+}
+
 /* Bloco do Escritório de Arquitetura (Sem card, horizontal e centralizado) */
 .house-architect-section {
   background: transparent;
