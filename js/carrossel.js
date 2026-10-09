@@ -360,20 +360,11 @@ function initPlantsCarousel() {
   const thumbs = document.querySelectorAll(".plants-thumb-item");
   const prevBtn = document.getElementById("plants-prev");
   const nextBtn = document.getElementById("plants-next");
-  const titleEl = document.getElementById("plants-active-title");
-  const descEl = document.getElementById("plants-active-desc");
-  const counterCurrent = document.getElementById("plants-counter-current");
-  const counterTotal = document.getElementById("plants-counter-total");
-  const zoomBtn = document.getElementById("plants-zoom-btn");
 
   if (!slides.length) return;
 
   let currentIndex = 0;
   const totalSlides = slides.length;
-
-  if (counterTotal) {
-    counterTotal.textContent = String(totalSlides).padStart(2, "0");
-  }
 
   function goToSlide(index) {
     if (index < 0) {
@@ -395,18 +386,6 @@ function initPlantsCarousel() {
         thumb.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
       }
     });
-
-    const activeSlide = slides[currentIndex];
-    if (activeSlide) {
-      const title = activeSlide.getAttribute("data-title") || "";
-      const desc = activeSlide.getAttribute("data-desc") || "";
-      if (titleEl) titleEl.textContent = title;
-      if (descEl) descEl.textContent = desc;
-    }
-
-    if (counterCurrent) {
-      counterCurrent.textContent = String(currentIndex + 1).padStart(2, "0");
-    }
   }
 
   // Cliques nas miniaturas
@@ -430,26 +409,15 @@ function initPlantsCarousel() {
     });
   }
 
-  // Zoom / Lightbox
-  function openActiveInModal() {
+  // Clique na imagem para abrir em tela cheia no Lightbox
+  viewport.addEventListener("click", (e) => {
+    if (e.target.closest(".plants-nav-btn")) return;
     const activeSlide = slides[currentIndex];
     if (!activeSlide) return;
     const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
     const title = activeSlide.getAttribute("data-title") || "Planta Arquitetônica";
     openGalleryModal(fullSrc, title);
-  }
-
-  viewport.addEventListener("click", (e) => {
-    if (e.target.closest(".plants-nav-btn")) return;
-    openActiveInModal();
   });
-
-  if (zoomBtn) {
-    zoomBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      openActiveInModal();
-    });
-  }
 
   // Touch Swipe para Mobile no Viewport
   let touchStartX = 0;
