@@ -148,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFilters();
   initModal();
   initContactForm();
+  initWhatsAppModal();
 });
 
 /* Efeito da Navbar ao Rolar a Página */
@@ -338,7 +339,7 @@ function initContactForm() {
     const whatsappMsg = `Olá! Gostaria de agendar uma apresentação privada do projeto BY ARCH (Maxicon Incorporadora).\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}\n*Residência de Interesse:* ${residence}\n*Mensagem:* ${notes}`;
 
     const encodedMsg = encodeURIComponent(whatsappMsg);
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodedMsg}`;
+    const whatsappUrl = `https://wa.me/5554996225703?text=${encodedMsg}`;
 
     // Feedback visual elegante
     const btn = form.querySelector("button[type='submit']");
@@ -353,4 +354,99 @@ function initContactForm() {
       form.reset();
     }, 1200);
   });
+}
+
+/**
+ * Modal de Atendimento Exclusivo via WhatsApp
+ * Coleta Nome, E-mail e Telefone antes de abrir o chat
+ */
+function initWhatsAppModal() {
+  const modal = document.getElementById("whatsapp-modal");
+  if (!modal) return;
+
+  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn");
+  const closeBtn = document.getElementById("whatsapp-modal-close");
+  const form = document.getElementById("whatsapp-redirect-form");
+  const phoneInput = document.getElementById("wa-phone");
+
+  function openModal() {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const firstInput = modal.querySelector("input");
+    if (firstInput) setTimeout(() => firstInput.focus(), 120);
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const mobileOverlay = document.getElementById("mobile-nav-overlay");
+      if (mobileOverlay && mobileOverlay.classList.contains("open")) {
+        mobileOverlay.classList.remove("open");
+      }
+      openModal();
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  // Máscara automática de telefone (XX) XXXXX-XXXX
+  if (phoneInput) {
+    phoneInput.addEventListener("input", (e) => {
+      let v = e.target.value.replace(/\D/g, "");
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d{0,5})$/, "($1) $2");
+      } else if (v.length > 0) {
+        v = v.replace(/^(\d*)$/, "($1");
+      }
+      e.target.value = v;
+    });
+  }
+
+  // Envio do formulário e redirecionamento para o WhatsApp da Maxicon
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("wa-name")?.value.trim() || "";
+      const email = document.getElementById("wa-email")?.value.trim() || "";
+      const phone = document.getElementById("wa-phone")?.value.trim() || "";
+
+      let pageContext = "Projetos e Coleção BY ARCH";
+      if (document.title.includes("Casa Pinha")) {
+        pageContext = "Casa Pinha (Condomínio Noah, Lote D15)";
+      }
+
+      const msg = `Olá! Gostaria de um atendimento exclusivo sobre os projetos da BY ARCH Maxicon.\n\n*Interesse:* ${pageContext}\n*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}`;
+      const waNumber = "5554996225703";
+      const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
+
+      window.open(waUrl, "_blank");
+
+      closeModal();
+      form.reset();
+    });
+  }
 }
