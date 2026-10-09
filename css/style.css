@@ -2946,6 +2946,176 @@ img {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: EXPLORE O PROJETO COMPLETO (FUNDO PRETO & CORTE CHANFRADO)
+   ========================================================================== */
+.house-explore-section {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 100px 0;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.house-explore-section.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.house-explore-section.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.house-explore-wrapper {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.explore-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 520px;
+}
+
+.explore-headline {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2rem, 3.4vw, 2.85rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+
+.explore-description {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+
+.explore-cta-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* Botão Pill Branco com Identidade do Site */
+.house-explore-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #111111;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.house-explore-cta-btn:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+  color: #000000;
+}
+
+.house-explore-cta-btn svg {
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.house-explore-cta-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* Coluna Visual da Imagem com Detalhe do Corte Chanfrado */
+.explore-visual-col {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.explore-visual-box {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  aspect-ratio: 16 / 11;
+  background-color: #ffffff;
+  overflow: hidden;
+  /* Detalhe do corte chanfrado no canto inferior esquerdo */
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 84px 100%, 0 calc(100% - 64px));
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.explore-visual-box:hover {
+  transform: scale(1.015);
+}
+
+.explore-visual-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  display: block;
+  border-radius: 0;
+}
+
+/* Responsividade Mobile e Tablet */
+@media (max-width: 991px) {
+  .house-explore-section {
+    padding: 70px 0 80px 0;
+  }
+
+  .house-explore-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 24px;
+  }
+
+  .explore-content-col {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .explore-headline {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .explore-description {
+    font-size: 1rem;
+    margin-bottom: 28px;
+  }
+
+  .explore-visual-col {
+    justify-content: center;
+  }
+
+  .explore-visual-box {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 64px 100%, 0 calc(100% - 48px));
+  }
+}
+
 /* Bloco do Escritório de Arquitetura (Sem card, horizontal e centralizado) */
 .house-architect-section {
   background: transparent;
