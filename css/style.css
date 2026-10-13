@@ -1546,6 +1546,17 @@ img {
 }
 
 /* Hero da Casa */
+.house-hero-section {
+  padding-top: 110px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .house-hero-section {
+    padding-top: 96px;
+  }
+}
+
 .house-hero-header {
   display: flex;
   justify-content: space-between;
