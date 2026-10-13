@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=2.7">
+  <link rel="stylesheet" href="css/style.css?v=2.8">
 </head>
 <body>
 
@@ -228,10 +228,7 @@
     <section class="house-video-section">
       <div class="container house-video-container">
         <!-- Frase de Destaque -->
-        <h2 class="house-video-headline">
-          <span>Não é apenas uma casa ao lado da natureza.</span>
-          <span>É uma casa desenhada a partir dela.</span>
-        </h2>
+        <h2 class="house-video-headline">Não é apenas uma casa ao lado da natureza. É uma casa desenhada a partir dela.</h2>
 
         <!-- Player de Vídeo com Cantos Quadrados -->
         <div class="house-video-player-wrap" id="house-video-player" title="Assistir vídeo da Casa Pinha">
@@ -286,58 +283,70 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: UMA CASA PENSADA PARA DIFERENTES MOMENTOS DA VIDA (STACK CARDS)
+         SEÇÃO: ONDE ARQUITETURA SE TRANSFORMA EM EXPERIÊNCIA (STACK CARDS)
          ========================================================================== -->
     <section class="house-moments-section container scroll-reveal" id="momentos-vida">
       <div class="moments-header">
-        <h2 class="moments-main-title">Uma casa pensada para diferentes momentos da vida.</h2>
+        <h2 class="moments-main-title">Onde arquitetura se transforma em experiência.</h2>
       </div>
 
       <div class="moments-stack-container" id="moments-stack">
-        <!-- Card 1: Living -->
-        <div class="moment-stack-card is-active" data-index="0" data-full="assets/casa-pinha/galeria/Living.webp" data-title="Living">
+        <!-- Card 1: Sacada protagonista -->
+        <div class="moment-stack-card is-active" data-index="0">
           <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Living.webp" alt="Living - Casa Pinha" class="moment-card-img" loading="lazy">
+            <img src="assets/casa-pinha/galeria/Sacada.webp" alt="Sacada protagonista - Casa Pinha" class="moment-card-img" loading="lazy">
             <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-top">
-            <button type="button" class="moment-zoom-btn" title="Ampliar imagem" aria-label="Ampliar Living">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
-            </button>
           </div>
 
           <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Living</span>
+            <span>Sacada protagonista</span>
           </div>
 
           <div class="moment-card-content">
-            <h3 class="moment-card-title">Living</h3>
-            <p class="moment-card-desc">Convivência quando se deseja. Privacidade quando se precisa.</p>
+            <h3 class="moment-card-title">Sacada protagonista</h3>
+            <p class="moment-card-desc">Desenho leve e contemporâneo que dá identidade à fachada e transforma a sacada em um dos gestos marcantes da casa.</p>
           </div>
         </div>
 
-        <!-- Card 2: Suíte master -->
-        <div class="moment-stack-card" data-index="1" data-full="assets/casa-pinha/galeria/Suíte-Master.webp" data-title="Suíte master">
+        <!-- Card 2: Escritório independente -->
+        <div class="moment-stack-card" data-index="1">
           <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Suíte-Master.webp" alt="Suíte master - Casa Pinha" class="moment-card-img" loading="lazy">
+            <img src="assets/casa-pinha/galeria/Escritório.webp" alt="Escritório independente - Casa Pinha" class="moment-card-img" loading="lazy">
             <div class="moment-card-overlay"></div>
           </div>
 
-          <div class="moment-card-top">
-            <button type="button" class="moment-zoom-btn" title="Ampliar imagem" aria-label="Ampliar Suíte master">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
-            </button>
+          <div class="moment-card-collapsed-label" aria-hidden="true">
+            <span>Escritório independente</span>
+          </div>
+
+          <div class="moment-card-content">
+            <h3 class="moment-card-title">Escritório independente</h3>
+            <p class="moment-card-desc">Um espaço de trabalho com acesso e dinâmica próprios, preservando a rotina e a privacidade da residência.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Living flexível -->
+        <div class="moment-stack-card" data-index="2">
+          <div class="moment-card-bg-wrap">
+            <img src="assets/casa-pinha/galeria/Living.webp" alt="Living flexível - Casa Pinha" class="moment-card-img" loading="lazy">
+            <div class="moment-card-overlay"></div>
+          </div>
+
+          <div class="moment-card-collapsed-label" aria-hidden="true">
+            <span>Living flexível</span>
+          </div>
+
+          <div class="moment-card-content">
+            <h3 class="moment-card-title">Living flexível</h3>
+            <p class="moment-card-desc">Ambientes pensados para integrar ou preservar momentos, equilibrando convivência e privacidade no dia a dia.</p>
+          </div>
+        </div>
+
+        <!-- Card 4: Suíte master conectada à natureza -->
+        <div class="moment-stack-card" data-index="3">
+          <div class="moment-card-bg-wrap">
+            <img src="assets/casa-pinha/galeria/Suíte-Master.webp" alt="Suíte master conectada à natureza - Casa Pinha" class="moment-card-img" loading="lazy">
+            <div class="moment-card-overlay"></div>
           </div>
 
           <div class="moment-card-collapsed-label" aria-hidden="true">
@@ -345,92 +354,42 @@
           </div>
 
           <div class="moment-card-content">
-            <h3 class="moment-card-title">Suíte master</h3>
-            <p class="moment-card-desc">Acolhimento, silêncio e uma relação íntima com a natureza.</p>
+            <h3 class="moment-card-title">Suíte master conectada à natureza</h3>
+            <p class="moment-card-desc">Um espaço de acolhimento, silêncio e intimidade, com a natureza participando da experiência de descanso.</p>
           </div>
         </div>
 
-        <!-- Card 3: Home office -->
-        <div class="moment-stack-card" data-index="2" data-full="assets/casa-pinha/galeria/Escritório.webp" data-title="Home office">
+        <!-- Card 5: Cozinha e jantar integrados -->
+        <div class="moment-stack-card" data-index="4">
           <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Escritório.webp" alt="Home office - Casa Pinha" class="moment-card-img" loading="lazy">
+            <img src="assets/casa-pinha/galeria/Cozinha-Frente.webp" alt="Cozinha e jantar integrados - Casa Pinha" class="moment-card-img" loading="lazy">
             <div class="moment-card-overlay"></div>
           </div>
 
-          <div class="moment-card-top">
-            <button type="button" class="moment-zoom-btn" title="Ampliar imagem" aria-label="Ampliar Home office">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
-            </button>
-          </div>
-
           <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Home office</span>
+            <span>Cozinha e jantar</span>
           </div>
 
           <div class="moment-card-content">
-            <h3 class="moment-card-title">Home office</h3>
-            <p class="moment-card-desc">Um espaço de trabalho independente, sem transformar a casa em escritório.</p>
+            <h3 class="moment-card-title">Cozinha e jantar integrados</h3>
+            <p class="moment-card-desc">Materiais nobres, bancada e cozinha se encontram em uma composição contemporânea pensada para reunir.</p>
           </div>
         </div>
 
-        <!-- Card 4: Piscina + fire pit -->
-        <div class="moment-stack-card" data-index="3" data-full="assets/casa-pinha/galeria/Piscina-fire-pit.webp" data-title="Piscina + fire pit">
+        <!-- Card 6: Lazer para receber -->
+        <div class="moment-stack-card" data-index="5">
           <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Piscina-fire-pit.webp" alt="Piscina + fire pit - Casa Pinha" class="moment-card-img" loading="lazy">
+            <img src="assets/casa-pinha/galeria/Piscina-fire-pit.webp" alt="Lazer para receber - Casa Pinha" class="moment-card-img" loading="lazy">
             <div class="moment-card-overlay"></div>
           </div>
 
-          <div class="moment-card-top">
-            <button type="button" class="moment-zoom-btn" title="Ampliar imagem" aria-label="Ampliar Piscina + fire pit">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
-            </button>
-          </div>
-
           <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Piscina + fire pit</span>
+            <span>Lazer para receber</span>
           </div>
 
           <div class="moment-card-content">
-            <h3 class="moment-card-title">Piscina + fire pit</h3>
-            <p class="moment-card-desc">Um lugar para permanecer, receber e contemplar.</p>
-          </div>
-        </div>
-
-        <!-- Card 5: Salão de festas -->
-        <div class="moment-stack-card" data-index="4" data-full="assets/casa-pinha/galeria/Festas.webp" data-title="Salão de festas">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Festas.webp" alt="Salão de festas - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-top">
-            <button type="button" class="moment-zoom-btn" title="Ampliar imagem" aria-label="Ampliar Salão de festas">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line>
-                <line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
-            </button>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Salão de festas</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Salão de festas</h3>
-            <p class="moment-card-desc">Receber com liberdade, sem que a festa invada a rotina da casa.</p>
+            <h3 class="moment-card-title">Lazer para receber</h3>
+            <p class="moment-card-desc">Piscina, fire pit e salão de festas criam diferentes formas de permanecer, contemplar e receber com liberdade.</p>
           </div>
         </div>
       </div>
@@ -1016,7 +975,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/carrossel.js?v=2.4"></script>
+  <script src="js/carrossel.js?v=2.8"></script>
   <script>
     // Menu mobile toggle
     const openBtn = document.getElementById("mobile-open-btn");

@@ -52,26 +52,8 @@ function initMomentsStackCards() {
       card.classList.add("is-active");
     });
 
-    // Clique: no desktop ou mobile
-    card.addEventListener("click", (e) => {
-      // Se clicou no botão de zoom do card, abre o modal direto
-      if (e.target.closest(".moment-zoom-btn")) {
-        e.stopPropagation();
-        const fullSrc = card.getAttribute("data-full");
-        const title = card.getAttribute("data-title");
-        openGalleryModal(fullSrc, title);
-        return;
-      }
-
-      // Se já está ativo em tela mobile/tablet, clicar na imagem amplia
-      if (window.innerWidth <= 991 && card.classList.contains("is-active")) {
-        const fullSrc = card.getAttribute("data-full");
-        const title = card.getAttribute("data-title");
-        openGalleryModal(fullSrc, title);
-        return;
-      }
-
-      // Caso contrário, ativa o card
+    // Clique: apenas ativa/expande o card (mobile/tablet), sem abrir modal
+    card.addEventListener("click", () => {
       cards.forEach(c => c.classList.remove("is-active"));
       card.classList.add("is-active");
     });
