@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initGalleryModal();
   initWhatsAppModal();
   initDownloadModal();
+  initPriceTooltip();
+  initContactInterestForm();
   initScrollReveal();
 });
 
@@ -807,5 +809,92 @@ function initHeroSlider() {
   // Iniciar autoplay
   startAutoplay();
 }
+
+/**
+ * Tooltip (Balãozinho) de Informação do Valor do Projeto
+ * Suporte a hover no desktop e clique/toque com toggle no mobile
+ */
+function initPriceTooltip() {
+  const triggers = document.querySelectorAll(".price-info-wrap");
+  if (!triggers.length) return;
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      trigger.classList.toggle("is-active");
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".price-info-wrap")) {
+      triggers.forEach(t => t.classList.remove("is-active"));
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      triggers.forEach(t => t.classList.remove("is-active"));
+    }
+  });
+}
+
+/**
+ * Formulário de Atendimento Exclusivo (Nome, Email, WhatsApp)
+ * Máscara automática de telefone e redirecionamento para o WhatsApp da Maxicon
+ */
+function initContactInterestForm() {
+  const form = document.getElementById("casa-pinha-form");
+  if (!form) return;
+
+  const phoneInput = document.getElementById("interest-phone");
+  if (phoneInput) {
+    phoneInput.addEventListener("input", (e) => {
+      let v = e.target.value.replace(/\D/g, "");
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, "($1) $2-$3");
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4})(\d{0,4})$/, "($1) $2-$3");
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d{0,5})$/, "($1) $2");
+      } else if (v.length > 0) {
+        v = v.replace(/^(\d*)$/, "($1");
+      }
+      e.target.value = v;
+    });
+  }
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const name = document.getElementById("interest-name")?.value.trim() || "";
+    const email = document.getElementById("interest-email")?.value.trim() || "";
+    const phone = document.getElementById("interest-phone")?.value.trim() || "";
+
+    if (!name || !email || !phone) return;
+
+    let casaNome = "Casa Pinha";
+    if (document.title.includes("Casa Pinha")) {
+      casaNome = "Casa Pinha (Condomínio Noah, Lote D15)";
+    }
+
+    try {
+      const lead = {
+        nome: name,
+        email: email,
+        telefone: phone,
+        projeto: casaNome,
+        origem: "Formulário de Interesse",
+        data: new Date().toISOString()
+      };
+      const leads = JSON.parse(localStorage.getItem("maxicon_leads_interesse") || "[]");
+      leads.push(lead);
+      localStorage.setItem("maxicon_leads_interesse", JSON.stringify(leads));
+    } catch (err) {}
+
+    const msg = `Olá! Tenho interesse e quero receber um atendimento exclusivo sobre a *${casaNome}*.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${phone}`;
+    window.open(`https://wa.me/5554996225703?text=${encodeURIComponent(msg)}`, "_blank");
+  });
+}
+
 
 

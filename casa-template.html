@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=2.9">
+  <link rel="stylesheet" href="css/style.css?v=3.0">
 </head>
 <body>
 
@@ -539,184 +539,60 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO PREÇO / INVESTIMENTO ESTIMADO
+         SEÇÃO: VALOR DO INVESTIMENTO & ATENDIMENTO EXCLUSIVO (TEMPLATE CMS)
          ========================================================================== -->
-    <section class="house-price-section container">
-      <div class="house-price-card">
-        <div class="price-content">
-          <div class="price-eyebrow">Investimento do Projeto</div>
-          <div class="price-main-value">{{PRECO_ESTIMADO}}</div>
-          <p class="price-note">
-            Valor aproximado contemplando o projeto arquitetônico autoral completo concebido por {{NOME_ESCRITORIO}} para o {{CONDOMINIO_LOTE}}.
-          </p>
-        </div>
-
-        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-          <a href="#contato-reserva" class="button-primary" style="padding: 16px 32px; font-size: 0.95rem;">
-            <span>Solicitar Memorial de Custos</span>
-            <span class="button-arrow">
-              <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
-                <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
-              </svg>
-            </span>
-          </a>
-          <button type="button" class="button-secondary open-download-modal-trigger" data-pdf="{{URL_ARQUIVO_DOWNLOAD_PDF}}" data-filename="{{NOME_ARQUIVO_DOWNLOAD}}" style="padding: 16px 28px; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-light); background: #ffffff; cursor: pointer; border-radius: 9999px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            <span>Baixar Book (PDF)</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modal Lightbox para Ampliar Fotos da Galeria -->
-    <div class="gallery-modal-overlay" id="gallery-modal" aria-hidden="true" role="dialog">
-      <div class="gallery-modal-container">
-        <button class="gallery-modal-close" id="gallery-modal-close" aria-label="Fechar Foto Ampliada">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-
-        <div class="gallery-modal-image-wrapper">
-          <button class="gallery-modal-nav-btn gallery-modal-prev" id="gallery-modal-prev" aria-label="Foto Anterior">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </button>
-
-          <img src="" alt="" class="gallery-modal-img" id="gallery-modal-img">
-
-          <button class="gallery-modal-nav-btn gallery-modal-next" id="gallery-modal-next" aria-label="Próxima Foto">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-        </div>
-
-        <div class="gallery-modal-caption" id="gallery-modal-caption"></div>
-      </div>
-    </div>
-
-    <!-- Modal de Vídeo Conceitual -->
-    <div class="video-modal-overlay" id="video-modal" aria-hidden="true" role="dialog">
-      <div class="video-modal-container">
-        <button class="video-modal-close" id="video-modal-close" aria-label="Fechar Vídeo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
-        <div class="video-modal-viewport">
-          <img src="{{URL_VIDEO_COVER}}" alt="{{NOME_DA_CASA}}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-            <span style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; {{NOME_DA_CASA}} ({{CONDOMINIO_LOTE}})</span>
-            <a href="#contato-reserva" class="house-video-cta-btn" style="padding: 10px 24px; font-size: 0.9rem;" id="video-modal-cta">Tenho interesse</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ==========================================================================
-         SEÇÃO: AGENDAMENTO PRIVADO / CONCIERGE DEDICADO
-         ========================================================================== -->
-    <section id="contato-reserva" class="contact-section section-spacing">
+    <section id="contato-reserva" class="house-value-contact-section">
       <div class="container">
-        <div class="contact-card-wrapper">
-          <!-- Coluna 1: Informações e Canais Diretos -->
-          <div class="contact-info-side">
-            <div>
-              <h3 style="color: #fff; font-size: 1.85rem; margin-bottom: 16px;">
-                Agende uma Apresentação Privada de {{NOME_DA_CASA}}
-              </h3>
-              <p style="color: rgba(255, 255, 255, 0.75); font-size: 0.95rem; margin-bottom: 36px;">
-                Apresentação exclusiva com a equipe de engenharia da Maxicon e acesso às pranchas executivas completas e maquete do {{CONDOMINIO_LOTE}}.
-              </p>
+        <!-- Card Superior de Preço / Investimento -->
+        <div class="house-price-banner">
+          <div class="price-banner-eyebrow">A PARTIR DE</div>
+          <div class="price-banner-main">
+            <span class="price-banner-number">{{VALOR_A_PARTIR}}</span>
+            <span class="price-info-wrap" tabindex="0" aria-label="Informações sobre o valor estimado" role="button">
+              <svg class="price-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span class="price-tooltip-balloon" role="tooltip">
+                {{VALOR_TOOLTIP_TEXTO}}
+              </span>
+            </span>
+          </div>
+          <div class="price-banner-sub">{{VALOR_SUBTITULO}}</div>
+        </div>
 
-              <div class="contact-direct-items">
-                <div class="direct-item">
-                  <div class="direct-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-                  </div>
-                  <div class="direct-text">
-                    <div class="direct-label">Concierge Exclusivo WhatsApp</div>
-                    <div class="direct-val">+55 (11) 98877-6655</div>
-                  </div>
-                </div>
-
-                <div class="direct-item">
-                  <div class="direct-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <rect x="3" y="4" width="18" height="18" rx="0" ry="0"></rect>
-                      <line x1="16" y1="2" x2="16" y2="6"></line>
-                      <line x1="8" y1="2" x2="8" y2="6"></line>
-                      <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                  </div>
-                  <div class="direct-text">
-                    <div class="direct-label">Localização da Obra</div>
-                    <div class="direct-val">{{CONDOMINIO_LOTE}}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style="font-size: 0.8rem; color: rgba(255,255,255,0.45); margin-top: 36px;">
-              Maxicon Incorporadora &bull; Projeto BY ARCH
-            </div>
+        <!-- Seção Inferior: Grid de Apresentação e Formulário -->
+        <div class="contact-interest-grid">
+          <div class="contact-interest-info">
+            <h2 class="contact-interest-title">
+              {{TITULO_FORMULARIO_CONTATO}}
+            </h2>
+            <p class="contact-interest-desc">
+              {{TEXTO_FORMULARIO_CONTATO}}
+            </p>
           </div>
 
-          <!-- Coluna 2: Formulário com Dados Pré-definidos -->
-          <div class="contact-form-side">
-            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Solicitar Contato do Curador</h3>
-            <p style="font-size: 0.92rem; color: var(--text-muted); margin-bottom: 28px;">
-              Preencha para receber o memorial descritivo em PDF e agendar a visita ao terreno.
-            </p>
-
-            <form id="template-house-form">
-              <div class="form-grid">
-                <div class="form-group">
-                  <label class="form-label" for="user-name">Nome Completo</label>
-                  <input type="text" id="user-name" class="form-input" placeholder="Seu nome" required>
-                </div>
-
-                <div class="form-group">
-                  <label class="form-label" for="user-phone">Telefone / WhatsApp</label>
-                  <input type="tel" id="user-phone" class="form-input" placeholder="(11) 99999-9999" required>
-                </div>
-
-                <div class="form-group full-width">
-                  <label class="form-label" for="user-email">E-mail Principal</label>
-                  <input type="email" id="user-email" class="form-input" placeholder="seu@email.com" required>
-                </div>
-
-                <div class="form-group full-width">
-                  <label class="form-label">Obra Selecionada</label>
-                  <input type="text" class="form-input" value="{{NOME_DA_CASA}} — {{NOME_ESCRITORIO}} ({{CONDOMINIO_LOTE}})" readonly style="background: var(--color-bg-subtle); color: var(--text-muted); font-weight: 600;">
-                </div>
-
-                <div class="form-group full-width">
-                  <label class="form-label" for="user-notes">Dúvidas ou Preferências de Horário</label>
-                  <textarea id="user-notes" class="form-textarea" placeholder="Gostaria de agendar uma apresentação ou visita presencial..."></textarea>
-                </div>
-
-                <div class="form-group full-width" style="margin-top: 8px;">
-                  <button type="submit" class="button-primary" style="width: 100%; justify-content: center; padding: 14px 24px; font-size: 0.95rem;">
-                    <span>Falar com Concierge no WhatsApp</span>
-                    <span class="button-arrow">
-                      <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
-                        <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
-                      </svg>
-                    </span>
-                  </button>
-                </div>
+          <div class="contact-interest-form-wrap">
+            <form class="contact-interest-form" id="casa-pinha-form">
+              <div class="interest-form-group">
+                <label for="interest-name">Nome Completo</label>
+                <input type="text" id="interest-name" name="name" required autocomplete="name">
               </div>
+
+              <div class="interest-form-group">
+                <label for="interest-email">Email</label>
+                <input type="email" id="interest-email" name="email" required autocomplete="email">
+              </div>
+
+              <div class="interest-form-group">
+                <label for="interest-phone">WhatsApp</label>
+                <input type="tel" id="interest-phone" name="phone" required autocomplete="tel" placeholder="(54) 99999-9999">
+              </div>
+
+              <button type="submit" class="interest-form-submit-btn">
+                <span>{{BOTAO_FORMULARIO_CONTATO}}</span>
+              </button>
             </form>
           </div>
         </div>
@@ -783,6 +659,55 @@
       </div>
     </div>
   </footer>
+
+  <!-- Modal Lightbox para Ampliar Fotos da Galeria -->
+  <div class="gallery-modal-overlay" id="gallery-modal" aria-hidden="true" role="dialog">
+    <div class="gallery-modal-container">
+      <button class="gallery-modal-close" id="gallery-modal-close" aria-label="Fechar Foto Ampliada">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="gallery-modal-image-wrapper">
+        <button class="gallery-modal-nav-btn gallery-modal-prev" id="gallery-modal-prev" aria-label="Foto Anterior">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <img src="" alt="" class="gallery-modal-img" id="gallery-modal-img">
+
+        <button class="gallery-modal-nav-btn gallery-modal-next" id="gallery-modal-next" aria-label="Próxima Foto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="gallery-modal-caption" id="gallery-modal-caption"></div>
+    </div>
+  </div>
+
+  <!-- Modal de Vídeo Conceitual -->
+  <div class="video-modal-overlay" id="video-modal" aria-hidden="true" role="dialog">
+    <div class="video-modal-container">
+      <button class="video-modal-close" id="video-modal-close" aria-label="Fechar Vídeo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="video-modal-viewport">
+        <img src="{{URL_VIDEO_COVER}}" alt="{{NOME_DA_CASA}}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <span style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; {{NOME_DA_CASA}} ({{CONDOMINIO_LOTE}})</span>
+          <a href="#contato-reserva" class="house-video-cta-btn" style="padding: 10px 24px; font-size: 0.9rem;" id="video-modal-cta">Tenho interesse</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Modal WhatsApp de Atendimento Exclusivo -->
   <div class="whatsapp-modal-overlay" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-labelledby="whatsapp-modal-title">
@@ -904,7 +829,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/carrossel.js?v=2.9"></script>
+  <script src="js/carrossel.js?v=3.0"></script>
   <script>
     const openBtn = document.getElementById("mobile-open-btn");
     const closeBtn = document.getElementById("mobile-close-btn");
@@ -920,20 +845,6 @@
       };
       if (closeBtn) closeBtn.addEventListener("click", closeMenu);
       document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", closeMenu));
-    }
-
-    const form = document.getElementById("template-house-form");
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("user-name")?.value || "";
-        const phone = document.getElementById("user-phone")?.value || "";
-        const email = document.getElementById("user-email")?.value || "";
-        const notes = document.getElementById("user-notes")?.value || "";
-
-        const msg = `Olá! Gostaria de agendar uma apresentação privada de *{{NOME_DA_CASA}}* ({{CONDOMINIO_LOTE}} - {{NOME_ESCRITORIO}}).\n\n*Nome:* ${name}\n*Telefone:* ${phone}\n*E-mail:* ${email}\n*Mensagem:* ${notes}`;
-        window.open(`https://wa.me/5554996225703?text=${encodeURIComponent(msg)}`, "_blank");
-      });
     }
 
     // Modal de Vídeo
