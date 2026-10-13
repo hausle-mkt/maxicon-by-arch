@@ -1703,58 +1703,22 @@ img {
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Botões de Navegação da Hero */
-.hero-slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(18, 20, 23, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 5;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: 0.75;
-}
-
-.hero-slider-btn:hover {
-  opacity: 1;
-  background: rgba(18, 20, 23, 0.85);
-  border-color: rgba(255, 255, 255, 0.7);
-  transform: translateY(-50%) scale(1.08);
-}
-
-.hero-slider-prev {
-  left: 28px;
-}
-
-.hero-slider-next {
-  right: 28px;
-}
-
-/* Indicadores de Slide (Dots) */
+/* Indicadores de Slide (Barrinhas) */
 .hero-slider-dots {
   position: absolute;
   bottom: 44px;
   right: clamp(48px, 18%, 220px);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   z-index: 5;
 }
 
 .hero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+  position: relative;
+  width: 32px;
+  height: 4px;
+  border-radius: 2px;
   background: rgba(255, 255, 255, 0.4);
   border: none;
   padding: 0;
@@ -1762,15 +1726,24 @@ img {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Área de toque expandida para facilitar clique/toque */
+.hero-dot::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  bottom: -12px;
+  left: -2px;
+  right: -2px;
+}
+
 .hero-dot:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 .hero-dot.active {
-  width: 32px;
-  border-radius: 5px;
+  width: 52px;
   background: #ffffff;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.55);
 }
 
 @media (max-width: 768px) {
@@ -1784,20 +1757,16 @@ img {
     bottom: auto;
     top: 24px;
     right: 24px;
+    gap: 6px;
   }
 
-  .hero-slider-btn {
-    width: 38px;
-    height: 38px;
-    opacity: 0.6;
+  .hero-dot {
+    width: 24px;
+    height: 3px;
   }
 
-  .hero-slider-prev {
-    left: 14px;
-  }
-
-  .hero-slider-next {
-    right: 14px;
+  .hero-dot.active {
+    width: 40px;
   }
 }
 
