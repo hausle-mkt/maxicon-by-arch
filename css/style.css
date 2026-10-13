@@ -3843,10 +3843,10 @@ img {
 
 .whatsapp-modal-subtitle {
   font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.92rem;
-  color: var(--text-muted, #5e6670);
+  font-size: 0.96rem;
+  color: var(--text-main, #14171a);
   line-height: 1.5;
-  margin: 0;
+  margin: 6px 0 0 0;
 }
 
 .whatsapp-modal-form {
