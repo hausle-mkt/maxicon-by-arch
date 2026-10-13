@@ -2280,7 +2280,7 @@ img {
 
 @media (max-width: 768px) {
   .house-video-section {
-    padding: 70px 0 80px 0;
+    padding: 70px 0 50px 0;
   }
 
   .house-video-headline {
@@ -2307,6 +2307,234 @@ img {
   .house-video-cta-btn {
     font-size: 0.95rem;
     padding: 14px 28px;
+  }
+}
+
+/* ==========================================================================
+   SEÇÃO: APRESENTAÇÃO DO ESCRITÓRIO DE ARQUITETURA (CARD CHANFRADO EM FUNDO PRETO)
+   ========================================================================== */
+.house-architect-section {
+  background: #000000;
+  color: #111111;
+  padding: 50px 0 110px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.architect-presentation-card {
+  position: relative;
+  width: 100%;
+}
+
+/* Fundo acinzentado com corte chanfrado idêntico ao da HERO */
+.architect-card-bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: clamp(120px, 16vw, 220px);
+  background: #ededed;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 84% 100%, 0 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.architect-card-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) 1fr;
+  gap: clamp(36px, 5vw, 68px);
+  align-items: center;
+  padding: 56px 64px 64px 0;
+}
+
+/* Coluna Esquerda: Foto do Arquiteto/Equipe */
+.architect-visual-col {
+  position: relative;
+  width: 100%;
+}
+
+.architect-img-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+.architect-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.architect-presentation-card:hover .architect-img {
+  transform: scale(1.02);
+}
+
+/* Coluna Direita: Conteúdo Editorial */
+.architect-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding-left: 12px;
+}
+
+.architect-title {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  color: #000000;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0 0 24px 0;
+}
+
+.architect-by {
+  font-family: var(--font-body, 'Mulish', serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95em;
+  color: #111111;
+  margin-left: 6px;
+}
+
+.architect-logo-wrap {
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.architect-logo-img {
+  max-width: clamp(260px, 30vw, 360px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botão Conheça o Escritório */
+.architect-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2b2b2b;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 16px 42px;
+  border-radius: 0;
+  min-width: 280px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.architect-cta-btn:hover {
+  background: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Animação Scroll Reveal */
+.house-architect-section.scroll-reveal {
+  opacity: 1;
+}
+
+.house-architect-section.scroll-reveal .architect-card-bg {
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.house-architect-section.scroll-reveal .architect-visual-col {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.house-architect-section.scroll-reveal .architect-content-col {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.house-architect-section.scroll-reveal.is-visible .architect-card-bg {
+  opacity: 1;
+}
+
+.house-architect-section.scroll-reveal.is-visible .architect-visual-col,
+.house-architect-section.scroll-reveal.is-visible .architect-content-col {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsividade da Seção do Escritório */
+@media (max-width: 991px) {
+  .architect-card-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 40px 28px 60px 28px;
+  }
+
+  .architect-card-bg {
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 78% 100%, 0 100%);
+  }
+
+  .architect-img-wrap {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .architect-content-col {
+    padding-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .house-architect-section {
+    padding: 30px 0 70px 0;
+  }
+
+  .architect-card-inner {
+    padding: 28px 20px 52px 20px;
+  }
+
+  .architect-card-bg {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 76% 100%, 0 100%);
+  }
+
+  .architect-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .architect-logo-img {
+    max-width: 240px;
+  }
+
+  .architect-logo-wrap {
+    margin-bottom: 28px;
+  }
+
+  .architect-cta-btn {
+    width: 100%;
+    min-width: auto;
+    padding: 14px 24px;
+    font-size: 0.88rem;
   }
 }
 
