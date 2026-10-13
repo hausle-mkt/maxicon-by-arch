@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initDownloadModal();
   initPriceTooltip();
   initContactInterestForm();
+  initBackToTop();
   initScrollReveal();
 });
 
@@ -896,5 +897,18 @@ function initContactInterestForm() {
   });
 }
 
-
-
+/**
+ * Link: Voltar ao Topo
+ * Rolagem suave para o topo da página ao clicar no link
+ */
+function initBackToTop() {
+  const btn = document.getElementById("back-to-top-btn");
+  if (!btn) return;
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}

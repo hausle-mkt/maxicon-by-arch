@@ -12,9 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=3.0">
+  <link rel="stylesheet" href="css/style.css?v=3.1">
 </head>
-<body>
+<body id="top">
 
   <!-- ==========================================================================
        NAVBAR (Padrão BY ARCH)
@@ -599,17 +599,15 @@
       </div>
     </section>
 
-    <!-- Barra de Retorno à Coleção -->
-    <section class="container" style="margin-bottom: 72px; text-align: center;">
-      <a href="index.html#colecao" class="button-primary light" style="display: inline-flex; padding: 12px 28px; font-size: 0.92rem;">
-        <span class="button-arrow" style="transform: rotate(180deg); margin-right: 8px;">
-          <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
-            <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
-          </svg>
-        </span>
-        <span>Voltar para Todas as Obras da Coleção BY ARCH</span>
+    <!-- Voltar ao Topo -->
+    <div class="back-to-top-section">
+      <a href="#top" class="back-to-top-link" id="back-to-top-btn" aria-label="Voltar ao topo da página">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+        <span>Voltar ao topo</span>
       </a>
-    </section>
+    </div>
   </main>
 
   <!-- ==========================================================================
@@ -829,7 +827,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/carrossel.js?v=3.0"></script>
+  <script src="js/carrossel.js?v=3.1"></script>
   <script>
     const openBtn = document.getElementById("mobile-open-btn");
     const closeBtn = document.getElementById("mobile-close-btn");
