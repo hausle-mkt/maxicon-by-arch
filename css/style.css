@@ -1936,7 +1936,13 @@ img {
 .house-concept-section.scroll-reveal .concept-lot-info {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.7s, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.7s;
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.68s, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.68s;
+}
+
+.house-concept-section.scroll-reveal .concept-features-grid {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.78s, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.78s;
 }
 
 /* Estado Ativado pelo Scroll (is-visible adicionado pelo IntersectionObserver) */
@@ -1949,7 +1955,8 @@ img {
 .house-concept-section.scroll-reveal.is-visible .concept-main-title,
 .house-concept-section.scroll-reveal.is-visible .concept-text-body,
 .house-concept-section.scroll-reveal.is-visible .concept-minimal-specs,
-.house-concept-section.scroll-reveal.is-visible .concept-lot-info {
+.house-concept-section.scroll-reveal.is-visible .concept-lot-info,
+.house-concept-section.scroll-reveal.is-visible .concept-features-grid {
   opacity: 1;
   transform: translateY(0);
 }
@@ -2015,6 +2022,44 @@ img {
   letter-spacing: -0.01em;
 }
 
+/* Tópicos de Destaque da Residência (3 de cada lado) */
+.concept-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 40px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.concept-features-col {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.concept-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.concept-feature-bullet {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #111111;
+}
+
 @media (max-width: 991px) {
   .concept-card-inner {
     grid-template-columns: 1fr;
@@ -2038,6 +2083,10 @@ img {
 
   .concept-minimal-specs {
     gap: 32px;
+  }
+
+  .concept-features-grid {
+    gap: 12px 28px;
   }
 }
 
@@ -2086,6 +2135,25 @@ img {
 
   .concept-spec-text {
     font-size: 1.1rem;
+  }
+
+  .concept-features-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-top: 20px;
+    padding-top: 18px;
+  }
+
+  .concept-feature-item {
+    font-size: 0.88rem;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 440px) {
+  .concept-features-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
