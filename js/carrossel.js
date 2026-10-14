@@ -1020,22 +1020,65 @@ function initContactInterestForm() {
       casaNome = "Casa Pinha (Condomínio Noah, Lote D15)";
     }
 
+    const lead = {
+      nome: name,
+      email: email,
+      telefone: phone,
+      projeto: casaNome,
+      origem: "Formulário de Interesse (Tenho interesse e quero receber um atendimento exclusivo)",
+      data: new Date().toISOString()
+    };
+
     try {
-      const lead = {
-        nome: name,
-        email: email,
-        telefone: phone,
-        projeto: casaNome,
-        origem: "Formulário de Interesse",
-        data: new Date().toISOString()
-      };
       const leads = JSON.parse(localStorage.getItem("maxicon_leads_interesse") || "[]");
       leads.push(lead);
       localStorage.setItem("maxicon_leads_interesse", JSON.stringify(leads));
     } catch (err) {}
 
-    const msg = `Olá! Tenho interesse e quero receber um atendimento exclusivo sobre a *${casaNome}*.\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${phone}`;
-    window.open(`https://wa.me/5554996225703?text=${encodeURIComponent(msg)}`, "_blank");
+    // Ponto de integração futuro (API / Webhook / CRM a ser definido posteriormente)
+    if (typeof window.salvarCadastroInteresse === "function") {
+      window.salvarCadastroInteresse(lead);
+    } else {
+      console.log("[Cadastro de Interesse] Lead registrado com sucesso (destino a ser definido):", lead);
+    }
+    window.dispatchEvent(new CustomEvent("maxicon:lead-interesse", { detail: lead }));
+
+    // Feedback visual elegante (sem abrir WhatsApp)
+    const submitBtn = form.querySelector(".interest-form-submit-btn");
+    const successMsg = form.querySelector(".interest-form-success") || document.getElementById("interest-form-success");
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.style.background = "#16a34a";
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right:8px;">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>SOLICITAÇÃO RECEBIDA COM SUCESSO</span>
+      `;
+    }
+
+    if (successMsg) {
+      successMsg.classList.add("is-visible");
+      successMsg.style.display = "flex";
+    }
+
+    // Limpa campos após 3s e restaura botão
+    setTimeout(() => {
+      form.reset();
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.background = "";
+        submitBtn.innerHTML = originalBtnText;
+      }
+      if (successMsg) {
+        setTimeout(() => {
+          successMsg.classList.remove("is-visible");
+          successMsg.style.display = "none";
+        }, 4000);
+      }
+    }, 3000);
   });
 }
 

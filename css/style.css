@@ -1382,8 +1382,8 @@ img, video, iframe, canvas {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 32px;
-  max-width: 380px;
+  gap: 28px;
+  max-width: 440px;
 }
 
 .footer-logo-link {
@@ -1397,9 +1397,9 @@ img, video, iframe, canvas {
 }
 
 .footer-logo-img {
-  height: clamp(38px, 4.5vw, 48px);
+  height: clamp(60px, 6.5vw, 84px);
   width: auto;
-  max-width: 220px;
+  max-width: 320px;
   object-fit: contain;
   display: block;
 }
@@ -1515,8 +1515,8 @@ img, video, iframe, canvas {
   }
 
   .footer-logo-img {
-    height: 36px;
-    max-width: 180px;
+    height: clamp(48px, 12vw, 62px);
+    max-width: 240px;
   }
 
   .footer-cta-btn {
@@ -5190,6 +5190,27 @@ img, video, iframe, canvas {
 
 .interest-form-submit-btn:active {
   transform: translateY(0);
+}
+
+.interest-form-success {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.45;
+  margin-top: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+.interest-form-success.is-visible {
+  display: flex;
 }
 
 @media (max-width: 900px) {
