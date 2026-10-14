@@ -2017,10 +2017,14 @@ img, video, iframe, canvas {
     width: 100%;
     height: clamp(210px, 58vw, 340px);
     aspect-ratio: 16 / 10;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     /* Retângulo perfeito no mobile (sem o corte chanfrado de 45 graus) */
     clip-path: none !important;
     border-radius: 0 !important;
+  }
+
+  .house-concept-section {
+    padding-top: 16px;
   }
 
   @supports (aspect-ratio: 16 / 10) {
@@ -2379,7 +2383,7 @@ img, video, iframe, canvas {
 
 @media (max-width: 576px) {
   .house-concept-section {
-    padding: 40px 0 60px 0;
+    padding: 16px 0 60px 0;
   }
 
   .concept-card-inner {
