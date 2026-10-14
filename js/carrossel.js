@@ -18,18 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
 });
 
-// Helper global para abrir o modal de galeria com qualquer foto
-function openGalleryModal(src, title) {
-  const modalOverlay = document.getElementById("gallery-modal");
+// Contexto ativo do modal para navegação sincronizada
+let currentModalContext = null;
+
+function updateGalleryModalImage(src, title) {
   const modalImg = document.getElementById("gallery-modal-img");
   const modalCaption = document.getElementById("gallery-modal-caption");
-  if (!modalOverlay || !modalImg) return;
+  if (!modalImg) return;
   modalImg.src = src;
   modalImg.alt = title || "";
   if (modalCaption) {
     modalCaption.textContent = title || "";
   }
+}
+
+// Helper global para abrir o modal de galeria com qualquer foto
+function openGalleryModal(src, title, navContext = null) {
+  currentModalContext = navContext;
+  const modalOverlay = document.getElementById("gallery-modal");
+  if (!modalOverlay) return;
+  updateGalleryModalImage(src, title);
   modalOverlay.classList.add("active");
+  modalOverlay.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
@@ -37,7 +47,129 @@ function closeGalleryModal() {
   const modalOverlay = document.getElementById("gallery-modal");
   if (!modalOverlay) return;
   modalOverlay.classList.remove("active");
+  modalOverlay.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  currentModalContext = null;
+}
+
+/**
+ * Utilitário para botões de navegação no mobile e desktop
+ * Previne delay de 300ms, trava de :hover no iOS Safari e disparos duplicados.
+ */
+function attachNavButton(btn, callback) {
+  if (!btn) return;
+  let touchHandled = false;
+
+  btn.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    touchHandled = true;
+    callback();
+    setTimeout(() => { touchHandled = false; }, 320);
+  }, { passive: false });
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (touchHandled) return;
+    callback();
+  });
+}
+
+/**
+ * Utilitário para gesto de arraste com o dedo (Touch Swipe)
+ * - Trava o scroll vertical durante arraste horizontal.
+ * - Detecta threshold de deslocamento (>= 35px ou >= 20px em swipe rápido).
+ * - Retorna didDrag() para suprimir cliques acidentais na viewport.
+ */
+function attachTouchSwipe(element, options = {}) {
+  if (!element) return () => false;
+
+  const { onNext, onPrev, onSwipeStart, onSwipeEnd } = options;
+  let startX = 0;
+  let startY = 0;
+  let deltaX = 0;
+  let deltaY = 0;
+  let isTouching = false;
+  let isHorizontal = false;
+  let isVertical = false;
+  let hasMoved = false;
+  let startTime = 0;
+  let lastDragTime = 0;
+
+  element.addEventListener("touchstart", (e) => {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+    deltaX = 0;
+    deltaY = 0;
+    isTouching = true;
+    isHorizontal = false;
+    isVertical = false;
+    hasMoved = false;
+    startTime = Date.now();
+    if (onSwipeStart) onSwipeStart();
+  }, { passive: true });
+
+  element.addEventListener("touchmove", (e) => {
+    if (!isTouching || e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    deltaX = touch.clientX - startX;
+    deltaY = touch.clientY - startY;
+
+    if (!isHorizontal && !isVertical) {
+      const absX = Math.abs(deltaX);
+      const absY = Math.abs(deltaY);
+      if (absX > 8 || absY > 8) {
+        if (absX >= absY) {
+          isHorizontal = true;
+          hasMoved = true;
+        } else {
+          isVertical = true;
+        }
+      }
+    }
+
+    if (isHorizontal) {
+      hasMoved = true;
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+    }
+  }, { passive: false });
+
+  const endGesture = () => {
+    if (!isTouching) return;
+    isTouching = false;
+    const elapsed = Date.now() - startTime;
+
+    if (isHorizontal) {
+      lastDragTime = Date.now();
+      const absX = Math.abs(deltaX);
+      const threshold = 35;
+      const isQuickSwipe = absX > 20 && elapsed < 300;
+
+      if (absX >= threshold || isQuickSwipe) {
+        if (deltaX < 0) {
+          if (onNext) onNext();
+        } else {
+          if (onPrev) onPrev();
+        }
+      }
+    } else if (hasMoved) {
+      lastDragTime = Date.now();
+    }
+
+    if (onSwipeEnd) onSwipeEnd();
+  };
+
+  element.addEventListener("touchend", endGesture, { passive: true });
+  element.addEventListener("touchcancel", endGesture, { passive: true });
+
+  return () => {
+    return hasMoved || (Date.now() - lastDragTime < 450);
+  };
 }
 
 /**
@@ -67,22 +199,53 @@ function initMomentsStackCards() {
 function initGalleryModal() {
   const modalOverlay = document.getElementById("gallery-modal");
   const modalCloseBtn = document.getElementById("gallery-modal-close");
+  const modalPrevBtn = document.getElementById("gallery-modal-prev");
+  const modalNextBtn = document.getElementById("gallery-modal-next");
 
   if (modalCloseBtn) {
-    modalCloseBtn.addEventListener("click", closeGalleryModal);
+    attachNavButton(modalCloseBtn, closeGalleryModal);
+  }
+
+  if (modalPrevBtn) {
+    attachNavButton(modalPrevBtn, () => {
+      if (currentModalContext && currentModalContext.onPrev) {
+        currentModalContext.onPrev();
+      }
+    });
+  }
+
+  if (modalNextBtn) {
+    attachNavButton(modalNextBtn, () => {
+      if (currentModalContext && currentModalContext.onNext) {
+        currentModalContext.onNext();
+      }
+    });
   }
 
   if (modalOverlay) {
     modalOverlay.addEventListener("click", (e) => {
       if (e.target === modalOverlay) closeGalleryModal();
     });
+
+    attachTouchSwipe(modalOverlay, {
+      onNext: () => {
+        if (currentModalContext && currentModalContext.onNext) {
+          currentModalContext.onNext();
+        }
+      },
+      onPrev: () => {
+        if (currentModalContext && currentModalContext.onPrev) {
+          currentModalContext.onPrev();
+        }
+      }
+    });
   }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      if (modalOverlay && modalOverlay.classList.contains("active")) {
-        closeGalleryModal();
-      }
+    if (modalOverlay && modalOverlay.classList.contains("active")) {
+      if (e.key === "Escape") closeGalleryModal();
+      if (e.key === "ArrowLeft" && currentModalContext?.onPrev) currentModalContext.onPrev();
+      if (e.key === "ArrowRight" && currentModalContext?.onNext) currentModalContext.onNext();
     }
   });
 }
@@ -285,56 +448,51 @@ function initFullHouseCarousel() {
     slides.forEach((slide, i) => {
       slide.classList.toggle("active", i === currentIndex);
     });
+
+    // Se o modal estiver aberto e o contexto for o deste carrossel, sincroniza a foto ampliada
+    const modal = document.getElementById("gallery-modal");
+    if (modal && modal.classList.contains("active") && currentModalContext?.isFullCarousel) {
+      const activeSlide = slides[currentIndex];
+      if (activeSlide) {
+        const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
+        const title = activeSlide.querySelector("img")?.alt || "Casa Pinha";
+        updateGalleryModalImage(fullSrc, title);
+      }
+    }
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      goToSlide(currentIndex - 1);
-    });
-  }
+  // Navegação das setas com suporte imediato a toque mobile e desktop
+  attachNavButton(prevBtn, () => goToSlide(currentIndex - 1));
+  attachNavButton(nextBtn, () => goToSlide(currentIndex + 1));
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      goToSlide(currentIndex + 1);
-    });
-  }
+  // Gesto de arraste com o dedo (Swipe)
+  const didDrag = attachTouchSwipe(viewport, {
+    onNext: () => goToSlide(currentIndex + 1),
+    onPrev: () => goToSlide(currentIndex - 1)
+  });
 
-  // Clique na imagem para ampliar no Lightbox
-  viewport.addEventListener("click", () => {
+  // Clique na imagem para ampliar no Lightbox (suprime clique se o usuário estava arrastando)
+  viewport.addEventListener("click", (e) => {
+    if (e.target.closest(".full-carousel-nav-btn")) return;
+    if (didDrag()) return;
     const activeSlide = slides[currentIndex];
     if (!activeSlide) return;
     const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
     const title = activeSlide.querySelector("img")?.alt || "Casa Pinha";
-    openGalleryModal(fullSrc, title);
+    openGalleryModal(fullSrc, title, {
+      isFullCarousel: true,
+      onNext: () => goToSlide(currentIndex + 1),
+      onPrev: () => goToSlide(currentIndex - 1)
+    });
   });
 
-  // Navegação por teclado quando o carrossel estiver visível
+  // Navegação por teclado quando o modal não estiver ativo
   document.addEventListener("keydown", (e) => {
     const modal = document.getElementById("gallery-modal");
     if (modal && modal.classList.contains("active")) return;
     if (e.key === "ArrowLeft") goToSlide(currentIndex - 1);
     if (e.key === "ArrowRight") goToSlide(currentIndex + 1);
   });
-
-  // Touch Swipe para Mobile
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  viewport.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  viewport.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const threshold = 40;
-    if (touchEndX < touchStartX - threshold) {
-      goToSlide(currentIndex + 1);
-    } else if (touchEndX > touchStartX + threshold) {
-      goToSlide(currentIndex - 1);
-    }
-  }, { passive: true });
 }
 
 /**
@@ -374,56 +532,48 @@ function initPlantsCarousel() {
         thumb.scrollIntoView({ behavior: "smooth", inline: "nearest", block: "nearest" });
       }
     });
+
+    // Se o modal estiver aberto e o contexto for plantas, sincroniza a imagem
+    const modal = document.getElementById("gallery-modal");
+    if (modal && modal.classList.contains("active") && currentModalContext?.isPlants) {
+      const activeSlide = slides[currentIndex];
+      if (activeSlide) {
+        const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
+        const title = activeSlide.getAttribute("data-title") || "Planta Arquitetônica";
+        updateGalleryModalImage(fullSrc, title);
+      }
+    }
   }
 
-  // Cliques nas miniaturas
+  // Cliques e toques nas miniaturas
   thumbs.forEach((thumb, idx) => {
-    thumb.addEventListener("click", () => {
-      goToSlide(idx);
-    });
+    attachNavButton(thumb, () => goToSlide(idx));
   });
 
-  if (prevBtn) {
-    prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      goToSlide(currentIndex - 1);
-    });
-  }
+  // Setas com suporte instantâneo a toque
+  attachNavButton(prevBtn, () => goToSlide(currentIndex - 1));
+  attachNavButton(nextBtn, () => goToSlide(currentIndex + 1));
 
-  if (nextBtn) {
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      goToSlide(currentIndex + 1);
-    });
-  }
+  // Gesto de arraste com o dedo (Swipe) no viewport de plantas
+  const didDrag = attachTouchSwipe(viewport, {
+    onNext: () => goToSlide(currentIndex + 1),
+    onPrev: () => goToSlide(currentIndex - 1)
+  });
 
-  // Clique na imagem para abrir em tela cheia no Lightbox
+  // Clique na imagem para abrir em tela cheia no Lightbox (suprime clique se estava arrastando)
   viewport.addEventListener("click", (e) => {
     if (e.target.closest(".plants-nav-btn")) return;
+    if (didDrag()) return;
     const activeSlide = slides[currentIndex];
     if (!activeSlide) return;
     const fullSrc = activeSlide.getAttribute("data-full") || activeSlide.querySelector("img")?.src;
     const title = activeSlide.getAttribute("data-title") || "Planta Arquitetônica";
-    openGalleryModal(fullSrc, title);
+    openGalleryModal(fullSrc, title, {
+      isPlants: true,
+      onNext: () => goToSlide(currentIndex + 1),
+      onPrev: () => goToSlide(currentIndex - 1)
+    });
   });
-
-  // Touch Swipe para Mobile no Viewport
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  viewport.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  viewport.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const threshold = 40;
-    if (touchEndX < touchStartX - threshold) {
-      goToSlide(currentIndex + 1);
-    } else if (touchEndX > touchStartX + threshold) {
-      goToSlide(currentIndex - 1);
-    }
-  }, { passive: true });
 }
 
 /**
@@ -461,7 +611,7 @@ function initWhatsAppModal() {
   const modal = document.getElementById("whatsapp-modal");
   if (!modal) return;
 
-  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn");
+  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn, #footer-cta-agendar");
   const closeBtn = document.getElementById("whatsapp-modal-close");
   const form = document.getElementById("whatsapp-redirect-form");
   const phoneInput = document.getElementById("wa-phone");
@@ -757,22 +907,22 @@ function initHeroSlider() {
 
   // Event Listeners dos botões
   if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
+    attachNavButton(nextBtn, () => {
       nextSlide();
       restartAutoplay();
     });
   }
 
   if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
+    attachNavButton(prevBtn, () => {
       prevSlide();
       restartAutoplay();
     });
   }
 
-  // Event Listeners dos dots
+  // Event Listeners dos dots com resposta imediata a toque
   dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
+    attachNavButton(dot, () => {
       const idx = parseInt(dot.getAttribute("data-index"), 10);
       if (!isNaN(idx)) {
         showSlide(idx);
@@ -785,27 +935,19 @@ function initHeroSlider() {
   slider.addEventListener("mouseenter", stopAutoplay);
   slider.addEventListener("mouseleave", startAutoplay);
 
-  // Suporte a swipe no mobile / touch
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  slider.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    stopAutoplay();
-  }, { passive: true });
-
-  slider.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-    startAutoplay();
-  }, { passive: true });
+  // Suporte a arraste com o dedo (Swipe) no hero slider
+  attachTouchSwipe(slider, {
+    onNext: () => {
+      nextSlide();
+      restartAutoplay();
+    },
+    onPrev: () => {
+      prevSlide();
+      restartAutoplay();
+    },
+    onSwipeStart: stopAutoplay,
+    onSwipeEnd: startAutoplay
+  });
 
   // Iniciar autoplay
   startAutoplay();

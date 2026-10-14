@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=4.1">
+  <link rel="stylesheet" href="css/style.css?v=4.2">
 </head>
 <body id="top">
 
@@ -738,37 +738,36 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-top-grid">
-        <div class="footer-brand">
-          <div class="brand-wrap">
-            <span class="brand-logo-text">BY ARCH</span>
-            <span class="brand-subtext" style="color: #9ca3af;">by Maxicon</span>
-          </div>
-          <p class="footer-desc">
-            Iniciativa da Maxicon Incorporadora dedicada a aproximar a alta arquitetura autoral de quem valoriza o design atemporal e a arte de viver com exclusividade.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">Navegação</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">Início</a></li>
-            <li><a href="index.html#conceito" class="footer-link">O projeto BY ARCH</a></li>
-            <li><a href="index.html#colecao" class="footer-link">Coleção de Casas</a></li>
-            <li><a href="index.html#arquitetos" class="footer-link">Escritórios Selecionados</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="footer-col-title">Atendimento Privado</h4>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.5;">
-            Apresentações de maquetes físicas e memoriais descritivos mediante agendamento prévio.
-          </p>
-          <a href="#contato-reserva" class="button-primary light" style="padding: 8px 16px; font-size: 0.82rem;">
-            <span>Agendar com Curador</span>
+        <!-- Lado Esquerdo: Logo BY ARCH e Links de Navegação -->
+        <div class="footer-left-col">
+          <a href="index.html" class="footer-logo-link" aria-label="BY ARCH Início">
+            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH — Maxicon Incorporadora" class="footer-logo-img">
           </a>
+          <nav class="footer-nav" aria-label="Navegação do Rodapé">
+            <ul class="footer-links">
+              <li><a href="index.html#conceito" class="footer-link">O projeto</a></li>
+              <li><a href="index.html#colecao" class="footer-link">Coleção de Casas</a></li>
+              <li><a href="index.html#arquitetos" class="footer-link">Escritórios de Arquitetura</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Lado Direito: Convite para Visita & CTA de Cadastro -->
+        <div class="footer-right-col">
+          <p class="footer-invite-text">
+            Agende uma visita na Maxicon e converse com nossa equipe de especialistas
+          </p>
+          <button type="button" class="footer-cta-btn open-whatsapp-modal-trigger" id="footer-cta-agendar" aria-label="Agendar com especialista">
+            <span>Agendar com especialista</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
 
+      <!-- Rodapé Inferior -->
       <div class="footer-bottom">
         <div>
           &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH.
@@ -949,7 +948,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/carrossel.js?v=3.1"></script>
+  <script src="js/carrossel.js?v=3.2"></script>
   <script>
     // Menu mobile toggle
     const openBtn = document.getElementById("mobile-open-btn");

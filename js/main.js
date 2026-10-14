@@ -364,7 +364,7 @@ function initWhatsAppModal() {
   const modal = document.getElementById("whatsapp-modal");
   if (!modal) return;
 
-  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn");
+  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn, #footer-cta-agendar");
   const closeBtn = document.getElementById("whatsapp-modal-close");
   const form = document.getElementById("whatsapp-redirect-form");
   const phoneInput = document.getElementById("wa-phone");
