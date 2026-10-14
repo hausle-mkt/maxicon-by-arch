@@ -2014,24 +2014,34 @@ img, video, iframe, canvas {
 
 @media (max-width: 768px) {
   .house-main-visual {
-    height: clamp(340px, 55vh, 580px);
-    margin-bottom: 36px;
+    width: 100%;
+    height: clamp(210px, 58vw, 340px);
+    aspect-ratio: 16 / 10;
+    margin-bottom: 28px;
     /* Retângulo perfeito no mobile (sem o corte chanfrado de 45 graus) */
     clip-path: none !important;
     border-radius: 0 !important;
   }
 
+  @supports (aspect-ratio: 16 / 10) {
+    .house-main-visual {
+      height: auto;
+      min-height: 200px;
+      max-height: 360px;
+    }
+  }
+
   .house-title-overlay {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    font-size: clamp(2rem, 7.5vw, 3.4rem);
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+    font-size: clamp(1.75rem, 6.2vw, 2.6rem);
   }
 
   .hero-slider-dots {
     bottom: auto;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 16px;
     gap: 6px;
   }
 
