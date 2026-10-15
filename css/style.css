@@ -3329,66 +3329,90 @@ img, video, iframe, canvas {
 /* Responsividade Mobile & Tablet */
 @media (max-width: 900px) {
   .house-full-carousel-section {
-    padding: 56px 0;
+    padding: 50px 0 36px 0;
   }
 
   .full-carousel-wrapper {
-    padding: 0 16px;
+    padding: 0 16px 52px 16px;
     gap: 0;
+    position: relative;
+    display: block;
   }
 
   .full-carousel-viewport {
-    height: clamp(260px, 50vh, 440px);
+    height: clamp(260px, 48vh, 440px);
     border-radius: 0;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .full-carousel-slide img {
     border-radius: 0;
   }
 
+  /* Setas posicionadas abaixo da imagem no mobile, discretas e elegantes */
   .full-carousel-nav-btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 46px;
-    height: 46px;
-    background-color: rgba(255, 255, 255, 0.96);
+    top: auto;
+    bottom: 6px;
+    transform: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 30 !important;
     pointer-events: auto !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .full-carousel-nav-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: #ffffff;
+    stroke-width: 2.2;
+  }
+
+  /* Área de toque expandida (44px) para ergonomia */
+  .full-carousel-nav-btn::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    bottom: -6px;
+    left: -6px;
+    right: -6px;
   }
 
   .full-carousel-nav-btn.prev {
-    left: 24px;
+    left: calc(50% - 46px);
+    right: auto;
+    transform: none;
   }
 
   .full-carousel-nav-btn.next {
-    right: 24px;
+    left: calc(50% + 8px);
+    right: auto;
+    transform: none;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .full-carousel-nav-btn:hover {
-      transform: translateY(-50%) scale(1.08);
+      background-color: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: scale(1.05);
     }
   }
 
   .full-carousel-nav-btn:active {
-    transform: translateY(-50%) scale(0.92);
-  }
-}
-
-@media (max-width: 576px) {
-  .full-carousel-nav-btn {
-    width: 44px;
-    height: 44px;
-  }
-  .full-carousel-nav-btn.prev {
-    left: 10px;
-  }
-  .full-carousel-nav-btn.next {
-    right: 10px;
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: scale(0.92);
   }
 }
 
