@@ -260,170 +260,112 @@
     </div>
   </main>
 
-  <!-- ==========================================================================
-       RODAPÉ (Institucional BY ARCH Maxicon)
+    <!-- ==========================================================================
+       FOOTER (Institucional Padrão BY ARCH)
        ========================================================================== -->
-  <footer class="footer-section">
-    <div class="footer-container">
-      <div class="footer-grid">
-        <!-- Coluna Esquerda: Logo BY ARCH Oficial + Links Institucionais -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Lado Esquerdo: Logo BY ARCH e Links de Navegação -->
         <div class="footer-left-col">
           <a href="index.html" class="footer-logo-link" aria-label="BY ARCH Início">
-            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH by Maxicon" class="footer-logo-img">
+            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH — Maxicon Incorporadora" class="footer-logo-img">
           </a>
-          
-          <ul class="footer-nav-list" aria-label="Navegação secundária do rodapé">
-            <li><a href="index.html#conceito" class="footer-nav-link">O projeto</a></li>
-            <li><a href="index.html#colecao" class="footer-nav-link">Coleção de Casas</a></li>
-            <li><a href="index.html#arquitetos" class="footer-nav-link">Escritórios de Arquitetura</a></li>
-          </ul>
+          <nav class="footer-nav" aria-label="Navegação do Rodapé">
+            <ul class="footer-links">
+              <li><a href="index.html#conceito" class="footer-link">O projeto</a></li>
+              <li><a href="index.html#colecao" class="footer-link">Coleção de Casas</a></li>
+              <li><a href="index.html#arquitetos" class="footer-link">Escritórios de Arquitetura</a></li>
+            </ul>
+          </nav>
         </div>
 
-        <!-- Coluna Direita: Chamada Especialista + Botão Cadastro -->
+        <!-- Lado Direito: Convite para Visita & CTA de Cadastro -->
         <div class="footer-right-col">
           <p class="footer-invite-text">
             Agende uma visita na Maxicon e converse com nossa equipe de especialistas
           </p>
-
           <button type="button" class="footer-cta-btn open-whatsapp-modal-trigger" id="footer-cta-agendar" aria-label="Agendar com especialista">
             <span>Agendar com especialista</span>
-            <span class="footer-cta-arrow" aria-hidden="true">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </button>
         </div>
       </div>
 
-      <div class="footer-bottom-bar">
-        <p class="footer-copyright">
-          &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados.
-        </p>
-        <div class="footer-legal-links">
-          <a href="#" class="legal-link">Termos de Uso</a>
-          <a href="#" class="legal-link">Privacidade</a>
+      <!-- Rodapé Inferior -->
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH.
+        </div>
+        <div>
+          Arquitetura Autoral Contemporânea &bull; Brasil
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       MODAL DE AGENDAMENTO / WHATSAPP COM OS ESPECIALISTAS
-       ========================================================================== -->
-  <div class="whatsapp-modal-overlay" id="whatsapp-modal" role="dialog" aria-modal="true" aria-labelledby="whatsapp-modal-title">
-    <div class="whatsapp-modal-card">
+  <!-- Modal WhatsApp de Atendimento Exclusivo -->
+  <div class="whatsapp-modal-overlay" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-labelledby="whatsapp-modal-title">
+    <div class="whatsapp-modal-container">
       <button type="button" class="whatsapp-modal-close" id="whatsapp-modal-close" aria-label="Fechar Modal">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
 
       <div class="whatsapp-modal-header">
-        <div class="whatsapp-badge-icon" aria-hidden="true">
-          <svg width="24" height="24" viewBox="18 18 138 138" fill="none">
+        <span class="whatsapp-modal-badge">
+          <svg width="15" height="15" viewBox="18 18 138 138" fill="none" aria-hidden="true">
             <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
             <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
           </svg>
-        </div>
-        <h3 class="whatsapp-modal-title" id="whatsapp-modal-title">Fale com a Equipe de Especialistas</h3>
+          Atendimento Oficial WhatsApp
+        </span>
         <p class="whatsapp-modal-subtitle">
-          Preencha seus dados para agendar uma visita ou receber em primeira mão o material exclusivo das residências autorais.
+          Informe seus dados de contato para iniciar a conversa diretamente no WhatsApp com nossos especialistas.
         </p>
       </div>
 
-      <form id="whatsapp-lead-form" class="whatsapp-form">
-        <div class="whatsapp-input-group">
-          <label for="lead-name" class="whatsapp-label">Nome Completo *</label>
-          <input type="text" id="lead-name" name="name" class="whatsapp-input" placeholder="Ex: Rodrigo Albuquerque" required>
+      <form class="whatsapp-modal-form" id="whatsapp-redirect-form">
+        <div class="whatsapp-form-group">
+          <label for="wa-name">Nome Completo *</label>
+          <input type="text" id="wa-name" name="name" placeholder="Como podemos te chamar?" required autocomplete="name">
         </div>
 
-        <div class="whatsapp-input-group">
-          <label for="lead-email" class="whatsapp-label">E-mail Profissional / Pessoal *</label>
-          <input type="email" id="lead-email" name="email" class="whatsapp-input" placeholder="Ex: rodrigo@exemplo.com" required>
+        <div class="whatsapp-form-group">
+          <label for="wa-email">E-mail *</label>
+          <input type="email" id="wa-email" name="email" placeholder="seuemail@exemplo.com" required autocomplete="email">
         </div>
 
-        <div class="whatsapp-input-group">
-          <label for="lead-phone" class="whatsapp-label">Telefone / WhatsApp *</label>
-          <input type="tel" id="lead-phone" name="phone" class="whatsapp-input" placeholder="(00) 00000-0000" required>
+        <div class="whatsapp-form-group">
+          <label for="wa-phone">Telefone / WhatsApp *</label>
+          <input type="tel" id="wa-phone" name="phone" placeholder="(54) 99999-9999" required autocomplete="tel">
         </div>
 
         <button type="submit" class="whatsapp-form-submit-btn">
-          <span>INICIAR CONVERSA NO WHATSAPP</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
+          <svg width="20" height="20" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+            <path fill="#ffffff" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+            <path fill="#25D366" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
           </svg>
+          <span>Falar no WhatsApp</span>
         </button>
+
+        <span class="whatsapp-form-security-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Ambiente seguro &bull; Atendimento direto Maxicon (+55 54 99622-5703)
+        </span>
       </form>
     </div>
   </div>
 
   <!-- Scripts -->
-  <script src="js/carrossel.js?v=3.3"></script>
   <script src="js/main.js?v=3.2"></script>
-  <script>
-    // Menu mobile toggle
-    const openBtn = document.getElementById("mobile-open-btn");
-    const closeBtn = document.getElementById("mobile-close-btn");
-    const overlay = document.getElementById("mobile-nav-overlay");
-
-    if (openBtn && overlay) {
-      openBtn.addEventListener("click", () => overlay.classList.add("active"));
-    }
-    if (closeBtn && overlay) {
-      closeBtn.addEventListener("click", () => overlay.classList.remove("active"));
-    }
-
-    // Fecha ao clicar em links do menu mobile
-    if (overlay) {
-      overlay.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => overlay.classList.remove("active"));
-      });
-    }
-
-    // Modal de WhatsApp / Cadastro
-    const waModal = document.getElementById("whatsapp-modal");
-    const waClose = document.getElementById("whatsapp-modal-close");
-    const openTriggers = document.querySelectorAll(".open-whatsapp-modal-trigger, #open-whatsapp-modal");
-
-    openTriggers.forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (waModal) waModal.classList.add("active");
-      });
-    });
-
-    if (waClose && waModal) {
-      waClose.addEventListener("click", () => waModal.classList.remove("active"));
-    }
-
-    if (waModal) {
-      waModal.addEventListener("click", (e) => {
-        if (e.target === waModal) waModal.classList.remove("active");
-      });
-    }
-
-    // Form submission
-    const leadForm = document.getElementById("whatsapp-lead-form");
-    if (leadForm) {
-      leadForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const name = document.getElementById("lead-name")?.value.trim();
-        const email = document.getElementById("lead-email")?.value.trim();
-        const phone = document.getElementById("lead-phone")?.value.trim();
-
-        if (!name || !email || !phone) {
-          alert("Por favor, preencha todos os campos.");
-          return;
-        }
-
-        const msg = `Olá! Gostaria de falar com um especialista sobre o escritório *Jéssika Neckel* e a residência *Casa Alva* (BY ARCH).\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${phone}`;
-        window.open(`https://wa.me/5554996225703?text=${encodeURIComponent(msg)}`, "_blank");
-        if (waModal) waModal.classList.remove("active");
-        leadForm.reset();
-      });
-    }
-  </script>
 </body>
 </html>
