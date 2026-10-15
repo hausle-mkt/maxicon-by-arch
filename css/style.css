@@ -5456,16 +5456,16 @@ img, video, iframe, canvas {
 .office-visual-col {
   position: relative;
   width: 100%;
+  filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.09));
 }
 
 .office-photo-card {
   position: relative;
   width: 100%;
-  border-radius: 4px;
   overflow: hidden;
   background: #f0f0f0;
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  /* Detalhe de corte a 45 graus no canto esquerdo superior da foto */
+  clip-path: polygon(clamp(48px, 8vw, 68px) 0, 100% 0, 100% 100%, 0 100%, 0 clamp(48px, 8vw, 68px));
 }
 
 .office-photo-img {
@@ -5480,31 +5480,6 @@ img, video, iframe, canvas {
 
 .office-photo-card:hover .office-photo-img {
   transform: scale(1.025);
-}
-
-.office-photo-caption {
-  padding: 16px 20px;
-  background: #ffffff;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.office-caption-title {
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-main);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.office-caption-location {
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 
 /* Coluna de Conteúdo (Logo, Bio, Metadados) */
@@ -5529,9 +5504,9 @@ img, video, iframe, canvas {
 }
 
 .office-logo-img {
-  height: clamp(38px, 4.2vw, 52px);
+  height: clamp(52px, 6vw, 76px);
   width: auto;
-  max-width: 260px;
+  max-width: 360px;
   object-fit: contain;
   display: block;
 }
@@ -5563,65 +5538,56 @@ img, video, iframe, canvas {
   margin: 0 0 32px 0;
 }
 
-/* Grid de Metadados: Instagram + Endereço */
+/* Metadados: Ícones e Links Limpos sem contornos de card */
 .office-meta-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 10px;
 }
 
 .office-meta-card {
-  background: var(--color-bg-subtle, #f7f7f8);
-  border: 1px solid var(--border-light, #e7e7e8);
-  border-radius: 4px;
-  padding: 22px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  gap: 14px;
+  box-shadow: none;
+  transition: none;
 }
 
 .office-meta-card:hover {
-  border-color: #000000;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: transparent;
+  transform: none;
+  box-shadow: none;
 }
 
 .office-meta-icon {
   flex-shrink: 0;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #111111;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-top: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .office-meta-content {
   flex: 1;
 }
 
-.office-meta-label {
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  margin-bottom: 6px;
-}
-
 .office-meta-value {
   font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.45;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #333a42;
+  line-height: 1.55;
   margin: 0;
 }
 
@@ -5631,6 +5597,7 @@ img, video, iframe, canvas {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -5917,12 +5884,6 @@ img, video, iframe, canvas {
 @media (max-width: 576px) {
   .office-card-box {
     padding: 28px 20px;
-  }
-
-  .office-photo-caption {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
   }
 }
 

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=4.7">
+  <link rel="stylesheet" href="css/style.css?v=4.8">
 </head>
 <body id="top">
 
@@ -95,12 +95,9 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
           </svg>
-          <span>Mestres do Traço — Autoria BY ARCH</span>
+          <span>{{TAG_COLECAO:-COLLECTION 1}}</span>
         </div>
         <h1 class="office-hero-title">{{NOME_ESCRITORIO}}</h1>
-        <p class="office-hero-subtitle">
-          {{SLOGAN_ESCRITORIO}}
-        </p>
       </div>
     </section>
 
@@ -121,10 +118,6 @@
                 loading="eager"
               >
             </picture>
-            <div class="office-photo-caption">
-              <span class="office-caption-title">{{NOME_TITULAR_ARQUITETO}}</span>
-              <span class="office-caption-location">{{CIDADE_UF_ESCRITORIO}}</span>
-            </div>
           </div>
         </div>
 
@@ -141,7 +134,7 @@
             </div>
 
             <!-- Bio do Escritório -->
-            <div class="office-section-kicker">Sobre o Escritório</div>
+            <div class="office-section-kicker">SOBRE</div>
             <h2 class="office-bio-heading">{{TITULO_BIO}}</h2>
             
             <div class="office-bio-text">
@@ -160,7 +153,6 @@
                   </svg>
                 </div>
                 <div class="office-meta-content">
-                  <div class="office-meta-label">Instagram Oficial</div>
                   <div class="office-meta-value">
                     <a 
                       href="{{URL_INSTAGRAM}}" 
@@ -187,7 +179,6 @@
                   </svg>
                 </div>
                 <div class="office-meta-content">
-                  <div class="office-meta-label">Sede & Atendimento</div>
                   <address class="office-meta-value" style="font-style: normal;">
                     {{ENDERECO_COMPLETO}}
                   </address>
@@ -205,7 +196,6 @@
     <section class="office-house-section" id="residencia-assinada">
       <div class="container">
         <div class="office-house-section-header scroll-reveal">
-          <div class="office-house-section-badge">Coleção Autoral BY ARCH</div>
           <h2 class="office-house-section-title">A Residência Assinada</h2>
           <p class="office-house-section-desc">
             Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador. Conheça a obra assinada por {{NOME_ESCRITORIO}}.
@@ -215,7 +205,6 @@
         <div class="office-associated-card scroll-reveal scroll-reveal-delay-1">
           <!-- Visual da Residência -->
           <div class="office-associated-visual">
-            <span class="office-associated-badge-status">{{STATUS_CASA_ASSOCIADA}}</span>
             <img 
               src="{{URL_FOTO_CASA_ASSOCIADA}}" 
               alt="{{NOME_CASA_ASSOCIADA}} — Residência de Alto Padrão por {{NOME_ESCRITORIO}}" 
@@ -226,7 +215,6 @@
 
           <!-- Conteúdo da Residência -->
           <div class="office-associated-content">
-            <div class="office-associated-eyebrow">Autoria Arquitetônica — BY ARCH 2026</div>
             <h3 class="office-associated-name">{{NOME_CASA_ASSOCIADA}}</h3>
             <div class="office-associated-concept">{{CONCEITO_CASA_ASSOCIADA}}</div>
             
@@ -236,20 +224,8 @@
 
             <div class="office-associated-specs">
               <div class="office-associated-spec-item">
-                <span class="office-spec-label">Projeto</span>
-                <span class="office-spec-value">{{NOME_CASA_ASSOCIADA}}</span>
-              </div>
-              <div class="office-associated-spec-item">
                 <span class="office-spec-label">Assinatura</span>
                 <span class="office-spec-value">{{NOME_ESCRITORIO}}</span>
-              </div>
-              <div class="office-associated-spec-item">
-                <span class="office-spec-label">Status</span>
-                <span class="office-spec-value">{{STATUS_CASA_ASSOCIADA}}</span>
-              </div>
-              <div class="office-associated-spec-item">
-                <span class="office-spec-label">Coleção</span>
-                <span class="office-spec-value">BY ARCH Maxicon</span>
               </div>
             </div>
 
@@ -258,7 +234,7 @@
               class="office-associated-cta-btn"
               aria-label="Conhecer a {{NOME_CASA_ASSOCIADA}}"
             >
-              <span>{{TEXTO_BOTAO_CASA_ASSOCIADA}}</span>
+              <span>{{TEXTO_BOTAO_CASA_ASSOCIADA:-Saiba mais}}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
