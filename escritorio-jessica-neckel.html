@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jéssika Neckel Arquitetura de Interiores | BY ARCH Maxicon</title>
+  <meta name="description" content="Conheça o escritório Jéssika Neckel Arquitetura de Interiores, parceiro autoral da coleção de residências de alto padrão BY ARCH da Maxicon Incorporadora. Desenvolve a Casa Alva.">
+  
+  <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/style.css?v=4.7">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       NAVBAR (Padrão BY ARCH)
+       ========================================================================== -->
+  <header class="navbar-wrap">
+    <nav class="navbar" aria-label="Navegação Principal">
+      <a href="index.html" class="brand-wrap" aria-label="BY ARCH by Maxicon">
+        <img src="assets/images/logo03.png" alt="BY ARCH by Maxicon" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#conceito" class="nav-link">O projeto</a></li>
+        <li><a href="index.html#colecao" class="nav-link">Casas</a></li>
+        <li><a href="index.html#arquitetos" class="nav-link active">Arquitetos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-btn-whatsapp hide-mobile" id="open-whatsapp-modal" aria-label="Falar no WhatsApp">
+          <span class="whatsapp-icon-wrap">
+            <svg width="20" height="20" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+              <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+              <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+            </svg>
+          </span>
+          <span>Falar no WhatsApp</span>
+        </button>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-menu-btn" id="mobile-open-btn" aria-label="Abrir Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menu Mobile Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-close-btn" aria-label="Fechar Menu">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="index.html" class="mobile-nav-link">Início</a>
+    <a href="index.html#conceito" class="mobile-nav-link">O projeto</a>
+    <a href="index.html#colecao" class="mobile-nav-link">Casas</a>
+    <a href="index.html#arquitetos" class="mobile-nav-link active">Arquitetos</a>
+    <button type="button" class="mobile-nav-link mobile-whatsapp-cta open-whatsapp-modal-trigger" id="mobile-whatsapp-btn">
+      <span class="whatsapp-icon-wrap">
+        <svg width="20" height="20" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+          <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+          <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+        </svg>
+      </span>
+      <span>Falar no WhatsApp</span>
+    </button>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO DO ESCRITÓRIO
+         ========================================================================== -->
+    <section class="office-hero-section container">
+      <nav class="office-breadcrumbs" aria-label="Trilha de Navegação">
+        <a href="index.html">Início</a>
+        <span class="sep">/</span>
+        <a href="index.html#arquitetos">Escritórios</a>
+        <span class="sep">/</span>
+        <span aria-current="page">Jéssika Neckel</span>
+      </nav>
+
+      <div class="office-hero-header scroll-reveal">
+        <div class="office-hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Mestres do Traço — Autoria BY ARCH</span>
+        </div>
+        <h1 class="office-hero-title">Jéssika Neckel<br>Arquitetura de Interiores</h1>
+        <p class="office-hero-subtitle">
+          Projetos autorais que harmonizam sensibilidade estética, precisão e identidade para criar refúgios atemporais.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: PERFIL, FOTO OFICIAL & BIO
+         ========================================================================== -->
+    <section class="office-profile-section container">
+      <div class="office-profile-grid">
+        <!-- Coluna Visual: Foto Oficial dos Arquitetos -->
+        <div class="office-visual-col scroll-reveal">
+          <div class="office-photo-card">
+            <picture>
+              <source srcset="assets/arq%20jessica%20neckel/foto-jessica-neckel.webp" type="image/webp">
+              <img 
+                src="assets/arq%20jessica%20neckel/foto-jessica-neckel.jpeg" 
+                alt="Retrato oficial de Jéssika Neckel Arquitetura de Interiores" 
+                class="office-photo-img"
+                loading="eager"
+              >
+            </picture>
+            <div class="office-photo-caption">
+              <span class="office-caption-title">Jéssika Neckel</span>
+              <span class="office-caption-location">Passo Fundo — RS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna de Conteúdo: Logo, Bio, Instagram e Endereço -->
+        <div class="office-content-col scroll-reveal scroll-reveal-delay-1">
+          <div class="office-card-box">
+            <!-- Logo Oficial do Escritório -->
+            <div class="office-logo-box">
+              <img 
+                src="assets/arq%20jessica%20neckel/logo-jessica-neckel.png" 
+                alt="Logo Jéssika Neckel Arquitetura de Interiores" 
+                class="office-logo-img"
+              >
+            </div>
+
+            <!-- Bio do Escritório -->
+            <div class="office-section-kicker">Sobre o Escritório</div>
+            <h2 class="office-bio-heading">Sensibilidade estética, precisão e identidade autoral.</h2>
+            
+            <div class="office-bio-text">
+              <p>
+                Fundado em 2018 e sediado em Passo Fundo, o escritório Jéssika Neckel desenvolve projetos de arquitetura com atuação no Brasil e no exterior. Sua linguagem autoral combina sensibilidade estética, precisão e identidade, traduzindo histórias e estilos de vida em espaços contemporâneos, singulares e atemporais.
+              </p>
+            </div>
+
+            <!-- Metadados: Instagram e Endereço Oficial -->
+            <div class="office-meta-grid">
+              <!-- Item: Instagram -->
+              <div class="office-meta-card">
+                <div class="office-meta-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </div>
+                <div class="office-meta-content">
+                  <div class="office-meta-label">Instagram Oficial</div>
+                  <div class="office-meta-value">
+                    <a 
+                      href="https://instagram.com/jessikaneckelarq" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="office-meta-link"
+                      aria-label="Acessar o perfil no Instagram de Jéssika Neckel (@jessikaneckelarq)"
+                    >
+                      <span>@jessikaneckelarq</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item: Endereço -->
+              <div class="office-meta-card">
+                <div class="office-meta-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="office-meta-content">
+                  <div class="office-meta-label">Sede & Atendimento</div>
+                  <address class="office-meta-value" style="font-style: normal;">
+                    Rua General Osório, 1086, Una Business Center, sala 1101, Centro, Passo Fundo/RS.
+                  </address>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SEÇÃO: RESIDÊNCIA ASSOCIADA (CASA ALVA - BREVE LANÇAMENTO)
+         ========================================================================== -->
+    <section class="office-house-section" id="residencia-assinada">
+      <div class="container">
+        <div class="office-house-section-header scroll-reveal">
+          <div class="office-house-section-badge">Coleção Autoral BY ARCH</div>
+          <h2 class="office-house-section-title">A Residência Assinada</h2>
+          <p class="office-house-section-desc">
+            Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador. Conheça a obra assinada por Jéssika Neckel.
+          </p>
+        </div>
+
+        <div class="office-associated-card scroll-reveal scroll-reveal-delay-1">
+          <!-- Visual da Residência -->
+          <div class="office-associated-visual">
+            <span class="office-associated-badge-status">Breve Lançamento</span>
+            <img 
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" 
+              alt="Casa Alva — Residência de Alto Padrão por Jéssika Neckel" 
+              class="office-associated-img"
+              loading="lazy"
+            >
+          </div>
+
+          <!-- Conteúdo da Residência -->
+          <div class="office-associated-content">
+            <div class="office-associated-eyebrow">Autoria Arquitetônica — BY ARCH 2026</div>
+            <h3 class="office-associated-name">Casa Alva</h3>
+            <div class="office-associated-concept">Luminosidade Natural, Volumes Puros & Atmosfera Silenciosa</div>
+            
+            <p class="office-associated-text">
+              Com o traço elegante e acolhedor de Jéssika Neckel, a Casa Alva privilegia a integração fluida entre áreas sociais e refúgios íntimos. Materiais nobres, marcenaria planejada com maestria e uma iluminação poética compõem uma experiência de moradia inigualável.
+            </p>
+
+            <div class="office-associated-specs">
+              <div class="office-associated-spec-item">
+                <span class="office-spec-label">Projeto</span>
+                <span class="office-spec-value">Casa Alva</span>
+              </div>
+              <div class="office-associated-spec-item">
+                <span class="office-spec-label">Assinatura</span>
+                <span class="office-spec-value">Jéssika Neckel</span>
+              </div>
+              <div class="office-associated-spec-item">
+                <span class="office-spec-label">Status</span>
+                <span class="office-spec-value">Em Desenvolvimento</span>
+              </div>
+              <div class="office-associated-spec-item">
+                <span class="office-spec-label">Coleção</span>
+                <span class="office-spec-value">BY ARCH Maxicon</span>
+              </div>
+            </div>
+
+            <button 
+              type="button" 
+              class="office-associated-cta-btn open-whatsapp-modal-trigger"
+              id="cta-casa-alva"
+              aria-label="Solicitar informações antecipadas da Casa Alva"
+            >
+              <span>Quero ser avisado no lançamento</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LINK: VOLTAR AO TOPO
+         ========================================================================== -->
+    <div class="back-to-top-section">
+      <a href="#top" class="back-to-top-link" aria-label="Voltar ao início da página">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+        <span>Voltar ao topo</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ (Institucional BY ARCH Maxicon)
+       ========================================================================== -->
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <!-- Coluna Esquerda: Logo BY ARCH Oficial + Links Institucionais -->
+        <div class="footer-left-col">
+          <a href="index.html" class="footer-logo-link" aria-label="BY ARCH Início">
+            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH by Maxicon" class="footer-logo-img">
+          </a>
+          
+          <ul class="footer-nav-list" aria-label="Navegação secundária do rodapé">
+            <li><a href="index.html#conceito" class="footer-nav-link">O projeto</a></li>
+            <li><a href="index.html#colecao" class="footer-nav-link">Coleção de Casas</a></li>
+            <li><a href="index.html#arquitetos" class="footer-nav-link">Escritórios de Arquitetura</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna Direita: Chamada Especialista + Botão Cadastro -->
+        <div class="footer-right-col">
+          <p class="footer-invite-text">
+            Agende uma visita na Maxicon e converse com nossa equipe de especialistas
+          </p>
+
+          <button type="button" class="footer-cta-btn open-whatsapp-modal-trigger" id="footer-cta-agendar" aria-label="Agendar com especialista">
+            <span>Agendar com especialista</span>
+            <span class="footer-cta-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p class="footer-copyright">
+          &copy; 2026 Maxicon Incorporadora. Todos os direitos reservados.
+        </p>
+        <div class="footer-legal-links">
+          <a href="#" class="legal-link">Termos de Uso</a>
+          <a href="#" class="legal-link">Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODAL DE AGENDAMENTO / WHATSAPP COM OS ESPECIALISTAS
+       ========================================================================== -->
+  <div class="whatsapp-modal-overlay" id="whatsapp-modal" role="dialog" aria-modal="true" aria-labelledby="whatsapp-modal-title">
+    <div class="whatsapp-modal-card">
+      <button type="button" class="whatsapp-modal-close" id="whatsapp-modal-close" aria-label="Fechar Modal">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="whatsapp-modal-header">
+        <div class="whatsapp-badge-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="18 18 138 138" fill="none">
+            <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+            <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+          </svg>
+        </div>
+        <h3 class="whatsapp-modal-title" id="whatsapp-modal-title">Fale com a Equipe de Especialistas</h3>
+        <p class="whatsapp-modal-subtitle">
+          Preencha seus dados para agendar uma visita ou receber em primeira mão o material exclusivo das residências autorais.
+        </p>
+      </div>
+
+      <form id="whatsapp-lead-form" class="whatsapp-form">
+        <div class="whatsapp-input-group">
+          <label for="lead-name" class="whatsapp-label">Nome Completo *</label>
+          <input type="text" id="lead-name" name="name" class="whatsapp-input" placeholder="Ex: Rodrigo Albuquerque" required>
+        </div>
+
+        <div class="whatsapp-input-group">
+          <label for="lead-email" class="whatsapp-label">E-mail Profissional / Pessoal *</label>
+          <input type="email" id="lead-email" name="email" class="whatsapp-input" placeholder="Ex: rodrigo@exemplo.com" required>
+        </div>
+
+        <div class="whatsapp-input-group">
+          <label for="lead-phone" class="whatsapp-label">Telefone / WhatsApp *</label>
+          <input type="tel" id="lead-phone" name="phone" class="whatsapp-input" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <button type="submit" class="whatsapp-form-submit-btn">
+          <span>INICIAR CONVERSA NO WHATSAPP</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/carrossel.js?v=3.3"></script>
+  <script src="js/main.js?v=3.2"></script>
+  <script>
+    // Menu mobile toggle
+    const openBtn = document.getElementById("mobile-open-btn");
+    const closeBtn = document.getElementById("mobile-close-btn");
+    const overlay = document.getElementById("mobile-nav-overlay");
+
+    if (openBtn && overlay) {
+      openBtn.addEventListener("click", () => overlay.classList.add("active"));
+    }
+    if (closeBtn && overlay) {
+      closeBtn.addEventListener("click", () => overlay.classList.remove("active"));
+    }
+
+    // Fecha ao clicar em links do menu mobile
+    if (overlay) {
+      overlay.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => overlay.classList.remove("active"));
+      });
+    }
+
+    // Modal de WhatsApp / Cadastro
+    const waModal = document.getElementById("whatsapp-modal");
+    const waClose = document.getElementById("whatsapp-modal-close");
+    const openTriggers = document.querySelectorAll(".open-whatsapp-modal-trigger, #open-whatsapp-modal");
+
+    openTriggers.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (waModal) waModal.classList.add("active");
+      });
+    });
+
+    if (waClose && waModal) {
+      waClose.addEventListener("click", () => waModal.classList.remove("active"));
+    }
+
+    if (waModal) {
+      waModal.addEventListener("click", (e) => {
+        if (e.target === waModal) waModal.classList.remove("active");
+      });
+    }
+
+    // Form submission
+    const leadForm = document.getElementById("whatsapp-lead-form");
+    if (leadForm) {
+      leadForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("lead-name")?.value.trim();
+        const email = document.getElementById("lead-email")?.value.trim();
+        const phone = document.getElementById("lead-phone")?.value.trim();
+
+        if (!name || !email || !phone) {
+          alert("Por favor, preencha todos os campos.");
+          return;
+        }
+
+        const msg = `Olá! Gostaria de falar com um especialista sobre o escritório *Jéssika Neckel* e a residência *Casa Alva* (BY ARCH).\n\n*Nome:* ${name}\n*E-mail:* ${email}\n*WhatsApp:* ${phone}`;
+        window.open(`https://wa.me/5554996225703?text=${encodeURIComponent(msg)}`, "_blank");
+        if (waModal) waModal.classList.remove("active");
+        leadForm.reset();
+      });
+    }
+  </script>
+</body>
+</html>

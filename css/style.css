@@ -5355,6 +5355,578 @@ img, video, iframe, canvas {
   transform: translateY(-3px);
 }
 
+/* ==========================================================================
+   PÁGINA DO ESCRITÓRIO DE ARQUITETURA (PERFIL & CMS)
+   ========================================================================== */
+
+/* Hero do Escritório */
+.office-hero-section {
+  padding-top: 130px;
+  padding-bottom: 24px;
+  position: relative;
+}
+
+.office-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.office-breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.office-breadcrumbs a:hover {
+  color: var(--text-main);
+}
+
+.office-breadcrumbs .sep {
+  color: #c4c8cd;
+  font-size: 0.8rem;
+}
+
+.office-hero-header {
+  max-width: 880px;
+  margin-bottom: 16px;
+}
+
+.office-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(18, 20, 23, 0.05);
+  border: 1px solid rgba(18, 20, 23, 0.12);
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 20px;
+}
+
+.office-hero-badge svg {
+  color: var(--color-gold, #c5a059);
+}
+
+.office-hero-title {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  margin: 0 0 16px 0;
+}
+
+.office-hero-subtitle {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0;
+}
+
+/* Seção de Perfil: Foto + Bio e Metadados */
+.office-profile-section {
+  padding: 32px 0 88px 0;
+  position: relative;
+  width: 100%;
+}
+
+.office-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 460px) 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Coluna Visual (Foto dos Arquitetos) */
+.office-visual-col {
+  position: relative;
+  width: 100%;
+}
+
+.office-photo-card {
+  position: relative;
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f0f0f0;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.office-photo-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.office-photo-card:hover .office-photo-img {
+  transform: scale(1.025);
+}
+
+.office-photo-caption {
+  padding: 16px 20px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.office-caption-title {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.office-caption-location {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Coluna de Conteúdo (Logo, Bio, Metadados) */
+.office-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.office-card-box {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  padding: 44px 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.office-logo-box {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.office-logo-img {
+  height: clamp(38px, 4.2vw, 52px);
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+}
+
+.office-section-kicker {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.office-bio-heading {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-main);
+  margin: 0 0 18px 0;
+}
+
+.office-bio-text {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333a42;
+  margin: 0 0 32px 0;
+}
+
+/* Grid de Metadados: Instagram + Endereço */
+.office-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.office-meta-card {
+  background: var(--color-bg-subtle, #f7f7f8);
+  border: 1px solid var(--border-light, #e7e7e8);
+  border-radius: 4px;
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.office-meta-card:hover {
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.office-meta-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.office-meta-content {
+  flex: 1;
+}
+
+.office-meta-label {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 6px;
+}
+
+.office-meta-value {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.office-meta-link {
+  color: var(--text-main);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.office-meta-link:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.office-meta-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.office-meta-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Seção: Casa Associada (Casa Alva) */
+.office-house-section {
+  background-color: #0d0f12;
+  color: #ffffff;
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.office-house-section-header {
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.office-house-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.office-house-section-title {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.office-house-section-desc {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Card da Residência Associada */
+.office-associated-card {
+  background: #14171c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(360px, 580px) 1fr;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.office-associated-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.office-associated-visual {
+  position: relative;
+  min-height: 380px;
+  overflow: hidden;
+}
+
+.office-associated-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.office-associated-card:hover .office-associated-img {
+  transform: scale(1.03);
+}
+
+.office-associated-badge-status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(18, 20, 23, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 8px 16px;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.office-associated-content {
+  padding: 56px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.office-associated-eyebrow {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.office-associated-name {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.08;
+  margin: 0 0 14px 0;
+}
+
+.office-associated-concept {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--color-gold, #c5a059);
+  margin-bottom: 18px;
+}
+
+.office-associated-text {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0 0 32px 0;
+}
+
+.office-associated-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 32px;
+}
+
+.office-associated-spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.office-spec-label {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+}
+
+.office-spec-value {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.office-associated-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #000000;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  align-self: flex-start;
+}
+
+.office-associated-cta-btn:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.15);
+}
+
+.office-associated-cta-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.office-associated-cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsividade Mobile e Tablet das páginas de escritório */
+@media (max-width: 991px) {
+  .office-profile-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .office-photo-card {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .office-associated-card {
+    grid-template-columns: 1fr;
+  }
+
+  .office-associated-visual {
+    min-height: 280px;
+    max-height: 360px;
+  }
+
+  .office-associated-content {
+    padding: 36px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .office-hero-section {
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+
+  .office-hero-title {
+    font-size: clamp(1.75rem, 6.8vw, 2.6rem);
+    line-height: 1.12;
+    overflow-wrap: break-word;
+  }
+
+  .office-card-box {
+    padding: 32px 24px;
+  }
+
+  .office-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .office-house-section {
+    padding: 64px 0;
+  }
+
+  .office-associated-cta-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .office-card-box {
+    padding: 28px 20px;
+  }
+
+  .office-photo-caption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+
 
 
 
