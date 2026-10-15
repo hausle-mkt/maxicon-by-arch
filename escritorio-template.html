@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=4.9">
+  <link rel="stylesheet" href="css/style.css?v=5.0">
 </head>
 <body id="top">
 
@@ -79,7 +79,7 @@
 
   <main>
     <!-- ==========================================================================
-         HERO DO ESCRITÓRIO
+         HERO & PERFIL UNIFICADOS (DESTAQUE NA FOTO DOS ARQUITETOS)
          ========================================================================== -->
     <section class="office-hero-section container">
       <nav class="office-breadcrumbs" aria-label="Trilha de Navegação">
@@ -90,23 +90,8 @@
         <span aria-current="page">{{NOME_TITULAR_ARQUITETO}}</span>
       </nav>
 
-      <div class="office-hero-header scroll-reveal">
-        <div class="office-hero-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          <span>{{TAG_COLECAO:-COLLECTION 1}}</span>
-        </div>
-        <h1 class="office-hero-title">{{NOME_ESCRITORIO}}</h1>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         SEÇÃO: PERFIL, FOTO OFICIAL & BIO
-         ========================================================================== -->
-    <section class="office-profile-section container">
-      <div class="office-profile-grid">
-        <!-- Coluna Visual: Foto Oficial dos Arquitetos -->
+      <div class="office-hero-grid">
+        <!-- Coluna Visual: Foto Oficial dos Arquitetos (Destaque Principal) -->
         <div class="office-visual-col scroll-reveal">
           <div class="office-photo-card">
             <picture>
@@ -121,65 +106,74 @@
           </div>
         </div>
 
-        <!-- Coluna de Conteúdo: Logo, Bio, Instagram e Endereço -->
+        <!-- Coluna de Conteúdo: Cabeçalho, Logo, Bio, Instagram e Endereço -->
         <div class="office-content-col scroll-reveal scroll-reveal-delay-1">
-          <div class="office-card-box">
-            <!-- Logo Oficial do Escritório -->
-            <div class="office-logo-box">
-              <img 
-                src="{{URL_LOGO_ESCRITORIO}}" 
-                alt="Logo {{NOME_ESCRITORIO}}" 
-                class="office-logo-img"
-              >
+          <!-- Cabeçalho: Badge e Título Principal -->
+          <div class="office-hero-header">
+            <div class="office-hero-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              <span>{{TAG_COLECAO:-COLLECTION 1}}</span>
             </div>
+            <h1 class="office-hero-title">{{NOME_ESCRITORIO}}</h1>
+          </div>
 
-            <!-- Bio do Escritório -->
-            <div class="office-bio-text">
-              <p>{{BIO_ESCRITORIO}}</p>
-            </div>
+          <!-- Logo Oficial do Escritório -->
+          <div class="office-logo-box">
+            <img 
+              src="{{URL_LOGO_ESCRITORIO}}" 
+              alt="Logo {{NOME_ESCRITORIO}}" 
+              class="office-logo-img"
+            >
+          </div>
 
-            <!-- Metadados: Instagram e Endereço Oficial -->
-            <div class="office-meta-grid">
-              <!-- Item: Instagram -->
-              <div class="office-meta-card">
-                <div class="office-meta-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </div>
-                <div class="office-meta-content">
-                  <div class="office-meta-value">
-                    <a 
-                      href="{{URL_INSTAGRAM}}" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      class="office-meta-link"
-                      aria-label="Acessar o perfil no Instagram de {{NOME_ESCRITORIO}} ({{USER_INSTAGRAM}})"
-                    >
-                      <span>{{USER_INSTAGRAM}}</span>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                      </svg>
-                    </a>
-                  </div>
+          <!-- Bio do Escritório -->
+          <div class="office-bio-text">
+            <p>{{BIO_ESCRITORIO}}</p>
+          </div>
+
+          <!-- Metadados: Instagram e Endereço Oficial -->
+          <div class="office-meta-grid">
+            <!-- Item: Instagram -->
+            <div class="office-meta-card">
+              <div class="office-meta-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </div>
+              <div class="office-meta-content">
+                <div class="office-meta-value">
+                  <a 
+                    href="{{URL_INSTAGRAM}}" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="office-meta-link"
+                    aria-label="Acessar o perfil no Instagram de {{NOME_ESCRITORIO}} ({{USER_INSTAGRAM}})"
+                  >
+                    <span>{{USER_INSTAGRAM}}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                      <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
+            </div>
 
-              <!-- Item: Endereço -->
-              <div class="office-meta-card">
-                <div class="office-meta-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <div class="office-meta-content">
-                  <address class="office-meta-value" style="font-style: normal;">
-                    {{ENDERECO_COMPLETO}}
-                  </address>
-                </div>
+            <!-- Item: Endereço -->
+            <div class="office-meta-card">
+              <div class="office-meta-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="office-meta-content">
+                <address class="office-meta-value" style="font-style: normal;">
+                  {{ENDERECO_COMPLETO}}
+                </address>
               </div>
             </div>
           </div>

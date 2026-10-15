@@ -5359,11 +5359,12 @@ img, video, iframe, canvas {
    PÁGINA DO ESCRITÓRIO DE ARQUITETURA (PERFIL & CMS)
    ========================================================================== */
 
-/* Hero do Escritório */
+/* Hero & Perfil Unificados do Escritório */
 .office-hero-section {
-  padding-top: 130px;
-  padding-bottom: 24px;
+  padding-top: 124px;
+  padding-bottom: 80px;
   position: relative;
+  background-color: #ffffff;
 }
 
 .office-breadcrumbs {
@@ -5374,7 +5375,7 @@ img, video, iframe, canvas {
   font-family: var(--font-body, 'Mulish', sans-serif);
   font-size: 0.88rem;
   color: var(--text-muted);
-  margin-bottom: 24px;
+  margin-bottom: clamp(24px, 3vw, 36px);
 }
 
 .office-breadcrumbs a {
@@ -5392,67 +5393,16 @@ img, video, iframe, canvas {
   font-size: 0.8rem;
 }
 
-.office-hero-header {
-  max-width: 880px;
-  margin-bottom: 16px;
-}
-
-.office-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(18, 20, 23, 0.05);
-  border: 1px solid rgba(18, 20, 23, 0.12);
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-main);
-  margin-bottom: 20px;
-}
-
-.office-hero-badge svg {
-  color: var(--color-gold, #c5a059);
-}
-
-.office-hero-title {
-  font-family: var(--font-heading, 'Barlow', sans-serif);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  color: var(--text-main);
-  margin: 0 0 16px 0;
-}
-
-.office-hero-subtitle {
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-  font-weight: 400;
-  color: var(--text-muted);
-  line-height: 1.6;
-  max-width: 720px;
-  margin: 0;
-}
-
-/* Seção de Perfil: Foto + Bio e Metadados */
-.office-profile-section {
-  padding: 32px 0 88px 0;
-  position: relative;
-  width: 100%;
-}
-
+/* Grid Principal: Foto com Destaque à Esquerda + Conteúdo Editorial à Direita */
+.office-hero-grid,
 .office-profile-grid {
   display: grid;
-  grid-template-columns: minmax(360px, 460px) 1fr;
-  gap: 64px;
+  grid-template-columns: minmax(380px, 490px) minmax(400px, 1fr);
+  gap: clamp(40px, 5vw, 68px);
   align-items: center;
 }
 
-/* Coluna Visual (Foto dos Arquitetos) */
+/* Coluna Visual (Foto dos Arquitetos - Destaque Máximo) */
 .office-visual-col {
   position: relative;
   width: 100%;
@@ -5470,9 +5420,9 @@ img, video, iframe, canvas {
 .office-photo-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1.02;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 25%;
   display: block;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -5481,43 +5431,68 @@ img, video, iframe, canvas {
   transform: scale(1.025);
 }
 
-/* Coluna de Conteúdo (Logo, Bio, Metadados) */
+/* Coluna de Conteúdo Editorial */
 .office-content-col {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.office-card-box {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  background: transparent;
-  border: none;
-  padding: 0;
-  box-shadow: none;
+.office-hero-header {
+  margin-bottom: 24px;
+}
+
+.office-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(18, 20, 23, 0.05);
+  border: 1px solid rgba(18, 20, 23, 0.12);
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+
+.office-hero-badge svg {
+  color: var(--color-gold, #c5a059);
+}
+
+.office-hero-title {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  margin: 0;
 }
 
 .office-logo-box {
-  margin: 0;
+  margin: 0 0 20px 0;
   padding: 0;
   border: none;
 }
 
 .office-logo-img {
-  height: clamp(54px, 5.5vw, 76px);
+  height: clamp(48px, 4.8vw, 68px);
   width: auto;
-  max-width: 380px;
+  max-width: 360px;
   object-fit: contain;
   display: block;
 }
 
 .office-bio-text {
   font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: clamp(1.02rem, 1.3vw, 1.12rem);
-  line-height: 1.75;
+  font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+  line-height: 1.72;
   color: #4b5563;
-  margin: 0;
+  margin: 0 0 24px 0;
 }
 
 .office-bio-text p {
@@ -5528,7 +5503,7 @@ img, video, iframe, canvas {
 .office-meta-grid {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   margin: 0;
 }
 
@@ -5813,14 +5788,43 @@ img, video, iframe, canvas {
 
 /* Responsividade Mobile e Tablet das páginas de escritório */
 @media (max-width: 991px) {
+  .office-hero-grid,
   .office-profile-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
+  }
+
+  .office-content-col {
+    display: contents;
+  }
+
+  .office-hero-header {
+    order: 1;
+    margin-bottom: 24px;
+  }
+
+  .office-visual-col {
+    order: 2;
+    margin-bottom: 28px;
   }
 
   .office-photo-card {
     max-width: 520px;
     margin: 0 auto;
+  }
+
+  .office-logo-box {
+    order: 3;
+    margin-bottom: 18px;
+  }
+
+  .office-bio-text {
+    order: 4;
+    margin-bottom: 22px;
+  }
+
+  .office-meta-grid {
+    order: 5;
   }
 
   .office-associated-card {
@@ -5839,22 +5843,22 @@ img, video, iframe, canvas {
 
 @media (max-width: 768px) {
   .office-hero-section {
-    padding-top: 100px;
-    padding-bottom: 20px;
+    padding-top: 104px;
+    padding-bottom: 48px;
   }
 
   .office-hero-title {
-    font-size: clamp(1.75rem, 6.8vw, 2.6rem);
+    font-size: clamp(1.75rem, 6.8vw, 2.5rem);
     line-height: 1.12;
     overflow-wrap: break-word;
   }
 
-  .office-card-box {
-    padding: 32px 24px;
+  .office-photo-card {
+    max-width: 100%;
   }
 
-  .office-meta-grid {
-    grid-template-columns: 1fr;
+  .office-photo-img {
+    aspect-ratio: 4 / 3.8;
   }
 
   .office-house-section {
@@ -5863,12 +5867,6 @@ img, video, iframe, canvas {
 
   .office-associated-cta-btn {
     width: 100%;
-  }
-}
-
-@media (max-width: 576px) {
-  .office-card-box {
-    padding: 28px 20px;
   }
 }
 
