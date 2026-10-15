@@ -5448,15 +5448,14 @@ img, video, iframe, canvas {
 .office-profile-grid {
   display: grid;
   grid-template-columns: minmax(360px, 460px) 1fr;
-  gap: 56px;
-  align-items: start;
+  gap: 64px;
+  align-items: center;
 }
 
 /* Coluna Visual (Foto dos Arquitetos) */
 .office-visual-col {
   position: relative;
   width: 100%;
-  filter: drop-shadow(0 20px 44px rgba(0, 0, 0, 0.09));
 }
 
 .office-photo-card {
@@ -5465,7 +5464,7 @@ img, video, iframe, canvas {
   overflow: hidden;
   background: #f0f0f0;
   /* Detalhe de corte a 45 graus no canto esquerdo superior da foto */
-  clip-path: polygon(clamp(48px, 8vw, 68px) 0, 100% 0, 100% 100%, 0 100%, 0 clamp(48px, 8vw, 68px));
+  clip-path: polygon(clamp(60px, 8vw, 84px) 0, 100% 0, 100% 100%, 0 100%, 0 clamp(60px, 8vw, 84px));
 }
 
 .office-photo-img {
@@ -5486,56 +5485,43 @@ img, video, iframe, canvas {
 .office-content-col {
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  justify-content: center;
 }
 
 .office-card-box {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
-  padding: 44px 48px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
 }
 
 .office-logo-box {
-  margin-bottom: 28px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
 .office-logo-img {
-  height: clamp(52px, 6vw, 76px);
+  height: clamp(54px, 5.5vw, 76px);
   width: auto;
-  max-width: 360px;
+  max-width: 380px;
   object-fit: contain;
   display: block;
 }
 
-.office-section-kicker {
-  font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-light);
-  margin-bottom: 12px;
-}
-
-.office-bio-heading {
-  font-family: var(--font-heading, 'Barlow', sans-serif);
-  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--text-main);
-  margin: 0 0 18px 0;
-}
-
 .office-bio-text {
   font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #333a42;
-  margin: 0 0 32px 0;
+  font-size: clamp(1.02rem, 1.3vw, 1.12rem);
+  line-height: 1.75;
+  color: #4b5563;
+  margin: 0;
+}
+
+.office-bio-text p {
+  margin: 0;
 }
 
 /* Metadados: Ícones e Links Limpos sem contornos de card */
@@ -5543,7 +5529,7 @@ img, video, iframe, canvas {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 10px;
+  margin: 0;
 }
 
 .office-meta-card {
@@ -5552,8 +5538,8 @@ img, video, iframe, canvas {
   border-radius: 0;
   padding: 0;
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: center;
+  gap: 16px;
   box-shadow: none;
   transition: none;
 }
@@ -5566,15 +5552,14 @@ img, video, iframe, canvas {
 
 .office-meta-icon {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.04);
+  background: #f2f4f7;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #111111;
-  margin-top: 2px;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
