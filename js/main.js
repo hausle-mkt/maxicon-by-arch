@@ -6,6 +6,44 @@
 // Dados completos das Residências Autorais da Coleção
 const residencesData = [
   {
+    id: "casa-pinha",
+    name: "Casa Pinha",
+    architect: "Polesello + Müller Arquitetura",
+    tag: "Arquitetura que abraça & Araucária Central",
+    category: "3-suites",
+    suites: "3 Suítes",
+    area: "434,40 m²",
+    land: "811,31 m²",
+    garage: "3 Vagas",
+    status: "Disponível para Aquisição",
+    location: "Condomínio Noah, Lote D15",
+    image: "assets/casa-pinha/destaque.webp",
+    pageUrl: "casa-pinha.html",
+    excerpt: "Uma araucária existente no terreno torna-se o coração da residência. Linhas curvas, madeira, pedra e piscina com fire pit integrado.",
+    fullDescription: "A Casa Pinha nasce da reverência ao elemento natural mais nobre do sítio: uma araucária madura em torno da qual a volumetria curva se articula. O projeto de Polesello + Müller combina planos de concreto ripado, pedra natural e esquadrias de alta eficiência, integrando os ambientes sociais à área de lazer com piscina e fire pit aquecido.",
+    materials: ["Madeira Natural Nobre", "Pedra Natural Bruta", "Concreto Ripado", "Esquadrias de Alta Performance", "Piscina com Fire Pit"],
+    highlight: "Átrio semicircular que abraça a araucária nativa preservada no terreno."
+  },
+  {
+    id: "casa-alva",
+    name: "Casa Alva",
+    architect: "Jéssika Neckel Arquitetura de Interiores",
+    tag: "Luminosidade Natural, Volumes Puros & Atmosfera Silenciosa",
+    category: "4-suites",
+    suites: "4 Suítes",
+    area: "560 m²",
+    land: "1.150 m²",
+    garage: "4 Vagas",
+    status: "Breve Lançamento",
+    location: "Condomínio Noah, Lote A08",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85",
+    pageUrl: "escritorio-jessica-neckel.html",
+    excerpt: "Com o traço elegante e acolhedor de Jéssika Neckel, privilegia a integração fluida entre áreas sociais e refúgios íntimos com marcenaria sob medida.",
+    fullDescription: "A Casa Alva expressa o minimalismo acolhedor característico de Jéssika Neckel. O projeto valoriza a luz natural difusa, superfícies táteis puras, transição delicada entre os jardins e as suítes, e marcenaria autoral que envolve cada espaço em uma atmosfera de silêncio e bem-estar.",
+    materials: ["Madeira Clara Natural", "Mármore Branco Rajado", "Concreto Texturizado", "Marcenaria Artesanal", "Vidros Térmicos Low-E"],
+    highlight: "Conceito de luz zenital contínua com integração total ao paisagismo nativo."
+  },
+  {
     id: "casa-horizonte",
     name: "Casa Horizonte",
     architect: "Studio Bernardes & Parceiros",
@@ -286,7 +324,16 @@ function initModal() {
         closeModal();
         const select = document.getElementById("input-residence");
         if (select) select.value = house.name;
-        document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
+        const contatoSec = document.getElementById("contato");
+        if (contatoSec) {
+          contatoSec.scrollIntoView({ behavior: "smooth" });
+        } else {
+          const waModal = document.getElementById("whatsapp-modal");
+          if (waModal) {
+            waModal.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        }
       };
     }
 

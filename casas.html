@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Coleção de Casas | BY ARCH Maxicon</title>
+  <meta name="description" content="Conheça a coleção completa de residências autorais do projeto BY ARCH da Maxicon Incorporadora. Obras de arte habitáveis assinadas pelos maiores nomes da arquitetura contemporânea.">
+  
+  <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/style.css?v=5.1">
+</head>
+<body id="top">
+
+  <!-- ==========================================================================
+       NAVBAR (Padrão BY ARCH)
+       ========================================================================== -->
+  <header class="navbar-wrap">
+    <nav class="navbar" aria-label="Navegação Principal">
+      <a href="index.html" class="brand-wrap" aria-label="BY ARCH by Maxicon">
+        <img src="assets/images/logo03.png" alt="BY ARCH by Maxicon" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#conceito" class="nav-link">O projeto</a></li>
+        <li><a href="casas.html" class="nav-link active">Casas</a></li>
+        <li><a href="index.html#arquitetos" class="nav-link">Arquitetos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-btn-whatsapp hide-mobile" id="open-whatsapp-modal" aria-label="Falar no WhatsApp">
+          <span class="whatsapp-icon-wrap">
+            <svg width="20" height="20" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+              <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+              <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+            </svg>
+          </span>
+          <span>Falar no WhatsApp</span>
+        </button>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-menu-btn" id="mobile-open-btn" aria-label="Abrir Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menu Mobile Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-close-btn" aria-label="Fechar Menu">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="index.html" class="mobile-nav-link">Início</a>
+    <a href="index.html#conceito" class="mobile-nav-link">O projeto</a>
+    <a href="casas.html" class="mobile-nav-link active">Casas</a>
+    <a href="index.html#arquitetos" class="mobile-nav-link">Arquitetos</a>
+    <button type="button" class="mobile-nav-link mobile-whatsapp-cta open-whatsapp-modal-trigger" id="mobile-whatsapp-btn">
+      <span class="whatsapp-icon-wrap">
+        <svg width="22" height="22" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+          <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+          <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+        </svg>
+      </span>
+      <span>Falar no WhatsApp</span>
+    </button>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO DO CATÁLOGO DE CASAS
+         ========================================================================== -->
+    <section class="catalog-hero-section">
+      <div class="container">
+        <!-- Trilha de Navegação -->
+        <nav class="office-breadcrumbs" aria-label="Trilha de Navegação">
+          <a href="index.html">Início</a>
+          <span class="sep">/</span>
+          <span aria-current="page">Coleção de Casas</span>
+        </nav>
+
+        <!-- Cabeçalho Principal -->
+        <div class="catalog-header scroll-reveal">
+          <div class="catalog-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>COLEÇÃO AUTORAL BY ARCH</span>
+          </div>
+          <h1 class="catalog-title">A Coleção de Casas</h1>
+          <p class="catalog-subtitle">
+            Residências de altíssimo padrão com autoria dos mais celebrados escritórios de arquitetura contemporânea do Brasil. Obras de arte habitáveis, concebidas sob medida para terrenos exclusivos.
+          </p>
+        </div>
+
+        <!-- Métricas Editoriais de Prestígio -->
+        <div class="catalog-metrics-row scroll-reveal">
+          <div class="catalog-metric-item">
+            <span class="catalog-metric-val">8</span>
+            <span class="catalog-metric-label">Obras de Arte</span>
+          </div>
+          <div class="catalog-metric-item">
+            <span class="catalog-metric-val">100%</span>
+            <span class="catalog-metric-label">Plantas Autorais</span>
+          </div>
+          <div class="catalog-metric-item">
+            <span class="catalog-metric-val">5</span>
+            <span class="catalog-metric-label">Estúdios de Renome</span>
+          </div>
+          <div class="catalog-metric-item">
+            <span class="catalog-metric-val">3 a 5</span>
+            <span class="catalog-metric-label">Suítes de Luxo</span>
+          </div>
+        </div>
+
+        <!-- Filtros em Tempo Real -->
+        <div class="catalog-filter-bar scroll-reveal">
+          <div class="collection-filters">
+            <button class="filter-btn active" data-filter="all">Todas as Obras</button>
+            <button class="filter-btn" data-filter="3-suites">3 Suítes</button>
+            <button class="filter-btn" data-filter="4-suites">4 Suítes</button>
+            <button class="filter-btn" data-filter="5-suites">5 Suítes</button>
+            <button class="filter-btn" data-filter="terrenos-amplos">Grandes Terrenos (>1.500m²)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         GRID COMPLETO DAS RESIDÊNCIAS
+         ========================================================================== -->
+    <section class="catalog-collection-section">
+      <div class="container">
+        <div class="residences-grid" id="residences-container">
+
+          <!-- 1. Casa Pinha (Obra Real com Página Dedicada) -->
+          <article class="residence-card" data-category="3-suites">
+            <div class="residence-image-box">
+              <a href="casa-pinha.html" style="display: block; width: 100%; height: 100%;">
+                <img src="assets/casa-pinha/destaque.webp" alt="Casa Pinha — Polesello + Müller Arquitetura" class="residence-img" loading="lazy">
+              </a>
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Polesello + Müller
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Condomínio Noah, Lote D15</span>
+              </div>
+              <h2 class="residence-title"><a href="casa-pinha.html" style="color: inherit; text-decoration: none;">Casa Pinha</a></h2>
+              <div class="residence-concept-tag">Arquitetura que abraça & Araucária Central</div>
+              <p class="residence-excerpt">
+                Uma araucária existente no terreno torna-se o coração da residência. Linhas curvas, madeira, pedra e piscina com fire pit integrado.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">434,40 m²</span></div>
+                <div class="spec-item"><span class="spec-text">3 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">811,31 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">3 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <a href="casa-pinha.html" class="btn-memorial" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <span>Ver Obra Completa</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Casa Alva (Assinatura Jéssika Neckel) -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <a href="escritorio-jessica-neckel.html#residencia-assinada" style="display: block; width: 100%; height: 100%;">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" alt="Casa Alva — Jéssika Neckel Arquitetura" class="residence-img" loading="lazy">
+              </a>
+              <div class="residence-badges">
+                <span class="badge-status">Breve Lançamento</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Jéssika Neckel
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Condomínio Noah, Lote A08</span>
+              </div>
+              <h2 class="residence-title"><a href="escritorio-jessica-neckel.html#residencia-assinada" style="color: inherit; text-decoration: none;">Casa Alva</a></h2>
+              <div class="residence-concept-tag">Luminosidade Natural, Volumes Puros & Atmosfera Silenciosa</div>
+              <p class="residence-excerpt">
+                Com o traço elegante de Jéssika Neckel, privilegia a integração fluida entre áreas sociais e refúgios íntimos com marcenaria planejada.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">560 m²</span></div>
+                <div class="spec-item"><span class="spec-text">4 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.150 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">4 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <a href="escritorio-jessica-neckel.html#residencia-assinada" class="btn-memorial" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <span>Conhecer Escritório & Obra</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Casa Horizonte (Studio Bernardes) -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Casa Horizonte" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Studio Bernardes
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Alameda das Sucupiras, Lote 14</span>
+              </div>
+              <h2 class="residence-title">Casa Horizonte</h2>
+              <div class="residence-concept-tag">Volumetria em Balanço & Espelho d'Água</div>
+              <p class="residence-excerpt">
+                Laje protendida em balanço contínuo que parece levitar sobre um espelho d'água de 22 metros, com integração total à mata.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">720 m²</span></div>
+                <div class="spec-item"><span class="spec-text">4 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.350 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">4 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-horizonte">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Casa Terra & Luz (FGMF Arquitetos) -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Casa Terra & Luz" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Em Obras</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  FGMF Arquitetos
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Boulevard dos Ipês, Lote 08</span>
+              </div>
+              <h2 class="residence-title">Casa Terra & Luz</h2>
+              <div class="residence-concept-tag">Pátio Interno & Arquitetura Biofílica</div>
+              <p class="residence-excerpt">
+                Articulada em torno de um generoso átrio central ajardinado com oliveira centenária e iluminação zenital poética.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">580 m²</span></div>
+                <div class="spec-item"><span class="spec-text">4 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.100 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">3 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-terra-luz">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Casa Brise Tropical (Jacobsen Arquitetura) -->
+          <article class="residence-card" data-category="5-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Casa Brise Tropical" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Jacobsen Arquitetura
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Trilha da Reserva, Lote 22</span>
+              </div>
+              <h2 class="residence-title">Casa Brise Tropical</h2>
+              <div class="residence-concept-tag">Transparência & Paisagismo Envolvente</div>
+              <p class="residence-excerpt">
+                Varanda gourmet contínua protegida por painéis ripados deslizantes em cumaru maciço, permitindo ventilação permanente.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">650 m²</span></div>
+                <div class="spec-item"><span class="spec-text">5 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.420 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">4 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-brise-tropical">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Casa Mirante da Mata (Studio MK27) -->
+          <article class="residence-card" data-category="5-suites terrenos-amplos">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="Casa Mirante da Mata" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Rara Oportunidade</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Studio MK27
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Colina dos Mirantes, Lote 01</span>
+              </div>
+              <h2 class="residence-title">Casa Mirante da Mata</h2>
+              <div class="residence-concept-tag">Vão Livre de 18 Metros & Vista Perene</div>
+              <p class="residence-excerpt">
+                Estrutura de engenharia surpreendente com living de vão livre monumental sem pilares, debruçado sobre a crista da colina.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">840 m²</span></div>
+                <div class="spec-item"><span class="spec-text">5 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.800 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">5 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-mirante-mata">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Villa Sensória (Arthur Casas Design) -->
+          <article class="residence-card" data-category="4-suites">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Villa Sensória" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Arthur Casas Design
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Alameda das Palmeiras, Lote 05</span>
+              </div>
+              <h2 class="residence-title">Villa Sensória</h2>
+              <div class="residence-concept-tag">Harmonia Sensorial & Arquitetura Passiva</div>
+              <p class="residence-excerpt">
+                Equilíbrio magistral entre estética e conforto bioclimático: cobertura ajardinada, ventos dominantes canalizados e acolhimento singular.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">610 m²</span></div>
+                <div class="spec-item"><span class="spec-text">4 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">1.280 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">4 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="villa-sensoria">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Casa Geometria Pura (Metro Arquitetos) -->
+          <article class="residence-card" data-category="5-suites terrenos-amplos">
+            <div class="residence-image-box">
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80" alt="Casa Geometria Pura" class="residence-img" loading="lazy">
+              <div class="residence-badges">
+                <span class="badge-status">Disponível</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Metro Arquitetos
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <div class="residence-location">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <span>Planalto da Reserva, Lote 19</span>
+              </div>
+              <h2 class="residence-title">Casa Geometria Pura</h2>
+              <div class="residence-concept-tag">Linhas Claras & Ritmo Estrutural</div>
+              <p class="residence-excerpt">
+                Monumento residencial implantado em lote nobre de 2.100 m², com pergolados esculturais e contrastes de luz e sombra marcantes.
+              </p>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">780 m²</span></div>
+                <div class="spec-item"><span class="spec-text">5 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">2.100 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">6 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <button class="btn-memorial btn-open-memorial" data-house-id="casa-geometria-pura">
+                  <span>Conhecer Obra & Memorial</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         LINK: VOLTAR AO TOPO
+         ========================================================================== -->
+    <div class="back-to-top-section">
+      <a href="#top" class="back-to-top-link" aria-label="Voltar ao início da página">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+        <span>Voltar ao topo</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL: MEMORIAL DESCRITIVO & FICHA TÉCNICA
+       ========================================================================== -->
+  <div class="modal-overlay" id="residence-modal" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" id="modal-close-btn" aria-label="Fechar memorial">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="modal-header-visual">
+        <img src="" alt="" id="modal-image" class="modal-img">
+        <div class="modal-badge-float" id="modal-architect"></div>
+      </div>
+
+      <div class="modal-body-content">
+        <h3 class="modal-title" id="modal-title"></h3>
+        
+        <div class="modal-specs-grid">
+          <div class="modal-spec-box">
+            <span class="spec-label">Área Construída</span>
+            <span class="spec-val" id="modal-area"></span>
+          </div>
+          <div class="modal-spec-box">
+            <span class="spec-label">Configuração</span>
+            <span class="spec-val" id="modal-suites"></span>
+          </div>
+          <div class="modal-spec-box">
+            <span class="spec-label">Área do Lote</span>
+            <span class="spec-val" id="modal-land"></span>
+          </div>
+          <div class="modal-spec-box">
+            <span class="spec-label">Garagem Coberta</span>
+            <span class="spec-val" id="modal-garage"></span>
+          </div>
+        </div>
+
+        <div class="modal-narrative-section">
+          <h4>Conceito & Solução Arquitetônica</h4>
+          <p id="modal-desc"></p>
+        </div>
+
+        <div class="modal-materials-section">
+          <h4>Materialidade & Especificações de Prestígio</h4>
+          <div class="materials-tags-row" id="modal-materials"></div>
+        </div>
+
+        <div class="modal-highlight-box">
+          <div class="highlight-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+          </div>
+          <p id="modal-highlight"></p>
+        </div>
+
+        <div class="modal-actions-row">
+          <button class="btn-primary w-100" id="modal-interest-btn" style="justify-content: center;">
+            <span>Solicitar Memorial Completo & Agendar Visita</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MODAL: FORMULÁRIO DE CADASTRO / ESPECIALISTA MAXICON
+       ========================================================================== -->
+  <div class="whatsapp-modal-overlay" id="whatsapp-modal" aria-hidden="true">
+    <div class="whatsapp-modal-container" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title">
+      <button class="whatsapp-modal-close" id="whatsapp-modal-close-btn" aria-label="Fechar formulário">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="whatsapp-modal-header">
+        <div class="whatsapp-modal-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>ATENDIMENTO EXCLUSIVO</span>
+        </div>
+        <h3 class="whatsapp-modal-title" id="wa-modal-title">Fale com um Especialista BY ARCH</h3>
+        <p class="whatsapp-modal-subtitle">
+          Preencha seus dados para receber o memorial descritivo confidencial e agendar um atendimento personalizado com a equipe Maxicon.
+        </p>
+      </div>
+
+      <form class="whatsapp-modal-form" id="whatsapp-lead-form">
+        <div class="form-group">
+          <label for="wa-input-name" class="form-label">Nome Completo</label>
+          <input 
+            type="text" 
+            id="wa-input-name" 
+            class="form-control" 
+            placeholder="Como podemos lhe chamar?" 
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-email" class="form-label">E-mail</label>
+          <input 
+            type="email" 
+            id="wa-input-email" 
+            class="form-control" 
+            placeholder="Seu melhor e-mail institucional ou pessoal" 
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-phone" class="form-label">Telefone / WhatsApp</label>
+          <input 
+            type="tel" 
+            id="wa-input-phone" 
+            class="form-control" 
+            placeholder="(00) 00000-0000" 
+            required
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-interest" class="form-label">Residência de Maior Interesse</label>
+          <select id="wa-input-interest" class="form-control">
+            <option value="Coleção Geral BY ARCH">Coleção Geral BY ARCH</option>
+            <option value="Casa Pinha (Polesello + Müller)">Casa Pinha (Polesello + Müller)</option>
+            <option value="Casa Alva (Jéssika Neckel)">Casa Alva (Jéssika Neckel)</option>
+            <option value="Casa Horizonte (Studio Bernardes)">Casa Horizonte (Studio Bernardes)</option>
+            <option value="Casa Terra & Luz (FGMF)">Casa Terra & Luz (FGMF)</option>
+            <option value="Casa Brise Tropical (Jacobsen)">Casa Brise Tropical (Jacobsen)</option>
+            <option value="Casa Mirante da Mata (Studio MK27)">Casa Mirante da Mata (Studio MK27)</option>
+            <option value="Villa Sensória (Arthur Casas)">Villa Sensória (Arthur Casas)</option>
+            <option value="Casa Geometria Pura (Metro)">Casa Geometria Pura (Metro)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="whatsapp-modal-submit-btn" id="wa-submit-btn">
+          <span>Solicitar Atendimento & Memorial</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <p class="whatsapp-modal-privacy">
+          Seus dados estão protegidos por sigilo absoluto e serão utilizados exclusivamente pela Maxicon Incorporadora.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       RODAPÉ OFICIAL BY ARCH
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Lado Esquerdo: Logo BY ARCH e Links de Navegação -->
+        <div class="footer-left-col">
+          <a href="index.html" class="footer-logo-link" aria-label="BY ARCH Início">
+            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH — Maxicon Incorporadora" class="footer-logo-img">
+          </a>
+          <nav class="footer-nav" aria-label="Navegação do Rodapé">
+            <ul class="footer-links">
+              <li><a href="index.html#conceito" class="footer-link">O projeto</a></li>
+              <li><a href="casas.html" class="footer-link active">Casas</a></li>
+              <li><a href="index.html#arquitetos" class="footer-link">Arquitetos</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Lado Direito: Convite para Visita & CTA de Cadastro -->
+        <div class="footer-right-col">
+          <p class="footer-invite-text">
+            Agende uma visita na Maxicon e converse com nossa equipe de especialistas
+          </p>
+          <div class="footer-cta-wrap">
+            <button 
+              type="button" 
+              class="footer-cta-btn open-whatsapp-modal-trigger"
+              aria-label="Agendar com especialista Maxicon"
+            >
+              <span>Agendar com especialista</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-line">
+        <p class="footer-copy">
+          © 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH. — Arquitetura Autoral Contemporânea • Brasil
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js?v=5.1"></script>
+</body>
+</html>

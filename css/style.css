@@ -5870,6 +5870,139 @@ img, video, iframe, canvas {
   }
 }
 
+/* ==========================================================================
+   PÁGINA CATÁLOGO: TODAS AS CASAS (casas.html)
+   ========================================================================== */
+.catalog-hero-section {
+  padding-top: 130px;
+  padding-bottom: 24px;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.catalog-header {
+  max-width: 860px;
+  margin-bottom: 32px;
+}
+
+.catalog-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(18, 20, 23, 0.05);
+  border: 1px solid rgba(18, 20, 23, 0.12);
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-main);
+  margin-bottom: 16px;
+}
+
+.catalog-badge svg {
+  color: var(--color-gold, #c5a059);
+}
+
+.catalog-title {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  margin: 0 0 16px 0;
+}
+
+.catalog-subtitle {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
+  color: var(--text-muted);
+  line-height: 1.68;
+  max-width: 720px;
+  margin: 0 0 32px 0;
+}
+
+.catalog-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 24px 28px;
+  background: #f8f9fa;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 36px;
+}
+
+.catalog-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.catalog-metric-val {
+  font-family: var(--font-heading, 'Barlow', sans-serif);
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.catalog-metric-label {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.catalog-filter-bar {
+  margin-bottom: 36px;
+}
+
+.catalog-collection-section {
+  padding-bottom: 96px;
+}
+
+@media (max-width: 900px) {
+  .catalog-metrics-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .catalog-hero-section {
+    padding-top: 104px;
+    padding-bottom: 20px;
+  }
+  .catalog-metrics-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 16px;
+  }
+  .catalog-metric-val {
+    font-size: 1.4rem;
+  }
+  .catalog-metric-label {
+    font-size: 0.75rem;
+  }
+  .catalog-filter-bar .collection-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .catalog-filter-bar .filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
 
 
 
