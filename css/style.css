@@ -3221,6 +3221,8 @@ img, video, iframe, canvas {
   }
 
   .moments-stack-container:hover .moment-stack-card.is-active .moment-card-collapsed-label {
+    opacity: 0 !important;
+  }
 }
 
 @media (max-width: 576px) {
