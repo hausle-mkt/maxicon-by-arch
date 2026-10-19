@@ -2861,6 +2861,7 @@ img, video, iframe, canvas {
 .moments-header {
   margin-bottom: 40px;
   text-align: center;
+  padding: 0 24px;
 }
 
 .moments-main-title {
@@ -3119,6 +3120,13 @@ img, video, iframe, canvas {
 
   .moments-header {
     margin-bottom: 28px;
+    padding: 0 24px;
+  }
+
+  .moments-main-title {
+    font-size: clamp(1.45rem, 4.8vw, 1.95rem);
+    line-height: 1.25;
+    max-width: 92%;
   }
 
   .moments-stack-container {
@@ -3213,7 +3221,22 @@ img, video, iframe, canvas {
   }
 
   .moments-stack-container:hover .moment-stack-card.is-active .moment-card-collapsed-label {
-    opacity: 0 !important;
+}
+
+@media (max-width: 576px) {
+  .house-moments-section {
+    padding: 56px 0 48px 0;
+  }
+
+  .moments-header {
+    margin-bottom: 22px;
+    padding: 0 20px;
+  }
+
+  .moments-main-title {
+    font-size: clamp(1.3rem, 5.8vw, 1.65rem);
+    line-height: 1.25;
+    max-width: 100%;
   }
 }
 
