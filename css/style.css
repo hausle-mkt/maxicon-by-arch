@@ -5463,6 +5463,19 @@ img, video, iframe, canvas {
   justify-content: center;
 }
 
+/* Tag de Curadoria / Coleção no Topo da Coluna Editorial */
+.office-tag-label {
+  font-family: var(--font-body, 'Mulish', sans-serif);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #717682;
+  margin: 0 0 16px 0;
+  display: block;
+  line-height: 1.2;
+}
+
 .office-hero-header {
   margin-bottom: 24px;
 }
@@ -5490,24 +5503,24 @@ img, video, iframe, canvas {
 
 .office-hero-title {
   font-family: var(--font-heading, 'Barlow', sans-serif);
-  font-size: clamp(2.1rem, 3.4vw, 3.2rem);
+  font-size: clamp(1.95rem, 2.9vw, 2.75rem);
   font-weight: 700;
-  line-height: 1.08;
+  line-height: 1.14;
   letter-spacing: -0.025em;
   color: var(--text-main);
-  margin: 0;
+  margin: 0 0 22px 0;
 }
 
 .office-logo-box {
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   padding: 0;
   border: none;
 }
 
 .office-logo-img {
-  height: clamp(48px, 4.8vw, 68px);
+  height: clamp(36px, 3.8vw, 48px);
   width: auto;
-  max-width: 360px;
+  max-width: 270px;
   object-fit: contain;
   display: block;
 }
@@ -5816,21 +5829,11 @@ img, video, iframe, canvas {
   .office-hero-grid,
   .office-profile-grid {
     grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .office-content-col {
-    display: contents;
-  }
-
-  .office-hero-header {
-    order: 1;
-    margin-bottom: 24px;
+    gap: 32px;
   }
 
   .office-visual-col {
-    order: 2;
-    margin-bottom: 28px;
+    margin-bottom: 4px;
   }
 
   .office-photo-card {
@@ -5838,18 +5841,25 @@ img, video, iframe, canvas {
     margin: 0 auto;
   }
 
+  .office-content-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .office-tag-label {
+    margin-bottom: 14px;
+  }
+
   .office-logo-box {
-    order: 3;
+    margin-bottom: 18px;
+  }
+
+  .office-hero-title {
     margin-bottom: 18px;
   }
 
   .office-bio-text {
-    order: 4;
     margin-bottom: 22px;
-  }
-
-  .office-meta-grid {
-    order: 5;
   }
 
   .office-associated-card {
