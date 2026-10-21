@@ -26,7 +26,6 @@
     const totalNumEl = stage.querySelector('.arch-counter-total');
     const progressBar = stage.querySelector('.arch-progress-fill');
     const activeLabelEl = stage.querySelector('.arch-active-name');
-    const activeCityEl = stage.querySelector('.arch-active-city');
 
     if (!track || cards.length === 0) return;
 
@@ -188,25 +187,16 @@
         progressBar.style.width = `${progressPercent}%`;
       }
 
-      // Sincroniza nome e cidade do escritório ativo
+      // Sincroniza nome do escritório ativo
       const activeCard = cards[activeIndex];
       if (activeCard) {
         const name = activeCard.dataset.name || '';
-        const city = activeCard.dataset.city || '';
 
         if (activeLabelEl && activeLabelEl.textContent !== name) {
           activeLabelEl.style.opacity = '0';
           setTimeout(() => {
             activeLabelEl.textContent = name;
             activeLabelEl.style.opacity = '1';
-          }, 180);
-        }
-
-        if (activeCityEl && activeCityEl.textContent !== city) {
-          activeCityEl.style.opacity = '0';
-          setTimeout(() => {
-            activeCityEl.textContent = city;
-            activeCityEl.style.opacity = '1';
           }, 180);
         }
       }
