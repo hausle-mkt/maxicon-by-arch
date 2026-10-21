@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=5.5">
+  <link rel="stylesheet" href="css/style.css?v=5.9">
 </head>
 <body>
 
@@ -79,108 +79,66 @@
 
   <main>
     <!-- ==========================================================================
-         HERO SECTION (VistaHaven Style com Fillets Invertidos)
+         HERO SECTION — MAXICON BY ARCH | COLEÇÃO 2026
          ========================================================================== -->
-    <section id="hero" class="hero-section container">
-      <div class="hero-card">
-        <!-- Imagem de Fundo de Arquitetura de Alto Padrão -->
+    <section id="hero" class="hero-section" aria-label="Hero Maxicon By Arch">
+      <!-- Background com foto da portaria e filtro escuro cinematográfico -->
+      <div class="hero-bg-wrapper">
+        <picture>
+          <source srcset="assets/images/portaria-noah.webp" type="image/webp">
+          <img 
+            src="assets/images/portaria-noah.png" 
+            alt="Portaria do Noah Reserva Natural em Passo Fundo — Projeto BY ARCH por Maxicon Incorporadora" 
+            class="hero-bg-image"
+            loading="eager"
+            fetchpriority="high"
+          >
+        </picture>
+        <div class="hero-overlay-dark"></div>
+      </div>
+
+      <!-- Selo vertical suspenso no topo direito -->
+      <div class="hero-stamp" aria-hidden="true">
         <img 
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=85" 
-          alt="Residência Autoral BY ARCH - Arquitetura Contemporânea" 
-          class="hero-background-image"
+          src="assets/images/logo_barra04.png" 
+          alt="Selo Maxicon BY ARCH 2026" 
+          class="hero-stamp-img"
         >
-        <div class="hero-overlay-gradient"></div>
+      </div>
 
+      <!-- Conteúdo Principal do Hero (Alinhado à esquerda) -->
+      <div class="hero-inner-container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-            <span>Maxicon Incorporadora Apresenta</span>
-          </div>
+          <div class="hero-eyebrow">MAXICON BY ARCH | COLEÇÃO 2026</div>
 
-          <h1 class="hero-title">Onde o traço do arquiteto se torna o seu refúgio.</h1>
-          
+          <h1 class="hero-title">
+            Arquitetura fora do<br>
+            comum para um<br>
+            empreendimento<br>
+            extraordinário.
+          </h1>
+
           <p class="hero-desc">
-            Uma curadoria rara de residências de altíssimo padrão. Cada casa é uma obra de arte única, concebida pelos mais renomados escritórios de arquitetura contemporânea e executada com precisão absoluta.
+            Conheça uma coleção exclusiva de casas assinadas por escritórios de arquitetura de referência, concebidas especialmente para o Noah Reserva Natural, em Passo Fundo/RS.
           </p>
-
-          <div class="hero-buttons">
-            <a href="#colecao" class="button-primary light">
-              <span>Explorar a Coleção</span>
-              <span class="button-arrow">
-                <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
-                  <path d="M10 6v2h12.59L6 24.59L7.41 26L24 9.41V22h2V6z" fill="currentColor"/>
-                </svg>
-              </span>
-            </a>
-
-            <a href="#conceito" class="button-primary" style="background: rgba(255,255,255,0.18); backdrop-filter: blur(8px);">
-              <span>Conhecer o Manifesto</span>
-              <span class="button-arrow" style="background: rgba(255,255,255,0.25);">
-                <svg width="14" height="14" viewBox="0 0 32 32" fill="none">
-                  <path d="M14 26l1.41-1.41L7.83 17H28v-2H7.83l7.58-7.59L14 6L4 16l10 10z" fill="currentColor"/>
-                </svg>
-              </span>
-            </a>
-          </div>
-
-          <!-- Métricas Editoriais -->
-          <div class="hero-stats-grid">
-            <div class="hero-stat-item">
-              <div class="stat-number">12 <span>Obras</span></div>
-              <div class="stat-label">Edição Rara & Limitada</div>
-            </div>
-            <div class="hero-stat-item">
-              <div class="stat-number">4 <span>Estúdios</span></div>
-              <div class="stat-label">Assinaturas de Prestígio</div>
-            </div>
-            <div class="hero-stat-item">
-              <div class="stat-number">100% <span>Autoral</span></div>
-              <div class="stat-label">Plantas Exclusivas e Inéditas</div>
-            </div>
-          </div>
         </div>
+      </div>
 
-        <!-- Card Flutuante de Curadoria no Canto com Cantos Invertidos (VistaHaven) -->
-        <div class="hero-curator-card">
-          <!-- Inverted SVG Top Fillet -->
-          <svg class="corner-fillet-top" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0L0 20C0 8.95431 8.95431 0 20 0L0 0Z" fill="white"/>
+      <!-- Botões de Ação Centralizados no Rodapé do Hero -->
+      <div class="hero-bottom-actions">
+        <a href="casas.html" class="hero-btn hero-btn-solid" aria-label="Conheça as casas">
+          <span>Conheça as casas</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
           </svg>
-          <!-- Inverted SVG Left Fillet -->
-          <svg class="corner-fillet-left" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0L0 20C0 8.95431 8.95431 0 20 0L0 0Z" fill="white"/>
+        </a>
+
+        <a href="#conceito" class="hero-btn hero-btn-glass" aria-label="Entenda o projeto">
+          <span>Entenda o projeto</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
           </svg>
-
-          <div class="curator-avatars">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Arquiteto Parceiro" class="curator-avatar">
-          </div>
-
-          <div class="curator-info">
-            <div class="curator-badge-title">Curadoria Arquitetônica</div>
-            <div class="curator-rating-stars">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="m12 17.27l4.15 2.51c.76.46 1.69-.22 1.49-1.08l-1.1-4.72l3.67-3.18c.67-.58.31-1.68-.57-1.75l-4.83-.41l-1.89-4.46c-.34-.81-1.5-.81-1.84 0L9.19 8.63l-4.83.41c-.88.07-1.24 1.17-.57 1.75l3.67 3.18l-1.1 4.72c-.2.86.73 1.54 1.49 1.08z"/>
-              </svg>
-              <span class="curator-rating-score">4.9 / 5.0</span>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </section>
 
