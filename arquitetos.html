@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Os Escritórios de Arquitetura | BY ARCH Maxicon</title>
+  <meta name="description" content="Conheça os escritórios consagrados de arquitetura parceiros da Maxicon Incorporadora no projeto BY ARCH. Traços autorais que moldam o morar contemporâneo brasileiro.">
+  
+  <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Estilos Personalizados -->
+  <link rel="stylesheet" href="css/style.css?v=5.5">
+</head>
+<body id="top" class="arch-catalog-page">
+
+  <!-- ==========================================================================
+       NAVBAR (Padrão BY ARCH)
+       ========================================================================== -->
+  <header class="navbar-wrap">
+    <nav class="navbar" aria-label="Navegação Principal">
+      <a href="index.html" class="brand-wrap" aria-label="BY ARCH by Maxicon">
+        <img src="assets/images/logo03.png" alt="BY ARCH by Maxicon" class="brand-logo-img">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html#conceito" class="nav-link">O projeto</a></li>
+        <li><a href="casas.html" class="nav-link">Casas</a></li>
+        <li><a href="arquitetos.html" class="nav-link active">Arquitetos</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button type="button" class="nav-btn-whatsapp hide-mobile" id="open-whatsapp-modal" aria-label="Falar no WhatsApp">
+          <span class="whatsapp-icon-wrap">
+            <svg width="20" height="20" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+              <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+              <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+            </svg>
+          </span>
+          <span>Falar no WhatsApp</span>
+        </button>
+
+        <!-- Botão Menu Mobile -->
+        <button class="mobile-menu-btn" id="mobile-open-btn" aria-label="Abrir Menu">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Menu Mobile Overlay -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <button class="mobile-nav-close" id="mobile-close-btn" aria-label="Fechar Menu">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <a href="index.html" class="mobile-nav-link">Início</a>
+    <a href="index.html#conceito" class="mobile-nav-link">O projeto</a>
+    <a href="casas.html" class="mobile-nav-link">Casas</a>
+    <a href="arquitetos.html" class="mobile-nav-link active">Arquitetos</a>
+    <button type="button" class="mobile-nav-link mobile-whatsapp-cta open-whatsapp-modal-trigger" id="mobile-whatsapp-btn">
+      <span class="whatsapp-icon-wrap">
+        <svg width="22" height="22" viewBox="18 18 138 138" fill="none" aria-hidden="true">
+          <path fill="#25D366" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.313-6.179 22.558 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.517 31.126 8.523h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.928z"/>
+          <path fill="#ffffff" fill-rule="evenodd" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+        </svg>
+      </span>
+      <span>Falar no WhatsApp</span>
+    </button>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO DO CATÁLOGO DE ARQUITETOS
+         ========================================================================== -->
+    <section class="arch-hero-section">
+      <div class="container">
+        <!-- Trilha de Navegação -->
+        <nav class="office-breadcrumbs" aria-label="Trilha de Navegação">
+          <a href="index.html">Início</a>
+          <span class="sep">/</span>
+          <span aria-current="page">Escritórios de Arquitetura</span>
+        </nav>
+
+        <!-- Cabeçalho Principal -->
+        <div class="scroll-reveal">
+          <div class="arch-catalog-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span>OS MESTRES DO TRAÇO</span>
+          </div>
+          <h1 class="arch-catalog-title">Escritórios de Arquitetura</h1>
+          <p class="arch-catalog-subtitle">
+            Uma curadoria exclusiva de talentos consagrados que transformam sensibilidade estética, precisão construtiva e identidade em refúgios atemporais.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CARROSSEL 3D EM TRAJETÓRIA DIAGONAL
+         ========================================================================== -->
+    <section class="arch-diagonal-stage" aria-label="Carrossel tridimensional de escritórios de arquitetura" role="region">
+      
+      <!-- Palco 3D -->
+      <div class="arch-stage-container">
+        <div class="arch-track" id="arch-carousel-track">
+
+          <!-- 1. Jéssika Neckel Arquitetura -->
+          <article class="arch-card is-active" data-name="Jéssika Neckel" data-city="Passo Fundo — RS" data-index="0">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" 
+                alt="Projeto autoral por Jéssika Neckel Arquitetura de Interiores" 
+                class="arch-card-img"
+                loading="eager"
+              >
+              <span class="arch-card-tag">Casa Alva • Breve Lançamento</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/jessica-neckel.png" 
+                  alt="Logotipo oficial Jéssika Neckel" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-jessica-neckel.html" class="arch-card-cta" aria-label="Saiba mais sobre Jéssika Neckel">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Polesello + Müller Arquitetura -->
+          <article class="arch-card" data-name="Polesello + Müller" data-city="Passo Fundo — RS" data-index="1">
+            <div class="arch-card-media">
+              <img 
+                src="assets/casa-pinha/destaque.webp" 
+                alt="Casa Pinha — Residência autoral por Polesello + Müller" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Casa Pinha • Coleção 1</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/poleselo%2Bmuller.png" 
+                  alt="Logotipo oficial Polesello + Müller Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="casa-pinha.html" class="arch-card-cta" aria-label="Saiba mais sobre Polesello + Müller">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Deividy Morello Arquitetura -->
+          <article class="arch-card" data-name="Deividy Morello" data-city="Arquitetura Autoral" data-index="2">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85" 
+                alt="Projeto de arquitetura por Deividy Morello" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Volumes Puros & Concreto</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/deividy%20morello.png" 
+                  alt="Logotipo oficial Deividy Morello Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=deividy-morello" class="arch-card-cta" aria-label="Saiba mais sobre Deividy Morello">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Volo Arquitetura -->
+          <article class="arch-card" data-name="Volo Arquitetura" data-city="Design Contemporâneo" data-index="3">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=85" 
+                alt="Projeto por Volo Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Integração Paisagística</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/volo%20arquitetura.png" 
+                  alt="Logotipo oficial Volo Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=volo-arquitetura" class="arch-card-cta" aria-label="Saiba mais sobre Volo Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Zenital Studio -->
+          <article class="arch-card" data-name="Zenital Studio" data-city="Luz Natural & Geometria" data-index="4">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=85" 
+                alt="Obra de arquitetura por Zenital Studio" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Minimalismo Escultural</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/zenital%20studio.png" 
+                  alt="Logotipo oficial Zenital Studio" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=zenital-studio" class="arch-card-cta" aria-label="Saiba mais sobre Zenital Studio">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Lanza Kurtz Arquitetura -->
+          <article class="arch-card" data-name="Lanza Kurtz" data-city="Sofisticação Atemporal" data-index="5">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=85" 
+                alt="Residência de alto padrão por Lanza Kurtz Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Conforto & Elegância</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/lanza%20kurtz.png" 
+                  alt="Logotipo oficial Lanza Kurtz Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=lanza-kurtz" class="arch-card-cta" aria-label="Saiba mais sobre Lanza Kurtz">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Kaliah Arquitetura -->
+          <article class="arch-card" data-name="Kaliah Arquitetura" data-city="Design Biofílico" data-index="6">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1200&q=85" 
+                alt="Arquitetura contemporânea por Kaliah Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Beirais Flutuantes</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/kaliah.png" 
+                  alt="Logotipo oficial Kaliah Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=kaliah" class="arch-card-cta" aria-label="Saiba mais sobre Kaliah Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Shamma Arquitetura -->
+          <article class="arch-card" data-name="Shamma Arquitetura" data-city="Estrutura e Balanço" data-index="7">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85" 
+                alt="Residência contemporânea por Shamma Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Balanços Arrojados</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/shamma%20arquitetura.png" 
+                  alt="Logotipo oficial Shamma Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=shamma-arquitetura" class="arch-card-cta" aria-label="Saiba mais sobre Shamma Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Ichedid Arquitetura -->
+          <article class="arch-card" data-name="Ichedid Arquitetura" data-city="Texturas Puras & Aço" data-index="8">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85" 
+                alt="Mansão linear por Ichedid Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Pedra Natural & Metal</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/ichedid.png" 
+                  alt="Logotipo oficial Ichedid Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=ichedid" class="arch-card-cta" aria-label="Saiba mais sobre Ichedid Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Wobeto Arquitetura -->
+          <article class="arch-card" data-name="Wobeto Arquitetura" data-city="Harmonia Cosmopolita" data-index="9">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=85" 
+                alt="Residência autoral por Wobeto Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Madeira Nobre & Água</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/wobeto%20arquitetura.png" 
+                  alt="Logotipo oficial Wobeto Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=wobeto-arquitetura" class="arch-card-cta" aria-label="Saiba mais sobre Wobeto Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. VASTUO Arquitetura -->
+          <article class="arch-card" data-name="VASTUO Arquitetura" data-city="Amplitudes Monumentais" data-index="10">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?auto=format&fit=crop&w=1200&q=85" 
+                alt="Residência monumental por VASTUO Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Grandes Vãos Livres</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/VASTUO.png" 
+                  alt="Logotipo oficial VASTUO Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=vastuo" class="arch-card-cta" aria-label="Saiba mais sobre VASTUO Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12. W Arquitetura -->
+          <article class="arch-card" data-name="W Arquitetura" data-city="Linguagem Escultórica" data-index="11">
+            <div class="arch-card-media">
+              <img 
+                src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=85" 
+                alt="Pavilhão de luxo por W Arquitetura" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+              <span class="arch-card-tag">Pavilhão & Luz Dramática</span>
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/W.png" 
+                  alt="Logotipo oficial W Arquitetura" 
+                  class="arch-card-logo"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=w-arquitetura" class="arch-card-cta" aria-label="Saiba mais sobre W Arquitetura">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Barra de Controles, Indicador e Progresso Sincronizados -->
+      <div class="arch-controls-bar">
+        <div class="arch-counter" aria-label="Posição do carrossel">
+          <span class="arch-counter-current">01</span>
+          <span class="arch-counter-sep">/</span>
+          <span class="arch-counter-total">12</span>
+        </div>
+
+        <div class="arch-progress-wrap" role="progressbar" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+          <div class="arch-progress-fill"></div>
+        </div>
+
+        <div class="arch-active-meta">
+          <span class="arch-active-name">Jéssika Neckel</span>
+          <span class="arch-active-city">Passo Fundo — RS</span>
+        </div>
+
+        <div class="arch-nav-arrows">
+          <button type="button" class="arch-nav-btn prev" aria-label="Escritório Anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button type="button" class="arch-nav-btn next" aria-label="Próximo Escritório">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       MODAL DE INTERESSE & WHATSAPP
+       ========================================================================== -->
+  <div class="whatsapp-modal-overlay" id="whatsapp-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title">
+    <div class="whatsapp-modal-card">
+      <button type="button" class="whatsapp-modal-close" id="close-whatsapp-modal" aria-label="Fechar formulário">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="whatsapp-modal-header">
+        <div class="whatsapp-modal-badge">ATENDIMENTO EXCLUSIVO</div>
+        <h3 class="whatsapp-modal-title" id="wa-modal-title">Fale com um Especialista BY ARCH</h3>
+        <p class="whatsapp-modal-subtitle">
+          Preencha seus dados para receber o memorial descritivo completo ou agendar uma conversa privativa sobre os projetos autorais.
+        </p>
+      </div>
+
+      <form class="whatsapp-modal-form" id="whatsapp-form" novalidate>
+        <div class="form-group">
+          <label for="wa-input-name" class="form-label">Nome Completo</label>
+          <input 
+            type="text" 
+            id="wa-input-name" 
+            class="form-control" 
+            placeholder="Como podemos lhe chamar?" 
+            required
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-email" class="form-label">E-mail</label>
+          <input 
+            type="email" 
+            id="wa-input-email" 
+            class="form-control" 
+            placeholder="Seu melhor e-mail institucional ou pessoal" 
+            required
+            autocomplete="email"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-phone" class="form-label">Telefone / WhatsApp</label>
+          <input 
+            type="tel" 
+            id="wa-input-phone" 
+            class="form-control" 
+            placeholder="(00) 00000-0000" 
+            required
+            autocomplete="tel"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="wa-input-interest" class="form-label">Escritório ou Projeto de Interesse</label>
+          <select id="wa-input-interest" class="form-control">
+            <option value="Coleção Geral BY ARCH">Coleção Geral de Arquitetos BY ARCH</option>
+            <option value="Jéssika Neckel (Casa Alva)">Jéssika Neckel (Casa Alva)</option>
+            <option value="Polesello + Müller (Casa Pinha)">Polesello + Müller (Casa Pinha)</option>
+            <option value="Deividy Morello">Deividy Morello Arquitetura</option>
+            <option value="Volo Arquitetura">Volo Arquitetura</option>
+            <option value="Zenital Studio">Zenital Studio</option>
+            <option value="Lanza Kurtz">Lanza Kurtz Arquitetura</option>
+            <option value="Kaliah Arquitetura">Kaliah Arquitetura</option>
+            <option value="Shamma Arquitetura">Shamma Arquitetura</option>
+            <option value="Ichedid Arquitetura">Ichedid Arquitetura</option>
+            <option value="Wobeto Arquitetura">Wobeto Arquitetura</option>
+            <option value="VASTUO Arquitetura">VASTUO Arquitetura</option>
+            <option value="W Arquitetura">W Arquitetura</option>
+          </select>
+        </div>
+
+        <button type="submit" class="whatsapp-modal-submit-btn" id="wa-submit-btn">
+          <span>Solicitar Atendimento</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <p class="whatsapp-modal-privacy">
+          Seus dados estão protegidos por sigilo absoluto e serão utilizados exclusivamente pela Maxicon Incorporadora.
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       RODAPÉ OFICIAL BY ARCH
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Lado Esquerdo: Logo BY ARCH e Links de Navegação -->
+        <div class="footer-left-col">
+          <a href="index.html" class="footer-logo-link" aria-label="BY ARCH Início">
+            <img src="assets/images/BY-ARCH-HORIZONTAL.png" alt="BY ARCH — Maxicon Incorporadora" class="footer-logo-img">
+          </a>
+          <nav class="footer-nav" aria-label="Navegação do Rodapé">
+            <ul class="footer-links">
+              <li><a href="index.html#conceito" class="footer-link">O projeto</a></li>
+              <li><a href="casas.html" class="footer-link">Casas</a></li>
+              <li><a href="arquitetos.html" class="footer-link active">Arquitetos</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Lado Direito: Convite para Visita & CTA de Cadastro -->
+        <div class="footer-right-col">
+          <p class="footer-invite-text">
+            Agende uma visita na Maxicon e converse com nossa equipe de especialistas
+          </p>
+          <div class="footer-cta-wrap">
+            <button 
+              type="button" 
+              class="footer-cta-btn open-whatsapp-modal-trigger"
+              aria-label="Agendar com especialista Maxicon"
+            >
+              <span>Agendar com especialista</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-line">
+        <p class="footer-copy">
+          © 2026 Maxicon Incorporadora. Todos os direitos reservados. Projeto BY ARCH. — Arquitetura Autoral Contemporânea • Brasil
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js?v=5.1"></script>
+  <script src="js/diagonal-carousel.js?v=1.0"></script>
+</body>
+</html>
