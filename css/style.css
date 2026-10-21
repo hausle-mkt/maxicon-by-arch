@@ -6241,19 +6241,34 @@ img, video, iframe, canvas {
 }
 
 .arch-card-logo-wrap {
-  height: 42px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .arch-card-logo {
-  max-height: 38px;
-  max-width: 240px;
+  max-height: 40px;
+  max-width: 250px;
   width: auto;
   object-fit: contain;
   object-position: left center;
   display: block;
+}
+
+.arch-card-logo.is-larger,
+.arch-card-logo[src*="kaliah"],
+.arch-card-logo[src*="deividy"] {
+  max-height: 48px;
+  max-width: 260px;
+  transform: scale(1.15);
+  transform-origin: left center;
+}
+
+.arch-card-logo[src*="ichedid"] {
+  max-height: 48px;
+  transform: scale(1.22);
+  transform-origin: left center;
 }
 
 .arch-card-cta-row {
@@ -6499,9 +6514,28 @@ img, video, iframe, canvas {
     min-height: 120px;
   }
 
+  .arch-card-logo-wrap {
+    height: 44px;
+  }
+
   .arch-card-logo {
-    max-height: 34px;
-    max-width: 180px;
+    max-height: 36px;
+    max-width: 190px;
+  }
+
+  .arch-card-logo.is-larger,
+  .arch-card-logo[src*="kaliah"],
+  .arch-card-logo[src*="deividy"] {
+    max-height: 42px;
+    max-width: 210px;
+    transform: scale(1.12);
+    transform-origin: left center;
+  }
+
+  .arch-card-logo[src*="ichedid"] {
+    max-height: 44px;
+    transform: scale(1.18);
+    transform-origin: left center;
   }
 
   .arch-controls-bar {

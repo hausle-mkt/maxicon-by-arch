@@ -31,6 +31,16 @@
 
     const total = cards.length;
     let activeIndex = 0;
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cardParam = urlParams.get('card');
+      if (cardParam !== null) {
+        const parsed = parseInt(cardParam, 10);
+        if (!isNaN(parsed) && parsed >= 0 && parsed < total) {
+          activeIndex = parsed;
+        }
+      }
+    } catch (_) {}
     let isAnimating = false;
     const animationDuration = 650; // ms
 
