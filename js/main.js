@@ -191,18 +191,81 @@ document.addEventListener("DOMContentLoaded", () => {
   initHousesCarousel();
 });
 
-/* Controle do Carrossel Auto-Scroll de Casas */
+/* Controle do Carrossel de Casas (Setas Laterais Discretas no Desktop & Touch Swipe no Mobile) */
 function initHousesCarousel() {
-  const track = document.querySelector(".houses-carousel-track");
-  if (!track) return;
+  const wrapper = document.getElementById("houses-carousel-wrapper");
+  const prevBtn = document.getElementById("houses-carousel-prev");
+  const nextBtn = document.getElementById("houses-carousel-next");
+  if (!wrapper) return;
 
-  track.addEventListener("touchstart", () => {
-    track.style.animationPlayState = "paused";
-  }, { passive: true });
+  function getScrollStep() {
+    const card = wrapper.querySelector(".house-carousel-card");
+    const cardWidth = card ? card.offsetWidth : 320;
+    return (cardWidth + 16) * 1.5;
+  }
 
-  track.addEventListener("touchend", () => {
-    track.style.animationPlayState = "running";
-  }, { passive: true });
+  function updateArrowStates() {
+    if (!prevBtn || !nextBtn) return;
+    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+    prevBtn.classList.toggle("is-disabled", wrapper.scrollLeft <= 8);
+    nextBtn.classList.toggle("is-disabled", wrapper.scrollLeft >= maxScroll - 8);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      wrapper.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      wrapper.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+    });
+  }
+
+  wrapper.addEventListener("scroll", updateArrowStates, { passive: true });
+  window.addEventListener("resize", updateArrowStates, { passive: true });
+  updateArrowStates();
+
+  // Arraste com o mouse no Desktop
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  let hasMoved = false;
+
+  wrapper.addEventListener("mousedown", (e) => {
+    isDown = true;
+    hasMoved = false;
+    wrapper.classList.add("is-dragging");
+    startX = e.pageX - wrapper.offsetLeft;
+    scrollLeft = wrapper.scrollLeft;
+  });
+
+  window.addEventListener("mouseup", () => {
+    if (!isDown) return;
+    isDown = false;
+    wrapper.classList.remove("is-dragging");
+  });
+
+  wrapper.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    const x = e.pageX - wrapper.offsetLeft;
+    const walk = (x - startX) * 1.4;
+    if (Math.abs(walk) > 5) {
+      hasMoved = true;
+      e.preventDefault();
+      wrapper.scrollLeft = scrollLeft - walk;
+    }
+  });
+
+  // Evita disparar clique no link do card ao arrastar com mouse
+  wrapper.addEventListener("click", (e) => {
+    if (hasMoved) {
+      e.preventDefault();
+      e.stopPropagation();
+      hasMoved = false;
+    }
+  }, true);
 }
 
 /* Efeitos de Scroll Reveal (Surgimento suave ao rolar a página) */

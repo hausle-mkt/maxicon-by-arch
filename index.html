@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=6.3">
+  <link rel="stylesheet" href="css/style.css?v=6.4">
 </head>
 <body>
 
@@ -165,11 +165,21 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO 03: CARROSSEL AUTO-SCROLL DE CASAS AUTORAIS
+         SEÇÃO 03: CARROSSEL DE CASAS AUTORAIS (COM NAVEGAÇÃO POR SETAS E SWIPE)
          ========================================================================== -->
     <section id="colecao" class="houses-carousel-section" aria-label="Coleção de Casas By Arch">
-      <div class="houses-carousel-wrapper">
-        <div class="houses-carousel-track">
+      <div class="houses-carousel-container">
+
+        <!-- Botão Seta Anterior (Desktop) -->
+        <button type="button" class="houses-nav-btn prev" id="houses-carousel-prev" aria-label="Ver casas anteriores">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <!-- Trilha com Rolagem Suave -->
+        <div class="houses-carousel-wrapper" id="houses-carousel-wrapper">
+          <div class="houses-carousel-track" id="houses-carousel-track">
           <!-- Casa Pinha (Polesello + Müller) -->
           <a href="casa-pinha.html" class="house-carousel-card" aria-label="Casa Pinha por Polesello + Müller">
             <img src="assets/casa-pinha/destaque.webp" alt="Casa Pinha — Polesello + Müller" class="house-card-img" loading="lazy">
@@ -182,7 +192,6 @@
               <span>Casa</span>
               <span>Pinha</span>
                 </h3>
-                <p class="house-card-architect">Polesello + Müller</p>
               </div>
             </div>
           </a>
@@ -198,7 +207,6 @@
               <span>Casa</span>
               <span>Origem</span>
                 </h3>
-                <p class="house-card-architect">Deividy Morello</p>
               </div>
             </div>
           </a>
@@ -214,7 +222,6 @@
               <span>Casa</span>
               <span>Alva</span>
                 </h3>
-                <p class="house-card-architect">Jéssika Neckel</p>
               </div>
             </div>
           </a>
@@ -230,7 +237,6 @@
               <span>Casa</span>
               <span>Araxá</span>
                 </h3>
-                <p class="house-card-architect">Ichedid Arquitetura</p>
               </div>
             </div>
           </a>
@@ -246,7 +252,6 @@
               <span>Casa</span>
               <span>Atempora</span>
                 </h3>
-                <p class="house-card-architect">Lanza Kurtz</p>
               </div>
             </div>
           </a>
@@ -262,7 +267,6 @@
               <span>Casa</span>
               <span>Paseo.</span>
                 </h3>
-                <p class="house-card-architect">Volo Arquitetura</p>
               </div>
             </div>
           </a>
@@ -278,7 +282,6 @@
               <span>Casa</span>
               <span>Reserva da Mata</span>
                 </h3>
-                <p class="house-card-architect">Zenital Studio</p>
               </div>
             </div>
           </a>
@@ -294,7 +297,6 @@
               <span>Casa</span>
               <span>Tempo</span>
                 </h3>
-                <p class="house-card-architect">VASTUO Arquitetura</p>
               </div>
             </div>
           </a>
@@ -310,7 +312,6 @@
               <span>Casa</span>
               <span>Terra</span>
                 </h3>
-                <p class="house-card-architect">Shamma Arquitetura</p>
               </div>
             </div>
           </a>
@@ -326,7 +327,6 @@
               <span>Casa</span>
               <span>Mirador</span>
                 </h3>
-                <p class="house-card-architect">Kaliah Arquitetura</p>
               </div>
             </div>
           </a>
@@ -342,7 +342,6 @@
               <span>Casa</span>
               <span>Fleur</span>
                 </h3>
-                <p class="house-card-architect">Wobeto Arquitetura</p>
               </div>
             </div>
           </a>
@@ -352,13 +351,12 @@
             <div class="house-card-overlay">
               <div class="house-card-overlay-content">
                 <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/bassani%2Bmiranda.png" alt="Logotipo Bassani+Miranda" class="house-card-logo" loading="lazy">
+                  <img src="assets/ESCRITORIOS%20LOGO/bassani%2Bmiranda.png" alt="Logotipo Bassani+Miranda" class="house-card-logo is-larger" loading="lazy">
                 </div>
                 <h3 class="house-card-title">
               <span>Casa</span>
               <span>Raízes</span>
                 </h3>
-                <p class="house-card-architect">Bassani+Miranda</p>
               </div>
             </div>
           </a>
@@ -374,219 +372,19 @@
               <span>Casa</span>
               <span>Zyma</span>
                 </h3>
-                <p class="house-card-architect">W. Arquitetura</p>
               </div>
             </div>
           </a>
-          <!-- Casa Pinha (Polesello + Müller) -->
-          <a href="casa-pinha.html" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Pinha por Polesello + Müller">
-            <img src="assets/casa-pinha/destaque.webp" alt="Casa Pinha — Polesello + Müller" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/polesello%2Bmuller2.png" alt="Logotipo Polesello + Müller" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Pinha</span>
-                </h3>
-                <p class="house-card-architect">Polesello + Müller</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Origem (Deividy Morello) -->
-          <a href="escritorio-template.html?office=deividy-morello" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Origem por Deividy Morello">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20deividy%20morello.webp" alt="Casa Origem — Deividy Morello" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/deividy%20morello.png" alt="Logotipo Deividy Morello" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Origem</span>
-                </h3>
-                <p class="house-card-architect">Deividy Morello</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Alva (Jéssika Neckel) -->
-          <a href="escritorio-jessica-neckel.html" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Alva por Jéssika Neckel">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20jessica%20neckel.webp" alt="Casa Alva — Jéssika Neckel" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/jessica-neckel.png" alt="Logotipo Jéssika Neckel" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Alva</span>
-                </h3>
-                <p class="house-card-architect">Jéssika Neckel</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Araxá (Ichedid Arquitetura) -->
-          <a href="escritorio-template.html?office=ichedid" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Araxá por Ichedid Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20ichedid.webp" alt="Casa Araxá — Ichedid Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/ichedid.png" alt="Logotipo Ichedid Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Araxá</span>
-                </h3>
-                <p class="house-card-architect">Ichedid Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Atempora (Lanza Kurtz) -->
-          <a href="escritorio-template.html?office=lanza-kurtz" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Atempora por Lanza Kurtz">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20lanza%20kurtz.webp" alt="Casa Atempora — Lanza Kurtz" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/lanza%20kurtz.png" alt="Logotipo Lanza Kurtz" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Atempora</span>
-                </h3>
-                <p class="house-card-architect">Lanza Kurtz</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Paseo. (Volo Arquitetura) -->
-          <a href="escritorio-template.html?office=volo-arquitetura" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Paseo. por Volo Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20volo.webp" alt="Casa Paseo. — Volo Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/volo%20arquitetura.png" alt="Logotipo Volo Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Paseo.</span>
-                </h3>
-                <p class="house-card-architect">Volo Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Reserva da Mata (Zenital Studio) -->
-          <a href="escritorio-template.html?office=zenital-studio" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Reserva da Mata por Zenital Studio">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20zenital%20studio.webp" alt="Casa Reserva da Mata — Zenital Studio" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/zenital%20studio.png" alt="Logotipo Zenital Studio" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title is-long-title">
-              <span>Casa</span>
-              <span>Reserva da Mata</span>
-                </h3>
-                <p class="house-card-architect">Zenital Studio</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Tempo (VASTUO Arquitetura) -->
-          <a href="escritorio-template.html?office=vastuo" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Tempo por VASTUO Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20vastuo.webp" alt="Casa Tempo — VASTUO Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/VASTUO.png" alt="Logotipo VASTUO Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Tempo</span>
-                </h3>
-                <p class="house-card-architect">VASTUO Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Terra (Shamma Arquitetura) -->
-          <a href="escritorio-template.html?office=shamma-arquitetura" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Terra por Shamma Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20shamma.webp" alt="Casa Terra — Shamma Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/shamma%20arquitetura.png" alt="Logotipo Shamma Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Terra</span>
-                </h3>
-                <p class="house-card-architect">Shamma Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Mirador (Kaliah Arquitetura) -->
-          <a href="escritorio-template.html?office=kaliah" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Mirador por Kaliah Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20kaliah.webp" alt="Casa Mirador — Kaliah Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/kaliah.png" alt="Logotipo Kaliah Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Mirador</span>
-                </h3>
-                <p class="house-card-architect">Kaliah Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Fleur (Wobeto Arquitetura) -->
-          <a href="escritorio-template.html?office=wobeto-arquitetura" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Fleur por Wobeto Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20wobeto.webp" alt="Casa Fleur — Wobeto Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/wobeto%20arquitetura.png" alt="Logotipo Wobeto Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Fleur</span>
-                </h3>
-                <p class="house-card-architect">Wobeto Arquitetura</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Raízes (Bassani+Miranda) -->
-          <a href="escritorio-template.html?office=bassani-miranda" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Raízes por Bassani+Miranda">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20bassani%2Bmiranda.webp" alt="Casa Raízes — Bassani+Miranda" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/bassani%2Bmiranda.png" alt="Logotipo Bassani+Miranda" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Raízes</span>
-                </h3>
-                <p class="house-card-architect">Bassani+Miranda</p>
-              </div>
-            </div>
-          </a>
-          <!-- Casa Zyma (W. Arquitetura) -->
-          <a href="escritorio-template.html?office=w-arquitetura" class="house-carousel-card" aria-hidden="true" tabindex="-1" aria-label="Casa Zyma por W. Arquitetura">
-            <img src="assets/ESCRITORIOS%20LOGO/casa%20w.webp" alt="Casa Zyma — W. Arquitetura" class="house-card-img" loading="lazy">
-            <div class="house-card-overlay">
-              <div class="house-card-overlay-content">
-                <div class="house-card-logo-wrap">
-                  <img src="assets/ESCRITORIOS%20LOGO/W.png" alt="Logotipo W. Arquitetura" class="house-card-logo" loading="lazy">
-                </div>
-                <h3 class="house-card-title">
-              <span>Casa</span>
-              <span>Zyma</span>
-                </h3>
-                <p class="house-card-architect">W. Arquitetura</p>
-              </div>
-            </div>
-          </a>
+          </div>
         </div>
+
+        <!-- Botão Seta Próxima (Desktop) -->
+        <button type="button" class="houses-nav-btn next" id="houses-carousel-next" aria-label="Ver próximas casas">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+
       </div>
 
       <!-- CTA Inferior para o Catálogo de Casas -->
@@ -1103,6 +901,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=5.4"></script>
+  <script src="js/main.js?v=5.5"></script>
 </body>
 </html>

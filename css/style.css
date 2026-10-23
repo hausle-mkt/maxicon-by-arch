@@ -755,7 +755,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 /* ==========================================================================
-   SEÇÃO 03: CARROSSEL AUTO-SCROLL DE CASAS AUTORAIS
+   SEÇÃO 03: CARROSSEL DE CASAS AUTORAIS (COM SETAS E SWIPE)
    ========================================================================== */
 .houses-carousel-section {
   background: #f2f2f2;
@@ -765,34 +765,89 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   position: relative;
 }
 
+.houses-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Setas de Navegação Laterais Discretas (Desktop) */
+.houses-nav-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  color: #111418;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.houses-nav-btn.prev {
+  left: clamp(16px, 3.5vw, 48px);
+}
+
+.houses-nav-btn.next {
+  right: clamp(16px, 3.5vw, 48px);
+}
+
+.houses-nav-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.houses-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.houses-nav-btn.is-disabled,
+.houses-nav-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Trilha com Scroll Horizontal Suave */
 .houses-carousel-wrapper {
   width: 100%;
-  overflow: hidden;
-  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding: 12px 0 44px 0;
+  cursor: grab;
+  scroll-padding: 0 clamp(24px, 5.5vw, 80px);
+}
+
+.houses-carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.houses-carousel-wrapper.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
 }
 
 .houses-carousel-track {
   display: flex;
   gap: 16px;
   width: max-content;
-  animation: houseCarouselAutoScroll 52s linear infinite;
-  will-change: transform;
-}
-
-/* Pausa no hover para permitir clique e leitura confortáveis */
-.houses-carousel-wrapper:hover .houses-carousel-track,
-.houses-carousel-wrapper:focus-within .houses-carousel-track {
-  animation-play-state: paused;
-}
-
-@keyframes houseCarouselAutoScroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
+  padding: 0 clamp(24px, 5.5vw, 80px);
+  scroll-snap-type: x mandatory;
 }
 
 /* Card Individual da Casa */
@@ -807,6 +862,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   border-radius: 0px;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  scroll-snap-align: start;
 }
 
 .house-card-img {
@@ -863,32 +919,40 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
 /* Logotipo do Escritório */
 .house-card-logo-wrap {
-  margin-bottom: 16px;
-  height: 38px;
+  margin-bottom: 18px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .house-card-logo {
-  max-height: 36px;
+  max-height: 38px;
   max-width: 140px;
   width: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.95;
-  transition: opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Destaque Maior para Logotipo Bassani+Miranda */
+.house-card-logo.is-larger,
+.house-card-logo[src*="bassani"] {
+  max-height: 52px;
+  max-width: 185px;
+  transform: scale(1.35);
 }
 
 /* Nome da Casa */
 .house-card-title {
   font-family: var(--font-heading);
-  font-size: clamp(2.1rem, 2.7vw, 2.65rem);
+  font-size: clamp(2.15rem, 2.7vw, 2.7rem);
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -0.025em;
   color: #ffffff;
-  margin: 0 0 10px 0;
+  margin: 0;
   text-transform: none;
 }
 
@@ -899,17 +963,6 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 .house-card-title.is-long-title {
   font-size: clamp(1.65rem, 2.1vw, 2rem);
   line-height: 1.1;
-}
-
-/* Nome do Escritório */
-.house-card-architect {
-  font-family: var(--font-heading);
-  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
-  font-style: italic;
-  font-weight: 500;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.01em;
 }
 
 /* CTA Inferior: Botão Conhecer todas as casas */
@@ -954,60 +1007,55 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   transform: translate(3px, -3px);
 }
 
-/* Responsividade Mobile e Acessibilidade */
-@media (max-width: 768px) {
+/* Responsividade Mobile e Tablet: Arraste com o Dedo (Swipe Nativo) */
+@media (max-width: 900px) {
+  /* Setas ocultas no mobile - navegação por swipe touch */
+  .houses-nav-btn {
+    display: none !important;
+  }
+
   .houses-carousel-section {
     padding-bottom: 50px;
   }
 
   .houses-carousel-wrapper {
-    padding-bottom: 30px;
+    padding: 10px 0 32px 0;
+    scroll-padding: 0 20px;
   }
 
   .houses-carousel-track {
     gap: 12px;
-    animation-duration: 40s;
+    padding: 0 20px;
   }
 
   .house-carousel-card {
-    flex: 0 0 250px;
-    height: 320px;
+    flex: 0 0 260px;
+    height: 330px;
   }
 
   .house-card-title {
-    font-size: 1.85rem;
+    font-size: 1.95rem;
   }
 
   .house-card-title.is-long-title {
-    font-size: 1.45rem;
-  }
-
-  .house-card-architect {
-    font-size: 0.98rem;
+    font-size: 1.5rem;
   }
 
   .house-card-logo {
-    max-height: 28px;
-    max-width: 110px;
+    max-height: 32px;
+    max-width: 120px;
+  }
+
+  .house-card-logo.is-larger,
+  .house-card-logo[src*="bassani"] {
+    max-height: 44px;
+    max-width: 155px;
+    transform: scale(1.28);
   }
 
   .houses-carousel-btn {
     padding: 14px 28px;
     font-size: 0.9rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .houses-carousel-track {
-    animation: none !important;
-  }
-  .houses-carousel-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-  .house-carousel-card {
-    scroll-snap-align: start;
   }
 }
 
