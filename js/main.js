@@ -188,7 +188,22 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initWhatsAppModal();
   initScrollReveal();
+  initHousesCarousel();
 });
+
+/* Controle do Carrossel Auto-Scroll de Casas */
+function initHousesCarousel() {
+  const track = document.querySelector(".houses-carousel-track");
+  if (!track) return;
+
+  track.addEventListener("touchstart", () => {
+    track.style.animationPlayState = "paused";
+  }, { passive: true });
+
+  track.addEventListener("touchend", () => {
+    track.style.animationPlayState = "running";
+  }, { passive: true });
+}
 
 /* Efeitos de Scroll Reveal (Surgimento suave ao rolar a página) */
 function initScrollReveal() {

@@ -755,6 +755,263 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 /* ==========================================================================
+   SEÇÃO 03: CARROSSEL AUTO-SCROLL DE CASAS AUTORAIS
+   ========================================================================== */
+.houses-carousel-section {
+  background: #f2f2f2;
+  width: 100%;
+  padding: 0 0 clamp(64px, 7.5vw, 96px) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.houses-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 12px 0 44px 0;
+}
+
+.houses-carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: houseCarouselAutoScroll 52s linear infinite;
+  will-change: transform;
+}
+
+/* Pausa no hover para permitir clique e leitura confortáveis */
+.houses-carousel-wrapper:hover .houses-carousel-track,
+.houses-carousel-wrapper:focus-within .houses-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes houseCarouselAutoScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Card Individual da Casa */
+.house-carousel-card {
+  position: relative;
+  flex: 0 0 clamp(290px, 23vw, 340px);
+  height: clamp(370px, 29vw, 430px);
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  background: #111418;
+  border-radius: 0px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.house-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s ease;
+}
+
+/* Overlay Escurecido que surge no Hover */
+.house-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.house-carousel-card:hover .house-card-overlay,
+.house-carousel-card:focus-visible .house-card-overlay,
+.house-carousel-card.is-hovered .house-card-overlay {
+  opacity: 1;
+}
+
+.house-carousel-card:hover .house-card-img,
+.house-carousel-card.is-hovered .house-card-img {
+  transform: scale(1.05);
+}
+
+.house-card-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(12px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.house-carousel-card:hover .house-card-overlay-content,
+.house-carousel-card:focus-visible .house-card-overlay-content,
+.house-carousel-card.is-hovered .house-card-overlay-content {
+  transform: translateY(0);
+}
+
+/* Logotipo do Escritório */
+.house-card-logo-wrap {
+  margin-bottom: 16px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.house-card-logo {
+  max-height: 36px;
+  max-width: 140px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+/* Nome da Casa */
+.house-card-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 2.7vw, 2.65rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  text-transform: none;
+}
+
+.house-card-title span {
+  display: block;
+}
+
+.house-card-title.is-long-title {
+  font-size: clamp(1.65rem, 2.1vw, 2rem);
+  line-height: 1.1;
+}
+
+/* Nome do Escritório */
+.house-card-architect {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.25vw, 1.22rem);
+  font-style: italic;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* CTA Inferior: Botão Conhecer todas as casas */
+.houses-carousel-cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.houses-carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #000000;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.houses-carousel-btn:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  color: #ffffff;
+}
+
+.houses-carousel-btn svg {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.houses-carousel-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
+/* Responsividade Mobile e Acessibilidade */
+@media (max-width: 768px) {
+  .houses-carousel-section {
+    padding-bottom: 50px;
+  }
+
+  .houses-carousel-wrapper {
+    padding-bottom: 30px;
+  }
+
+  .houses-carousel-track {
+    gap: 12px;
+    animation-duration: 40s;
+  }
+
+  .house-carousel-card {
+    flex: 0 0 250px;
+    height: 320px;
+  }
+
+  .house-card-title {
+    font-size: 1.85rem;
+  }
+
+  .house-card-title.is-long-title {
+    font-size: 1.45rem;
+  }
+
+  .house-card-architect {
+    font-size: 0.98rem;
+  }
+
+  .house-card-logo {
+    max-height: 28px;
+    max-width: 110px;
+  }
+
+  .houses-carousel-btn {
+    padding: 14px 28px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .houses-carousel-track {
+    animation: none !important;
+  }
+  .houses-carousel-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .house-carousel-card {
+    scroll-snap-align: start;
+  }
+}
+
+/* ==========================================================================
    SEÇÃO: COLEÇÃO DE RESIDÊNCIAS (PROPRIEDADES AUTORAIS)
    ========================================================================== */
 .collection-section {
