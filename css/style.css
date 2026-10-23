@@ -829,7 +829,8 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   -ms-overflow-style: none;
   padding: 12px 0 44px 0;
   cursor: grab;
-  scroll-padding: 0 clamp(24px, 5.5vw, 80px);
+  overscroll-behavior-x: contain;
+  scroll-snap-type: none;
 }
 
 .houses-carousel-wrapper::-webkit-scrollbar {
@@ -847,7 +848,6 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   gap: 16px;
   width: max-content;
   padding: 0 clamp(24px, 5.5vw, 80px);
-  scroll-snap-type: x mandatory;
 }
 
 /* Card Individual da Casa */
@@ -862,7 +862,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   border-radius: 0px;
   cursor: pointer;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  scroll-snap-align: start;
+  scroll-snap-align: none;
 }
 
 .house-card-img {
@@ -1021,6 +1021,8 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   .houses-carousel-wrapper {
     padding: 10px 0 32px 0;
     scroll-padding: 0 20px;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
   }
 
   .houses-carousel-track {
@@ -1031,6 +1033,11 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   .house-carousel-card {
     flex: 0 0 260px;
     height: 330px;
+    scroll-snap-align: start;
+  }
+
+  .house-carousel-card:last-child {
+    scroll-snap-align: end;
   }
 
   .house-card-title {

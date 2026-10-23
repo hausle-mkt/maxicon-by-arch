@@ -198,6 +198,10 @@ function initHousesCarousel() {
   const nextBtn = document.getElementById("houses-carousel-next");
   if (!wrapper) return;
 
+  function getMaxScroll() {
+    return Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
+  }
+
   function getScrollStep() {
     const card = wrapper.querySelector(".house-carousel-card");
     const cardWidth = card ? card.offsetWidth : 320;
@@ -206,25 +210,31 @@ function initHousesCarousel() {
 
   function updateArrowStates() {
     if (!prevBtn || !nextBtn) return;
-    const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
-    prevBtn.classList.toggle("is-disabled", wrapper.scrollLeft <= 8);
-    nextBtn.classList.toggle("is-disabled", wrapper.scrollLeft >= maxScroll - 8);
+    const maxScroll = getMaxScroll();
+    prevBtn.classList.toggle("is-disabled", wrapper.scrollLeft <= 4);
+    nextBtn.classList.toggle("is-disabled", wrapper.scrollLeft >= maxScroll - 4);
   }
 
   if (prevBtn) {
     prevBtn.addEventListener("click", () => {
-      wrapper.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
+      if (wrapper.scrollLeft <= 2) return;
+      const target = Math.max(wrapper.scrollLeft - getScrollStep(), 0);
+      wrapper.scrollTo({ left: target, behavior: "smooth" });
     });
   }
 
   if (nextBtn) {
     nextBtn.addEventListener("click", () => {
-      wrapper.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+      const maxScroll = getMaxScroll();
+      if (wrapper.scrollLeft >= maxScroll - 2) return;
+      const target = Math.min(wrapper.scrollLeft + getScrollStep(), maxScroll);
+      wrapper.scrollTo({ left: target, behavior: "smooth" });
     });
   }
 
   wrapper.addEventListener("scroll", updateArrowStates, { passive: true });
   window.addEventListener("resize", updateArrowStates, { passive: true });
+  window.addEventListener("load", updateArrowStates, { passive: true });
   updateArrowStates();
 
   // Arraste com o mouse no Desktop
@@ -250,11 +260,14 @@ function initHousesCarousel() {
   wrapper.addEventListener("mousemove", (e) => {
     if (!isDown) return;
     const x = e.pageX - wrapper.offsetLeft;
-    const walk = (x - startX) * 1.4;
-    if (Math.abs(walk) > 5) {
+    const walk = (x - startX) * 1.3;
+    if (Math.abs(walk) > 4) {
       hasMoved = true;
       e.preventDefault();
-      wrapper.scrollLeft = scrollLeft - walk;
+      const maxScroll = getMaxScroll();
+      const target = scrollLeft - walk;
+      wrapper.scrollLeft = Math.max(0, Math.min(target, maxScroll));
+      updateArrowStates();
     }
   });
 
