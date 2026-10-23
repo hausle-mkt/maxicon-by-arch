@@ -580,116 +580,178 @@ img, video, iframe, canvas {
 }
 
 /* ==========================================================================
-   SEÇÃO: O CONCEITO / PILARES (VistaHaven 01, 02, 03)
+   SEÇÃO 02: O CONCEITO / EDITORIAL (Diferentes Arquiteturas)
    ========================================================================== */
-.concept-section {
-  background: var(--color-bg);
-  overflow: hidden;
+.concept-editorial-section {
+  background: #f2f2f2;
   width: 100%;
+  padding: clamp(90px, 9.5vw, 140px) 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.concept-grid {
+.concept-editorial-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5.5vw, 80px);
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: stretch;
-  margin-top: 48px;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
 }
 
-.concept-left {
+/* Coluna Esquerda: Eyebrow e Título */
+.concept-editorial-col-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  min-width: 0;
 }
 
-.concept-pillar-card {
-  background: var(--color-bg-white);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-md);
-  padding: 30px;
-  transition: var(--transition-smooth);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.concept-pillar-card:hover, .concept-pillar-card.active {
-  border-color: var(--accent-gold);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-}
-
-.pillar-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 12px;
-}
-
-.pillar-num {
+.concept-editorial-eyebrow {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--accent-gold);
-  line-height: 1;
-}
-
-.pillar-title {
-  font-size: 1.22rem;
+  font-size: clamp(0.72rem, 0.88vw, 0.82rem);
   font-weight: 600;
-  color: var(--text-main);
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: #444444;
+  margin-bottom: 24px;
 }
 
-.pillar-desc {
-  font-size: 0.94rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.concept-right {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  min-height: 480px;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-light);
-}
-
-.concept-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.concept-large-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-smooth);
-}
-
-.concept-card-floating-badge {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 18px 24px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  max-width: 360px;
-}
-
-.concept-card-floating-badge h4 {
-  font-size: 0.98rem;
+.concept-editorial-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.4vw, 3.85rem);
   font-weight: 700;
-  margin-bottom: 4px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: #000000;
+  margin: 0;
 }
 
-.concept-card-floating-badge p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
+.concept-editorial-line {
+  display: block;
+}
+
+/* Coluna Direita: Narrativa Editorial */
+.concept-editorial-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-top: 6px;
+  max-width: 540px;
+  min-width: 0;
+}
+
+.concept-editorial-lead,
+.concept-editorial-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.06vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.68;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.concept-editorial-highlight {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: #000000;
+  margin: 0;
+}
+
+/* ==========================================================================
+   EFEITOS DE SCROLL REVEAL NO SURGIMENTO DO TEXTO
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+body.reveal-ready .scroll-reveal:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+body.reveal-ready .scroll-reveal[data-reveal="left"]:not(.is-revealed) {
+  transform: translateY(28px);
+}
+
+body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
+  transform: translateY(34px);
+  transition-delay: 0.12s;
+}
+
+/* Quando visível no viewport */
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  body.reveal-ready .scroll-reveal:not(.is-revealed) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsividade Mobile e Tablet */
+@media (max-width: 992px) {
+  .concept-editorial-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .concept-editorial-col-right {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .concept-editorial-section {
+    padding: 70px 0;
+  }
+
+  .concept-editorial-container {
+    padding: 0 24px;
+    gap: 32px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .concept-editorial-eyebrow {
+    font-size: clamp(0.68rem, 2.5vw, 0.72rem);
+    letter-spacing: 0.08em;
+    line-height: 1.45;
+    margin-bottom: 16px;
+  }
+
+  .concept-editorial-title {
+    font-size: clamp(2rem, 7.5vw, 2.7rem);
+    line-height: 1.12;
+  }
+
+  .concept-editorial-col-right {
+    gap: 18px;
+  }
+
+  .concept-editorial-lead,
+  .concept-editorial-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .concept-editorial-highlight {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
 }
 
 /* ==========================================================================

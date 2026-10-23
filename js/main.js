@@ -187,7 +187,42 @@ document.addEventListener("DOMContentLoaded", () => {
   initModal();
   initContactForm();
   initWhatsAppModal();
+  initScrollReveal();
 });
+
+/* Efeitos de Scroll Reveal (Surgimento suave ao rolar a página) */
+function initScrollReveal() {
+  const revealElements = document.querySelectorAll(".scroll-reveal");
+  if (!revealElements.length) return;
+
+  document.body.classList.add("reveal-ready");
+
+  if (!("IntersectionObserver" in window)) {
+    revealElements.forEach(el => el.classList.add("is-revealed"));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-revealed");
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -20px 0px"
+  });
+
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      el.classList.add("is-revealed");
+    } else {
+      observer.observe(el);
+    }
+  });
+}
 
 /* Efeito da Navbar ao Rolar a Página */
 function initNavbarScroll() {
@@ -497,3 +532,5 @@ function initWhatsAppModal() {
     });
   }
 }
+
+
