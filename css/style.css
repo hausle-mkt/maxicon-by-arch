@@ -1526,6 +1526,491 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: NOAH RESERVA NATURAL (Experiência, Natureza, Métricas & Galeria)
+   ========================================================================== */
+.noah-section {
+  background: radial-gradient(
+    ellipse at 50% 15%,
+    #0A362D 0%,
+    #022722 38%,
+    #00231D 75%,
+    #001F19 100%
+  );
+  color: #ffffff;
+  padding: clamp(90px, 9.5vw, 130px) 0 clamp(80px, 8.5vw, 115px) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.noah-container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 44px);
+}
+
+/* Cabeçalho: 2 Colunas */
+.noah-header-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(36px, 5.5vw, 72px);
+  align-items: flex-end;
+}
+
+/* Coluna Esquerda: Marca e Título Cinético */
+.noah-brand-wrap {
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.noah-brand-logo {
+  height: clamp(34px, 3.6vw, 46px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.noah-kinetic-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.noah-title-line {
+  display: block;
+}
+
+.noah-word-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.noah-word {
+  display: inline-block;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s ease;
+  transition-delay: calc(var(--w-idx, 0) * 120ms);
+  will-change: transform, opacity;
+}
+
+.noah-kinetic-title.is-revealed .noah-word {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Coluna Direita: Textos Conceituais */
+.noah-desc-lead {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 22px;
+}
+
+.noah-desc-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.05vw, 0.92rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0;
+}
+
+/* Faixa de Métricas & Premiação Internacional */
+.noah-metrics-bar {
+  margin-top: clamp(52px, 6vw, 76px);
+  margin-bottom: clamp(52px, 6vw, 76px);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  padding: clamp(26px, 3.2vw, 36px) 0;
+}
+
+.noah-metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.15fr 1.85fr;
+  align-items: center;
+  gap: clamp(20px, 3vw, 44px);
+}
+
+.noah-metric-item {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noah-metrics-bar.is-revealed .noah-metric-item:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
+.noah-metrics-bar.is-revealed .noah-metric-item:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.22s;
+}
+
+.noah-metrics-bar.is-revealed .noah-metric-item:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.34s;
+}
+
+.noah-metric-val {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.7vw, 2.45rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.noah-metric-lbl {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 6px;
+}
+
+.noah-metric-lbl.top {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+/* Selo Americas Property Awards */
+.noah-award-item {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.2vw, 24px);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  padding-left: clamp(20px, 2.8vw, 36px);
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noah-metrics-bar.is-revealed .noah-award-item {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.46s;
+}
+
+.noah-seal-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.noah-award-seal {
+  width: clamp(74px, 7.5vw, 95px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.45));
+  transform: scale(0.92);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noah-metrics-bar.is-revealed .noah-award-seal {
+  transform: scale(1);
+}
+
+.noah-award-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.78rem, 0.95vw, 0.86rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  max-width: 330px;
+}
+
+/* Carrossel de Fotos com Setas Laterais & Miniaturas */
+.noah-gallery-container {
+  width: 100%;
+}
+
+.noah-main-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 54px rgba(0, 0, 0, 0.45);
+  background: #001f19;
+}
+
+.noah-main-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.noah-main-photo.is-switching {
+  opacity: 0.35;
+  transform: scale(0.99);
+}
+
+/* Setas Laterais de Navegação */
+.noah-gallery-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(10, 54, 45, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.noah-gallery-btn.prev {
+  left: clamp(16px, 2.5vw, 32px);
+}
+
+.noah-gallery-btn.next {
+  right: clamp(16px, 2.5vw, 32px);
+}
+
+.noah-gallery-btn:hover {
+  background: rgba(10, 54, 45, 0.96);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* Legenda da Foto */
+.noah-photo-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  background: rgba(0, 31, 25, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Miniaturas */
+.noah-thumbs-wrap {
+  margin-top: 18px;
+  width: 100%;
+}
+
+.noah-thumbs-track {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(10px, 1.4vw, 16px);
+}
+
+.noah-thumb-btn {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  padding: 0;
+  background: #00231d;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.noah-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.noah-thumb-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.noah-thumb-btn.is-active {
+  opacity: 1;
+  border-color: #00a887;
+  box-shadow: 0 4px 18px rgba(0, 168, 135, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Botão CTA Centralizado */
+.noah-cta-wrap {
+  margin-top: clamp(40px, 5vw, 56px);
+  text-align: center;
+}
+
+.noah-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #006D5B;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: 0 6px 22px rgba(0, 109, 91, 0.35);
+  transition: background 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.noah-cta-btn:hover {
+  background: #008770;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 109, 91, 0.5);
+}
+
+.noah-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.noah-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsividade Noah Section */
+@media (max-width: 992px) {
+  .noah-header-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .noah-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .noah-award-item {
+    grid-column: span 2;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-left: 0;
+    padding-top: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .noah-section {
+    padding: 64px 0;
+  }
+
+  .noah-brand-logo {
+    height: 32px;
+    margin-bottom: 20px;
+  }
+
+  .noah-kinetic-title {
+    font-size: 2.1rem;
+  }
+
+  .noah-metrics-bar {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 24px 0;
+  }
+
+  .noah-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .noah-award-item {
+    grid-column: span 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .noah-award-seal {
+    width: 80px;
+  }
+
+  .noah-main-photo-wrap {
+    border-radius: 12px;
+  }
+
+  .noah-gallery-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .noah-gallery-btn.prev {
+    left: 12px;
+  }
+
+  .noah-gallery-btn.next {
+    right: 12px;
+  }
+
+  .noah-photo-caption {
+    bottom: 12px;
+    left: 12px;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+  }
+
+  .noah-thumbs-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .noah-thumbs-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .noah-thumb-btn {
+    flex: 0 0 110px;
+    scroll-snap-align: start;
+  }
+
+  .noah-cta-wrap {
+    margin-top: 36px;
+  }
+
+  .noah-cta-btn {
+    width: 100%;
+    padding: 16px 24px;
+  }
+}
+
 .architects-section {
   background: var(--color-bg);
   overflow: hidden;

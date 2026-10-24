@@ -189,6 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initWhatsAppModal();
   initScrollReveal();
   initHousesCarousel();
+  initNoahAnimations();
+  initNoahGallery();
 });
 
 /* Controle do Carrossel de Casas — Infinite Loop Real (Bidirecional & Contínuo) */
@@ -717,5 +719,158 @@ function initWhatsAppModal() {
     });
   }
 }
+
+/* ==========================================================================
+   SEÇÃO: NOAH RESERVA NATURAL (Animações de Scroll & Carrossel Interativo)
+   ========================================================================== */
+
+/**
+ * Animação Cinética do Título e Faixa de Métricas (IntersectionObserver)
+ * Cada palavra surge individualmente com 120ms de intervalo
+ */
+function initNoahAnimations() {
+  const titleEl = document.getElementById("noah-title");
+  const metricsEl = document.getElementById("noah-metrics");
+
+  if (titleEl) {
+    const titleObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          titleEl.classList.add("is-revealed");
+          obs.unobserve(titleEl);
+        }
+      });
+    }, {
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.15
+    });
+    titleObserver.observe(titleEl);
+  }
+
+  if (metricsEl) {
+    const metricsObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          metricsEl.classList.add("is-revealed");
+          obs.unobserve(metricsEl);
+        }
+      });
+    }, {
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.15
+    });
+    metricsObserver.observe(metricsEl);
+  }
+}
+
+/**
+ * Carrossel de Fotos do Noah com Setas Laterais & Miniaturas
+ */
+function initNoahGallery() {
+  const mainPhoto = document.getElementById("noah-main-photo");
+  const prevBtn = document.getElementById("noah-gallery-prev");
+  const nextBtn = document.getElementById("noah-gallery-next");
+  const captionEl = document.getElementById("noah-photo-caption");
+  const thumbBtns = Array.from(document.querySelectorAll(".noah-thumb-btn"));
+  const wrap = document.querySelector(".noah-main-photo-wrap");
+
+  if (!mainPhoto || thumbBtns.length === 0) return;
+
+  let currentIndex = 0;
+  const total = thumbBtns.length;
+
+  function updateGallery(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    currentIndex = index;
+
+    const activeBtn = thumbBtns[currentIndex];
+    const nextSrc = activeBtn.getAttribute("data-src");
+    const nextCaption = activeBtn.getAttribute("data-caption") || "";
+
+    mainPhoto.classList.add("is-switching");
+    setTimeout(() => {
+      mainPhoto.src = nextSrc;
+      if (captionEl) captionEl.textContent = nextCaption;
+      mainPhoto.onload = () => {
+        mainPhoto.classList.remove("is-switching");
+      };
+      // Em caso de imagem em cache que não dispara onload de imediato
+      setTimeout(() => mainPhoto.classList.remove("is-switching"), 120);
+    }, 150);
+
+    thumbBtns.forEach((btn, i) => {
+      btn.classList.toggle("is-active", i === currentIndex);
+    });
+
+    // Em mobile com barra de miniaturas rolável, centraliza a ativa
+    if (activeBtn) {
+      activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateGallery(currentIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateGallery(currentIndex + 1);
+    });
+  }
+
+  thumbBtns.forEach((btn, index) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (currentIndex !== index) {
+        updateGallery(index);
+      }
+    });
+  });
+
+  // Suporte a gestos touch swipe em telas móveis
+  if (wrap) {
+    let startX = 0;
+    let startY = 0;
+    wrap.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+
+    wrap.addEventListener("touchend", (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+        if (diffX > 0) {
+          updateGallery(currentIndex + 1);
+        } else {
+          updateGallery(currentIndex - 1);
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Suporte às teclas do teclado quando a seção estiver visível
+  document.addEventListener("keydown", (e) => {
+    const rect = wrap?.getBoundingClientRect();
+    if (!rect) return;
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+
+    if (e.key === "ArrowLeft") {
+      updateGallery(currentIndex - 1);
+    } else if (e.key === "ArrowRight") {
+      updateGallery(currentIndex + 1);
+    }
+  });
+}
+
 
 
