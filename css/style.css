@@ -1036,10 +1036,6 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
     scroll-snap-align: start;
   }
 
-  .house-carousel-card:last-child {
-    scroll-snap-align: end;
-  }
-
   .house-card-title {
     font-size: 1.95rem;
   }

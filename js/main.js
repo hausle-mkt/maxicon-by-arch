@@ -191,87 +191,168 @@ document.addEventListener("DOMContentLoaded", () => {
   initHousesCarousel();
 });
 
-/* Controle do Carrossel de Casas (Setas Laterais Discretas no Desktop & Touch Swipe no Mobile) */
+/* Controle do Carrossel de Casas — Infinite Loop Real (Bidirecional & Contínuo) */
 function initHousesCarousel() {
   const wrapper = document.getElementById("houses-carousel-wrapper");
+  const track = document.getElementById("houses-carousel-track");
   const prevBtn = document.getElementById("houses-carousel-prev");
   const nextBtn = document.getElementById("houses-carousel-next");
-  if (!wrapper) return;
+  if (!wrapper || !track) return;
 
-  function getMaxScroll() {
-    return Math.max(0, wrapper.scrollWidth - wrapper.clientWidth);
+  const originalCards = Array.from(track.querySelectorAll(".house-carousel-card"));
+  const count = originalCards.length;
+  if (count === 0) return;
+
+  // Evita duplicar se já foi inicializado
+  if (track.getAttribute("data-loop-initialized") === "true") return;
+  track.setAttribute("data-loop-initialized", "true");
+
+  // Cria Set 0 (clones anteriores) e Set 2 (clones posteriores)
+  const fragmentBefore = document.createDocumentFragment();
+  const fragmentAfter = document.createDocumentFragment();
+
+  originalCards.forEach((card) => {
+    const cloneBefore = card.cloneNode(true);
+    cloneBefore.classList.add("is-clone");
+    cloneBefore.setAttribute("aria-hidden", "true");
+    const linkB = cloneBefore.matches("a") ? cloneBefore : cloneBefore.querySelector("a");
+    if (linkB) linkB.setAttribute("tabindex", "-1");
+    fragmentBefore.appendChild(cloneBefore);
+
+    const cloneAfter = card.cloneNode(true);
+    cloneAfter.classList.add("is-clone");
+    cloneAfter.setAttribute("aria-hidden", "true");
+    const linkA = cloneAfter.matches("a") ? cloneAfter : cloneAfter.querySelector("a");
+    if (linkA) linkA.setAttribute("tabindex", "-1");
+    fragmentAfter.appendChild(cloneAfter);
+  });
+
+  track.insertBefore(fragmentBefore, originalCards[0]);
+  track.appendChild(fragmentAfter);
+
+  function getSingleSetWidth() {
+    const allCards = track.querySelectorAll(".house-carousel-card");
+    if (allCards.length < count * 2) return 0;
+    // Distância exata entre o primeiro card do Set 1 e o primeiro card do Set 0
+    return allCards[count].offsetLeft - allCards[0].offsetLeft;
   }
 
   function getScrollStep() {
-    const card = wrapper.querySelector(".house-carousel-card");
-    const cardWidth = card ? card.offsetWidth : 320;
-    return (cardWidth + 16) * 1.5;
+    const firstCard = track.querySelector(".house-carousel-card");
+    return firstCard ? firstCard.offsetWidth + 16 : 346;
   }
 
-  function updateArrowStates() {
-    if (!prevBtn || !nextBtn) return;
-    const maxScroll = getMaxScroll();
-    prevBtn.classList.toggle("is-disabled", wrapper.scrollLeft <= 4);
-    nextBtn.classList.toggle("is-disabled", wrapper.scrollLeft >= maxScroll - 4);
+  // Posição inicial no Set 1 (original)
+  function initScrollPosition() {
+    const setWidth = getSingleSetWidth();
+    if (setWidth > 0) {
+      wrapper.style.scrollBehavior = "auto";
+      wrapper.scrollLeft = setWidth;
+      requestAnimationFrame(() => {
+        wrapper.style.scrollBehavior = "smooth";
+      });
+    }
+  }
+
+  initScrollPosition();
+
+  // Normalização Silenciosa de Posição (Seamless Wrap)
+  let normalizeTimer = null;
+  let isDragging = false;
+
+  function silentNormalize() {
+    if (isDragging) return;
+    const setWidth = getSingleSetWidth();
+    if (!setWidth) return;
+
+    // Se navegou para o Set 2 (à direita do Set 1)
+    if (wrapper.scrollLeft >= 2 * setWidth) {
+      wrapper.style.scrollBehavior = "auto";
+      wrapper.scrollLeft -= setWidth;
+      wrapper.style.scrollBehavior = "smooth";
+    }
+    // Se navegou para o Set 0 (à esquerda do Set 1)
+    else if (wrapper.scrollLeft < setWidth) {
+      wrapper.style.scrollBehavior = "auto";
+      wrapper.scrollLeft += setWidth;
+      wrapper.style.scrollBehavior = "smooth";
+    }
+  }
+
+  function scheduleNormalize() {
+    clearTimeout(normalizeTimer);
+    normalizeTimer = setTimeout(silentNormalize, 140);
+  }
+
+  wrapper.addEventListener("scroll", scheduleNormalize, { passive: true });
+  if ("onscrollend" in window) {
+    wrapper.addEventListener("scrollend", silentNormalize, { passive: true });
+  }
+
+  // Navegação pelos Botões de Seta (ambos sempre ativos)
+  if (nextBtn) {
+    nextBtn.classList.remove("is-disabled");
+    nextBtn.addEventListener("click", () => {
+      clearTimeout(normalizeTimer);
+      const setWidth = getSingleSetWidth();
+      if (setWidth && wrapper.scrollLeft >= 2.5 * setWidth) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft -= setWidth;
+      }
+      wrapper.style.scrollBehavior = "smooth";
+      wrapper.scrollBy({ left: getScrollStep(), behavior: "smooth" });
+    });
   }
 
   if (prevBtn) {
+    prevBtn.classList.remove("is-disabled");
     prevBtn.addEventListener("click", () => {
-      if (wrapper.scrollLeft <= 2) return;
-      const target = Math.max(wrapper.scrollLeft - getScrollStep(), 0);
-      wrapper.scrollTo({ left: target, behavior: "smooth" });
+      clearTimeout(normalizeTimer);
+      const setWidth = getSingleSetWidth();
+      if (setWidth && wrapper.scrollLeft <= 0.5 * setWidth) {
+        wrapper.style.scrollBehavior = "auto";
+        wrapper.scrollLeft += setWidth;
+      }
+      wrapper.style.scrollBehavior = "smooth";
+      wrapper.scrollBy({ left: -getScrollStep(), behavior: "smooth" });
     });
   }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-      const maxScroll = getMaxScroll();
-      if (wrapper.scrollLeft >= maxScroll - 2) return;
-      const target = Math.min(wrapper.scrollLeft + getScrollStep(), maxScroll);
-      wrapper.scrollTo({ left: target, behavior: "smooth" });
-    });
-  }
-
-  wrapper.addEventListener("scroll", updateArrowStates, { passive: true });
-  window.addEventListener("resize", updateArrowStates, { passive: true });
-  window.addEventListener("load", updateArrowStates, { passive: true });
-  updateArrowStates();
 
   // Arraste com o mouse no Desktop
-  let isDown = false;
   let startX = 0;
-  let scrollLeft = 0;
+  let scrollStart = 0;
   let hasMoved = false;
 
   wrapper.addEventListener("mousedown", (e) => {
-    isDown = true;
+    isDragging = true;
     hasMoved = false;
+    clearTimeout(normalizeTimer);
     wrapper.classList.add("is-dragging");
+    wrapper.style.scrollBehavior = "auto";
     startX = e.pageX - wrapper.offsetLeft;
-    scrollLeft = wrapper.scrollLeft;
+    scrollStart = wrapper.scrollLeft;
   });
 
   window.addEventListener("mouseup", () => {
-    if (!isDown) return;
-    isDown = false;
+    if (!isDragging) return;
+    isDragging = false;
     wrapper.classList.remove("is-dragging");
+    wrapper.style.scrollBehavior = "smooth";
+    scheduleNormalize();
   });
 
   wrapper.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
+    if (!isDragging) return;
     const x = e.pageX - wrapper.offsetLeft;
     const walk = (x - startX) * 1.3;
     if (Math.abs(walk) > 4) {
       hasMoved = true;
       e.preventDefault();
-      const maxScroll = getMaxScroll();
-      const target = scrollLeft - walk;
-      wrapper.scrollLeft = Math.max(0, Math.min(target, maxScroll));
-      updateArrowStates();
+      wrapper.scrollLeft = scrollStart - walk;
     }
   });
 
-  // Evita disparar clique no link do card ao arrastar com mouse
+  // Previne clique acidental ao soltar após arrasto
   wrapper.addEventListener("click", (e) => {
     if (hasMoved) {
       e.preventDefault();
@@ -279,6 +360,19 @@ function initHousesCarousel() {
       hasMoved = false;
     }
   }, true);
+
+  // Redimensionamento de tela
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      initScrollPosition();
+    }, 150);
+  }, { passive: true });
+
+  window.addEventListener("load", () => {
+    initScrollPosition();
+  });
 }
 
 /* Efeitos de Scroll Reveal (Surgimento suave ao rolar a página) */
