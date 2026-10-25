@@ -1879,32 +1879,53 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  background: #006D5B;
+  background-color: #006D5B;
   color: #ffffff;
-  padding: 16px 36px;
+  padding: 14px 32px;
   border-radius: 9999px;
-  font-family: var(--font-body);
+  font-family: var(--font-body, 'Mulish', sans-serif);
   font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 6px 22px rgba(0, 109, 91, 0.35);
-  transition: background 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  border: none !important;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .noah-cta-btn:hover {
-  background: #008770;
+  background-color: #008770;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(0, 109, 91, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.noah-cta-btn:active {
+  transform: translateY(0);
+}
+
+.noah-cta-btn:focus {
+  outline: none;
+}
+
+.noah-cta-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 3px;
 }
 
 .noah-cta-btn svg {
-  transition: transform 0.3s ease;
+  display: block;
+  transition: transform 0.25s ease;
 }
 
 .noah-cta-btn:hover svg {
-  transform: translateX(4px);
+  transform: translateY(2px);
 }
 
 /* Responsividade Noah Section */
@@ -2006,7 +2027,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
   .noah-cta-btn {
     width: 100%;
-    padding: 16px 24px;
+    padding: 14px 24px;
   }
 }
 
