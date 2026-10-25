@@ -191,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHousesCarousel();
   initNoahAnimations();
   initNoahGallery();
+  initDownloadModal();
 });
 
 /* Controle do Carrossel de Casas — Infinite Loop Real (Bidirecional & Contínuo) */
@@ -770,7 +771,6 @@ function initNoahGallery() {
   const mainPhoto = document.getElementById("noah-main-photo");
   const prevBtn = document.getElementById("noah-gallery-prev");
   const nextBtn = document.getElementById("noah-gallery-next");
-  const captionEl = document.getElementById("noah-photo-caption");
   const thumbBtns = Array.from(document.querySelectorAll(".noah-thumb-btn"));
   const wrap = document.querySelector(".noah-main-photo-wrap");
 
@@ -786,12 +786,10 @@ function initNoahGallery() {
 
     const activeBtn = thumbBtns[currentIndex];
     const nextSrc = activeBtn.getAttribute("data-src");
-    const nextCaption = activeBtn.getAttribute("data-caption") || "";
 
     mainPhoto.classList.add("is-switching");
     setTimeout(() => {
       mainPhoto.src = nextSrc;
-      if (captionEl) captionEl.textContent = nextCaption;
       mainPhoto.onload = () => {
         mainPhoto.classList.remove("is-switching");
       };
@@ -803,7 +801,7 @@ function initNoahGallery() {
       btn.classList.toggle("is-active", i === currentIndex);
     });
 
-    // Em mobile com barra de miniaturas rolável, centraliza a ativa
+    // Centraliza a miniatura ativa na barra horizontal
     if (activeBtn) {
       activeBtn.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
@@ -872,5 +870,148 @@ function initNoahGallery() {
   });
 }
 
+/**
+ * Modal de Cadastro para Download do Catálogo / Apresentação (PDF)
+ * Capta Nome e E-mail, salva Lead e dispara download do PDF
+ */
+function initDownloadModal() {
+  const modal = document.getElementById("download-modal");
+  if (!modal) return;
 
+  const openBtns = document.querySelectorAll(".open-download-modal-trigger, #noah-catalog-btn");
+  const closeBtn = document.getElementById("download-modal-close");
+  const form = document.getElementById("download-project-form");
+  const nameInput = document.getElementById("dl-name");
+  const emailInput = document.getElementById("dl-email");
+  const submitBtn = document.getElementById("download-submit-btn");
+  const successMsg = document.getElementById("download-success-msg");
+  const hiddenUrl = document.getElementById("download-pdf-url");
+  const hiddenFilename = document.getElementById("download-pdf-filename");
 
+  let currentPdfUrl = (hiddenUrl && hiddenUrl.value) ? hiddenUrl.value : "assets/NOAH/Catalogo-Noah.pdf";
+  let currentPdfFilename = (hiddenFilename && hiddenFilename.value) ? hiddenFilename.value : "Catalogo-Noah.pdf";
+
+  function openModal(triggerBtn) {
+    if (triggerBtn) {
+      const dataPdf = triggerBtn.getAttribute("data-pdf");
+      const dataFilename = triggerBtn.getAttribute("data-filename");
+      if (dataPdf) currentPdfUrl = dataPdf;
+      if (dataFilename) currentPdfFilename = dataFilename;
+    }
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    if (nameInput) setTimeout(() => nameInput.focus(), 120);
+  }
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    setTimeout(() => {
+      if (successMsg) successMsg.style.display = "none";
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Baixar Catálogo (PDF)</span>
+        `;
+      }
+    }, 350);
+  }
+
+  openBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openModal(btn);
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = nameInput ? nameInput.value.trim() : "";
+      const email = emailInput ? emailInput.value.trim() : "";
+
+      if (!name || !email) return;
+
+      // Armazenamento do Lead no LocalStorage
+      try {
+        const lead = {
+          nome: name,
+          email: email,
+          origem: "Catálogo Noah Reserva Natural",
+          arquivo: currentPdfFilename,
+          data: new Date().toISOString()
+        };
+        const leads = JSON.parse(localStorage.getItem("maxicon_leads_download") || "[]");
+        leads.push(lead);
+        localStorage.setItem("maxicon_leads_download", JSON.stringify(leads));
+      } catch (err) {
+        // Fallback silencioso
+      }
+
+      // Feedback visual no botão
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon">
+            <line x1="12" y1="2" x2="12" y2="6"></line>
+            <line x1="12" y1="18" x2="12" y2="22"></line>
+            <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+            <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+            <line x1="2" y1="12" x2="6" y2="12"></line>
+            <line x1="18" y1="12" x2="22" y2="12"></line>
+            <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+            <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+          </svg>
+          <span>Iniciando download...</span>
+        `;
+      }
+
+      // Exibir aviso de sucesso com link de contingência
+      if (successMsg) {
+        successMsg.innerHTML = `
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Download iniciado! Caso não inicie automaticamente, <a href="${currentPdfUrl}" download="${currentPdfFilename}" target="_blank" class="download-fallback-link">clique aqui</a>.</span>
+        `;
+        successMsg.style.display = "flex";
+      }
+
+      // Dispara download automático do PDF
+      const downloadLink = document.createElement("a");
+      downloadLink.href = currentPdfUrl;
+      downloadLink.setAttribute("download", currentPdfFilename);
+      downloadLink.setAttribute("target", "_blank");
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+
+      // Fecha o modal suavemente após 3s
+      setTimeout(() => {
+        closeModal();
+        form.reset();
+      }, 3000);
+    });
+  }
+}
