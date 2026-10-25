@@ -2186,6 +2186,139 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   }
 }
 
+/* ==========================================================================
+   SEÇÃO: JORNADA CONECTADA PELA MAXICON (3 Pilares)
+   ========================================================================== */
+.byarch-journey-section {
+  background-color: #f5f6f3;
+  padding: clamp(84px, 9vw, 136px) 0;
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.byarch-journey-header {
+  text-align: center;
+  margin-bottom: clamp(48px, 6vw, 78px);
+}
+
+.byarch-journey-eyebrow {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(0.72rem, 0.85vw, 0.82rem);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #3b4653;
+}
+
+.byarch-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+}
+
+.byarch-journey-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 clamp(28px, 3.8vw, 56px);
+}
+
+.byarch-journey-item:first-child {
+  padding-left: 0;
+}
+
+.byarch-journey-item.is-middle {
+  border-left: 1px solid #d9dcd8;
+  border-right: 1px solid #d9dcd8;
+}
+
+.byarch-journey-item:last-child {
+  padding-right: 0;
+}
+
+.byarch-journey-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #080c10;
+  margin-bottom: 24px;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.byarch-journey-item:hover .byarch-journey-icon {
+  transform: translateY(-3px);
+  color: #000000;
+}
+
+.byarch-journey-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #080c10;
+  margin: 0 0 16px 0;
+}
+
+.byarch-journey-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1vw, 0.95rem);
+  line-height: 1.62;
+  color: #4b5563;
+  margin: 0;
+  letter-spacing: -0.005em;
+  max-width: 320px;
+}
+
+/* Responsividade Jornada */
+@media (max-width: 900px) {
+  .byarch-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .byarch-journey-item {
+    padding: 34px 0;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #d9dcd8;
+  }
+
+  .byarch-journey-item:first-child {
+    padding-top: 0;
+  }
+
+  .byarch-journey-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .byarch-journey-desc {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .byarch-journey-section {
+    padding: clamp(60px, 10vw, 84px) 0;
+  }
+
+  .byarch-journey-header {
+    margin-bottom: 38px;
+  }
+
+  .byarch-journey-title {
+    font-size: 1.55rem;
+    line-height: 1.22;
+  }
+
+  .byarch-journey-desc {
+    font-size: 0.92rem;
+  }
+}
+
 .architects-section {
   background: var(--color-bg);
   overflow: hidden;
