@@ -7783,6 +7783,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
