@@ -1355,16 +1355,22 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 /* Trilha Contínua */
 .talents-marquee-track {
   display: flex;
+  flex-wrap: nowrap;
   width: max-content;
   will-change: transform;
+  -webkit-animation: archTalentsMarquee 42s linear infinite;
   animation: archTalentsMarquee 42s linear infinite;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
-.talents-marquee-track:hover {
-  animation-play-state: paused;
+@media (hover: hover) and (pointer: fine) {
+  .talents-marquee-track:hover {
+    animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+  }
 }
 
 /* Grupo de Logos */
@@ -1424,11 +1430,24 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 /* Loop Infinito Linear Sem Saltos */
-@keyframes archTalentsMarquee {
+@-webkit-keyframes archTalentsMarquee {
   0% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
   100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes archTalentsMarquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
     transform: translate3d(-50%, 0, 0);
   }
 }
@@ -1474,14 +1493,18 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   transform: translate(3px, -3px);
 }
 
-/* Acessibilidade: prefers-reduced-motion */
+/* Acessibilidade: prefers-reduced-motion - mantém o marquee contínuo */
 @media (prefers-reduced-motion: reduce) {
   .talents-marquee-track {
-    animation-duration: 90s;
+    -webkit-animation: archTalentsMarquee 50s linear infinite !important;
+    animation: archTalentsMarquee 50s linear infinite !important;
+    animation-duration: 50s !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
   }
 }
 
-/* Responsividade Mobile e Tablet: Estritamente Uma Única Linha */
+/* Responsividade Mobile e Tablet: Estritamente Uma Única Linha e Rotação Contínua */
 @media (max-width: 768px) {
   .arch-talents-section {
     padding: 60px 0 72px 0;
@@ -1493,11 +1516,38 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
   .talents-marquee-wrap {
     margin-top: 48px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .talents-marquee-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    -webkit-animation: archTalentsMarquee 32s linear infinite !important;
+    animation: archTalentsMarquee 32s linear infinite !important;
+    animation-play-state: running !important;
+    -webkit-animation-play-state: running !important;
+    pointer-events: none;
+    touch-action: pan-y;
   }
 
   .talents-marquee-group {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
     gap: 36px;
     padding-right: 36px;
+    flex-shrink: 0;
+  }
+
+  .talents-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    pointer-events: none;
   }
 
   .talents-logo-img {

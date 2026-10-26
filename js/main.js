@@ -192,6 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNoahAnimations();
   initNoahGallery();
   initDownloadModal();
+  initTalentsMarquee();
 });
 
 /* Controle do Carrossel de Casas — Infinite Loop Real (Bidirecional & Contínuo) */
@@ -1186,3 +1187,40 @@ function initDownloadModal() {
     });
   }
 }
+
+/**
+ * Garante rotação contínua e fluida do Marquee de Logos dos Arquitetos (ARCH BY TALENTS) no mobile
+ * Evita engasgos, pausas por toque ou atrasos de cálculo de layout de imagens
+ */
+function initTalentsMarquee() {
+  const track = document.querySelector(".talents-marquee-track");
+  if (!track) return;
+
+  function ensureMarqueeRunning() {
+    if (window.innerWidth <= 768) {
+      track.style.animationPlayState = "running";
+      track.style.webkitAnimationPlayState = "running";
+    }
+  }
+
+  // Desperta a animação quando a seção entra em visão no mobile
+  if ("IntersectionObserver" in window) {
+    const marqueeWrap = document.querySelector(".talents-marquee-wrap") || track;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          ensureMarqueeRunning();
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(marqueeWrap);
+  }
+
+  // Recalcula reflow suave caso logos terminem de carregar tardiamente
+  window.addEventListener("load", () => {
+    ensureMarqueeRunning();
+  }, { once: true });
+
+  window.addEventListener("resize", ensureMarqueeRunning, { passive: true });
+}
+
