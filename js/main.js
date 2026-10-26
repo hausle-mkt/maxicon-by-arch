@@ -490,8 +490,9 @@ function initFilters() {
       const filter = btn.getAttribute("data-filter");
 
       cards.forEach(card => {
-        const category = card.getAttribute("data-category");
-        if (filter === "all" || category === filter) {
+        const category = card.getAttribute("data-category") || "";
+        const match = filter === "all" || category.split(" ").includes(filter);
+        if (match) {
           card.style.display = "flex";
           setTimeout(() => {
             card.style.opacity = "1";
