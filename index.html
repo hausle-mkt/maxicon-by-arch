@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=7.6">
+  <link rel="stylesheet" href="css/style.css?v=7.7">
 </head>
 <body>
 
@@ -1160,7 +1160,37 @@
     </div>
   </div>
 
+  <!-- Modal Lightbox Galeria Noah (Mobile) -->
+  <div class="gallery-modal-overlay" id="noah-gallery-modal" aria-hidden="true" role="dialog" aria-label="Visualização de Fotos do Noah">
+    <div class="gallery-modal-container">
+      <button type="button" class="gallery-modal-close" id="noah-modal-close" aria-label="Fechar Foto Ampliada">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="gallery-modal-image-wrapper" id="noah-modal-img-wrap">
+        <button type="button" class="gallery-modal-nav-btn gallery-modal-prev" id="noah-modal-prev" aria-label="Foto Anterior">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <img src="" alt="Foto do condomínio Noah Reserva Natural" class="gallery-modal-img" id="noah-modal-img">
+
+        <button type="button" class="gallery-modal-nav-btn gallery-modal-next" id="noah-modal-next" aria-label="Próxima Foto">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="gallery-modal-caption" id="noah-modal-counter">01 / 12</div>
+    </div>
+  </div>
+
   <!-- Scripts -->
-  <script src="js/main.js?v=7.1"></script>
+  <script src="js/main.js?v=7.2"></script>
 </body>
 </html>

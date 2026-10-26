@@ -831,33 +831,203 @@ function initNoahGallery() {
     });
   });
 
-  // Suporte a gestos touch swipe em telas móveis
-  if (wrap) {
-    let startX = 0;
-    let startY = 0;
-    wrap.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
+  // Elementos do Modal Lightbox da Galeria Noah (Mobile)
+  const modalOverlay = document.getElementById("noah-gallery-modal");
+  const modalImg = document.getElementById("noah-modal-img");
+  const modalCounter = document.getElementById("noah-modal-counter");
+  const modalCloseBtn = document.getElementById("noah-modal-close");
+  const modalPrevBtn = document.getElementById("noah-modal-prev");
+  const modalNextBtn = document.getElementById("noah-modal-next");
+  const modalImgWrap = document.getElementById("noah-modal-img-wrap");
+
+  function isMobile() {
+    return window.innerWidth <= 768;
+  }
+
+  function updateNoahModal(index) {
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+
+    // Sincroniza a galeria em segundo plano na página
+    updateGallery(index);
+
+    if (modalImg) {
+      const activeBtn = thumbBtns[currentIndex];
+      const nextSrc = activeBtn ? activeBtn.getAttribute("data-src") : "";
+      const altText = activeBtn ? (activeBtn.querySelector("img")?.alt || "Foto Noah Reserva Natural") : "";
+
+      modalImg.style.opacity = "0.4";
+      modalImg.style.transform = "scale(0.98)";
+      setTimeout(() => {
+        modalImg.src = nextSrc;
+        modalImg.alt = altText;
+        modalImg.onload = () => {
+          modalImg.style.opacity = "1";
+          modalImg.style.transform = "scale(1)";
+        };
+        setTimeout(() => {
+          modalImg.style.opacity = "1";
+          modalImg.style.transform = "scale(1)";
+        }, 120);
+      }, 100);
+    }
+
+    if (modalCounter) {
+      modalCounter.textContent = `${String(currentIndex + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+    }
+  }
+
+  function openNoahModal(index) {
+    if (!modalOverlay) return;
+    updateNoahModal(index);
+    modalOverlay.classList.add("active");
+    modalOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeNoahModal() {
+    if (!modalOverlay) return;
+    modalOverlay.classList.remove("active");
+    modalOverlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeNoahModal();
+    });
+  }
+
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay || e.target.classList.contains("gallery-modal-container")) {
+        closeNoahModal();
+      }
+    });
+  }
+
+  if (modalPrevBtn) {
+    modalPrevBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      updateNoahModal(currentIndex - 1);
+    });
+  }
+
+  if (modalNextBtn) {
+    modalNextBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      updateNoahModal(currentIndex + 1);
+    });
+  }
+
+  // Swipe dentro da modal no mobile
+  const swipeTarget = modalImgWrap || modalOverlay;
+  if (swipeTarget) {
+    let mStartX = 0;
+    let mStartY = 0;
+    swipeTarget.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches[0]) {
+        mStartX = e.touches[0].clientX;
+        mStartY = e.touches[0].clientY;
+      }
     }, { passive: true });
 
-    wrap.addEventListener("touchend", (e) => {
-      const endX = e.changedTouches[0].clientX;
-      const endY = e.changedTouches[0].clientY;
-      const diffX = startX - endX;
-      const diffY = startY - endY;
+    swipeTarget.addEventListener("touchend", (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        const mEndX = e.changedTouches[0].clientX;
+        const mEndY = e.changedTouches[0].clientY;
+        const mDiffX = mStartX - mEndX;
+        const mDiffY = mStartY - mEndY;
 
-      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
-        if (diffX > 0) {
-          updateGallery(currentIndex + 1);
-        } else {
-          updateGallery(currentIndex - 1);
+        if (Math.abs(mDiffX) > Math.abs(mDiffY) && Math.abs(mDiffX) > 40) {
+          if (mDiffX > 0) {
+            updateNoahModal(currentIndex + 1);
+          } else {
+            updateNoahModal(currentIndex - 1);
+          }
         }
       }
     }, { passive: true });
   }
 
-  // Suporte às teclas do teclado quando a seção estiver visível
+  // Suporte a gestos touch swipe em telas móveis e abertura de modal ao clicar
+  if (wrap) {
+    let startX = 0;
+    let startY = 0;
+    let hasMoved = false;
+    let justSwiped = false;
+
+    wrap.addEventListener("touchstart", (e) => {
+      if (e.touches && e.touches[0]) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }
+      hasMoved = false;
+    }, { passive: true });
+
+    wrap.addEventListener("touchmove", (e) => {
+      if (e.touches && e.touches[0]) {
+        const curX = e.touches[0].clientX;
+        const curY = e.touches[0].clientY;
+        if (Math.abs(curX - startX) > 10 || Math.abs(curY - startY) > 10) {
+          hasMoved = true;
+        }
+      }
+    }, { passive: true });
+
+    wrap.addEventListener("touchend", (e) => {
+      if (e.changedTouches && e.changedTouches[0]) {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+          justSwiped = true;
+          setTimeout(() => { justSwiped = false; }, 350);
+          if (diffX > 0) {
+            updateGallery(currentIndex + 1);
+          } else {
+            updateGallery(currentIndex - 1);
+          }
+        }
+      }
+    }, { passive: true });
+
+    // Clique na imagem no mobile abre a modal; desktop permanece inalterado
+    wrap.addEventListener("click", (e) => {
+      // Ignora clique se foi nos botões de seta da galeria
+      if (e.target.closest(".noah-gallery-btn")) return;
+      // Ignora se o usuário estava arrastando/swiping
+      if (hasMoved || justSwiped) return;
+
+      // Abre modal EXCLUSIVAMENTE em telas mobile (<= 768px)
+      if (isMobile()) {
+        e.preventDefault();
+        openNoahModal(currentIndex);
+      }
+    });
+  }
+
+  // Suporte às teclas do teclado
   document.addEventListener("keydown", (e) => {
+    // Se a modal estiver aberta, o teclado controla a modal ou fecha com Escape
+    if (modalOverlay && modalOverlay.classList.contains("active")) {
+      if (e.key === "Escape") {
+        closeNoahModal();
+      } else if (e.key === "ArrowLeft") {
+        updateNoahModal(currentIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        updateNoahModal(currentIndex + 1);
+      }
+      return;
+    }
+
+    // Teclado na página quando a seção estiver visível
     const rect = wrap?.getBoundingClientRect();
     if (!rect) return;
     const inView = rect.top < window.innerHeight && rect.bottom > 0;
