@@ -7494,7 +7494,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 .catalog-header {
-  max-width: 860px;
+  max-width: 100%;
   margin-bottom: 32px;
 }
 
@@ -7534,8 +7534,14 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   font-size: clamp(1.02rem, 1.4vw, 1.15rem);
   color: var(--text-muted);
   line-height: 1.68;
-  max-width: 720px;
+  max-width: 100%;
   margin: 0 0 32px 0;
+}
+
+@media (min-width: 992px) {
+  .catalog-subtitle {
+    white-space: nowrap;
+  }
 }
 
 .catalog-metrics-row {
