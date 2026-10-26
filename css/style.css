@@ -7962,11 +7962,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 .arch-active-meta {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-  min-width: 180px;
-  flex-shrink: 0;
+  display: none;
 }
 
 .arch-active-name {
@@ -8123,23 +8119,16 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   }
 
   .arch-controls-bar {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "meta meta meta"
-      "counter progress arrows";
+    display: flex;
     align-items: center;
-    gap: 14px 14px;
+    justify-content: space-between;
+    gap: 14px;
     padding: 0 16px;
     margin-top: 18px;
   }
 
   .arch-active-meta {
-    grid-area: meta;
-    width: 100%;
-    text-align: center;
-    min-width: 0;
+    display: none;
   }
 
   .arch-counter {
