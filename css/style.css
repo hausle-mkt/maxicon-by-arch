@@ -1737,6 +1737,11 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   line-height: 1.35;
 }
 
+.noah-metric-item--reverse .noah-metric-lbl {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
 /* Selo Americas Property Awards */
 .noah-award-item {
   display: flex;
