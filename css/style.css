@@ -2294,11 +2294,9 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 clamp(28px, 3.8vw, 56px);
-}
-
-.byarch-journey-item:first-child {
-  padding-left: 0;
+  align-items: center;
+  text-align: center;
+  padding: 0 clamp(20px, 3vw, 44px);
 }
 
 .byarch-journey-item.is-middle {
@@ -2306,16 +2304,14 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   border-right: 1px solid #d9dcd8;
 }
 
-.byarch-journey-item:last-child {
-  padding-right: 0;
-}
-
 .byarch-journey-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   color: #080c10;
   margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
@@ -2332,6 +2328,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   letter-spacing: -0.02em;
   color: #080c10;
   margin: 0 0 16px 0;
+  text-align: center;
 }
 
 .byarch-journey-desc {
@@ -2339,9 +2336,10 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   font-size: clamp(0.88rem, 1vw, 0.95rem);
   line-height: 1.62;
   color: #4b5563;
-  margin: 0;
+  margin: 0 auto;
   letter-spacing: -0.005em;
   max-width: 320px;
+  text-align: center;
 }
 
 /* Responsividade Jornada */
