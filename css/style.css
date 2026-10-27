@@ -6341,10 +6341,11 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
 .whatsapp-modal-subtitle {
   font-family: var(--font-body, 'Mulish', sans-serif);
-  font-size: 0.96rem;
+  font-size: 0.98rem;
   color: var(--text-main, #14171a);
   line-height: 1.5;
-  margin: 6px 0 0 0;
+  margin: 0;
+  padding-right: 32px;
 }
 
 .whatsapp-modal-form {
