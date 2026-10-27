@@ -1686,15 +1686,17 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 .noah-metrics-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1.15fr 1.85fr;
-  align-items: center;
+  align-items: flex-start;
   gap: clamp(20px, 3vw, 44px);
 }
 
 .noah-metric-item {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  padding-top: 28px;
+  position: relative;
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1738,8 +1740,12 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 .noah-metric-item--reverse .noah-metric-lbl {
-  margin-top: 0;
-  margin-bottom: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 /* Selo Americas Property Awards */
@@ -1747,6 +1753,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   display: flex;
   align-items: center;
   align-self: center;
+  margin-top: 10px;
   gap: clamp(16px, 2.2vw, 24px);
   border-left: 1px solid rgba(255, 255, 255, 0.14);
   padding-left: clamp(20px, 2.8vw, 36px);
@@ -1994,7 +2001,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   .noah-metrics-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    align-items: center;
+    align-items: flex-start;
   }
 
   .noah-award-item {
@@ -2038,6 +2045,7 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
     text-align: center;
     justify-content: center;
     width: 100%;
+    padding-top: 0;
   }
 
   .noah-metric-val {
@@ -2048,7 +2056,15 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
     text-align: center;
   }
 
+  .noah-metric-item--reverse .noah-metric-lbl {
+    position: static;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block;
+  }
+
   .noah-award-item {
+    margin-top: 0;
     grid-column: span 1;
     flex-direction: column;
     align-items: center;
