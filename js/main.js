@@ -193,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initNoahGallery();
   initDownloadModal();
   initTalentsMarquee();
+  initFooterNavigation();
 });
 
 /* Controle do Carrossel de Casas — Infinite Loop Real (Bidirecional & Contínuo) */
@@ -1222,5 +1223,34 @@ function initTalentsMarquee() {
   }, { once: true });
 
   window.addEventListener("resize", ensureMarqueeRunning, { passive: true });
+}
+
+/**
+ * Navegação suave para links do rodapé em páginas com âncoras locais
+ */
+function initFooterNavigation() {
+  const isIndex = window.location.pathname.endsWith("index.html") || window.location.pathname === "/" || !window.location.pathname.includes(".html");
+  if (!isIndex) return;
+
+  const footerLinks = document.querySelectorAll(".footer-link[href*=\"#\"], .footer-logo-link");
+  footerLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+      if (link.classList.contains("footer-logo-link") && (href === "index.html" || href === "#hero")) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      if (href && href.includes("#")) {
+        const hash = href.split("#")[1];
+        const target = document.getElementById(hash);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+          history.pushState(null, "", "#" + hash);
+        }
+      }
+    });
+  });
 }
 
