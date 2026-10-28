@@ -7944,7 +7944,8 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
 .arch-card-logo.is-larger,
 .arch-card-logo[src*="kaliah"],
-.arch-card-logo[src*="deividy"] {
+.arch-card-logo[src*="deividy"],
+.arch-card-logo[src*="bassani"] {
   max-height: 48px;
   max-width: 260px;
   transform: scale(1.15);
@@ -8207,7 +8208,8 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 
   .arch-card-logo.is-larger,
   .arch-card-logo[src*="kaliah"],
-  .arch-card-logo[src*="deividy"] {
+  .arch-card-logo[src*="deividy"],
+  .arch-card-logo[src*="bassani"] {
     max-height: 42px;
     max-width: 210px;
     transform: scale(1.12);
