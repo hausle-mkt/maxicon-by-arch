@@ -191,17 +191,19 @@
         <div class="office-associated-card scroll-reveal scroll-reveal-delay-1">
           <!-- Visual da Residência -->
           <div class="office-associated-visual">
-            <img 
-              src="{{URL_FOTO_CASA_ASSOCIADA}}" 
-              alt="{{NOME_CASA_ASSOCIADA}} — Residência de Alto Padrão por {{NOME_ESCRITORIO}}" 
-              class="office-associated-img"
-              loading="lazy"
-            >
+            <a href="{{URL_PAGINA_CASA_ASSOCIADA}}" aria-label="Ver detalhes de {{NOME_CASA_ASSOCIADA}}" style="display: block; width: 100%; height: 100%;">
+              <img 
+                src="{{URL_FOTO_CASA_ASSOCIADA}}" 
+                alt="{{NOME_CASA_ASSOCIADA}} — Residência de Alto Padrão por {{NOME_ESCRITORIO}}" 
+                class="office-associated-img"
+                loading="lazy"
+              >
+            </a>
           </div>
 
           <!-- Conteúdo da Residência -->
           <div class="office-associated-content">
-            <h3 class="office-associated-name">{{NOME_CASA_ASSOCIADA}}</h3>
+            <h3 class="office-associated-name"><a href="{{URL_PAGINA_CASA_ASSOCIADA}}" style="color: inherit; text-decoration: none;">{{NOME_CASA_ASSOCIADA}}</a></h3>
             <div class="office-associated-concept">{{CONCEITO_CASA_ASSOCIADA}}</div>
             
             <p class="office-associated-text">
