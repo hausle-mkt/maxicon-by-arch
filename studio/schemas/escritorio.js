@@ -1,0 +1,106 @@
+export default {
+  name: 'escritorio',
+  title: 'Escritórios de Arquitetura',
+  type: 'document',
+  fields: [
+    {
+      name: 'name',
+      title: 'Nome do Escritório',
+      type: 'string',
+      description: 'Ex: Jéssika Neckel Arquitetura, Bassani + Miranda, Polesello + Müller',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'titular',
+      title: 'Nome do(s) Arquiteto(s) / Titular',
+      type: 'string',
+      description: 'Ex: Jéssika Neckel, Carolina Bassani & Maurício Miranda',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'slug',
+      title: 'Identificador na URL (Slug)',
+      type: 'slug',
+      description: 'Clique em "Generate" para criar o identificador da URL (ex: jessica-neckel)',
+      options: {
+        source: 'name',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'logo',
+      title: 'Logotipo Oficial',
+      type: 'image',
+      description: 'Logotipo do escritório (recomendado PNG com fundo transparente)',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'photo',
+      title: 'Foto Oficial do(s) Arquiteto(s)',
+      type: 'image',
+      description: 'Retrato oficial dos arquitetos em alta resolução',
+      options: {
+        hotspot: true,
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'headline',
+      title: 'Manchete / Título Editorial',
+      type: 'string',
+      description: 'Ex: Ambientes exclusivos que refletem a sua identidade',
+      initialValue: 'Ambientes exclusivos que refletem a sua identidade',
+    },
+    {
+      name: 'bio',
+      title: 'Biografia / Perfil do Escritório',
+      type: 'text',
+      rows: 5,
+      description: 'Apresentação institucional do escritório, histórico e conceitos autorais.',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'instagramUser',
+      title: 'Usuário do Instagram',
+      type: 'string',
+      description: 'Ex: @jessikaneckelarq ou @bassanic.arq',
+    },
+    {
+      name: 'instagramUrl',
+      title: 'Link Completo do Instagram',
+      type: 'url',
+      description: 'Ex: https://www.instagram.com/jessikaneckelarq',
+    },
+    {
+      name: 'address',
+      title: 'Endereço Comercial / Sede',
+      type: 'string',
+      description: 'Ex: Rua General Osório, 1086, Una Business Center, sala 1101, Centro, Passo Fundo/RS.',
+    },
+    {
+      name: 'associatedHouse',
+      title: 'Residência Assinada Associada (BY ARCH)',
+      type: 'reference',
+      to: [{ type: 'casa' }],
+      description: 'Selecione a casa assinada por este escritório no condomínio Noah',
+    },
+    {
+      name: 'order',
+      title: 'Ordem de Exibição no Catálogo',
+      type: 'number',
+      description: 'Número para ordenar os escritórios na página (ex: 1, 2, 3...)',
+      initialValue: 10,
+    },
+  ],
+  preview: {
+    select: {
+      title: 'name',
+      subtitle: 'titular',
+      media: 'photo',
+    },
+  },
+}

@@ -337,5 +337,101 @@
 
   <!-- Scripts -->
   <script src="js/main.js?v=5.1"></script>
+
+  <!-- Sanity CMS Client & Hydration Dinâmica -->
+  <script src="js/sanity-client.js"></script>
+  <script>
+    (async function hydrateEscritorioFromSanity() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get("office") || urlParams.get("slug");
+      if (!slug || !window.SanityClient) return;
+
+      const office = await window.SanityClient.fetchOfficeBySlug(slug);
+      if (!office) return;
+
+      if (office.name) {
+        document.title = `${office.name} — Escritório de Arquitetura | BY ARCH Maxicon`;
+      }
+
+      // Breadcrumbs
+      const breadcrumbCurrent = document.querySelector(".office-breadcrumbs [aria-current='page']");
+      if (breadcrumbCurrent && (office.titular || office.name)) {
+        breadcrumbCurrent.textContent = office.titular || office.name;
+      }
+
+      // Foto oficial
+      const photoImg = document.querySelector(".office-photo-img");
+      if (photoImg && office.photo) {
+        photoImg.src = window.SanityClient.urlForImage(office.photo, 900);
+        photoImg.alt = `Retrato oficial de ${office.name}`;
+      }
+
+      // Tag de curadoria
+      const tagLabel = document.querySelector(".office-tag-label");
+      if (tagLabel && office.name) {
+        tagLabel.textContent = `MAXICON BY ${office.name.toUpperCase()}`;
+      }
+
+      // Logotipo
+      const logoImg = document.querySelector(".office-logo-img");
+      if (logoImg && office.logo) {
+        logoImg.src = window.SanityClient.urlForImage(office.logo, 400);
+        logoImg.alt = `Logotipo ${office.name}`;
+      }
+
+      // Manchete e Bio
+      const heroTitle = document.querySelector(".office-hero-title");
+      if (heroTitle && office.headline) {
+        heroTitle.textContent = office.headline;
+      }
+
+      const bioText = document.querySelector(".office-bio-text");
+      if (bioText && office.bio) {
+        bioText.innerHTML = `<p>${office.bio.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>")}</p>`;
+      }
+
+      // Instagram
+      if (office.instagramUrl || office.instagramUser) {
+        const instaLink = document.querySelector(".office-meta-link");
+        if (instaLink) {
+          if (office.instagramUrl) instaLink.href = office.instagramUrl;
+          const userSpan = instaLink.querySelector("span");
+          if (userSpan && office.instagramUser) userSpan.textContent = office.instagramUser;
+        }
+      }
+
+      // Endereço
+      if (office.address) {
+        const addressEl = document.querySelector(".office-meta-card address");
+        if (addressEl) addressEl.textContent = office.address;
+      }
+
+      // Residência Associada
+      if (office.associatedHouse) {
+        const house = office.associatedHouse;
+        const assocCard = document.querySelector(".office-associated-card");
+        if (assocCard) {
+          const houseUrl = `casa-template.html?slug=${house.slug}`;
+          const assocImg = assocCard.querySelector(".office-associated-img");
+          if (assocImg && house.heroImage) {
+            assocImg.src = window.SanityClient.urlForImage(house.heroImage, 1000);
+            assocImg.alt = `${house.name} — Residência de Alto Padrão por ${office.name}`;
+          }
+
+          const assocLinks = assocCard.querySelectorAll("a");
+          assocLinks.forEach(a => a.href = houseUrl);
+
+          const assocName = assocCard.querySelector(".office-associated-name a, .office-associated-name");
+          if (assocName) assocName.textContent = house.name;
+
+          const assocConcept = assocCard.querySelector(".office-associated-concept");
+          if (assocConcept && house.tagline) assocConcept.textContent = house.tagline;
+
+          const assocSpecVal = assocCard.querySelector(".office-spec-value");
+          if (assocSpecVal) assocSpecVal.textContent = office.titular || office.name;
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

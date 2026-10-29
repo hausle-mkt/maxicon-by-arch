@@ -854,5 +854,101 @@
       });
     }
   </script>
+
+  <!-- Sanity CMS Client & Hydration Dinâmica -->
+  <script src="js/sanity-client.js"></script>
+  <script>
+    (async function hydrateCasaFromSanity() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get("slug") || urlParams.get("casa");
+      if (!slug || !window.SanityClient) return;
+
+      const house = await window.SanityClient.fetchHouseBySlug(slug);
+      if (!house) return;
+
+      // Atualiza título da página
+      if (house.name) {
+        document.title = `${house.name} — ${house.architect?.name || "BY ARCH"} | Maxicon`;
+      }
+
+      // Hero
+      const heroVisual = document.querySelector(".house-main-visual");
+      if (heroVisual) {
+        const heroImg = heroVisual.querySelector("img");
+        const heroTitle = heroVisual.querySelector(".house-title-overlay");
+        if (heroImg && house.heroImage) {
+          heroImg.src = window.SanityClient.urlForImage(house.heroImage, 1920);
+          heroImg.alt = house.name;
+        }
+        if (heroTitle) heroTitle.textContent = house.name;
+      }
+
+      // Conceito & Autoria
+      const conceptCard = document.querySelector(".house-concept-card");
+      if (conceptCard) {
+        const conceptSquareImg = conceptCard.querySelector(".concept-square-img");
+        if (conceptSquareImg) {
+          const cImg = house.conceptImage || house.heroImage;
+          if (cImg) conceptSquareImg.src = window.SanityClient.urlForImage(cImg, 800, 800);
+        }
+
+        const authorLogo = conceptCard.querySelector(".concept-author-logo-img");
+        if (authorLogo && house.architect?.logo) {
+          authorLogo.src = window.SanityClient.urlForImage(house.architect.logo, 300);
+          authorLogo.alt = house.architect.name || "";
+        }
+
+        const mainTitle = conceptCard.querySelector(".concept-main-title");
+        if (mainTitle && (house.headline || house.tagline)) {
+          mainTitle.textContent = house.headline || house.tagline;
+        }
+
+        const textBody = conceptCard.querySelector(".concept-text-body");
+        if (textBody && house.description) {
+          const html = window.SanityClient.blocksToHtml(house.description);
+          if (html) textBody.innerHTML = html;
+        }
+
+        // Specs (Suítes, Vagas, Lote, Área)
+        const specsItems = conceptCard.querySelectorAll(".concept-minimal-spec-item .concept-spec-text");
+        if (specsItems.length >= 2) {
+          if (house.suites) specsItems[0].textContent = house.suites;
+          if (house.garage) specsItems[1].textContent = house.garage;
+        }
+
+        const lotTag = conceptCard.querySelector(".concept-lot-tag");
+        if (lotTag && (house.lot || house.lotArea)) {
+          lotTag.innerHTML = `<strong>${house.lot || "Lote"}</strong> ${house.lotArea || ""}`;
+        }
+
+        const lotArea = conceptCard.querySelector(".concept-lot-area");
+        if (lotArea && house.privateArea) {
+          lotArea.innerHTML = `<strong>${house.privateArea}</strong> área privativa`;
+        }
+
+        // Destaques / Tópicos
+        if (Array.isArray(house.highlights) && house.highlights.length > 0) {
+          const featuresGrid = conceptCard.querySelector(".concept-features-grid");
+          if (featuresGrid) {
+            const mid = Math.ceil(house.highlights.length / 2);
+            const col1 = house.highlights.slice(0, mid);
+            const col2 = house.highlights.slice(mid);
+            featuresGrid.innerHTML = `
+              <ul class="concept-features-col">
+                ${col1.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+              </ul>
+              <ul class="concept-features-col">
+                ${col2.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+              </ul>
+            `;
+          }
+        }
+      }
+
+      // Seção de Contato
+      const valueTitle = document.querySelector(".value-title");
+      if (valueTitle && house.name) valueTitle.textContent = house.name;
+    })();
+  </script>
 </body>
 </html>
