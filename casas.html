@@ -610,6 +610,69 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/sanity-client.js"></script>
   <script src="js/main.js?v=5.1"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (!window.SanityClient || !window.SanityClient.fetchAllHouses) return;
+      try {
+        const houses = await window.SanityClient.fetchAllHouses();
+        const container = document.getElementById('residences-container');
+        if (!container || !houses || houses.length === 0) return;
+
+        houses.forEach(house => {
+          const slug = house.slug ? (house.slug.current || house.slug) : '';
+          if (!slug) return;
+          // Não duplica se a casa já estiver presente no HTML estático
+          if (document.querySelector(`[href*="${slug}"]`)) return;
+
+          const suitesCat = house.suites ? `${house.suites}-suites` : 'all';
+          const heroImg = window.SanityClient.urlForImage(house.heroImage, 800) || 'assets/casa-pinha/destaque.webp';
+          const architectName = house.architect ? house.architect.name : 'Maxicon BY ARCH';
+          const houseUrl = `casa-template.html?slug=${slug}`;
+
+          const card = document.createElement('article');
+          card.className = 'residence-card';
+          card.setAttribute('data-category', suitesCat);
+          card.innerHTML = `
+            <div class="residence-image-box">
+              <a href="${houseUrl}" style="display: block; width: 100%; height: 100%;">
+                <img src="${heroImg}" alt="${house.name || ''}" class="residence-img" loading="lazy">
+              </a>
+              <div class="residence-badges">
+                <span class="badge-status">${house.status || 'Disponível'}</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  ${architectName}
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <h2 class="residence-title"><a href="${houseUrl}" style="color: inherit; text-decoration: none;">${house.name || 'Nova Residência'}</a></h2>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">${house.privateArea ? house.privateArea + ' m²' : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.suites ? house.suites + ' Suítes' : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.lotArea ? house.lotArea + ' m² Terreno' : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.garage ? house.garage + ' Vagas' : '—'}</span></div>
+              </div>
+              <div class="residence-footer">
+                <a href="${houseUrl}" class="btn-memorial" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <span>Explorar o projeto</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      } catch (err) {
+        console.warn('Sanity houses not loaded:', err);
+      }
+    });
+  </script>
 </body>
 </html>

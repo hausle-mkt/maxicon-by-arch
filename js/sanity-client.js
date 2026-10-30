@@ -6,8 +6,8 @@
  */
 
 const SANITY_CONFIG = {
-  // IMPORTANTE: Insira aqui o seu Project ID obtido em sanity.io/manage
-  projectId: "SEU_PROJECT_ID_AQUI",
+  // Project ID obtido em sanity.io/manage
+  projectId: "soyi4quf",
   dataset: "production",
   apiVersion: "2023-08-01",
   useCdn: true,

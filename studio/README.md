@@ -28,10 +28,9 @@ Este guia explica como criar sua conta gratuita no Sanity, obter seu código de 
 ## Passo 3: Colar o `projectId` no seu site
 
 Abra o arquivo `js/sanity-client.js` e substitua `'SEU_PROJECT_ID_AQUI'` pelo código copiado:
-
 ```javascript
 const SANITY_CONFIG = {
-  projectId: "seu_codigo_aqui", // cole o seu Project ID aqui
+  projectId: "soyi4quf", // Seu Project ID configurado!
   dataset: "production",
   apiVersion: "2023-08-01",
   useCdn: true,

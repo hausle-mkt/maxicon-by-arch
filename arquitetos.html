@@ -653,7 +653,54 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="js/sanity-client.js"></script>
   <script src="js/main.js?v=5.1"></script>
   <script src="js/diagonal-carousel.js?v=1.1"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (!window.SanityClient || !window.SanityClient.fetchAllOffices) return;
+      try {
+        const offices = await window.SanityClient.fetchAllOffices();
+        const track = document.getElementById('arch-carousel-track');
+        if (!track || !offices || offices.length === 0) return;
+
+        offices.forEach((office, idx) => {
+          const slug = office.slug ? (office.slug.current || office.slug) : '';
+          if (!slug) return;
+          if (document.querySelector(`[href*="${slug}"]`)) return;
+
+          const photoImg = window.SanityClient.urlForImage(office.photo, 600) || 'assets/fotos arquitetos/jessica-neckel-foto.jpeg';
+          const logoImg = window.SanityClient.urlForImage(office.logo, 300) || '';
+          const officeUrl = `escritorio-template.html?office=${slug}`;
+
+          const card = document.createElement('article');
+          card.className = 'arch-card';
+          card.setAttribute('data-name', office.name || 'Escritório');
+          card.setAttribute('data-index', track.children.length);
+          card.innerHTML = `
+            <div class="arch-card-media">
+              <img src="${photoImg}" alt="${office.name || ''}" class="arch-card-img" loading="lazy">
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                ${logoImg ? `<img src="${logoImg}" alt="Logotipo ${office.name || ''}" class="arch-card-logo">` : `<span style="font-weight: 600; color: #fff;">${office.name}</span>`}
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="${officeUrl}" class="arch-card-cta" aria-label="Saiba mais sobre ${office.name || ''}">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          `;
+          track.appendChild(card);
+        });
+      } catch (err) {
+        console.warn('Sanity offices not loaded:', err);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,568 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: Casa Alva, Casa Pinha, Casa Tempo",
+        "name": "name",
+        "type": "string",
+        "title": "Nome da Casa"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Clique em \"Generate\" para criar a URL da página (ex: casa-alva)",
+        "name": "slug",
+        "type": "slug",
+        "title": "Identificador na URL (Slug)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Selecione o escritório que assina o projeto desta residência",
+        "to": [
+          {
+            "type": "escritorio"
+          }
+        ],
+        "name": "architect",
+        "type": "reference",
+        "title": "Escritório de Arquitetura Responsável"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Disponível para Aquisição",
+              "value": "Disponível"
+            },
+            {
+              "title": "Breve Lançamento",
+              "value": "Breve Lançamento"
+            },
+            {
+              "title": "Oportunidade Exclusiva",
+              "value": "Oportunidade Exclusiva"
+            },
+            {
+              "title": "Reservada / Vendida",
+              "value": "Vendida"
+            }
+          ],
+          "layout": "radio"
+        },
+        "initialValue": "Disponível",
+        "name": "status",
+        "type": "string",
+        "title": "Status da Residência"
+      },
+      {
+        "description": "Ex: Luminosidade Natural, Volumes Puros & Atmosfera Silenciosa",
+        "name": "tagline",
+        "type": "string",
+        "title": "Conceito Curto / Tagline"
+      },
+      {
+        "description": "Ex: Luminosidade natural, volumes puros e atmosfera silenciosa no Noah Reserva Natural.",
+        "name": "headline",
+        "type": "string",
+        "title": "Título Conceitual da Página"
+      },
+      {
+        "description": "Parágrafos conceituais explicando a arquitetura e diferenciais da casa",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "description",
+        "type": "array",
+        "title": "Texto Conceitual / Descrição Editorial"
+      },
+      {
+        "description": "Ex: Lote A08, Lote D15",
+        "name": "lot",
+        "type": "string",
+        "title": "Identificação do Lote"
+      },
+      {
+        "description": "Ex: 1.150 m²",
+        "name": "lotArea",
+        "type": "string",
+        "title": "Área do Terreno / Lote (m²)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: 560 m²",
+        "name": "privateArea",
+        "type": "string",
+        "title": "Área Privativa Construída (m²)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: 4 Suítes",
+        "name": "suites",
+        "type": "string",
+        "title": "Número de Suítes"
+      },
+      {
+        "description": "Ex: 4 Vagas",
+        "name": "garage",
+        "type": "string",
+        "title": "Vagas de Garagem"
+      },
+      {
+        "description": "Adicione tópicos de destaque (ex: \"Conceito de luz zenital contínua\", \"Piscina com deck integrado\", \"Marcenaria artesanal\")",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "highlights",
+        "type": "array",
+        "title": "Destaques / Diferenciais da Residência"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Imagem de alta resolução da fachada da casa",
+        "name": "heroImage",
+        "type": "image",
+        "title": "Foto Principal da Fachada (Hero)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Imagem secundária exibida no card chanfrado de conceito",
+        "name": "conceptImage",
+        "type": "image",
+        "title": "Foto Conceitual (Card Quadrado)"
+      },
+      {
+        "description": "Fotos internas e externas para a galeria / modal de navegação",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "name": "caption",
+                "type": "string",
+                "title": "Legenda da Foto"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "gallery",
+        "type": "array",
+        "title": "Galeria de Fotos"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "videoCover",
+        "type": "image",
+        "title": "Capa do Vídeo Conceitual (Opcional)"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "videoUrl",
+        "type": "url",
+        "title": "Link do Vídeo Conceitual (YouTube / Vimeo - Opcional)"
+      }
+    ],
+    "name": "casa",
+    "type": "document",
+    "title": "Casas (Residências Autorais)"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: Jéssika Neckel Arquitetura, Bassani + Miranda, Polesello + Müller",
+        "name": "name",
+        "type": "string",
+        "title": "Nome do Escritório"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: Jéssika Neckel, Carolina Bassani & Maurício Miranda",
+        "name": "titular",
+        "type": "string",
+        "title": "Nome do(s) Arquiteto(s) / Titular"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Clique em \"Generate\" para criar o identificador da URL (ex: jessica-neckel)",
+        "name": "slug",
+        "type": "slug",
+        "title": "Identificador na URL (Slug)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Logotipo do escritório (recomendado PNG com fundo transparente)",
+        "name": "logo",
+        "type": "image",
+        "title": "Logotipo Oficial"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Retrato oficial dos arquitetos em alta resolução",
+        "name": "photo",
+        "type": "image",
+        "title": "Foto Oficial do(s) Arquiteto(s)"
+      },
+      {
+        "initialValue": "Ambientes exclusivos que refletem a sua identidade",
+        "description": "Ex: Ambientes exclusivos que refletem a sua identidade",
+        "name": "headline",
+        "type": "string",
+        "title": "Manchete / Título Editorial"
+      },
+      {
+        "rows": 5,
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Apresentação institucional do escritório, histórico e conceitos autorais.",
+        "name": "bio",
+        "type": "text",
+        "title": "Biografia / Perfil do Escritório"
+      },
+      {
+        "description": "Ex: @jessikaneckelarq ou @bassanic.arq",
+        "name": "instagramUser",
+        "type": "string",
+        "title": "Usuário do Instagram"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Ex: https://www.instagram.com/jessikaneckelarq",
+        "name": "instagramUrl",
+        "type": "url",
+        "title": "Link Completo do Instagram"
+      },
+      {
+        "description": "Ex: Rua General Osório, 1086, Una Business Center, sala 1101, Centro, Passo Fundo/RS.",
+        "name": "address",
+        "type": "string",
+        "title": "Endereço Comercial / Sede"
+      },
+      {
+        "description": "Selecione a casa assinada por este escritório no condomínio Noah",
+        "to": [
+          {
+            "type": "casa"
+          }
+        ],
+        "name": "associatedHouse",
+        "type": "reference",
+        "title": "Residência Assinada Associada (BY ARCH)"
+      },
+      {
+        "initialValue": 10,
+        "description": "Número para ordenar os escritórios na página (ex: 1, 2, 3...)",
+        "name": "order",
+        "type": "number",
+        "title": "Ordem de Exibição no Catálogo"
+      }
+    ],
+    "name": "escritorio",
+    "type": "document",
+    "title": "Escritórios de Arquitetura"
+  }
+]

@@ -7,8 +7,8 @@ export default defineConfig({
   name: 'default',
   title: 'Maxicon BY ARCH — Gestor de Conteúdo',
 
-  // Substitua pelo seu Project ID obtido em sanity.io/manage
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'SEU_PROJECT_ID_AQUI',
+  // Project ID obtido em sanity.io/manage
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || 'soyi4quf',
   dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
