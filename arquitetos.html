@@ -154,7 +154,7 @@
                 >
               </div>
               <div class="arch-card-cta-row">
-                <a href="casa-pinha.html" class="arch-card-cta" aria-label="Saiba mais sobre Polesello + Müller">
+                <a href="escritorio-template.html?office=polesello-muller" class="arch-card-cta" aria-label="Saiba mais sobre Polesello + Müller">
                   <span>Saiba Mais</span>
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                     <path d="M7 17L17 7M17 7H7M17 7V17"/>
@@ -664,14 +664,48 @@
         const track = document.getElementById('arch-carousel-track');
         if (!track || !offices || offices.length === 0) return;
 
-        offices.forEach((office, idx) => {
+        const cleanStr = str => (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+
+        offices.forEach((office) => {
           const slug = office.slug ? (office.slug.current || office.slug) : '';
           if (!slug) return;
-          if (document.querySelector(`[href*="${slug}"]`)) return;
 
+          const officeUrl = `escritorio-template.html?office=${slug}`;
+          const offClean = cleanStr(office.name);
+          const slugClean = cleanStr(slug);
+
+          // Procura se já existe um card estático deste escritório
+          const allCards = Array.from(track.querySelectorAll('.arch-card'));
+          const existingCard = allCards.find(card => {
+            const cardName = cleanStr(card.getAttribute('data-name'));
+            const ctaHref = cleanStr(card.querySelector('.arch-card-cta')?.getAttribute('href'));
+            return (cardName && (cardName.includes(offClean) || offClean.includes(cardName))) ||
+                   (ctaHref && (ctaHref.includes(slugClean) || slugClean.includes(ctaHref)));
+          });
+
+          if (existingCard) {
+            // Atualiza o botão Saiba Mais para o link exato gerado no Sanity
+            const cta = existingCard.querySelector('.arch-card-cta');
+            if (cta) {
+              cta.href = officeUrl;
+              cta.setAttribute('aria-label', `Saiba mais sobre ${office.name || ''}`);
+            }
+            // Atualiza a foto se foi feito upload no Sanity
+            if (office.photo) {
+              const img = existingCard.querySelector('.arch-card-img');
+              if (img) img.src = window.SanityClient.urlForImage(office.photo, 600);
+            }
+            // Atualiza o logo se foi feito upload no Sanity
+            if (office.logo) {
+              const logo = existingCard.querySelector('.arch-card-logo');
+              if (logo) logo.src = window.SanityClient.urlForImage(office.logo, 300);
+            }
+            return;
+          }
+
+          // Se for um escritório novo (que não existia nos cards estáticos), cria o card
           const photoImg = window.SanityClient.urlForImage(office.photo, 600) || 'assets/fotos arquitetos/jessica-neckel-foto.jpeg';
           const logoImg = window.SanityClient.urlForImage(office.logo, 300) || '';
-          const officeUrl = `escritorio-template.html?office=${slug}`;
 
           const card = document.createElement('article');
           card.className = 'arch-card';
@@ -697,6 +731,12 @@
           `;
           track.appendChild(card);
         });
+
+        // Atualiza o contador total de escritórios se novos foram adicionados
+        const totalEl = document.querySelector('.arch-counter-total');
+        if (totalEl) {
+          totalEl.textContent = String(track.children.length).padStart(2, '0');
+        }
       } catch (err) {
         console.warn('Sanity offices not loaded:', err);
       }

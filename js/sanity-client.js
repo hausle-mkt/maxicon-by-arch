@@ -141,13 +141,14 @@ async function fetchAllHouses() {
  * Busca um escritório de arquitetura pelo slug
  */
 async function fetchOfficeBySlug(slug) {
-  const query = `*[_type == "escritorio" && slug.current == $slug][0]{
+  const query = `*[_type == "escritorio" && (slug.current == $slug || slug.current match $slug || name match $slug)][0]{
     ...,
     associatedHouse->{
       name,
       "slug": slug.current,
       status,
       tagline,
+      headline,
       privateArea,
       suites,
       heroImage

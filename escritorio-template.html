@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{NOME_ESCRITORIO}} | BY ARCH Maxicon</title>
-  <meta name="description" content="Conheça o escritório {{NOME_ESCRITORIO}}, parceiro autoral da coleção de residências de alto padrão BY ARCH da Maxicon Incorporadora. Desenvolve a {{NOME_CASA_ASSOCIADA}}.">
+  <title>Escritório de Arquitetura | BY ARCH Maxicon</title>
+  <meta name="description" content="Conheça os escritórios autorais parceiros da coleção de residências de alto padrão BY ARCH da Maxicon Transformação Urbana.">
   
   <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,51 +87,49 @@
         <span class="sep">/</span>
         <a href="arquitetos.html">Escritórios</a>
         <span class="sep">/</span>
-        <span aria-current="page">{{NOME_TITULAR_ARQUITETO}}</span>
+        <span aria-current="page" class="office-breadcrumb-title">Escritório de Arquitetura</span>
       </nav>
 
       <div class="office-hero-grid">
         <!-- Coluna Visual: Foto Oficial dos Arquitetos (Destaque Principal) -->
         <div class="office-visual-col scroll-reveal">
           <div class="office-photo-card">
-            <picture>
-              <source srcset="{{URL_FOTO_OFICIAL_WEBP}}" type="image/webp">
-              <img 
-                src="{{URL_FOTO_OFICIAL_JPEG}}" 
-                alt="Retrato oficial de {{NOME_ESCRITORIO}}" 
-                class="office-photo-img"
-                loading="eager"
-              >
-            </picture>
+            <img 
+              src="assets/fotos%20arquitetos/polesello%2Bmuller-foto.png" 
+              alt="Retrato oficial" 
+              class="office-photo-img"
+              loading="eager"
+            >
           </div>
         </div>
 
         <!-- Coluna de Conteúdo: Tag, Logo, Título, Bio, Instagram e Endereço -->
         <div class="office-content-col scroll-reveal scroll-reveal-delay-1">
           <!-- Tag de Curadoria / Coleção -->
-          <div class="office-tag-label">MAXICON BY {{NOME_ESCRITORIO}}</div>
+          <div class="office-tag-label">MAXICON BY ARCH</div>
 
           <!-- Logo Oficial do Escritório -->
           <div class="office-logo-box">
             <img 
-              src="{{URL_LOGO_ESCRITORIO}}" 
-              alt="Logo {{NOME_ESCRITORIO}}" 
+              src="" 
+              alt="Logo do Escritório" 
               class="office-logo-img"
+              style="display: none;"
             >
           </div>
 
           <!-- Título Principal / Manchete Editorial -->
-          <h1 class="office-hero-title">{{MANCHETE_ESCRITORIO:-Ambientes exclusivos que refletem a sua identidade}}</h1>
+          <h1 class="office-hero-title">Ambientes exclusivos que refletem a sua identidade</h1>
 
           <!-- Bio do Escritório -->
           <div class="office-bio-text">
-            <p>{{BIO_ESCRITORIO}}</p>
+            <p></p>
           </div>
 
           <!-- Metadados: Instagram e Endereço Oficial -->
           <div class="office-meta-grid">
             <!-- Item: Instagram -->
-            <div class="office-meta-card">
+            <div class="office-meta-card office-meta-card-instagram">
               <div class="office-meta-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -142,13 +140,13 @@
               <div class="office-meta-content">
                 <div class="office-meta-value">
                   <a 
-                    href="{{URL_INSTAGRAM}}" 
+                    href="https://instagram.com" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     class="office-meta-link"
-                    aria-label="Acessar o perfil no Instagram de {{NOME_ESCRITORIO}} ({{USER_INSTAGRAM}})"
+                    aria-label="Acessar o perfil no Instagram"
                   >
-                    <span>{{USER_INSTAGRAM}}</span>
+                    <span>@escritorio</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                       <path d="M7 17L17 7M17 7H7M17 7V17"/>
                     </svg>
@@ -158,7 +156,7 @@
             </div>
 
             <!-- Item: Endereço -->
-            <div class="office-meta-card">
+            <div class="office-meta-card office-meta-card-address">
               <div class="office-meta-icon" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -167,7 +165,7 @@
               </div>
               <div class="office-meta-content">
                 <address class="office-meta-value" style="font-style: normal;">
-                  {{ENDERECO_COMPLETO}}
+                  Passo Fundo / RS
                 </address>
               </div>
             </div>
@@ -184,17 +182,17 @@
         <div class="office-house-section-header scroll-reveal">
           <h2 class="office-house-section-title">A Residência Assinada</h2>
           <p class="office-house-section-desc">
-            Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador. Conheça a obra assinada por {{NOME_ESCRITORIO}}.
+            Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador.
           </p>
         </div>
 
         <div class="office-associated-card scroll-reveal scroll-reveal-delay-1">
           <!-- Visual da Residência -->
           <div class="office-associated-visual">
-            <a href="{{URL_PAGINA_CASA_ASSOCIADA}}" aria-label="Ver detalhes de {{NOME_CASA_ASSOCIADA}}" style="display: block; width: 100%; height: 100%;">
+            <a href="casas.html" aria-label="Ver detalhes da residência" style="display: block; width: 100%; height: 100%;">
               <img 
-                src="{{URL_FOTO_CASA_ASSOCIADA}}" 
-                alt="{{NOME_CASA_ASSOCIADA}} — Residência de Alto Padrão por {{NOME_ESCRITORIO}}" 
+                src="assets/casa-pinha/destaque.webp" 
+                alt="Residência de Alto Padrão" 
                 class="office-associated-img"
                 loading="lazy"
               >
@@ -203,26 +201,26 @@
 
           <!-- Conteúdo da Residência -->
           <div class="office-associated-content">
-            <h3 class="office-associated-name"><a href="{{URL_PAGINA_CASA_ASSOCIADA}}" style="color: inherit; text-decoration: none;">{{NOME_CASA_ASSOCIADA}}</a></h3>
-            <div class="office-associated-concept">{{CONCEITO_CASA_ASSOCIADA}}</div>
+            <h3 class="office-associated-name"><a href="casas.html" style="color: inherit; text-decoration: none;">Residência Autoral</a></h3>
+            <div class="office-associated-concept">Arquitetura Contemporânea</div>
             
             <p class="office-associated-text">
-              {{DESCRICAO_CASA_ASSOCIADA}}
+              Projeto exclusivo concebido para o condomínio Noah Reserva Natural.
             </p>
 
             <div class="office-associated-specs">
               <div class="office-associated-spec-item">
                 <span class="office-spec-label">Assinatura</span>
-                <span class="office-spec-value">{{NOME_ESCRITORIO}}</span>
+                <span class="office-spec-value">BY ARCH</span>
               </div>
             </div>
 
             <a 
-              href="{{URL_PAGINA_CASA_ASSOCIADA}}" 
+              href="casas.html" 
               class="office-associated-cta-btn"
-              aria-label="Conhecer a {{NOME_CASA_ASSOCIADA}}"
+              aria-label="Conhecer a residência"
             >
-              <span>{{TEXTO_BOTAO_CASA_ASSOCIADA:-Saiba mais}}</span>
+              <span>Explorar o projeto</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
@@ -374,9 +372,14 @@
 
       // Logotipo
       const logoImg = document.querySelector(".office-logo-img");
-      if (logoImg && office.logo) {
-        logoImg.src = window.SanityClient.urlForImage(office.logo, 400);
-        logoImg.alt = `Logotipo ${office.name}`;
+      if (logoImg) {
+        if (office.logo) {
+          logoImg.src = window.SanityClient.urlForImage(office.logo, 400);
+          logoImg.alt = `Logotipo ${office.name || ''}`;
+          logoImg.style.display = "block";
+        } else {
+          logoImg.style.display = "none";
+        }
       }
 
       // Manchete e Bio
@@ -391,6 +394,7 @@
       }
 
       // Instagram
+      const instaCard = document.querySelector(".office-meta-card-instagram");
       if (office.instagramUrl || office.instagramUser) {
         const instaLink = document.querySelector(".office-meta-link");
         if (instaLink) {
@@ -398,20 +402,26 @@
           const userSpan = instaLink.querySelector("span");
           if (userSpan && office.instagramUser) userSpan.textContent = office.instagramUser;
         }
+      } else if (instaCard) {
+        instaCard.style.display = "none";
       }
 
       // Endereço
+      const addressCard = document.querySelector(".office-meta-card-address");
       if (office.address) {
-        const addressEl = document.querySelector(".office-meta-card address");
+        const addressEl = addressCard ? addressCard.querySelector("address") : null;
         if (addressEl) addressEl.textContent = office.address;
+      } else if (addressCard) {
+        addressCard.style.display = "none";
       }
 
       // Residência Associada
-      if (office.associatedHouse) {
+      const houseSection = document.querySelector(".office-house-section");
+      if (office.associatedHouse && office.associatedHouse.name) {
         const house = office.associatedHouse;
         const assocCard = document.querySelector(".office-associated-card");
         if (assocCard) {
-          const houseUrl = `casa-template.html?slug=${house.slug}`;
+          const houseUrl = (house.slug === 'casa-pinha' || house.slug === 'casa-alva') ? `${house.slug}.html` : `casa-template.html?slug=${house.slug}`;
           const assocImg = assocCard.querySelector(".office-associated-img");
           if (assocImg && house.heroImage) {
             assocImg.src = window.SanityClient.urlForImage(house.heroImage, 1000);
@@ -425,11 +435,42 @@
           if (assocName) assocName.textContent = house.name;
 
           const assocConcept = assocCard.querySelector(".office-associated-concept");
-          if (assocConcept && house.tagline) assocConcept.textContent = house.tagline;
+          if (assocConcept) assocConcept.textContent = house.tagline || "Arquitetura Autoral";
+
+          const assocText = assocCard.querySelector(".office-associated-text");
+          if (assocText) assocText.textContent = house.headline || house.tagline || "Projeto exclusivo concebido para o condomínio Noah Reserva Natural.";
 
           const assocSpecVal = assocCard.querySelector(".office-spec-value");
           if (assocSpecVal) assocSpecVal.textContent = office.titular || office.name;
+
+          const descHeader = document.querySelector(".office-house-section-desc");
+          if (descHeader) descHeader.textContent = `Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador. Conheça a obra assinada por ${office.name}.`;
         }
+      } else if (office.name && (office.name.toLowerCase().includes("polesello") || office.name.toLowerCase().includes("müller") || office.name.toLowerCase().includes("muller"))) {
+        // Fallback para Polesello + Müller caso ainda não tenha vinculado Casa Pinha no Sanity
+        const assocCard = document.querySelector(".office-associated-card");
+        if (assocCard) {
+          const houseUrl = "casa-pinha.html";
+          const assocImg = assocCard.querySelector(".office-associated-img");
+          if (assocImg) {
+            assocImg.src = "assets/casa-pinha/destaque.webp";
+            assocImg.alt = "Casa Pinha — Residência por Polesello + Müller";
+          }
+          assocCard.querySelectorAll("a").forEach(a => a.href = houseUrl);
+          const assocName = assocCard.querySelector(".office-associated-name a, .office-associated-name");
+          if (assocName) assocName.textContent = "Casa Pinha";
+          const assocConcept = assocCard.querySelector(".office-associated-concept");
+          if (assocConcept) assocConcept.textContent = "Arquitetura Orgânica em Torno da Natureza";
+          const assocText = assocCard.querySelector(".office-associated-text");
+          if (assocText) assocText.textContent = "A Casa Pinha nasce da reverência ao elemento natural mais nobre do sítio: uma araucária madura em torno da qual a volumetria curva se articula.";
+          const assocSpecVal = assocCard.querySelector(".office-spec-value");
+          if (assocSpecVal) assocSpecVal.textContent = office.titular || office.name || "Polesello + Müller";
+          const descHeader = document.querySelector(".office-house-section-desc");
+          if (descHeader) descHeader.textContent = `Cada residência do projeto BY ARCH expressa o DNA singular do seu escritório criador. Conheça a obra assinada por ${office.name}.`;
+        }
+      } else if (houseSection) {
+        // Se outro escritório ainda não tiver casa associada no Sanity, esconde a seção de casa
+        houseSection.style.display = "none";
       }
     })();
   </script>
