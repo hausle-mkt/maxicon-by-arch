@@ -5,6 +5,334 @@
  * do Sanity e preencher as páginas automaticamente.
  */
 
+const LOCAL_OFFICES_CACHE = [
+  {
+    "address": "Av. General Neto, 422 - sala 110, Centro, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "A Kalíah Arquitetura acredita no poder dos espaços de transformar a maneira como vivemos e nos conectamos. A partir da escuta de cada cliente, cria projetos contemporâneos e únicos, que valorizam a luz natural, os materiais naturais e a relação entre pessoas e ambientes. Arquitetura com propósito, sensibilidade e identidade.",
+    "headline": "Habitar é se reconectar com sua essência",
+    "instagramUrl": null,
+    "instagramUser": "@kaliah.arquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-ef0211db2686ce9b8f11694b66c3b4b7f39f487a-3156x1330-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Kaliáh Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-87b95cb7a4d4d8bc7d188b2cb79db19d3b8babbc-3830x5737-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "kaliah-arquitetura",
+    "titular": "Kaliáh Arquitetura"
+  },
+  {
+    "address": "Avenida General Neto, 383, sala 701, Centro, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Sediada em Passo Fundo, a Ichedid Arquitetura combina experiência, criatividade e tecnologia no desenvolvimento de projetos arquitetônicos. Sua atuação valoriza a pesquisa, a inovação e a compreensão das necessidades de cada cliente, criando soluções autorais que equilibram qualidade técnica, funcionalidade e identidade.",
+    "headline": "Ideias singulares. Soluções extraordinárias.",
+    "instagramUrl": null,
+    "instagramUser": "@ichedid",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-19c3d1fd1bf0f95bf0c88fdd256e428b93abfa64-5547x2366-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Ichedid Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-bdce7f3e70e88077d9612798c2191c448465a9e7-3225x4831-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "ichedid-arquitetura",
+    "titular": "Ichedid Arquitetura"
+  },
+  {
+    "address": "Rua General Osório, 1086, Una Business Center, sala 710, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Com mais de duas décadas de atuação, a Polesello + Muller Arquitetura desenvolve projetos residenciais, de interiores, corporativos e empreendimentos verticais de grande escala. Sua trajetória combina arquitetura autoral, inovação e funcionalidade, criando espaços que valorizam a experiência de viver e contribuem para transformar a paisagem urbana.",
+    "headline": "A experiência de viver traduzida em arquitetura",
+    "instagramUrl": null,
+    "instagramUser": "@fernandopoleselloarquitetura @carolinemullerarquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-beef9eb7b91c223eb62238b33189cbf3b1f20230-5188x2587-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Polesello + Muller Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-a3d2d405beda55ec2ab52af0ff6798fefab02b97-1024x1535-png",
+        "_type": "reference"
+      }
+    },
+    "slug": "polesello-muller-arquitetura",
+    "titular": "Polesello + Muller Arquitetura"
+  },
+  {
+    "address": "BR-285, km 280,6, Mato Castelhano/RS.",
+    "associatedHouse": null,
+    "bio": "Conduzido pelos irmãos Matheus e Larissa Denardin, o Vastuo Arquitetura e Design reúne experiências complementares em arquitetura, engenharia, arte e design. Com trajetórias de 20 e 30 anos, respectivamente, os profissionais combinam conhecimento técnico, sensibilidade artística e atenção às formas de viver para desenvolver projetos com identidade.",
+    "headline": "Design e arquitetura com precisão e funcionalidade",
+    "instagramUrl": null,
+    "instagramUser": "@vastuo.arquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-84718875fd7e9e4b3702ef044a9570f04af4641c-5626x726-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Vastuo Arquitetura e Design",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-942950632851b00b4bc0e020210a6065a09c0db9-1024x1536-png",
+        "_type": "reference"
+      }
+    },
+    "slug": "vastuo-arquitetura-e-design",
+    "titular": "Vastuo Arquitetura e Design"
+  },
+  {
+    "address": "Passo Fundo/RS",
+    "associatedHouse": null,
+    "bio": "A Lanza Kurtz Arquitetura desenvolve projetos de arquitetura e interiores a partir da relação entre espaço, contexto e pessoas. Seu processo criativo valoriza a colaboração com o cliente, combinando estética contemporânea, funcionalidade e soluções personalizadas. O escritório possui reconhecimento no International Property Awards 2025 e 2026.",
+    "headline": "O espaço é o nosso ponto de partida",
+    "instagramUrl": null,
+    "instagramUser": "@lanzakurtzarq_",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-d4ce88b698f5258bee696d2d7fb08adf9c8cd771-7999x609-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Lanza Kurtz Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-82e763a7ab414c84a1ed7949ac43b106f00d7dda-4043x3931-png",
+        "_type": "reference"
+      }
+    },
+    "slug": "lanza-kurtz-arquitetura",
+    "titular": "Lanza Kurtz Arquitetura"
+  },
+  {
+    "address": "Rua Eduardo de Brito, 770 - Bairro Vergueiro, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Escritório de arquitetura dedicado à criação de projetos autorais que unem \ninovação, sofisticação e funcionalidade. Atuamos em arquitetura residencial \nunifamiliar e multifamiliar, espaços comerciais, arquitetura de interiores e \npaisagismo, transformando ideias em espaços únicos, com identidade, \npropósito e atenção a cada detalhe.",
+    "headline": "Cada detalhe revela uma forma única de viver",
+    "instagramUrl": null,
+    "instagramUser": "@wobetoarquitetura @giselawobeto @miltonluiswobeto",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-01b1ed25f402935b4a7b3e96bdcd01eb6c29f5ac-355x164-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Wobeto Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-4e218a30c7395a2fc29f31641098f0fa1472d058-2981x4466-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "wobeto-arquitetura",
+    "titular": "Wobeto Arquitetura"
+  },
+  {
+    "address": "Travessa Dr. Celso Ribeiro, 504, Cidade Nova, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "A Volo desenvolve projetos de arquitetura que transformam ideias em espaços com identidade, propósito e significado. Sua abordagem integra criatividade, estratégia e precisão técnica, acompanhando cada etapa, da concepção à materialização. O resultado são ambientes que valorizam as conexões entre pessoas, lugares e diferentes formas de viver.",
+    "headline": "O desejo de voar nos move!",
+    "instagramUrl": null,
+    "instagramUser": "@voloarquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-970643f4e9669cf6f4aa5fd16f229111c866b24b-1418x421-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Volo Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-4aaaf1e153b713488931a9b97d88ac29826a1d94-2425x3224-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "volo-arquitetura",
+    "titular": "Volo Arquitetura"
+  },
+  {
+    "address": "Passo Fundo/RS",
+    "associatedHouse": null,
+    "bio": "A Deividy Morello Arquitetura desenvolve projetos residenciais, comerciais e de interiores, com foco na identidade e nas necessidades de cada cliente. Sua abordagem une exclusividade, funcionalidade e atenção aos detalhes, acompanhando todas as etapas, da concepção à execução, para transformar histórias e formas de viver em espaços únicos.",
+    "headline": "Arquitetura com essência e exclusividade",
+    "instagramUrl": null,
+    "instagramUser": "@deividymorello.arq",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-fa007afea5021dc7274d48b68785ec1e9454f7f1-4914x2026-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Deividy Morello Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-633e0a0260b47b0f3085031f4f55a74053a7c54c-3644x5459-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "deividy-morello-arquitetura",
+    "titular": "Deividy Morello Arquitetura"
+  },
+  {
+    "address": "Rua Paissandu, 1193, sala 807 - Centro, Passo Fundo/RS",
+    "associatedHouse": null,
+    "bio": "Fundado pela arquiteta Ana Paula Wickert, o escritório reúne uma equipe qualificada que alia conhecimento técnico, visão estratégica e referências internacionais. Desenvolve projetos com design autoral e soluções inovadoras, sustentáveis e inteligentes, valorizando os espaços e a qualidade de vida.",
+    "headline": "Arquitetura autoral, natureza e novas formas de habitar",
+    "instagramUrl": null,
+    "instagramUser": "@w.arquitetura_urbanismo",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-0146c2e9d1de096411c7c05edb722c876a3c904f-1364x1495-png",
+        "_type": "reference"
+      }
+    },
+    "name": "W. Arquitetura e Urbanismo",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-9dc0bd572b8ce4ad87c97db5db3e8f2abb9f7d26-3400x5093-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "w-arquitetura-e-urbanismo",
+    "titular": "W. Arquitetura e Urbanismo"
+  },
+  {
+    "address": "Rua General Osório, 1086, Una Business Center, sala 1101, Centro, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Fundado em 2018 e sediado em Passo Fundo, o escritório Jéssika Neckel desenvolve projetos de arquitetura com atuação no Brasil e no exterior. Sua linguagem autoral combina sensibilidade estética, precisão e identidade, traduzindo histórias e estilos de vida em espaços contemporâneos, singulares e atemporais.",
+    "headline": "Ambientes exclusivos que refletem a sua identidade",
+    "instagramUrl": null,
+    "instagramUser": "@jessikaneckelarq",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-26f974a17fe2be12cd9261b45511bed53acffd1f-1132x248-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Jéssica Neckel Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-9cb9c87e5573eaeec77d5e22b6797c56cfa38d9b-2680x4020-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "jessica-neckel-arquitetura",
+    "titular": "Jéssica Neckel Arquitetura"
+  },
+  {
+    "address": "Rua Dona Eliza, 646, Bairro Annes, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Liderada pela arquiteta Maiara Morsch, com 20 anos de experiência, a Shamma Arquitetura reúne cinco premiações internacionais em sua trajetória. Especializada em design biofílico e conforto ambiental, desenvolve projetos que combinam inovação, sensibilidade e bem-estar, criando experiências arquitetônicas marcantes e concebidas para permanecer relevantes ao longo do tempo.",
+    "headline": "Construímos legados com alma e inovação",
+    "instagramUrl": null,
+    "instagramUser": "@shammaarquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-f2e4ebce2b84d210f910c285da5eda1f0f677b76-5630x1513-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Shamma Arquitetura",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-0a30212427649d55884b76a58100c07f286eb744-2400x3600-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "shamma-arquitetura",
+    "titular": "Shamma Arquitetura"
+  },
+  {
+    "address": "Avenida Sete de Setembro, 23 - sala 06, Centro, Passo Fundo/RS.",
+    "associatedHouse": null,
+    "bio": "Fundado em 2018, o Zenital Studio Arquitetos desenvolve projetos arquitetônicos em diferentes escalas, combinando criatividade, exclusividade e rigor técnico. Sua atuação busca compreender as particularidades de cada cliente e propor soluções que valorizem o conforto, o bem-estar e a qualidade dos espaços, contribuindo positivamente para a experiência de viver.",
+    "headline": "Criando espaços únicos como você",
+    "instagramUrl": null,
+    "instagramUser": "@zenitalstudio",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-68dd395f51407b53f89517c3722eb481239bcb71-4086x804-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Zenital Studio Arquitetos",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-3ad62e73746331ca51a906ee9e463624e00029ae-3226x4832-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "zenital-studio-arquitetos",
+    "titular": "Zenital Studio Arquitetos"
+  },
+  {
+    "address": "Rua Tiradentes, 623, sala 03 - Centro, Passo Fundo/RS",
+    "associatedHouse": null,
+    "bio": "Com mais de 20 anos de atuação, nosso escritório é especializado em projetos residenciais de alto padrão, especialmente em condomínios. Unimos arquitetura autoral, funcionalidade e atenção aos detalhes, atuando desde a concepção do projeto até a execução da obra, transformando ideias em espaços únicos para viver.",
+    "headline": "Existem casas para morar. E casas para criar raízes.",
+    "instagramUrl": null,
+    "instagramUser": "@bmaismarquitetura",
+    "logo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-bab98ac0c3b2bc04a3e705b2a3dc3c102a647db3-1024x683-png",
+        "_type": "reference"
+      }
+    },
+    "name": "Bassani+Miranda Arquitetura e Construção",
+    "photo": {
+      "_type": "image",
+      "asset": {
+        "_ref": "image-ac1c0acbab005f30c059bc272d57b1bd838af9ba-3400x5093-jpg",
+        "_type": "reference"
+      }
+    },
+    "slug": "bassani-miranda-arquitetura-e-construcao",
+    "titular": "Bassani+Miranda Arquitetura e Construção"
+  }
+];
+
 const SANITY_CONFIG = {
   // Project ID obtido em sanity.io/manage
   projectId: "soyi4quf",
@@ -154,7 +482,29 @@ async function fetchOfficeBySlug(slug) {
       heroImage
     }
   }`;
-  return await querySanity(query, { slug });
+  let result = null;
+  try {
+    result = await querySanity(query, { slug });
+  } catch (e) {
+    console.warn("[Sanity] Erro na consulta online, usando dados de cache:", e);
+  }
+
+  if (result) return result;
+
+  // Fallback para cache local (garante funcionamento offline e via file://)
+  if (typeof LOCAL_OFFICES_CACHE !== 'undefined' && Array.isArray(LOCAL_OFFICES_CACHE)) {
+    const cleanStr = str => (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]/g, '');
+    const targetClean = cleanStr(slug);
+    const found = LOCAL_OFFICES_CACHE.find(o => {
+      const sClean = cleanStr(o.slug);
+      const nClean = cleanStr(o.name);
+      return sClean === targetClean || sClean.includes(targetClean) || targetClean.includes(sClean) ||
+             nClean.includes(targetClean) || targetClean.includes(nClean);
+    });
+    if (found) return found;
+  }
+
+  return null;
 }
 
 /**
@@ -177,7 +527,20 @@ async function fetchAllOffices() {
       "slug": slug.current
     }
   }`;
-  return await querySanity(query);
+  let result = null;
+  try {
+    result = await querySanity(query);
+  } catch (e) {
+    console.warn("[Sanity] Erro na consulta online, usando dados de cache:", e);
+  }
+
+  if (Array.isArray(result) && result.length > 0) return result;
+
+  if (typeof LOCAL_OFFICES_CACHE !== 'undefined' && Array.isArray(LOCAL_OFFICES_CACHE)) {
+    return LOCAL_OFFICES_CACHE;
+  }
+
+  return [];
 }
 
 /**

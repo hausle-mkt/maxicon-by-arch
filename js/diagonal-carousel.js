@@ -87,8 +87,9 @@
         const sign = offset < 0 ? -1 : 1;
         const x = sign * (xStep * (maxVisible + 1));
         const y = sign * (yStep * (maxVisible + 1));
+        const rotZ = isMobile ? 0 : sign * (maxVisible + 1) * 1.8;
         return {
-          transform: `translate3d(${x}px, ${y}px, -450px) scale(0.5)`,
+          transform: `translate3d(${x}px, ${y}px, -450px) scale3d(0.5, 0.5, 1) rotateZ(${rotZ}deg)`,
           opacity: 0,
           filter: 'blur(8px)',
           zIndex: 1,
@@ -408,6 +409,9 @@
     // Inicialização
     updateCarousel(true);
   }
+
+  // Exporta globalmente para permitir re-inicialização dinâmica se necessário
+  window.initDiagonalCarousel = initDiagonalCarousel;
 
   // Inicializa quando o DOM estiver pronto
   if (document.readyState === 'loading') {
