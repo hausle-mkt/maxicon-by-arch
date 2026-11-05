@@ -186,7 +186,42 @@
             </div>
           </article>
 
-          <!-- 3. Casa Horizonte (Studio Bernardes) -->
+          <!-- 3. Casa Origem (Assinatura Deividy Morello Arquitetura) -->
+          <article class="residence-card" data-category="3-suites">
+            <div class="residence-image-box">
+              <a href="casa-origem.html" style="display: block; width: 100%; height: 100%;">
+                <img src="assets/ESCRITORIOS%20LOGO/casa%20deividy%20morello.webp" alt="Casa Origem — Deividy Morello Arquitetura" class="residence-img" loading="lazy">
+              </a>
+              <div class="residence-badges">
+                <span class="badge-status">Oportunidade Exclusiva</span>
+                <span class="badge-architect">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                  </svg>
+                  Deividy Morello
+                </span>
+              </div>
+            </div>
+            <div class="residence-content">
+              <h2 class="residence-title"><a href="casa-origem.html" style="color: inherit; text-decoration: none;">Casa Origem</a></h2>
+              <div class="residence-specs-row">
+                <div class="spec-item"><span class="spec-text">395,1 m²</span></div>
+                <div class="spec-item"><span class="spec-text">3 Suítes</span></div>
+                <div class="spec-item"><span class="spec-text">592,86 m² Terreno</span></div>
+                <div class="spec-item"><span class="spec-text">2 Vagas</span></div>
+              </div>
+              <div class="residence-footer">
+                <a href="casa-origem.html" class="btn-memorial" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <span>Explorar o projeto</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Casa Horizonte (Studio Bernardes) -->
           <article class="residence-card" data-category="4-suites">
             <div class="residence-image-box">
               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Casa Horizonte" class="residence-img" loading="lazy">
@@ -626,7 +661,11 @@
           // Não duplica se a casa já estiver presente no HTML estático
           if (document.querySelector(`[href*="${slug}"]`)) return;
 
-          const suitesCat = house.suites ? `${house.suites}-suites` : 'all';
+          let suitesCat = 'all';
+          if (house.suites) {
+            const numMatch = String(house.suites).match(/\d+/);
+            if (numMatch) suitesCat = `${numMatch[0]}-suites`;
+          }
           const heroImg = window.SanityClient.urlForImage(house.heroImage, 800) || 'assets/casa-pinha/destaque.webp';
           const architectName = house.architect ? house.architect.name : 'Maxicon BY ARCH';
           const houseUrl = `casa-template.html?slug=${slug}`;
@@ -652,10 +691,10 @@
             <div class="residence-content">
               <h2 class="residence-title"><a href="${houseUrl}" style="color: inherit; text-decoration: none;">${house.name || 'Nova Residência'}</a></h2>
               <div class="residence-specs-row">
-                <div class="spec-item"><span class="spec-text">${house.privateArea ? house.privateArea + ' m²' : '—'}</span></div>
-                <div class="spec-item"><span class="spec-text">${house.suites ? house.suites + ' Suítes' : '—'}</span></div>
-                <div class="spec-item"><span class="spec-text">${house.lotArea ? house.lotArea + ' m² Terreno' : '—'}</span></div>
-                <div class="spec-item"><span class="spec-text">${house.garage ? house.garage + ' Vagas' : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.privateArea ? (house.privateArea.includes('m²') ? house.privateArea : house.privateArea + ' m²') : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.suites ? (house.suites.toLowerCase().includes('suíte') ? house.suites : house.suites + ' Suítes') : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.lotArea ? (house.lotArea.includes('m²') ? house.lotArea : house.lotArea + ' m²') + (house.lotArea.toLowerCase().includes('terreno') ? '' : ' Terreno') : '—'}</span></div>
+                <div class="spec-item"><span class="spec-text">${house.garage ? (house.garage.toLowerCase().includes('vaga') ? house.garage : house.garage + ' Vagas') : '—'}</span></div>
               </div>
               <div class="residence-footer">
                 <a href="${houseUrl}" class="btn-memorial" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: space-between; width: 100%;">
@@ -669,6 +708,10 @@
           `;
           container.appendChild(card);
         });
+
+        if (window.initFilters) {
+          window.initFilters();
+        }
       } catch (err) {
         console.warn('Sanity houses not loaded:', err);
       }

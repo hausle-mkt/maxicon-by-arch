@@ -13,10 +13,10 @@
             "level": "error"
           }
         ],
-        "description": "Ex: Casa Alva, Casa Pinha, Casa Tempo",
+        "description": "Ex: Casa Pinha, Casa Alva, Casa Tempo",
         "name": "name",
         "type": "string",
-        "title": "Nome da Casa"
+        "title": "Nome da Residência"
       },
       {
         "options": {
@@ -37,7 +37,7 @@
             "level": "error"
           }
         ],
-        "description": "Clique em \"Generate\" para criar a URL da página (ex: casa-alva)",
+        "description": "Clique em \"Generate\" para gerar a URL da página (ex: casa-pinha)",
         "name": "slug",
         "type": "slug",
         "title": "Identificador na URL (Slug)"
@@ -54,7 +54,7 @@
             "level": "error"
           }
         ],
-        "description": "Selecione o escritório que assina o projeto desta residência",
+        "description": "Selecione o escritório de arquitetura que assina o projeto desta casa",
         "to": [
           {
             "type": "escritorio"
@@ -63,6 +63,13 @@
         "name": "architect",
         "type": "reference",
         "title": "Escritório de Arquitetura Responsável"
+      },
+      {
+        "initialValue": "Noah Reserva Natural",
+        "description": "Ex: Noah Reserva Natural",
+        "name": "condominium",
+        "type": "string",
+        "title": "Condomínio / Empreendimento"
       },
       {
         "options": {
@@ -92,19 +99,70 @@
         "title": "Status da Residência"
       },
       {
+        "options": {
+          "hotspot": true
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Imagem principal de alta resolução da fachada, exibida no topo da página",
+        "name": "heroImage",
+        "type": "image",
+        "title": "Foto Principal da Fachada (Hero)"
+      },
+      {
+        "description": "Fotos adicionais para o slider inicial com transição e barrinhas de navegação (ex: piscina, fire pit, fachada lateral). Se vazio, exibirá apenas a foto principal.",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "description": "Ex: Fachada Principal, Piscina com Borda Infinita",
+                "name": "caption",
+                "type": "string",
+                "title": "Legenda / Descrição curta"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "heroSlider",
+        "type": "array",
+        "title": "Slider de Imagens da Hero (Opcional)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Imagem quadrada exibida no card cinza chanfrado ao lado do conceito editorial",
+        "name": "conceptImage",
+        "type": "image",
+        "title": "Foto Conceitual (Card Chanfrado)"
+      },
+      {
         "description": "Ex: Luminosidade Natural, Volumes Puros & Atmosfera Silenciosa",
         "name": "tagline",
         "type": "string",
         "title": "Conceito Curto / Tagline"
       },
       {
-        "description": "Ex: Luminosidade natural, volumes puros e atmosfera silenciosa no Noah Reserva Natural.",
+        "description": "Ex: Arquitetura que abraça. / Volumes puros e atmosfera silenciosa.",
         "name": "headline",
         "type": "string",
-        "title": "Título Conceitual da Página"
+        "title": "Título Conceitual Principal (H2)"
       },
       {
-        "description": "Parágrafos conceituais explicando a arquitetura e diferenciais da casa",
+        "description": "Parágrafos conceituais explicando a inspiração, relação com a natureza e diferenciais do projeto",
         "of": [
           {
             "marks": {
@@ -224,19 +282,19 @@
         ],
         "name": "description",
         "type": "array",
-        "title": "Texto Conceitual / Descrição Editorial"
+        "title": "Texto Conceitual / Editorial"
       },
       {
-        "description": "Ex: Lote A08, Lote D15",
+        "description": "Ex: Lote D15, Lote A08",
         "name": "lot",
         "type": "string",
         "title": "Identificação do Lote"
       },
       {
-        "description": "Ex: 1.150 m²",
+        "description": "Ex: 811,31 m²",
         "name": "lotArea",
         "type": "string",
-        "title": "Área do Terreno / Lote (m²)"
+        "title": "Área do Terreno / Lote"
       },
       {
         "validation": [
@@ -250,10 +308,10 @@
             "level": "error"
           }
         ],
-        "description": "Ex: 560 m²",
+        "description": "Ex: 434,40 m²",
         "name": "privateArea",
         "type": "string",
-        "title": "Área Privativa Construída (m²)"
+        "title": "Área Privativa Construída"
       },
       {
         "validation": [
@@ -267,19 +325,19 @@
             "level": "error"
           }
         ],
-        "description": "Ex: 4 Suítes",
+        "description": "Ex: 3 suítes ou 4 suítes",
         "name": "suites",
         "type": "string",
         "title": "Número de Suítes"
       },
       {
-        "description": "Ex: 4 Vagas",
+        "description": "Ex: 3 vagas ou 4 vagas",
         "name": "garage",
         "type": "string",
         "title": "Vagas de Garagem"
       },
       {
-        "description": "Adicione tópicos de destaque (ex: \"Conceito de luz zenital contínua\", \"Piscina com deck integrado\", \"Marcenaria artesanal\")",
+        "description": "Itens exibidos nas duas colunas do card (ex: \"Salão de festas integrado à piscina\", \"Piscina com deck e fire pit\", \"Jardim interno\", \"Living com lareira\", \"Adega no living\")",
         "of": [
           {
             "type": "string"
@@ -287,65 +345,22 @@
         ],
         "name": "highlights",
         "type": "array",
-        "title": "Destaques / Diferenciais da Residência"
+        "title": "Tópicos de Destaque da Casa"
+      },
+      {
+        "description": "Ex: Não é apenas uma casa ao lado da natureza. É uma casa desenhada a partir dela.",
+        "name": "videoHeadline",
+        "type": "string",
+        "title": "Frase de Destaque da Seção de Vídeo"
       },
       {
         "options": {
           "hotspot": true
         },
-        "validation": [
-          {
-            "rules": [
-              {
-                "flag": "presence",
-                "constraint": "required"
-              }
-            ],
-            "level": "error"
-          }
-        ],
-        "description": "Imagem de alta resolução da fachada da casa",
-        "name": "heroImage",
-        "type": "image",
-        "title": "Foto Principal da Fachada (Hero)"
-      },
-      {
-        "options": {
-          "hotspot": true
-        },
-        "description": "Imagem secundária exibida no card chanfrado de conceito",
-        "name": "conceptImage",
-        "type": "image",
-        "title": "Foto Conceitual (Card Quadrado)"
-      },
-      {
-        "description": "Fotos internas e externas para a galeria / modal de navegação",
-        "of": [
-          {
-            "options": {
-              "hotspot": true
-            },
-            "fields": [
-              {
-                "name": "caption",
-                "type": "string",
-                "title": "Legenda da Foto"
-              }
-            ],
-            "type": "image"
-          }
-        ],
-        "name": "gallery",
-        "type": "array",
-        "title": "Galeria de Fotos"
-      },
-      {
-        "options": {
-          "hotspot": true
-        },
+        "description": "Imagem estática de capa que aparece antes do play",
         "name": "videoCover",
         "type": "image",
-        "title": "Capa do Vídeo Conceitual (Opcional)"
+        "title": "Capa do Vídeo Conceitual"
       },
       {
         "validation": [
@@ -369,9 +384,262 @@
             "level": "error"
           }
         ],
+        "description": "Insira o link para reprodução do vídeo conceitual da residência",
         "name": "videoUrl",
         "type": "url",
-        "title": "Link do Vídeo Conceitual (YouTube / Vimeo - Opcional)"
+        "title": "Link do Vídeo (YouTube, Vimeo ou MP4)"
+      },
+      {
+        "description": "Cards interativos sanfona na seção \"Onde arquitetura se transforma em experiência\" (ex: Sacada protagonista, Escritório independente, Living flexível, Suíte master, Lazer para receber)",
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image",
+                "title": "Foto do Momento"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Texto vertical visível quando o card está recolhido (ex: Sacada protagonista, Suíte master)",
+                "name": "collapsedLabel",
+                "type": "string",
+                "title": "Rótulo da Aba Recolhida"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Título visível no card expandido (ex: Suíte master conectada à natureza)",
+                "name": "title",
+                "type": "string",
+                "title": "Título do Momento"
+              },
+              {
+                "rows": 3,
+                "description": "Breve parágrafo descrevendo a vivência neste ambiente",
+                "name": "description",
+                "type": "text",
+                "title": "Descrição do Momento"
+              }
+            ],
+            "type": "object",
+            "name": "momentItem",
+            "title": "Momento"
+          }
+        ],
+        "name": "moments",
+        "type": "array",
+        "title": "Momentos de Experiência (Stack Cards)"
+      },
+      {
+        "description": "Todas as imagens da residência para o carrossel completo de fotos e ampliação em tela cheia (fachadas noturnas, interiores, lazer, detalhes construtivos)",
+        "of": [
+          {
+            "options": {
+              "hotspot": true
+            },
+            "fields": [
+              {
+                "description": "Ex: Piscina com Borda Infinita, Living Integrado com Pé-direito Amplo",
+                "name": "caption",
+                "type": "string",
+                "title": "Legenda da Foto"
+              }
+            ],
+            "type": "image"
+          }
+        ],
+        "name": "gallery",
+        "type": "array",
+        "title": "Galeria Completa de Fotos da Casa"
+      },
+      {
+        "description": "Álbum técnico da residência (Planta Baixa Pav. Principal, Subsolo, Cobertura, Cortes e Fachadas)",
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "image",
+                "type": "image",
+                "title": "Arquivo da Planta / Prancha"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Ex: Planta Baixa — Pavimento Principal, Elevação — Fachada Principal, Corte Arquitetônico",
+                "name": "title",
+                "type": "string",
+                "title": "Título Completo da Prancha"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "description": "Ex: Pav. Principal, Subsolo & Garagem, Cobertura, Corte, Fachada Frontal",
+                "name": "shortLabel",
+                "type": "string",
+                "title": "Rótulo Curto da Miniatura"
+              }
+            ],
+            "type": "object",
+            "name": "plantItem",
+            "title": "Prancha Técnica"
+          }
+        ],
+        "name": "plants",
+        "type": "array",
+        "title": "Plantas e Pranchas Técnicas"
+      },
+      {
+        "initialValue": "Explore o projeto completo.",
+        "description": "Padrão: Explore o projeto completo.",
+        "name": "presentationHeadline",
+        "type": "string",
+        "title": "Título da Seção de Apresentação"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Conheça plantas, implantação, ambientes, materiais, soluções construtivas, tecnologia e todos os detalhes que fazem desta residência uma obra única.",
+        "name": "presentationDescription",
+        "type": "text",
+        "title": "Texto Convidativo da Seção"
+      },
+      {
+        "options": {
+          "accept": ".pdf"
+        },
+        "description": "Faça upload do arquivo PDF (catálogo/memorial) para download automático pelo modal do site",
+        "name": "presentationPdf",
+        "type": "file",
+        "title": "Arquivo PDF da Apresentação Completa"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Caso o arquivo PDF já esteja hospedado em um link direto ou Google Drive público",
+        "name": "presentationPdfExternalUrl",
+        "type": "url",
+        "title": "Link Externo Alternativo do PDF (Opcional)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "description": "Imagem do corte esquemático ou perspectiva ao lado do botão de download",
+        "name": "presentationCoverImage",
+        "type": "image",
+        "title": "Imagem Ilustrativa ao Lado do Download (Opcional)"
+      },
+      {
+        "description": "Ex: R$ 2.600.000 ou Sob Consulta",
+        "name": "price",
+        "type": "string",
+        "title": "Valor do Investimento Estimado"
+      },
+      {
+        "initialValue": "A PARTIR DE",
+        "description": "Padrão: A PARTIR DE",
+        "name": "pricePrefix",
+        "type": "string",
+        "title": "Prefixo do Valor"
+      },
+      {
+        "initialValue": "ARQUITETURA + LOTE NO NOAH + CONSTRUÇÃO",
+        "description": "Ex: ARQUITETURA + LOTE NO NOAH + CONSTRUÇÃO",
+        "name": "priceSubtitle",
+        "type": "string",
+        "title": "Subtítulo da Composição do Investimento"
+      },
+      {
+        "rows": 4,
+        "initialValue": "Valor estimado para lote, projeto arquitetônico e construção da residência, conforme as especificações-base apresentadas. Não inclui projeto de interiores, mobiliário, decoração e eletrodomésticos. Personalizações e alterações nas especificações podem modificar o investimento final.",
+        "description": "Explicação detalhada exibida ao passar o mouse ou clicar no ícone de informação ao lado do valor",
+        "name": "priceTooltip",
+        "type": "text",
+        "title": "Texto Explicativo do Balão de Informações (Tooltip)"
       }
     ],
     "name": "casa",

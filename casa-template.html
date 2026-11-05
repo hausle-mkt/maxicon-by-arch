@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{NOME_DA_CASA}} — {{NOME_ESCRITORIO}} | BY ARCH Maxicon</title>
-  <meta name="description" content="{{NOME_DA_CASA}} por {{NOME_ESCRITORIO}} no {{CONDOMINIO_LOTE}}. {{AREA_PRIVATIVA_M2}} privativos, {{TIPOLOGIA}}, {{AREA_SOCIAL}}.">
+  <title>Residência Exclusiva | BY ARCH Maxicon</title>
+  <meta name="description" content="Residência de alto padrão autoral concebida para o condomínio Noah Reserva Natural pelo projeto BY ARCH Maxicon.">
   
   <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,11 +82,19 @@
          HERO DA RESIDÊNCIA
          ========================================================================== -->
     <section class="house-hero-section container">
-      <!-- Foto Destaque da Casa com o nome sobre a imagem -->
-      <div class="house-main-visual">
-        <img src="{{URL_FOTO_DESTAQUE}}" alt="{{NOME_DA_CASA}}">
+      <!-- Foto Destaque da Casa com Slider de Imagens e o nome sobre a imagem -->
+      <div class="house-main-visual hero-slider" id="hero-slider">
+        <div class="hero-slides-wrapper" id="hero-slides-wrapper">
+          <div class="hero-slide active">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23111'/%3E%3C/svg%3E" alt="Residência BY ARCH">
+          </div>
+        </div>
+
         <div class="house-visual-overlay"></div>
-        <h1 class="house-title-overlay">{{NOME_DA_CASA}}</h1>
+        <h1 class="house-title-overlay">Residência</h1>
+
+        <!-- Indicadores de Slide (Barrinhas) -->
+        <div class="hero-slider-dots" id="hero-slider-dots" role="tablist" aria-label="Navegação dos slides da Hero" style="display: none;"></div>
       </div>
     </section>
 
@@ -102,7 +110,7 @@
           <!-- Coluna Esquerda: Imagem Quadrada Sobreposta -->
           <div class="concept-visual-col">
             <div class="concept-square-img-wrap">
-              <img src="{{URL_IMAGEM_CONCEITO}}" alt="Conceito Arquitetônico {{NOME_DA_CASA}}" class="concept-square-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23e5e5e5'/%3E%3C/svg%3E" alt="Conceito Arquitetônico" class="concept-square-img">
             </div>
           </div>
 
@@ -111,15 +119,15 @@
             <!-- Autoria: Apenas "Por [logo]" -->
             <div class="concept-author-bar">
               <span class="concept-author-title">Por</span>
-              <img src="{{URL_LOGO_ESCRITORIO_PNG}}" alt="{{NOME_ESCRITORIO}}" class="concept-author-logo-img">
+              <img src="assets/images/logo03.png" alt="Escritório de Arquitetura" class="concept-author-logo-img">
             </div>
 
             <!-- Título Conceitual H2 -->
-            <h2 class="concept-main-title">{{TITULO_CONCEITO_H1}}</h2>
+            <h2 class="concept-main-title">Conceito Arquitetônico</h2>
 
             <!-- Parágrafos Conceituais -->
             <div class="concept-text-body">
-              {{CONCEITO_PARAGRAFOS}}
+              <p>Projeto residencial autoral desenvolvido com excelência, conforto e harmonia com a natureza.</p>
             </div>
 
             <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
@@ -130,7 +138,7 @@
                     <path d="M3 7v11M21 7v11M3 13h18M6 13V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
                   </svg>
                 </div>
-                <span class="concept-spec-text">{{TIPOLOGIA}}</span>
+                <span class="concept-spec-text">Suítes</span>
               </div>
 
               <div class="concept-minimal-spec-item">
@@ -142,21 +150,19 @@
                     <path d="M5 11l2.2-5h9.6l2.2 5"/>
                   </svg>
                 </div>
-                <span class="concept-spec-text">{{VAGAS_GARAGEM}}</span>
+                <span class="concept-spec-text">Vagas</span>
               </div>
             </div>
 
             <!-- Lote e Áreas -->
             <div class="concept-lot-info">
-              <span class="concept-lot-tag"><strong>{{NUMERO_LOTE}}</strong> {{TAMANHO_TERRENO_M2}}</span>
+              <span class="concept-lot-tag"><strong>Lote</strong> Privativo</span>
               <span class="concept-lot-sep">|</span>
-              <span class="concept-lot-area"><strong>{{AREA_PRIVATIVA_M2}}</strong> área privativa</span>
+              <span class="concept-lot-area"><strong>Área privativa</strong></span>
             </div>
 
             <!-- Destaques / Tópicos do Imóvel -->
-            <div class="concept-features-grid">
-              {{TOPICOS_DESTAQUES}}
-            </div>
+            <div class="concept-features-grid"></div>
           </div>
         </div>
       </div>
@@ -168,11 +174,11 @@
     <section class="house-video-section">
       <div class="container house-video-container">
         <!-- Frase de Destaque -->
-        <h2 class="house-video-headline">{{TITULO_SECAO_VIDEO}}</h2>
+        <h2 class="house-video-headline">Arquitetura que transforma o cotidiano</h2>
 
         <!-- Player de Vídeo com Cantos Quadrados -->
-        <div class="house-video-player-wrap" id="house-video-player" title="Assistir vídeo de {{NOME_DA_CASA}}">
-          <img src="{{URL_VIDEO_COVER}}" alt="Vídeo Conceitual {{NOME_DA_CASA}}" class="house-video-cover-img">
+        <div class="house-video-player-wrap" id="house-video-player" title="Assistir vídeo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%23111'/%3E%3C/svg%3E" alt="Vídeo Conceitual" class="house-video-cover-img">
           
           <div class="house-video-play-btn" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
@@ -184,7 +190,7 @@
         <!-- CTA "Tenho interesse" -->
         <div>
           <a href="#contato-reserva" class="house-video-cta-btn">
-            Tenho interesse na {{NOME_DA_CASA}}
+            Tenho interesse nesta residência
           </a>
         </div>
       </div>
@@ -203,17 +209,17 @@
             <!-- Coluna Esquerda: Imagem Sobreposta da Equipe/Arquiteto -->
             <div class="architect-visual-col">
               <div class="architect-img-wrap">
-                <img src="{{URL_FOTO_ESCRITORIO}}" alt="{{NOME_ESCRITORIO}}" class="architect-img" loading="lazy">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23222'/%3E%3C/svg%3E" alt="Escritório de Arquitetura" class="architect-img" loading="lazy">
               </div>
             </div>
 
             <!-- Coluna Direita: Conteúdo Editorial -->
             <div class="architect-content-col">
-              <h2 class="architect-title">{{NOME_DA_CASA}} <span class="architect-by">by</span></h2>
+              <h2 class="architect-title">Residência <span class="architect-by">by</span></h2>
               <div class="architect-logo-wrap">
-                <img src="{{URL_LOGO_ESCRITORIO_PNG}}" alt="{{NOME_ESCRITORIO}}" class="architect-logo-img">
+                <img src="assets/images/logo03.png" alt="Escritório de Arquitetura" class="architect-logo-img">
               </div>
-              <a href="{{LINK_PAGINA_ESCRITORIO}}" class="architect-cta-btn">
+              <a href="arquitetos.html" class="architect-cta-btn">
                 CONHEÇA O ESCRITÓRIO
               </a>
             </div>
@@ -231,107 +237,7 @@
       </div>
 
       <div class="moments-stack-container" id="moments-stack">
-        <!-- Card 1 -->
-        <div class="moment-stack-card is-active" data-index="0">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_1_FOTO}}" alt="{{MOMENTO_1_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_1_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_1_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_1_TEXTO}}</p>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="moment-stack-card" data-index="1">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_2_FOTO}}" alt="{{MOMENTO_2_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_2_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_2_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_2_TEXTO}}</p>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="moment-stack-card" data-index="2">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_3_FOTO}}" alt="{{MOMENTO_3_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_3_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_3_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_3_TEXTO}}</p>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="moment-stack-card" data-index="3">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_4_FOTO}}" alt="{{MOMENTO_4_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_4_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_4_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_4_TEXTO}}</p>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="moment-stack-card" data-index="4">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_5_FOTO}}" alt="{{MOMENTO_5_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_5_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_5_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_5_TEXTO}}</p>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="moment-stack-card" data-index="5">
-          <div class="moment-card-bg-wrap">
-            <img src="{{MOMENTO_6_FOTO}}" alt="{{MOMENTO_6_TITULO}} - {{NOME_DA_CASA}}" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>{{MOMENTO_6_TITULO}}</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">{{MOMENTO_6_TITULO}}</h3>
-            <p class="moment-card-desc">{{MOMENTO_6_TEXTO}}</p>
-          </div>
-        </div>
+        <!-- Renderizado dinamicamente pelo Sanity CMS -->
       </div>
     </section>
 
@@ -341,7 +247,7 @@
     <section class="house-full-carousel-section" id="album-completo">
       <div class="full-carousel-wrapper">
         <!-- Botão Navegação Anterior (Esquerda) -->
-        <button class="full-carousel-nav-btn prev" id="full-carousel-prev" aria-label="Imagem anterior de {{NOME_DA_CASA}}">
+        <button class="full-carousel-nav-btn prev" id="full-carousel-prev" aria-label="Imagem anterior">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -350,34 +256,11 @@
 
         <!-- Viewport Principal do Carrossel (clique abre modal) -->
         <div class="full-carousel-viewport" id="full-carousel-viewport" title="Clique para ampliar em tela cheia">
-          <!-- Slide 1 -->
-          <div class="full-carousel-slide active" data-index="0" data-full="{{ALBUM_FOTO_1}}">
-            <img src="{{ALBUM_FOTO_1}}" alt="{{ALBUM_TITULO_1}} - {{NOME_DA_CASA}}">
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="full-carousel-slide" data-index="1" data-full="{{ALBUM_FOTO_2}}">
-            <img src="{{ALBUM_FOTO_2}}" alt="{{ALBUM_TITULO_2}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="full-carousel-slide" data-index="2" data-full="{{ALBUM_FOTO_3}}">
-            <img src="{{ALBUM_FOTO_3}}" alt="{{ALBUM_TITULO_3}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="full-carousel-slide" data-index="3" data-full="{{ALBUM_FOTO_4}}">
-            <img src="{{ALBUM_FOTO_4}}" alt="{{ALBUM_TITULO_4}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="full-carousel-slide" data-index="4" data-full="{{ALBUM_FOTO_5}}">
-            <img src="{{ALBUM_FOTO_5}}" alt="{{ALBUM_TITULO_5}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
 
         <!-- Botão Navegação Próximo (Direita) -->
-        <button class="full-carousel-nav-btn next" id="full-carousel-next" aria-label="Próxima imagem de {{NOME_DA_CASA}}">
+        <button class="full-carousel-nav-btn next" id="full-carousel-next" aria-label="Próxima imagem">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -391,8 +274,8 @@
          ========================================================================== -->
     <section class="house-plants-section scroll-reveal" id="plantas-projeto">
       <div class="plants-header-container">
-        <h2 class="plants-main-title">{{TITULO_SECAO_PLANTAS}}</h2>
-        <p class="plants-subtitle">{{SUBTITULO_SECAO_PLANTAS}}</p>
+        <h2 class="plants-main-title">Plantas do Projeto</h2>
+        <p class="plants-subtitle">Distribuição dos espaços concebida para integração, conforto e privacidade.</p>
       </div>
 
       <!-- Viewport Principal Flanqueado pelas Setas (Padronizado com a seção anterior) -->
@@ -407,35 +290,7 @@
 
         <!-- Viewport Principal -->
         <div class="plants-viewport" id="plants-viewport" title="Clique para ampliar a planta em tela cheia">
-          <!-- Slide 1 -->
-          <div class="plants-slide active" data-index="0" data-full="{{PLANTA_1_FOTO}}" data-title="{{PLANTA_1_TITULO}}">
-            <img src="{{PLANTA_1_FOTO}}" alt="{{PLANTA_1_TITULO}} - {{NOME_DA_CASA}}">
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="plants-slide" data-index="1" data-full="{{PLANTA_2_FOTO}}" data-title="{{PLANTA_2_TITULO}}">
-            <img src="{{PLANTA_2_FOTO}}" alt="{{PLANTA_2_TITULO}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="plants-slide" data-index="2" data-full="{{PLANTA_3_FOTO}}" data-title="{{PLANTA_3_TITULO}}">
-            <img src="{{PLANTA_3_FOTO}}" alt="{{PLANTA_3_TITULO}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 4 -->
-          <div class="plants-slide" data-index="3" data-full="{{PLANTA_4_FOTO}}" data-title="{{PLANTA_4_TITULO}}">
-            <img src="{{PLANTA_4_FOTO}}" alt="{{PLANTA_4_TITULO}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 5 -->
-          <div class="plants-slide" data-index="4" data-full="{{PLANTA_5_FOTO}}" data-title="{{PLANTA_5_TITULO}}">
-            <img src="{{PLANTA_5_FOTO}}" alt="{{PLANTA_5_TITULO}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
-
-          <!-- Slide 6 -->
-          <div class="plants-slide" data-index="5" data-full="{{PLANTA_6_FOTO}}" data-title="{{PLANTA_6_TITULO}}">
-            <img src="{{PLANTA_6_FOTO}}" alt="{{PLANTA_6_TITULO}} - {{NOME_DA_CASA}}" loading="lazy">
-          </div>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
 
         <!-- Botão Navegação Próximo (Direita) -->
@@ -450,64 +305,24 @@
       <!-- Barra de Miniaturas Compactas e Sem Contorno -->
       <div class="plants-thumbnails-container">
         <div class="plants-thumbnails-bar" id="plants-thumbnails-bar">
-          <button type="button" class="plants-thumb-item active" data-index="0" aria-label="{{PLANTA_1_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_1_FOTO}}" alt="{{PLANTA_1_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_1_ROTULO_MINIATURA}}</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="1" aria-label="{{PLANTA_2_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_2_FOTO}}" alt="{{PLANTA_2_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_2_ROTULO_MINIATURA}}</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="2" aria-label="{{PLANTA_3_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_3_FOTO}}" alt="{{PLANTA_3_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_3_ROTULO_MINIATURA}}</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="3" aria-label="{{PLANTA_4_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_4_FOTO}}" alt="{{PLANTA_4_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_4_ROTULO_MINIATURA}}</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="4" aria-label="{{PLANTA_5_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_5_FOTO}}" alt="{{PLANTA_5_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_5_ROTULO_MINIATURA}}</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="5" aria-label="{{PLANTA_6_TITULO}}">
-            <div class="plants-thumb-preview">
-              <img src="{{PLANTA_6_FOTO}}" alt="{{PLANTA_6_TITULO}}" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">{{PLANTA_6_ROTULO_MINIATURA}}</span>
-          </button>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: EXPLORE O PROJETO COMPLETO (FUNDO PRETO & CORTE CHANFRADO - TEMPLATE CMS)
+         SEÇÃO: EXPLORE O PROJETO COMPLETO (FUNDO PRETO & CORTE CHANFRADO)
          ========================================================================== -->
     <section class="house-explore-section scroll-reveal" id="explore-projeto">
       <div class="house-explore-wrapper">
         <div class="explore-content-col">
-          <h2 class="explore-headline">{{TITULO_EXPLORE_PROJETO}}</h2>
+          <h2 class="explore-headline">Explore o projeto completo.</h2>
           <p class="explore-description">
-            {{TEXTO_EXPLORE_PROJETO}}
+            Conheça plantas, implantação, ambientes, materiais, soluções construtivas, tecnologia e todos os detalhes desta residência única.
           </p>
           <div class="explore-cta-wrap">
-            <button type="button" class="house-explore-cta-btn open-download-modal-trigger" id="open-download-modal" data-pdf="{{URL_DOWNLOAD_PDF}}" data-filename="{{NOME_ARQUIVO_DOWNLOAD}}">
-              <span>{{TEXTO_BOTAO_DOWNLOAD}}</span>
+            <button type="button" class="house-explore-cta-btn open-download-modal-trigger" id="open-download-modal" data-pdf="assets/casa-pinha/apresentacao-casa-pinha.pdf" data-filename="Apresentacao-BY-ARCH.pdf">
+              <span>Baixar material completo</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -519,14 +334,14 @@
 
         <div class="explore-visual-col">
           <div class="explore-visual-box">
-            <img src="{{IMAGEM_EXPLORE_CORTE}}" alt="Corte Arquitetônico - {{NOME_DA_CASA}}" loading="lazy">
+            <img src="assets/casa-pinha/album-plantas/corte-esquematico.webp" alt="Ilustração do Projeto Arquitetônico" loading="lazy">
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: VALOR DO INVESTIMENTO & ATENDIMENTO EXCLUSIVO (TEMPLATE CMS)
+         SEÇÃO: VALOR DO INVESTIMENTO & ATENDIMENTO EXCLUSIVO
          ========================================================================== -->
     <section id="contato-reserva" class="house-value-contact-section">
       <div class="container">
@@ -534,7 +349,7 @@
         <div class="house-price-banner">
           <div class="price-banner-eyebrow">A PARTIR DE</div>
           <div class="price-banner-main">
-            <span class="price-banner-number">{{VALOR_A_PARTIR}}</span>
+            <span class="price-banner-number">Consulte-nos</span>
             <span class="price-info-wrap" tabindex="0" aria-label="Informações sobre o valor estimado" role="button">
               <svg class="price-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -542,21 +357,24 @@
                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
               </svg>
               <span class="price-tooltip-balloon" role="tooltip">
-                {{VALOR_TOOLTIP_TEXTO}}
+                Valor estimado para lote, projeto arquitetônico e construção da residência, conforme as especificações-base apresentadas. Não inclui projeto de interiores, mobiliário, decoração e eletrodomésticos. Personalizações e alterações nas especificações podem modificar o investimento final.
               </span>
             </span>
           </div>
-          <div class="price-banner-sub">{{VALOR_SUBTITULO}}</div>
+          <div class="price-banner-sub">ARQUITETURA + LOTE NO NOAH + CONSTRUÇÃO</div>
         </div>
 
         <!-- Seção Inferior: Grid de Apresentação e Formulário -->
         <div class="contact-interest-grid">
           <div class="contact-interest-info">
             <h2 class="contact-interest-title">
-              {{TITULO_FORMULARIO_CONTATO}}
+              Tenho interesse e<br>
+              quero receber um<br>
+              atendimento<br>
+              exclusivo
             </h2>
             <p class="contact-interest-desc">
-              {{TEXTO_FORMULARIO_CONTATO}}
+              Conheça os detalhes do projeto, entenda as possibilidades de personalização e descubra como transformar esta arquitetura em seu próximo endereço no Noah.
             </p>
           </div>
 
@@ -578,7 +396,7 @@
               </div>
 
               <button type="submit" class="interest-form-submit-btn">
-                <span>{{BOTAO_FORMULARIO_CONTATO}}</span>
+                <span>QUERO CONHECER ESSA CASA</span>
               </button>
 
               <div class="interest-form-success" id="interest-form-success" role="status" aria-live="polite">
@@ -691,9 +509,9 @@
         </svg>
       </button>
       <div class="video-modal-viewport">
-        <img src="{{URL_VIDEO_COVER}}" alt="{{NOME_DA_CASA}}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%23111'/%3E%3C/svg%3E" alt="Vídeo Conceitual" class="video-modal-cover-img" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <span style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; {{NOME_DA_CASA}} ({{CONDOMINIO_LOTE}})</span>
+          <span class="video-modal-badge-title" style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual</span>
           <a href="#contato-reserva" class="house-video-cta-btn" style="padding: 10px 24px; font-size: 0.9rem;" id="video-modal-cta">Tenho interesse</a>
         </div>
       </div>
@@ -760,7 +578,7 @@
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          Material Exclusivo &bull; {{NOME_DA_CASA}}
+          <span class="download-modal-badge-text">Material Exclusivo</span>
         </span>
         <h3 class="download-modal-title" id="download-modal-title">Baixar Material do Projeto</h3>
         <p class="download-modal-subtitle">
@@ -769,8 +587,8 @@
       </div>
 
       <form class="download-modal-form" id="download-project-form">
-        <input type="hidden" id="download-pdf-url" value="{{URL_DOWNLOAD_PDF}}">
-        <input type="hidden" id="download-pdf-filename" value="{{NOME_ARQUIVO_DOWNLOAD}}">
+        <input type="hidden" id="download-pdf-url" value="">
+        <input type="hidden" id="download-pdf-filename" value="Apresentacao-BY-ARCH.pdf">
 
         <div class="download-form-group">
           <label for="dl-name">Nome Completo *</label>
@@ -860,94 +678,388 @@
   <script>
     (async function hydrateCasaFromSanity() {
       const urlParams = new URLSearchParams(window.location.search);
-      const slug = urlParams.get("slug") || urlParams.get("casa");
-      if (!slug || !window.SanityClient) return;
+      const slug = urlParams.get("slug") || urlParams.get("casa") || window.location.hash.replace("#", "") || "casa-origem";
+      if (!window.SanityClient) return;
 
       const house = await window.SanityClient.fetchHouseBySlug(slug);
       if (!house) return;
 
-      // Atualiza título da página
-      if (house.name) {
-        document.title = `${house.name} — ${house.architect?.name || "BY ARCH"} | Maxicon`;
-      }
-
-      // Hero
-      const heroVisual = document.querySelector(".house-main-visual");
-      if (heroVisual) {
-        const heroImg = heroVisual.querySelector("img");
-        const heroTitle = heroVisual.querySelector(".house-title-overlay");
-        if (heroImg && house.heroImage) {
-          heroImg.src = window.SanityClient.urlForImage(house.heroImage, 1920);
-          heroImg.alt = house.name;
-        }
-        if (heroTitle) heroTitle.textContent = house.name;
-      }
-
-      // Conceito & Autoria
-      const conceptCard = document.querySelector(".house-concept-card");
-      if (conceptCard) {
-        const conceptSquareImg = conceptCard.querySelector(".concept-square-img");
-        if (conceptSquareImg) {
-          const cImg = house.conceptImage || house.heroImage;
-          if (cImg) conceptSquareImg.src = window.SanityClient.urlForImage(cImg, 800, 800);
-        }
-
-        const authorLogo = conceptCard.querySelector(".concept-author-logo-img");
-        if (authorLogo && house.architect?.logo) {
-          authorLogo.src = window.SanityClient.urlForImage(house.architect.logo, 300);
-          authorLogo.alt = house.architect.name || "";
-        }
-
-        const mainTitle = conceptCard.querySelector(".concept-main-title");
-        if (mainTitle && (house.headline || house.tagline)) {
-          mainTitle.textContent = house.headline || house.tagline;
-        }
-
-        const textBody = conceptCard.querySelector(".concept-text-body");
-        if (textBody && house.description) {
-          const html = window.SanityClient.blocksToHtml(house.description);
-          if (html) textBody.innerHTML = html;
-        }
-
-        // Specs (Suítes, Vagas, Lote, Área)
-        const specsItems = conceptCard.querySelectorAll(".concept-minimal-spec-item .concept-spec-text");
-        if (specsItems.length >= 2) {
-          if (house.suites) specsItems[0].textContent = house.suites;
-          if (house.garage) specsItems[1].textContent = house.garage;
-        }
-
-        const lotTag = conceptCard.querySelector(".concept-lot-tag");
-        if (lotTag && (house.lot || house.lotArea)) {
-          lotTag.innerHTML = `<strong>${house.lot || "Lote"}</strong> ${house.lotArea || ""}`;
-        }
-
-        const lotArea = conceptCard.querySelector(".concept-lot-area");
-        if (lotArea && house.privateArea) {
-          lotArea.innerHTML = `<strong>${house.privateArea}</strong> área privativa`;
-        }
-
-        // Destaques / Tópicos
-        if (Array.isArray(house.highlights) && house.highlights.length > 0) {
-          const featuresGrid = conceptCard.querySelector(".concept-features-grid");
-          if (featuresGrid) {
-            const mid = Math.ceil(house.highlights.length / 2);
-            const col1 = house.highlights.slice(0, mid);
-            const col2 = house.highlights.slice(mid);
-            featuresGrid.innerHTML = `
-              <ul class="concept-features-col">
-                ${col1.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
-              </ul>
-              <ul class="concept-features-col">
-                ${col2.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
-              </ul>
-            `;
+      // 1. Título e Meta Description
+      try {
+        if (house.name) {
+          const archName = house.architect?.name || "BY ARCH";
+          document.title = `${house.name} — ${archName} | BY ARCH Maxicon`;
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) {
+            metaDesc.content = `${house.name} por ${archName} no ${house.condominium || "Noah Reserva Natural"}${house.lot ? ", " + house.lot : ""}. ${house.privateArea || ""} privativos, ${house.suites || ""}, ${house.garage || ""}.`;
           }
         }
+      } catch (e) {
+        console.warn("[Sanity] Meta:", e);
       }
 
-      // Seção de Contato
-      const valueTitle = document.querySelector(".value-title");
-      if (valueTitle && house.name) valueTitle.textContent = house.name;
+      // 2. Hero Slider & Imagem Principal
+      try {
+        const heroSlider = document.getElementById("hero-slider") || document.querySelector(".house-main-visual");
+        if (heroSlider) {
+          const titleOverlay = heroSlider.querySelector(".house-title-overlay");
+          if (titleOverlay && house.name) titleOverlay.textContent = house.name;
+
+          const slidesWrapper = document.getElementById("hero-slides-wrapper") || heroSlider.querySelector(".hero-slides-wrapper");
+          const dotsContainer = document.getElementById("hero-slider-dots") || heroSlider.querySelector(".hero-slider-dots");
+
+          const sliderImages = Array.isArray(house.heroSlider) && house.heroSlider.length > 0 
+            ? house.heroSlider 
+            : (house.heroImage ? [house.heroImage] : []);
+
+          if (sliderImages.length > 0 && slidesWrapper) {
+            slidesWrapper.innerHTML = sliderImages.map((imgItem, idx) => {
+              const src = window.SanityClient.urlForImage(imgItem, 1920);
+              const caption = imgItem.caption || `${house.name} - Imagem ${idx + 1}`;
+              return `
+                <div class="hero-slide ${idx === 0 ? 'active' : ''}">
+                  <img src="${src}" alt="${caption}">
+                </div>
+              `;
+            }).join("");
+
+            if (dotsContainer) {
+              if (sliderImages.length > 1) {
+                dotsContainer.style.display = "flex";
+                dotsContainer.innerHTML = sliderImages.map((_, idx) => `
+                  <button class="hero-dot ${idx === 0 ? 'active' : ''}" type="button" aria-label="Slide ${idx + 1}" data-index="${idx}"></button>
+                `).join("");
+              } else {
+                dotsContainer.style.display = "none";
+                dotsContainer.innerHTML = "";
+              }
+            }
+
+            if (sliderImages.length > 1 && window.initHeroSlider) {
+              window.initHeroSlider();
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Hero:", e);
+      }
+
+      // 3. Conceito & Autoria
+      try {
+        const conceptCard = document.querySelector(".house-concept-card");
+        if (conceptCard) {
+          const conceptSquareImg = conceptCard.querySelector(".concept-square-img");
+          if (conceptSquareImg) {
+            const cImg = house.conceptImage || house.heroImage;
+            if (cImg) conceptSquareImg.src = window.SanityClient.urlForImage(cImg, 800, 800);
+            conceptSquareImg.alt = `Conceito Arquitetônico ${house.name}`;
+          }
+
+          const authorLogo = conceptCard.querySelector(".concept-author-logo-img");
+          if (authorLogo && house.architect?.logo) {
+            authorLogo.src = window.SanityClient.urlForImage(house.architect.logo, 300);
+            authorLogo.alt = house.architect.name || "";
+          }
+
+          const mainTitle = conceptCard.querySelector(".concept-main-title");
+          if (mainTitle && (house.headline || house.tagline)) {
+            mainTitle.textContent = house.headline || house.tagline;
+          }
+
+          const textBody = conceptCard.querySelector(".concept-text-body");
+          if (textBody && house.description) {
+            const html = window.SanityClient.blocksToHtml(house.description);
+            if (html) textBody.innerHTML = html;
+          }
+
+          // Specs (Suítes, Vagas, Lote, Área)
+          const specsItems = conceptCard.querySelectorAll(".concept-minimal-spec-item .concept-spec-text");
+          if (specsItems.length >= 2) {
+            if (house.suites) specsItems[0].textContent = house.suites;
+            if (house.garage) specsItems[1].textContent = house.garage;
+          }
+
+          const lotTag = conceptCard.querySelector(".concept-lot-tag");
+          if (lotTag && (house.lot || house.lotArea)) {
+            const rawLot = (house.lot || "").trim();
+            const lotPrefix = rawLot ? (rawLot.toLowerCase().startsWith("lote") ? rawLot : `Lote ${rawLot}`) : "";
+            const lotLabel = lotPrefix ? `<strong>${lotPrefix}</strong> ` : "";
+            const rawArea = (house.lotArea || "").trim();
+            const lotAreaLabel = rawArea ? (rawArea.includes("m²") ? rawArea : `${rawArea} m²`) : "";
+            lotTag.innerHTML = `${lotLabel}${lotAreaLabel}`;
+          }
+
+          const lotArea = conceptCard.querySelector(".concept-lot-area");
+          if (lotArea && house.privateArea) {
+            const rawPriv = String(house.privateArea).trim();
+            const privLabel = rawPriv.includes("m²") ? rawPriv : `${rawPriv} m²`;
+            lotArea.innerHTML = `<strong>${privLabel}</strong> área privativa`;
+          }
+
+          // Destaques / Tópicos (filtra strings vazias)
+          const cleanHighlights = Array.isArray(house.highlights) ? house.highlights.filter(h => h && h.trim()) : [];
+          const featuresGrid = conceptCard.querySelector(".concept-features-grid");
+          if (featuresGrid) {
+            if (cleanHighlights.length > 0) {
+              featuresGrid.style.display = "";
+              const mid = Math.ceil(cleanHighlights.length / 2);
+              const col1 = cleanHighlights.slice(0, mid);
+              const col2 = cleanHighlights.slice(mid);
+              featuresGrid.innerHTML = `
+                <ul class="concept-features-col">
+                  ${col1.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+                </ul>
+                <ul class="concept-features-col">
+                  ${col2.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+                </ul>
+              `;
+            } else {
+              featuresGrid.style.display = "none";
+              featuresGrid.innerHTML = "";
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Conceito:", e);
+      }
+
+      // 4. Vídeo Conceitual
+      try {
+        const videoSection = document.querySelector(".house-video-section");
+        if (videoSection) {
+          const headline = videoSection.querySelector(".house-video-headline");
+          if (headline && house.videoHeadline) {
+            headline.textContent = house.videoHeadline;
+          }
+          const coverImg = videoSection.querySelector(".house-video-cover-img");
+          if (coverImg) {
+            const vCover = house.videoCover || house.heroImage;
+            if (vCover) coverImg.src = window.SanityClient.urlForImage(vCover, 1600);
+            coverImg.alt = `Vídeo Conceitual ${house.name}`;
+          }
+          const ctaBtn = videoSection.querySelector(".house-video-cta-btn");
+          if (ctaBtn && house.name) {
+            ctaBtn.textContent = `Tenho interesse na ${house.name}`;
+          }
+        }
+
+        // Modal de Vídeo
+        const vModalImg = document.querySelector(".video-modal-viewport img");
+        if (vModalImg) {
+          const vCover = house.videoCover || house.heroImage;
+          if (vCover) {
+            vModalImg.src = window.SanityClient.urlForImage(vCover, 1600);
+            vModalImg.alt = `Vídeo Conceitual ${house.name}`;
+          }
+        }
+        const vModalBadge = document.querySelector(".video-modal-badge-title");
+        if (vModalBadge && house.name) {
+          const lotLabel = house.condominium || house.lot ? ` (${house.condominium || ""}${house.lot ? ", " + house.lot : ""})` : "";
+          vModalBadge.innerHTML = `Experiência Audiovisual &bull; ${house.name}${lotLabel}`;
+        }
+      } catch (e) {
+        console.warn("[Sanity] Vídeo:", e);
+      }
+
+      // 5. Apresentação do Escritório de Arquitetura
+      try {
+        const archSection = document.getElementById("escritorio-arquiteto");
+        if (archSection && house.architect) {
+          const archImg = archSection.querySelector(".architect-img");
+          if (archImg && house.architect.photo) {
+            archImg.src = window.SanityClient.urlForImage(house.architect.photo, 800);
+            archImg.alt = house.architect.name || "";
+          }
+          const archTitle = archSection.querySelector(".architect-title");
+          if (archTitle && house.name) {
+            archTitle.innerHTML = `${house.name} <span class="architect-by">by</span>`;
+          }
+          const archLogo = archSection.querySelector(".architect-logo-img");
+          if (archLogo && house.architect.logo) {
+            archLogo.src = window.SanityClient.urlForImage(house.architect.logo, 400);
+            archLogo.alt = house.architect.name || "";
+          }
+          const archCta = archSection.querySelector(".architect-cta-btn");
+          if (archCta) {
+            const archSlug = house.architect.slug || "";
+            archCta.href = archSlug ? `escritorio-template.html?slug=${archSlug}` : `arquitetos.html`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Arquiteto:", e);
+      }
+
+      // 6. Momentos de Vida (Stack Cards)
+      try {
+        const momentsContainer = document.getElementById("moments-stack");
+        if (momentsContainer && Array.isArray(house.moments) && house.moments.length > 0) {
+          momentsContainer.innerHTML = house.moments.map((moment, idx) => {
+            const imgSrc = window.SanityClient.urlForImage(moment.image, 1200);
+            const label = moment.collapsedLabel || moment.title || `Momento ${idx + 1}`;
+            const title = moment.title || label;
+            const desc = moment.description || "";
+            return `
+              <div class="moment-stack-card ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
+                <div class="moment-card-bg-wrap">
+                  <img src="${imgSrc}" alt="${title} - ${house.name}" class="moment-card-img" loading="lazy">
+                  <div class="moment-card-overlay"></div>
+                </div>
+                <div class="moment-card-collapsed-label" aria-hidden="true">
+                  <span>${label}</span>
+                </div>
+                <div class="moment-card-content">
+                  <h3 class="moment-card-title">${title}</h3>
+                  <p class="moment-card-desc">${desc}</p>
+                </div>
+              </div>
+            `;
+          }).join("");
+
+          if (window.initMomentsStackCards) {
+            window.initMomentsStackCards();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Momentos:", e);
+      }
+
+      // 7. Carrossel Completo de Fotos da Casa
+      try {
+        const fullCarouselViewport = document.getElementById("full-carousel-viewport");
+        if (fullCarouselViewport && Array.isArray(house.gallery) && house.gallery.length > 0) {
+          fullCarouselViewport.innerHTML = house.gallery.map((item, idx) => {
+            const fullSrc = window.SanityClient.urlForImage(item, 1920);
+            const caption = item.caption || `${house.name} - Foto ${idx + 1}`;
+            return `
+              <div class="full-carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" data-full="${fullSrc}">
+                <img src="${fullSrc}" alt="${caption}" ${idx > 0 ? 'loading="lazy"' : ''}>
+              </div>
+            `;
+          }).join("");
+
+          if (window.initFullHouseCarousel) {
+            window.initFullHouseCarousel();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Galeria:", e);
+      }
+
+      // 8. Plantas Técnicas (Pranchas & Miniaturas)
+      try {
+        const plantsSection = document.getElementById("plantas-projeto");
+        if (plantsSection) {
+          const pTitle = plantsSection.querySelector(".plants-main-title");
+          if (pTitle && house.plantsHeadline) pTitle.textContent = house.plantsHeadline;
+          const pSub = plantsSection.querySelector(".plants-subtitle");
+          if (pSub && house.plantsSubtitle) pSub.textContent = house.plantsSubtitle;
+        }
+
+        const plantsViewport = document.getElementById("plants-viewport");
+        const plantsThumbsBar = document.getElementById("plants-thumbnails-bar");
+        if (plantsViewport && plantsThumbsBar && Array.isArray(house.plants) && house.plants.length > 0) {
+          plantsViewport.innerHTML = house.plants.map((plant, idx) => {
+            const fullSrc = window.SanityClient.urlForImage(plant.image, 1920);
+            const title = plant.title || `Prancha ${idx + 1}`;
+            return `
+              <div class="plants-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" data-full="${fullSrc}" data-title="${title}">
+                <img src="${fullSrc}" alt="${title} - ${house.name}" ${idx > 0 ? 'loading="lazy"' : ''}>
+              </div>
+            `;
+          }).join("");
+
+          plantsThumbsBar.innerHTML = house.plants.map((plant, idx) => {
+            const thumbSrc = window.SanityClient.urlForImage(plant.image, 300);
+            const label = plant.shortLabel || plant.title || `Prancha ${idx + 1}`;
+            return `
+              <button type="button" class="plants-thumb-item ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="${plant.title || label}">
+                <div class="plants-thumb-preview">
+                  <img src="${thumbSrc}" alt="Miniatura ${label}" loading="lazy">
+                </div>
+                <span class="plants-thumb-label">${label}</span>
+              </button>
+            `;
+          }).join("");
+
+          if (window.initPlantsCarousel) {
+            window.initPlantsCarousel();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Plantas:", e);
+      }
+
+      // 9. Explore o Projeto Completo & Download de PDF
+      try {
+        const exploreSection = document.getElementById("explore-projeto");
+        if (exploreSection) {
+          const headline = exploreSection.querySelector(".explore-headline");
+          if (headline && house.presentationHeadline) headline.textContent = house.presentationHeadline;
+
+          const desc = exploreSection.querySelector(".explore-description");
+          if (desc && house.presentationDescription) desc.textContent = house.presentationDescription;
+
+          const coverImg = exploreSection.querySelector(".explore-visual-box img");
+          if (coverImg) {
+            const cImg = house.presentationCoverImage || (house.plants && house.plants[0]?.image) || house.heroImage;
+            if (cImg) {
+              coverImg.src = window.SanityClient.urlForImage(cImg, 1000);
+              coverImg.alt = `Apresentação Completa - ${house.name}`;
+            }
+          }
+
+          const pdfUrl = house.presentationPdfUrl || (house.presentationPdf ? window.SanityClient.urlForFile(house.presentationPdf) : "") || "assets/casa-pinha/apresentacao-casa-pinha.pdf";
+          const pdfFilename = house.name ? `Apresentacao-${house.name.replace(/\s+/g, "-")}.pdf` : "Apresentacao-BY-ARCH.pdf";
+
+          const dlBtn = document.getElementById("open-download-modal");
+          if (dlBtn) {
+            dlBtn.setAttribute("data-pdf", pdfUrl);
+            dlBtn.setAttribute("data-filename", pdfFilename);
+          }
+
+          const hiddenPdfUrl = document.getElementById("download-pdf-url");
+          if (hiddenPdfUrl) hiddenPdfUrl.value = pdfUrl;
+
+          const hiddenPdfFilename = document.getElementById("download-pdf-filename");
+          if (hiddenPdfFilename) hiddenPdfFilename.value = pdfFilename;
+
+          const modalBadgeText = document.querySelector(".download-modal-badge-text");
+          if (modalBadgeText && house.name) {
+            modalBadgeText.textContent = `Material Exclusivo \u2022 ${house.name}`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Explore:", e);
+      }
+
+      // 10. Valor do Investimento & Atendimento Exclusivo
+      try {
+        const priceSection = document.getElementById("contato-reserva");
+        if (priceSection) {
+          const eyebrow = priceSection.querySelector(".price-banner-eyebrow");
+          if (eyebrow && house.pricePrefix) eyebrow.textContent = house.pricePrefix;
+
+          const priceNum = priceSection.querySelector(".price-banner-number");
+          if (priceNum) priceNum.textContent = house.price || "Consulte-nos";
+
+          const priceSub = priceSection.querySelector(".price-banner-sub");
+          if (priceSub) {
+            priceSub.textContent = house.priceSubtitle || (house.condominium ? `ARQUITETURA + LOTE NO ${house.condominium.toUpperCase()} + CONSTRUÇÃO` : "ARQUITETURA + LOTE NO NOAH + CONSTRUÇÃO");
+          }
+
+          const tooltip = priceSection.querySelector(".price-tooltip-balloon");
+          if (tooltip && house.priceTooltip) {
+            tooltip.textContent = house.priceTooltip;
+          }
+
+          const formBtn = priceSection.querySelector(".interest-form-submit-btn span");
+          if (formBtn && house.name) {
+            formBtn.textContent = `QUERO CONHECER A ${house.name.toUpperCase()}`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Preço:", e);
+      }
     })();
   </script>
 </body>

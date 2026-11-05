@@ -1097,3 +1097,13 @@ function initBackToTop() {
     });
   });
 }
+
+// Exportações globais para re-hidratação dinâmica via Sanity CMS
+window.initHeroSlider = initHeroSlider;
+window.initMomentsStackCards = initMomentsStackCards;
+window.initFullHouseCarousel = initFullHouseCarousel;
+window.initPlantsCarousel = initPlantsCarousel;
+window.initGalleryModal = initGalleryModal;
+window.initDownloadModal = initDownloadModal;
+window.initPriceTooltip = initPriceTooltip;
+

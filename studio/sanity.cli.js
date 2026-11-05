@@ -9,5 +9,6 @@ module.exports = defineCliConfig({
   api: {
     projectId: 'soyi4quf',
     dataset: 'production'
-  }
+  },
+  studioHost: 'maxicon-byarch'
 })

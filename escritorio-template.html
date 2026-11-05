@@ -421,7 +421,8 @@
         const house = office.associatedHouse;
         const assocCard = document.querySelector(".office-associated-card");
         if (assocCard) {
-          const houseUrl = (house.slug === 'casa-pinha' || house.slug === 'casa-alva') ? `${house.slug}.html` : `casa-template.html?slug=${house.slug}`;
+          const houseSlug = (typeof house.slug === 'object' && house.slug?.current) ? house.slug.current : house.slug;
+          const houseUrl = (houseSlug === 'casa-pinha' || houseSlug === 'casa-alva' || houseSlug === 'casa-origem') ? `${houseSlug}.html` : `casa-template.html?slug=${houseSlug}`;
           const assocImg = assocCard.querySelector(".office-associated-img");
           if (assocImg && house.heroImage) {
             assocImg.src = window.SanityClient.urlForImage(house.heroImage, 1000);

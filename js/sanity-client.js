@@ -183,7 +183,22 @@ const LOCAL_OFFICES_CACHE = [
   },
   {
     "address": "Passo Fundo/RS",
-    "associatedHouse": null,
+    "associatedHouse": {
+      "name": "Casa Origem",
+      "slug": "casa-origem",
+      "status": "Oportunidade Exclusiva",
+      "tagline": "Entre matéria, luz e natureza",
+      "headline": "Entre matéria, luz e natureza",
+      "privateArea": "395,1 m²",
+      "suites": "3 Suítes",
+      "heroImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-9786f12243430a75d498d9223ec41865cd74234c-3712x4608-jpg",
+          "_type": "reference"
+        }
+      }
+    },
     "bio": "A Deividy Morello Arquitetura desenvolve projetos residenciais, comerciais e de interiores, com foco na identidade e nas necessidades de cada cliente. Sua abordagem une exclusividade, funcionalidade e atenção aos detalhes, acompanhando todas as etapas, da concepção à execução, para transformar histórias e formas de viver em espaços únicos.",
     "headline": "Arquitetura com essência e exclusividade",
     "instagramUrl": null,
@@ -394,6 +409,24 @@ function urlForSanityImage(source, width = null, height = null) {
 }
 
 /**
+ * Converte referências de arquivo (ex: PDF) do Sanity em URLs CDN públicas
+ */
+function urlForSanityFile(source) {
+  if (!source) return "";
+  if (typeof source === "string" && source.startsWith("http")) return source;
+  if (source.asset && source.asset.url) return source.asset.url;
+  const ref = source.asset ? source.asset._ref : (typeof source === "string" ? source : null);
+  if (!ref) return "";
+  const parts = ref.split("-");
+  if (parts.length >= 3 && parts[0] === "file") {
+    const id = parts[1];
+    const extension = parts[2];
+    return `https://cdn.sanity.io/files/${SANITY_CONFIG.projectId}/${SANITY_CONFIG.dataset}/${id}.${extension}`;
+  }
+  return "";
+}
+
+/**
  * Executa uma consulta GROQ genérica no Sanity
  */
 async function querySanity(groq, params = {}) {
@@ -422,6 +455,7 @@ async function querySanity(groq, params = {}) {
 async function fetchHouseBySlug(slug) {
   const query = `*[_type == "casa" && slug.current == $slug][0]{
     ...,
+    "presentationPdfUrl": coalesce(presentationPdf.asset->url, presentationPdfExternalUrl),
     architect->{
       name,
       titular,
@@ -471,16 +505,28 @@ async function fetchAllHouses() {
 async function fetchOfficeBySlug(slug) {
   const query = `*[_type == "escritorio" && (slug.current == $slug || slug.current match $slug || name match $slug)][0]{
     ...,
-    associatedHouse->{
-      name,
-      "slug": slug.current,
-      status,
-      tagline,
-      headline,
-      privateArea,
-      suites,
-      heroImage
-    }
+    "associatedHouse": coalesce(
+      associatedHouse->{
+        name,
+        "slug": slug.current,
+        status,
+        tagline,
+        headline,
+        privateArea,
+        suites,
+        heroImage
+      },
+      *[_type == "casa" && architect._ref == ^._id][0]{
+        name,
+        "slug": slug.current,
+        status,
+        tagline,
+        headline,
+        privateArea,
+        suites,
+        heroImage
+      }
+    )
   }`;
   let result = null;
   try {
@@ -522,10 +568,16 @@ async function fetchAllOffices() {
     instagramUser,
     instagramUrl,
     address,
-    associatedHouse->{
-      name,
-      "slug": slug.current
-    }
+    "associatedHouse": coalesce(
+      associatedHouse->{
+        name,
+        "slug": slug.current
+      },
+      *[_type == "casa" && architect._ref == ^._id][0]{
+        name,
+        "slug": slug.current
+      }
+    )
   }`;
   let result = null;
   try {
@@ -561,6 +613,7 @@ function sanityBlocksToHtml(blocks) {
 window.SanityClient = {
   config: SANITY_CONFIG,
   urlForImage: urlForSanityImage,
+  urlForFile: urlForSanityFile,
   query: querySanity,
   fetchHouseBySlug,
   fetchAllHouses,

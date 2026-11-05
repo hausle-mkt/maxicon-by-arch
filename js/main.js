@@ -482,14 +482,17 @@ function initPillarsInteraction() {
 /* Filtros da Galeria de Residências */
 function initFilters() {
   const filterBtns = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".residence-card");
 
   filterBtns.forEach(btn => {
+    if (btn._hasFilterInit) return;
+    btn._hasFilterInit = true;
+
     btn.addEventListener("click", () => {
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
       const filter = btn.getAttribute("data-filter");
+      const cards = document.querySelectorAll(".residence-card");
 
       cards.forEach(card => {
         const category = card.getAttribute("data-category") || "";
@@ -511,6 +514,7 @@ function initFilters() {
     });
   });
 }
+window.initFilters = initFilters;
 
 /* Modal de Visualização Rápida & Memorial da Casa */
 function initModal() {

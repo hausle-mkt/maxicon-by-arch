@@ -176,7 +176,22 @@
   },
   {
     "address": "Passo Fundo/RS",
-    "associatedHouse": null,
+    "associatedHouse": {
+      "name": "Casa Origem",
+      "slug": "casa-origem",
+      "status": "Oportunidade Exclusiva",
+      "tagline": "Entre matéria, luz e natureza",
+      "headline": "Entre matéria, luz e natureza",
+      "privateArea": "395,1 m²",
+      "suites": "3 Suítes",
+      "heroImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-9786f12243430a75d498d9223ec41865cd74234c-3712x4608-jpg",
+          "_type": "reference"
+        }
+      }
+    },
     "bio": "A Deividy Morello Arquitetura desenvolve projetos residenciais, comerciais e de interiores, com foco na identidade e nas necessidades de cada cliente. Sua abordagem une exclusividade, funcionalidade e atenção aos detalhes, acompanhando todas as etapas, da concepção à execução, para transformar histórias e formas de viver em espaços únicos.",
     "headline": "Arquitetura com essência e exclusividade",
     "instagramUrl": null,
