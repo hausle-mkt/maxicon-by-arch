@@ -75,20 +75,16 @@
         "options": {
           "list": [
             {
-              "title": "Disponível para Aquisição",
+              "title": "Disponível",
               "value": "Disponível"
             },
             {
-              "title": "Breve Lançamento",
-              "value": "Breve Lançamento"
+              "title": "Reservada",
+              "value": "Reservada"
             },
             {
-              "title": "Oportunidade Exclusiva",
-              "value": "Oportunidade Exclusiva"
-            },
-            {
-              "title": "Reservada / Vendida",
-              "value": "Vendida"
+              "title": "Indisponível",
+              "value": "Indisponível"
             }
           ],
           "layout": "radio"

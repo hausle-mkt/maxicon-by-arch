@@ -61,10 +61,9 @@ export default {
       group: 'geral',
       options: {
         list: [
-          { title: 'Disponível para Aquisição', value: 'Disponível' },
-          { title: 'Breve Lançamento', value: 'Breve Lançamento' },
-          { title: 'Oportunidade Exclusiva', value: 'Oportunidade Exclusiva' },
-          { title: 'Reservada / Vendida', value: 'Vendida' },
+          { title: 'Disponível', value: 'Disponível' },
+          { title: 'Reservada', value: 'Reservada' },
+          { title: 'Indisponível', value: 'Indisponível' },
         ],
         layout: 'radio',
       },
