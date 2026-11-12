@@ -345,6 +345,27 @@ const LOCAL_OFFICES_CACHE = [
     },
     "slug": "bassani-miranda-arquitetura-e-construcao",
     "titular": "Bassani+Miranda Arquitetura e Construção"
+  },
+  {
+    "address": "Passo Fundo/RS",
+    "associatedHouse": null,
+    "bio": "A RG Empreendimentos desenvolve projetos e construções de alto padrão que combinam precisão técnica, excelência construtiva e design contemporâneo. No projeto BY ARCH, assina residências que dialogam harmonicamente com a natureza e o morar exclusivo.",
+    "headline": "Excelência, solidez e inovação em cada traço",
+    "instagramUrl": null,
+    "instagramUser": "@rgempreendimentos",
+    "logo": {
+      "asset": {
+        "url": "assets/ESCRITORIOS LOGO/logo_rg_empreeendimentos.png"
+      }
+    },
+    "name": "RG Empreendimentos",
+    "photo": {
+      "asset": {
+        "url": "assets/fotos arquitetos/foto-rg-empreendimentos.png"
+      }
+    },
+    "slug": "rg-empreendimentos",
+    "titular": "RG Empreendimentos"
   }
 ];
 
@@ -380,8 +401,8 @@ function getSanityQueryUrl(groqQuery, params = {}) {
 function urlForSanityImage(source, width = null, height = null) {
   if (!source) return "";
   
-  // Se já for uma URL completa externa
-  if (typeof source === "string" && source.startsWith("http")) {
+  // Se já for uma URL completa externa ou caminho de asset local
+  if (typeof source === "string" && (source.startsWith("http") || source.startsWith("assets/") || source.startsWith("/assets/"))) {
     return source;
   }
 

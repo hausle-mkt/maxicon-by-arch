@@ -483,6 +483,35 @@
             </div>
           </article>
 
+          <!-- 14. RG Empreendimentos -->
+          <article class="arch-card" data-name="RG Empreendimentos" data-slug="rg-empreendimentos" data-index="13">
+            <div class="arch-card-media">
+              <img 
+                src="assets/fotos%20arquitetos/foto-rg-empreendimentos.png" 
+                alt="RG Empreendimentos" 
+                class="arch-card-img"
+                loading="lazy"
+              >
+            </div>
+            <div class="arch-card-footer">
+              <div class="arch-card-logo-wrap">
+                <img 
+                  src="assets/ESCRITORIOS%20LOGO/logo_rg_empreeendimentos.png" 
+                  alt="Logotipo oficial RG Empreendimentos" 
+                  class="arch-card-logo is-larger"
+                >
+              </div>
+              <div class="arch-card-cta-row">
+                <a href="escritorio-template.html?office=rg-empreendimentos" class="arch-card-cta" aria-label="Saiba mais sobre RG Empreendimentos">
+                  <span>Saiba Mais</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
 
@@ -491,10 +520,10 @@
         <div class="arch-counter" aria-label="Posição do carrossel">
           <span class="arch-counter-current">01</span>
           <span class="arch-counter-sep">/</span>
-          <span class="arch-counter-total">13</span>
+          <span class="arch-counter-total">14</span>
         </div>
 
-        <div class="arch-progress-wrap" role="progressbar" aria-valuemin="1" aria-valuemax="13" aria-valuenow="1">
+        <div class="arch-progress-wrap" role="progressbar" aria-valuemin="1" aria-valuemax="14" aria-valuenow="1">
           <div class="arch-progress-fill"></div>
         </div>
 
@@ -588,6 +617,8 @@
             <option value="Wobeto Arquitetura">Wobeto Arquitetura</option>
             <option value="VASTUO Arquitetura">VASTUO Arquitetura</option>
             <option value="W Arquitetura">W Arquitetura</option>
+            <option value="Bassani + Miranda">Bassani + Miranda Arquitetura</option>
+            <option value="RG Empreendimentos">RG Empreendimentos</option>
           </select>
         </div>
 
@@ -655,7 +686,7 @@
   <!-- Scripts -->
   <script src="js/sanity-client.js"></script>
   <script src="js/main.js?v=5.1"></script>
-  <script src="js/diagonal-carousel.js?v=1.2"></script>
+  <script src="js/diagonal-carousel.js?v=1.3"></script>
   <script>
     document.addEventListener('DOMContentLoaded', async () => {
       if (!window.SanityClient || !window.SanityClient.fetchAllOffices) return;
@@ -717,7 +748,7 @@
           }
         });
 
-        // Garante que o contador total reflita exatamente os 13 escritórios
+        // Garante que o contador total reflita exatamente os 14 escritórios
         const totalEl = document.querySelector('.arch-counter-total');
         if (totalEl) {
           totalEl.textContent = String(track.querySelectorAll('.arch-card').length).padStart(2, '0');

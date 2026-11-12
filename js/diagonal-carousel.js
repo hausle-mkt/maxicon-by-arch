@@ -214,8 +214,11 @@
     }
 
     /**
-     * Navegação para índice específico
+     * Navegação para índice específico com transição fluida e resposta imediata ao clique
      */
+    const clickLockDuration = 260; // ms de intervalo seguro contra cliques acidentais múltiplos, mantendo fluidez total
+    let animationTimer = null;
+
     function goToIndex(newIndex) {
       if (isAnimating) return;
       isAnimating = true;
@@ -224,9 +227,10 @@
       activeIndex = (newIndex % total + total) % total;
       updateCarousel();
 
-      setTimeout(() => {
+      clearTimeout(animationTimer);
+      animationTimer = setTimeout(() => {
         isAnimating = false;
-      }, prefersReducedMotion ? 50 : animationDuration);
+      }, prefersReducedMotion ? 50 : clickLockDuration);
     }
 
     function next() {
