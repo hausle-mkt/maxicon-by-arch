@@ -508,7 +508,7 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <div class="video-modal-viewport">
+      <div class="video-modal-viewport" id="video-modal-viewport">
         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%23111'/%3E%3C/svg%3E" alt="Vídeo Conceitual" class="video-modal-cover-img" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <span class="video-modal-badge-title" style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual</span>
@@ -641,20 +641,49 @@
       document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", closeMenu));
     }
 
-    // Modal de Vídeo
+    // Modal de Vídeo com suporte a YouTube, vídeo e iframe
     const videoPlayer = document.getElementById("house-video-player");
     const videoModal = document.getElementById("video-modal");
     const videoClose = document.getElementById("video-modal-close");
     const videoCta = document.getElementById("video-modal-cta");
+    let currentVideoUrl = (videoPlayer && videoPlayer.getAttribute("data-video-url")) || "";
+
+    function extractYouTubeEmbed(url) {
+      if (!url) return null;
+      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i);
+      return m ? `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0` : null;
+    }
 
     if (videoPlayer && videoModal) {
       const openVideo = () => {
+        const embedUrl = extractYouTubeEmbed(currentVideoUrl);
+        const vp = document.getElementById("video-modal-viewport");
+        if (vp) {
+          if (embedUrl) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${embedUrl}" title="Vídeo Conceitual" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          } else if (currentVideoUrl && (currentVideoUrl.endsWith(".mp4") || currentVideoUrl.includes(".mp4?"))) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<video src="${currentVideoUrl}" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>`;
+          } else if (currentVideoUrl && currentVideoUrl.startsWith("http")) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${currentVideoUrl}" title="Vídeo Conceitual" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          }
+        }
         videoModal.classList.add("active");
         document.body.style.overflow = "hidden";
       };
+
       const closeVideo = () => {
         videoModal.classList.remove("active");
         document.body.style.overflow = "";
+        const vp = document.getElementById("video-modal-viewport");
+        if (vp && vp.getAttribute("data-prev-html")) {
+          vp.innerHTML = vp.getAttribute("data-prev-html");
+          vp.removeAttribute("data-prev-html");
+          const newCta = document.getElementById("video-modal-cta");
+          if (newCta) newCta.addEventListener("click", closeVideo);
+        }
       };
 
       videoPlayer.addEventListener("click", openVideo);
@@ -825,6 +854,10 @@
 
       // 4. Vídeo Conceitual
       try {
+        if (house.videoUrl) {
+          currentVideoUrl = house.videoUrl;
+        }
+
         const videoSection = document.querySelector(".house-video-section");
         if (videoSection) {
           const headline = videoSection.querySelector(".house-video-headline");

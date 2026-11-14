@@ -218,7 +218,7 @@
         <h2 class="house-video-headline">Não é apenas uma casa ao lado da natureza. É uma casa desenhada a partir dela.</h2>
 
         <!-- Player de Vídeo com Cantos Quadrados -->
-        <div class="house-video-player-wrap" id="house-video-player" title="Assistir vídeo da Casa Pinha">
+        <div class="house-video-player-wrap" id="house-video-player" data-video-url="https://youtu.be/IsIo42B6_q8" title="Assistir vídeo da Casa Pinha">
           <img src="assets/casa-pinha/video-cover-pinha.webp" alt="Vídeo Conceitual Casa Pinha - Living e Espaço Gourmet" class="house-video-cover-img">
           
           <div class="house-video-play-btn" aria-hidden="true">
@@ -825,7 +825,7 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <div class="video-modal-viewport">
+      <div class="video-modal-viewport" id="video-modal-viewport">
         <img src="assets/casa-pinha/video-cover-pinha.webp" alt="Casa Pinha" style="width: 100%; height: 100%; object-fit: cover; display: block;">
         <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <span style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; Casa Pinha (Condomínio Noah)</span>
@@ -959,20 +959,49 @@
       document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", closeMenu));
     }
 
-    // Modal de Vídeo
+    // Modal de Vídeo com suporte a YouTube, vídeo e iframe
     const videoPlayer = document.getElementById("house-video-player");
     const videoModal = document.getElementById("video-modal");
     const videoClose = document.getElementById("video-modal-close");
     const videoCta = document.getElementById("video-modal-cta");
+    let currentVideoUrl = (videoPlayer && videoPlayer.getAttribute("data-video-url")) || "";
+
+    function extractYouTubeEmbed(url) {
+      if (!url) return null;
+      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i);
+      return m ? `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0` : null;
+    }
 
     if (videoPlayer && videoModal) {
       const openVideo = () => {
+        const embedUrl = extractYouTubeEmbed(currentVideoUrl);
+        const vp = document.getElementById("video-modal-viewport");
+        if (vp) {
+          if (embedUrl) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${embedUrl}" title="Vídeo Conceitual Casa Pinha" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          } else if (currentVideoUrl && (currentVideoUrl.endsWith(".mp4") || currentVideoUrl.includes(".mp4?"))) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<video src="${currentVideoUrl}" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>`;
+          } else if (currentVideoUrl && currentVideoUrl.startsWith("http")) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${currentVideoUrl}" title="Vídeo Conceitual Casa Pinha" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          }
+        }
         videoModal.classList.add("active");
         document.body.style.overflow = "hidden";
       };
+
       const closeVideo = () => {
         videoModal.classList.remove("active");
         document.body.style.overflow = "";
+        const vp = document.getElementById("video-modal-viewport");
+        if (vp && vp.getAttribute("data-prev-html")) {
+          vp.innerHTML = vp.getAttribute("data-prev-html");
+          vp.removeAttribute("data-prev-html");
+          const newCta = document.getElementById("video-modal-cta");
+          if (newCta) newCta.addEventListener("click", closeVideo);
+        }
       };
 
       videoPlayer.addEventListener("click", openVideo);

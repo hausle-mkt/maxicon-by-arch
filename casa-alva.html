@@ -650,7 +650,7 @@
 
     function extractYouTubeEmbed(url) {
       if (!url) return null;
-      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i);
       return m ? `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0` : null;
     }
 
@@ -658,9 +658,17 @@
       const openVideo = () => {
         const embedUrl = extractYouTubeEmbed(currentVideoUrl);
         const vp = document.getElementById("video-modal-viewport");
-        if (embedUrl && vp) {
-          vp.setAttribute("data-prev-html", vp.innerHTML);
-          vp.innerHTML = `<iframe src="${embedUrl}" title="Vídeo Conceitual Casa Alva" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+        if (vp) {
+          if (embedUrl) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${embedUrl}" title="Vídeo Conceitual Casa Alva" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          } else if (currentVideoUrl && (currentVideoUrl.endsWith(".mp4") || currentVideoUrl.includes(".mp4?"))) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<video src="${currentVideoUrl}" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>`;
+          } else if (currentVideoUrl && currentVideoUrl.startsWith("http")) {
+            vp.setAttribute("data-prev-html", vp.innerHTML);
+            vp.innerHTML = `<iframe src="${currentVideoUrl}" title="Vídeo Conceitual Casa Alva" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 100%; border: 0; display: block;"></iframe>`;
+          }
         }
         videoModal.classList.add("active");
         document.body.style.overflow = "hidden";
