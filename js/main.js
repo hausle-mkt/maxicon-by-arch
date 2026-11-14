@@ -641,10 +641,10 @@ function initWhatsAppModal() {
   const modal = document.getElementById("whatsapp-modal");
   if (!modal) return;
 
-  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn, #footer-cta-agendar");
-  const closeBtn = document.getElementById("whatsapp-modal-close");
-  const form = document.getElementById("whatsapp-redirect-form");
-  const phoneInput = document.getElementById("wa-phone");
+  const openBtns = document.querySelectorAll("#open-whatsapp-modal, .open-whatsapp-modal-trigger, #mobile-whatsapp-btn, #footer-cta-agendar, .footer-cta-btn");
+  const closeBtn = document.getElementById("whatsapp-modal-close") || document.getElementById("close-whatsapp-modal") || document.getElementById("whatsapp-modal-close-btn");
+  const form = document.getElementById("whatsapp-redirect-form") || document.getElementById("whatsapp-lead-form") || document.getElementById("whatsapp-form");
+  const phoneInput = document.getElementById("wa-phone") || document.getElementById("wa-input-phone");
 
   function openModal() {
     modal.classList.add("active");
@@ -707,13 +707,19 @@ function initWhatsAppModal() {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const name = document.getElementById("wa-name")?.value.trim() || "";
-      const email = document.getElementById("wa-email")?.value.trim() || "";
-      const phone = document.getElementById("wa-phone")?.value.trim() || "";
+      const name = (document.getElementById("wa-name") || document.getElementById("wa-input-name"))?.value.trim() || "";
+      const email = (document.getElementById("wa-email") || document.getElementById("wa-input-email"))?.value.trim() || "";
+      const phone = (document.getElementById("wa-phone") || document.getElementById("wa-input-phone"))?.value.trim() || "";
 
       let pageContext = "Projetos e Coleção BY ARCH";
       if (document.title.includes("Casa Pinha")) {
         pageContext = "Casa Pinha (Condomínio Noah, Lote D15)";
+      } else if (document.title.includes("Casa Alva")) {
+        pageContext = "Casa Alva (Condomínio Noah, Lote D21)";
+      } else if (document.title.includes("Casa Origem")) {
+        pageContext = "Casa Origem (Condomínio Noah, Lote D05)";
+      } else if (document.title.includes("Arquitetos") || document.title.includes("Escritórios")) {
+        pageContext = "Escritórios de Arquitetura BY ARCH";
       }
 
       const msg = `Olá! Gostaria de um atendimento exclusivo sobre os projetos da BY ARCH Maxicon.\n\n*Interesse:* ${pageContext}\n*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone}`;
