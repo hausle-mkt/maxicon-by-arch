@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Casa Pinha — Polesello + Müller Arquitetura | BY ARCH Maxicon</title>
-  <meta name="description" content="Casa Pinha por Polesello + Müller Arquitetura no Condomínio Noah, Lote D15. 434,40 m² privativos, 3 suítes, piscina com fire pit e integração com araucária nativa.">
+  <meta name="description" content="Casa Pinha por Polesello + Müller Arquitetura no Condomínio Noah Reserva Natural, Lote D15. 434,40 m² privativos, 3 suítes, 2 vagas.">
   
   <!-- Fontes Google (Barlow para Títulos & Mulish para Textos) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Estilos Personalizados -->
-  <link rel="stylesheet" href="css/style.css?v=5.5">
+  <link rel="stylesheet" href="css/style.css?v=8.5">
 </head>
 <body id="top">
 
@@ -27,7 +27,7 @@
 
       <ul class="nav-links">
         <li><a href="index.html#conceito" class="nav-link">O projeto</a></li>
-        <li><a href="casas.html" class="nav-link">Casas</a></li>
+        <li><a href="casas.html" class="nav-link active">Casas</a></li>
         <li><a href="arquitetos.html" class="nav-link">Arquitetos</a></li>
       </ul>
 
@@ -64,7 +64,7 @@
     </button>
     <a href="index.html" class="mobile-nav-link">Início</a>
     <a href="index.html#conceito" class="mobile-nav-link">O projeto</a>
-    <a href="casas.html" class="mobile-nav-link">Casas</a>
+    <a href="casas.html" class="mobile-nav-link active">Casas</a>
     <a href="arquitetos.html" class="mobile-nav-link">Arquitetos</a>
     <button type="button" class="mobile-nav-link mobile-whatsapp-cta open-whatsapp-modal-trigger" id="mobile-whatsapp-btn">
       <span class="whatsapp-icon-wrap">
@@ -84,15 +84,9 @@
     <section class="house-hero-section container">
       <!-- Foto Destaque da Casa com Slider de Imagens e o nome sobre a imagem -->
       <div class="house-main-visual hero-slider" id="hero-slider">
-        <div class="hero-slides-wrapper">
+        <div class="hero-slides-wrapper" id="hero-slides-wrapper">
           <div class="hero-slide active">
-            <img src="assets/casa-pinha/fachada-principal.webp" alt="Casa Pinha - Fachada Principal">
-          </div>
-          <div class="hero-slide">
-            <img src="assets/casa-pinha/piscina-borda-infinita.webp" alt="Casa Pinha - Piscina com Borda Infinita">
-          </div>
-          <div class="hero-slide">
-            <img src="assets/casa-pinha/fire-externo-geral.webp" alt="Casa Pinha - Fire Pit Externo">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%23111'/%3E%3C/svg%3E" alt="Casa Pinha">
           </div>
         </div>
 
@@ -100,11 +94,7 @@
         <h1 class="house-title-overlay">Casa Pinha</h1>
 
         <!-- Indicadores de Slide (Barrinhas) -->
-        <div class="hero-slider-dots" role="tablist" aria-label="Navegação dos slides da Hero">
-          <button class="hero-dot active" type="button" aria-label="Slide 1" data-index="0"></button>
-          <button class="hero-dot" type="button" aria-label="Slide 2" data-index="1"></button>
-          <button class="hero-dot" type="button" aria-label="Slide 3" data-index="2"></button>
-        </div>
+        <div class="hero-slider-dots" id="hero-slider-dots" role="tablist" aria-label="Navegação dos slides da Hero" style="display: none;"></div>
       </div>
     </section>
 
@@ -120,7 +110,7 @@
           <!-- Coluna Esquerda: Imagem Quadrada Sobreposta -->
           <div class="concept-visual-col">
             <div class="concept-square-img-wrap">
-              <img src="assets/casa-pinha/imagem-conceito-pinha.webp" alt="Conceito Arquitetônico Casa Pinha - Vista da Araucária" class="concept-square-img">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23e5e5e5'/%3E%3C/svg%3E" alt="Conceito Arquitetônico Casa Pinha" class="concept-square-img">
             </div>
           </div>
 
@@ -133,13 +123,11 @@
             </div>
 
             <!-- Título Conceitual H2 -->
-            <h2 class="concept-main-title">Arquitetura que abraça.</h2>
+            <h2 class="concept-main-title">Arquitetura que abraça</h2>
 
             <!-- Parágrafos Conceituais -->
             <div class="concept-text-body">
-              <p>Uma araucária existente no terreno deixa de ser uma condicionante para se tornar o <strong>coração da residência</strong>.</p>
-              <p>Ao redor dela, a arquitetura organiza percursos, enquadra paisagens e aproxima natureza e vida cotidiana. Implantada sobre a topografia elevada, a casa combina privacidade e contemplação em uma composição marcada por linhas curvas, madeira, pedra e grandes aberturas.</p>
-              <p>Uma casa concebida para morar, receber, trabalhar e desacelerar.</p>
+              <p>A Casa Pinha nasce do encontro entre arquitetura, natureza e uma forma contemporânea de viver. Linhas horizontais, grandes aberturas e materiais naturais constroem uma residência aberta à luz e ao entorno.</p>
             </div>
 
             <!-- Suítes e Vagas com Ícones Pretos sem fundo e sem contorno -->
@@ -162,64 +150,35 @@
                     <path d="M5 11l2.2-5h9.6l2.2 5"/>
                   </svg>
                 </div>
-                <span class="concept-spec-text">3 vagas</span>
+                <span class="concept-spec-text">2 vagas</span>
               </div>
             </div>
 
-            <!-- Lote e Áreas (LOGO abaixo de 3 suítes 3 vagas) -->
+            <!-- Lote e Áreas -->
             <div class="concept-lot-info">
               <span class="concept-lot-tag"><strong>Lote D15</strong> 811,31 m²</span>
               <span class="concept-lot-sep">|</span>
               <span class="concept-lot-area"><strong>434,40 m²</strong> área privativa</span>
             </div>
 
-            <!-- Tópicos de Destaque da Casa (3 de cada lado) -->
-            <div class="concept-features-grid">
-              <ul class="concept-features-col">
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Salão de festas integrado à piscina</span>
-                </li>
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Piscina com deck e fire pit</span>
-                </li>
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Jardim interno</span>
-                </li>
-              </ul>
-              <ul class="concept-features-col">
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Living com lareira</span>
-                </li>
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Cozinha integrada ao living</span>
-                </li>
-                <li class="concept-feature-item">
-                  <span class="concept-feature-bullet" aria-hidden="true"></span>
-                  <span>Adega no living</span>
-                </li>
-              </ul>
-            </div>
+            <!-- Destaques / Tópicos do Imóvel -->
+            <div class="concept-features-grid"></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: VÍDEO CONCEITUAL & EXPERIÊNCIA DA CASA PINHA (FUNDO PRETO)
+         SEÇÃO: VÍDEO CONCEITUAL & EXPERIÊNCIA (FUNDO PRETO)
          ========================================================================== -->
     <section class="house-video-section">
       <div class="container house-video-container">
         <!-- Frase de Destaque -->
-        <h2 class="house-video-headline">Não é apenas uma casa ao lado da natureza. É uma casa desenhada a partir dela.</h2>
+        <h2 class="house-video-headline">Uma araucária recebe o afago da morada, em um refúgio de contemplação e bem-estar</h2>
 
         <!-- Player de Vídeo com Cantos Quadrados -->
-        <div class="house-video-player-wrap" id="house-video-player" data-video-url="https://youtu.be/IsIo42B6_q8" title="Assistir vídeo da Casa Pinha">
-          <img src="assets/casa-pinha/video-cover-pinha.webp" alt="Vídeo Conceitual Casa Pinha - Living e Espaço Gourmet" class="house-video-cover-img">
+        <div class="house-video-player-wrap" id="house-video-player" title="Assistir vídeo">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%23111'/%3E%3C/svg%3E" alt="Vídeo Conceitual Casa Pinha" class="house-video-cover-img">
           
           <div class="house-video-play-btn" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none">
@@ -250,7 +209,7 @@
             <!-- Coluna Esquerda: Imagem Sobreposta da Equipe/Arquiteto -->
             <div class="architect-visual-col">
               <div class="architect-img-wrap">
-                <img src="assets/casa-pinha/equipe-polesello-muller.webp" alt="Polesello + Müller Arquitetura" class="architect-img" loading="lazy">
+                <img src="assets/casa-pinha/polesello-muller-equipe.webp" alt="Polesello + Müller Arquitetura" class="architect-img" loading="lazy">
               </div>
             </div>
 
@@ -260,7 +219,7 @@
               <div class="architect-logo-wrap">
                 <img src="assets/casa-pinha/logo-polesello-muller-preto.png" alt="Polesello + Müller Arquitetura" class="architect-logo-img">
               </div>
-              <a href="#conheca-escritorio" class="architect-cta-btn">
+              <a href="escritorio-template.html?office=polesello-muller-arquitetura" class="architect-cta-btn">
                 CONHEÇA O ESCRITÓRIO
               </a>
             </div>
@@ -278,107 +237,7 @@
       </div>
 
       <div class="moments-stack-container" id="moments-stack">
-        <!-- Card 1: Sacada protagonista -->
-        <div class="moment-stack-card is-active" data-index="0">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Sacada.webp" alt="Sacada protagonista - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Sacada protagonista</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Sacada protagonista</h3>
-            <p class="moment-card-desc">Desenho leve e contemporâneo que dá identidade à fachada e transforma a sacada em um dos gestos marcantes da casa.</p>
-          </div>
-        </div>
-
-        <!-- Card 2: Escritório independente -->
-        <div class="moment-stack-card" data-index="1">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Escritório.webp" alt="Escritório independente - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Escritório independente</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Escritório independente</h3>
-            <p class="moment-card-desc">Um espaço de trabalho com acesso e dinâmica próprios, preservando a rotina e a privacidade da residência.</p>
-          </div>
-        </div>
-
-        <!-- Card 3: Living flexível -->
-        <div class="moment-stack-card" data-index="2">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Living.webp" alt="Living flexível - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Living flexível</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Living flexível</h3>
-            <p class="moment-card-desc">Ambientes pensados para integrar ou preservar momentos, equilibrando convivência e privacidade no dia a dia.</p>
-          </div>
-        </div>
-
-        <!-- Card 4: Suíte master conectada à natureza -->
-        <div class="moment-stack-card" data-index="3">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Suíte-Master.webp" alt="Suíte master conectada à natureza - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Suíte master</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Suíte master conectada à natureza</h3>
-            <p class="moment-card-desc">Um espaço de acolhimento, silêncio e intimidade, com a natureza participando da experiência de descanso.</p>
-          </div>
-        </div>
-
-        <!-- Card 5: Cozinha e jantar integrados -->
-        <div class="moment-stack-card" data-index="4">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Cozinha-Frente.webp" alt="Cozinha e jantar integrados - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Cozinha e jantar</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Cozinha e jantar integrados</h3>
-            <p class="moment-card-desc">Materiais nobres, bancada e cozinha se encontram em uma composição contemporânea pensada para reunir.</p>
-          </div>
-        </div>
-
-        <!-- Card 6: Lazer para receber -->
-        <div class="moment-stack-card" data-index="5">
-          <div class="moment-card-bg-wrap">
-            <img src="assets/casa-pinha/galeria/Piscina-fire-pit.webp" alt="Lazer para receber - Casa Pinha" class="moment-card-img" loading="lazy">
-            <div class="moment-card-overlay"></div>
-          </div>
-
-          <div class="moment-card-collapsed-label" aria-hidden="true">
-            <span>Lazer para receber</span>
-          </div>
-
-          <div class="moment-card-content">
-            <h3 class="moment-card-title">Lazer para receber</h3>
-            <p class="moment-card-desc">Piscina, fire pit e salão de festas criam diferentes formas de permanecer, contemplar e receber com liberdade.</p>
-          </div>
-        </div>
+        <!-- Renderizado dinamicamente pelo Sanity CMS -->
       </div>
     </section>
 
@@ -388,7 +247,7 @@
     <section class="house-full-carousel-section" id="album-completo">
       <div class="full-carousel-wrapper">
         <!-- Botão Navegação Anterior (Esquerda) -->
-        <button class="full-carousel-nav-btn prev" id="full-carousel-prev" aria-label="Imagem anterior da Casa Pinha">
+        <button class="full-carousel-nav-btn prev" id="full-carousel-prev" aria-label="Imagem anterior">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -397,119 +256,11 @@
 
         <!-- Viewport Principal do Carrossel (clique abre modal) -->
         <div class="full-carousel-viewport" id="full-carousel-viewport" title="Clique para ampliar em tela cheia">
-          <!-- Slide 1: Piscina com Deck e Lounge (Destaque do Print) -->
-          <div class="full-carousel-slide active" data-index="0" data-full="assets/casa-pinha/album-completo/piscina-geral.webp">
-            <img src="assets/casa-pinha/album-completo/piscina-geral.webp" alt="Piscina com Deck e Lounge Externo - Casa Pinha">
-          </div>
-
-          <!-- Slide 2: Fachada Principal -->
-          <div class="full-carousel-slide" data-index="1" data-full="assets/casa-pinha/album-completo/fachada-principal.webp">
-            <img src="assets/casa-pinha/album-completo/fachada-principal.webp" alt="Fachada Principal - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 3: Fachada Lateral Noturna -->
-          <div class="full-carousel-slide" data-index="2" data-full="assets/casa-pinha/album-completo/fachada-lateral-noturna.webp">
-            <img src="assets/casa-pinha/album-completo/fachada-lateral-noturna.webp" alt="Fachada Lateral Noturna - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 4: Piscina Borda Infinita -->
-          <div class="full-carousel-slide" data-index="3" data-full="assets/casa-pinha/album-completo/piscina-borda-infinita.webp">
-            <img src="assets/casa-pinha/album-completo/piscina-borda-infinita.webp" alt="Piscina com Borda Infinita - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 5: Vista Aérea Piscina e Lote -->
-          <div class="full-carousel-slide" data-index="4" data-full="assets/casa-pinha/album-completo/piscina-drone.webp">
-            <img src="assets/casa-pinha/album-completo/piscina-drone.webp" alt="Vista Aérea da Piscina e do Terreno - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 6: Fire Pit Externo -->
-          <div class="full-carousel-slide" data-index="5" data-full="assets/casa-pinha/album-completo/fire-externo-geral.webp">
-            <img src="assets/casa-pinha/album-completo/fire-externo-geral.webp" alt="Fire Pit e Praça de Fogo - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 7: Fire Pit Piscina e Poltronas -->
-          <div class="full-carousel-slide" data-index="6" data-full="assets/casa-pinha/album-completo/fire-piscina-e-poltronas.webp">
-            <img src="assets/casa-pinha/album-completo/fire-piscina-e-poltronas.webp" alt="Lounge da Piscina com Fire Pit - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 8: Living Integrado -->
-          <div class="full-carousel-slide" data-index="7" data-full="assets/casa-pinha/album-completo/living.webp">
-            <img src="assets/casa-pinha/album-completo/living.webp" alt="Living Integrado com Pé-direito Amplo - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 9: Living e Sala de Jantar -->
-          <div class="full-carousel-slide" data-index="8" data-full="assets/casa-pinha/album-completo/living-jantar.webp">
-            <img src="assets/casa-pinha/album-completo/living-jantar.webp" alt="Living e Sala de Jantar - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 10: Estar Social -->
-          <div class="full-carousel-slide" data-index="9" data-full="assets/casa-pinha/album-completo/estar.webp">
-            <img src="assets/casa-pinha/album-completo/estar.webp" alt="Estar Social e Mobiliário Autoral - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 11: Cozinha e Espaço Gourmet -->
-          <div class="full-carousel-slide" data-index="10" data-full="assets/casa-pinha/album-completo/cozinha-frente.webp">
-            <img src="assets/casa-pinha/album-completo/cozinha-frente.webp" alt="Cozinha Integrada e Ilha Gourmet - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 12: Adega Climatizada -->
-          <div class="full-carousel-slide" data-index="11" data-full="assets/casa-pinha/album-completo/adega.webp">
-            <img src="assets/casa-pinha/album-completo/adega.webp" alt="Adega Climatizada Exclusiva - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 13: Salão de Festas com Família -->
-          <div class="full-carousel-slide" data-index="12" data-full="assets/casa-pinha/album-completo/festas-com-familia.webp">
-            <img src="assets/casa-pinha/album-completo/festas-com-familia.webp" alt="Espaço Gourmet e Salão de Festas - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 14: Suíte Master -->
-          <div class="full-carousel-slide" data-index="13" data-full="assets/casa-pinha/album-completo/suite.webp">
-            <img src="assets/casa-pinha/album-completo/suite.webp" alt="Suíte Master com Vista para a Natureza - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 15: Sala de Banho com Banheira -->
-          <div class="full-carousel-slide" data-index="14" data-full="assets/casa-pinha/album-completo/banho-banheira.webp">
-            <img src="assets/casa-pinha/album-completo/banho-banheira.webp" alt="Sala de Banho com Banheira de Imersão - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 16: Home Office / Escritório -->
-          <div class="full-carousel-slide" data-index="15" data-full="assets/casa-pinha/album-completo/escritorio.webp">
-            <img src="assets/casa-pinha/album-completo/escritorio.webp" alt="Home Office Independente - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 17: Circulação Principal -->
-          <div class="full-carousel-slide" data-index="16" data-full="assets/casa-pinha/album-completo/circulacao-principal.webp">
-            <img src="assets/casa-pinha/album-completo/circulacao-principal.webp" alt="Circulação Principal com Iluminação Zenital - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 18: Escada e Vista Araucária -->
-          <div class="full-carousel-slide" data-index="17" data-full="assets/casa-pinha/album-completo/escada-araucaria-sol.webp">
-            <img src="assets/casa-pinha/album-completo/escada-araucaria-sol.webp" alt="Escada com Vista para Araucária - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 19: Sacada Superior -->
-          <div class="full-carousel-slide" data-index="18" data-full="assets/casa-pinha/album-completo/sacada-banco-menina.webp">
-            <img src="assets/casa-pinha/album-completo/sacada-banco-menina.webp" alt="Sacada e Terraço Contemplativo - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 20: Detalhe Fachada e Brises -->
-          <div class="full-carousel-slide" data-index="19" data-full="assets/casa-pinha/album-completo/sacada-fachada-detalhe-2.webp">
-            <img src="assets/casa-pinha/album-completo/sacada-fachada-detalhe-2.webp" alt="Detalhe Construtivo de Fachada e Brises - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 21: Ventilação Natural -->
-          <div class="full-carousel-slide" data-index="20" data-full="assets/casa-pinha/album-completo/inovacao-forro-ventilacao.webp">
-            <img src="assets/casa-pinha/album-completo/inovacao-forro-ventilacao.webp" alt="Inovação Construtiva e Forro com Ventilação - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 22: Inovação e Tecnologia -->
-          <div class="full-carousel-slide" data-index="21" data-full="assets/casa-pinha/album-completo/inovacao-cabeamento-de-copa.webp">
-            <img src="assets/casa-pinha/album-completo/inovacao-cabeamento-de-copa.webp" alt="Inovação Tecnológica e Infraestrutura Oculta - Casa Pinha" loading="lazy">
-          </div>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
 
         <!-- Botão Navegação Próximo (Direita) -->
-        <button class="full-carousel-nav-btn next" id="full-carousel-next" aria-label="Próxima imagem da Casa Pinha">
+        <button class="full-carousel-nav-btn next" id="full-carousel-next" aria-label="Próxima imagem">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -519,12 +270,12 @@
     </section>
 
     <!-- ==========================================================================
-         SEÇÃO: ÁLBUM DE PLANTAS DA CASA (FUNDO BRANCO & MINIATURAS COMPACTAS)
+         SEÇÃO: ÁLBUM DE PLANTAS DA CASA (FUNDO BRANCO & MINIATURAS COMPACTAS - TEMPLATE CMS)
          ========================================================================== -->
     <section class="house-plants-section scroll-reveal" id="plantas-projeto">
       <div class="plants-header-container">
-        <h2 class="plants-main-title">Plantas e Pranchas Técnicas</h2>
-        <p class="plants-subtitle">Distribuição espacial, cortes e elevações detalhadas do projeto da Casa Pinha.</p>
+        <h2 class="plants-main-title">Plantas do Projeto</h2>
+        <p class="plants-subtitle">Distribuição dos espaços concebida para integração, conforto e privacidade.</p>
       </div>
 
       <!-- Viewport Principal Flanqueado pelas Setas (Padronizado com a seção anterior) -->
@@ -539,35 +290,7 @@
 
         <!-- Viewport Principal -->
         <div class="plants-viewport" id="plants-viewport" title="Clique para ampliar a planta em tela cheia">
-          <!-- Slide 1: Pavimento Principal -->
-          <div class="plants-slide active" data-index="0" data-full="assets/casa-pinha/album-plantas/planta-baixa-principal.webp" data-title="Planta Baixa — Pavimento Principal">
-            <img src="assets/casa-pinha/album-plantas/planta-baixa-principal.webp" alt="Planta Baixa — Pavimento Principal - Casa Pinha">
-          </div>
-
-          <!-- Slide 2: Subsolo & Garagem -->
-          <div class="plants-slide" data-index="1" data-full="assets/casa-pinha/album-plantas/planta-baixa-subsolo.webp" data-title="Planta Baixa — Subsolo & Garagem">
-            <img src="assets/casa-pinha/album-plantas/planta-baixa-subsolo.webp" alt="Planta Baixa — Subsolo & Garagem - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 3: Cobertura -->
-          <div class="plants-slide" data-index="2" data-full="assets/casa-pinha/album-plantas/planta-cobertura.webp" data-title="Planta de Cobertura">
-            <img src="assets/casa-pinha/album-plantas/planta-cobertura.webp" alt="Planta de Cobertura - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 4: Corte Arquitetônico -->
-          <div class="plants-slide" data-index="3" data-full="assets/casa-pinha/album-plantas/corte-esquematico.webp" data-title="Corte Arquitetônico">
-            <img src="assets/casa-pinha/album-plantas/corte-esquematico.webp" alt="Corte Arquitetônico - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 5: Fachada Frontal -->
-          <div class="plants-slide" data-index="4" data-full="assets/casa-pinha/album-plantas/elevacao-fachada-principal.webp" data-title="Elevação — Fachada Principal">
-            <img src="assets/casa-pinha/album-plantas/elevacao-fachada-principal.webp" alt="Elevação — Fachada Principal - Casa Pinha" loading="lazy">
-          </div>
-
-          <!-- Slide 6: Fachada Lateral -->
-          <div class="plants-slide" data-index="5" data-full="assets/casa-pinha/album-plantas/elevacao-fachada-lateral.webp" data-title="Elevação — Fachada Lateral">
-            <img src="assets/casa-pinha/album-plantas/elevacao-fachada-lateral.webp" alt="Elevação — Fachada Lateral - Casa Pinha" loading="lazy">
-          </div>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
 
         <!-- Botão Navegação Próximo (Direita) -->
@@ -582,47 +305,7 @@
       <!-- Barra de Miniaturas Compactas e Sem Contorno -->
       <div class="plants-thumbnails-container">
         <div class="plants-thumbnails-bar" id="plants-thumbnails-bar">
-          <button type="button" class="plants-thumb-item active" data-index="0" aria-label="Planta Baixa — Pavimento Principal">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/planta-baixa-principal.webp" alt="Miniatura Pavimento Principal" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Pav. Principal</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="1" aria-label="Planta Baixa — Subsolo & Garagem">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/planta-baixa-subsolo.webp" alt="Miniatura Subsolo e Garagem" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Subsolo & Garagem</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="2" aria-label="Planta de Cobertura">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/planta-cobertura.webp" alt="Miniatura Planta de Cobertura" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Cobertura</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="3" aria-label="Corte Arquitetônico">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/corte-esquematico.webp" alt="Miniatura Corte Arquitetônico" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Corte</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="4" aria-label="Elevação — Fachada Principal">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/elevacao-fachada-principal.webp" alt="Miniatura Fachada Frontal" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Fachada Frontal</span>
-          </button>
-
-          <button type="button" class="plants-thumb-item" data-index="5" aria-label="Elevação — Fachada Lateral">
-            <div class="plants-thumb-preview">
-              <img src="assets/casa-pinha/album-plantas/elevacao-fachada-lateral.webp" alt="Miniatura Fachada Lateral" loading="lazy">
-            </div>
-            <span class="plants-thumb-label">Fachada Lateral</span>
-          </button>
+          <!-- Renderizado dinamicamente pelo Sanity CMS -->
         </div>
       </div>
     </section>
@@ -635,10 +318,10 @@
         <div class="explore-content-col">
           <h2 class="explore-headline">Explore o projeto completo.</h2>
           <p class="explore-description">
-            Conheça plantas, implantação, ambientes, materiais, soluções construtivas, tecnologia e todos os detalhes que fazem da Casa Pinha uma residência única.
+            Conheça plantas, implantação, ambientes, materiais, soluções construtivas, tecnologia e todos os detalhes que fazem desta residência uma obra única.
           </p>
           <div class="explore-cta-wrap">
-            <button type="button" class="house-explore-cta-btn open-download-modal-trigger" id="open-download-modal" data-pdf="assets/casa-pinha/apresentacao-casa-pinha.pdf" data-filename="Apresentacao-Casa-Pinha.pdf">
+            <button type="button" class="house-explore-cta-btn open-download-modal-trigger" id="open-download-modal" data-pdf="" data-filename="Apresentacao-Casa-Alva.pdf">
               <span>Baixar material completo</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -651,7 +334,7 @@
 
         <div class="explore-visual-col">
           <div class="explore-visual-box">
-            <img src="assets/casa-pinha/album-plantas/corte-esquematico.webp" alt="Corte Arquitetônico e Ilustração da Casa Pinha" loading="lazy">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3C/svg%3E" alt="Apresentação Completa - Casa Pinha" loading="lazy">
           </div>
         </div>
       </div>
@@ -666,7 +349,7 @@
         <div class="house-price-banner">
           <div class="price-banner-eyebrow">A PARTIR DE</div>
           <div class="price-banner-main">
-            <span class="price-banner-number">R$ 2.600.000</span>
+            <span class="price-banner-number">R$ 2.600.000,00</span>
             <span class="price-info-wrap" tabindex="0" aria-label="Informações sobre o valor estimado" role="button">
               <svg class="price-info-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -713,7 +396,7 @@
               </div>
 
               <button type="submit" class="interest-form-submit-btn">
-                <span>QUERO CONHECER ESSA CASA</span>
+                <span>QUERO CONHECER A CASA ALVA</span>
               </button>
 
               <div class="interest-form-success" id="interest-form-success" role="status" aria-live="polite">
@@ -816,7 +499,7 @@
     </div>
   </div>
 
-  <!-- Modal de Vídeo da Casa Pinha -->
+  <!-- Modal de Vídeo Conceitual com Suporte a YouTube e Capa -->
   <div class="video-modal-overlay" id="video-modal" aria-hidden="true" role="dialog">
     <div class="video-modal-container">
       <button class="video-modal-close" id="video-modal-close" aria-label="Fechar Vídeo">
@@ -826,9 +509,9 @@
         </svg>
       </button>
       <div class="video-modal-viewport" id="video-modal-viewport">
-        <img src="assets/casa-pinha/video-cover-pinha.webp" alt="Casa Pinha" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
-          <span style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; Casa Pinha (Condomínio Noah)</span>
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1600' height='900' viewBox='0 0 1600 900'%3E%3Crect width='1600' height='900' fill='%23111'/%3E%3C/svg%3E" alt="Vídeo Conceitual Casa Pinha" class="video-modal-cover-img" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div class="video-modal-bottom-bar" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, transparent 100%); padding: 32px 24px 20px 24px; color: #fff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <span class="video-modal-badge-title" style="font-size: 0.95rem; font-weight: 600;">Experiência Audiovisual &bull; Casa Pinha</span>
           <a href="#contato-reserva" class="house-video-cta-btn" style="padding: 10px 24px; font-size: 0.9rem;" id="video-modal-cta">Tenho interesse</a>
         </div>
       </div>
@@ -878,7 +561,7 @@
     </div>
   </div>
 
-  <!-- Modal de Download do Material do Projeto -->
+  <!-- Modal de Download do Material do Projeto (Template CMS) -->
   <div class="download-modal-overlay" id="download-modal" aria-hidden="true" role="dialog" aria-labelledby="download-modal-title">
     <div class="download-modal-container">
       <button type="button" class="download-modal-close" id="download-modal-close" aria-label="Fechar Modal">
@@ -895,7 +578,7 @@
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          Material Exclusivo &bull; Casa Pinha
+          <span class="download-modal-badge-text">Material Exclusivo &bull; Casa Pinha</span>
         </span>
         <h3 class="download-modal-title" id="download-modal-title">Baixar Material do Projeto</h3>
         <p class="download-modal-subtitle">
@@ -904,8 +587,8 @@
       </div>
 
       <form class="download-modal-form" id="download-project-form">
-        <input type="hidden" id="download-pdf-url" value="assets/casa-pinha/apresentacao-casa-pinha.pdf">
-        <input type="hidden" id="download-pdf-filename" value="Apresentacao-Casa-Pinha.pdf">
+        <input type="hidden" id="download-pdf-url" value="">
+        <input type="hidden" id="download-pdf-filename" value="Apresentacao-Casa-Alva.pdf">
 
         <div class="download-form-group">
           <label for="dl-name">Nome Completo *</label>
@@ -933,7 +616,7 @@
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
           </svg>
-          Download seguro em formato PDF (aprox. 17 MB).
+          Download seguro em formato PDF.
         </span>
       </form>
     </div>
@@ -942,7 +625,6 @@
   <!-- Scripts -->
   <script src="js/carrossel.js?v=3.3"></script>
   <script>
-    // Menu mobile toggle
     const openBtn = document.getElementById("mobile-open-btn");
     const closeBtn = document.getElementById("mobile-close-btn");
     const overlay = document.getElementById("mobile-nav-overlay");
@@ -959,12 +641,12 @@
       document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", closeMenu));
     }
 
-    // Modal de Vídeo com suporte a YouTube, vídeo e iframe
+    // Modal de Vídeo com suporte a YouTube e iframe
     const videoPlayer = document.getElementById("house-video-player");
     const videoModal = document.getElementById("video-modal");
     const videoClose = document.getElementById("video-modal-close");
     const videoCta = document.getElementById("video-modal-cta");
-    let currentVideoUrl = (videoPlayer && videoPlayer.getAttribute("data-video-url")) || "";
+    let currentVideoUrl = "";
 
     function extractYouTubeEmbed(url) {
       if (!url) return null;
@@ -1018,6 +700,400 @@
         }
       });
     }
+  </script>
+
+  <!-- Sanity CMS Client & Hydration Dinâmica -->
+  <script src="js/sanity-client.js"></script>
+  <script>
+    (async function hydrateCasaFromSanity() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get("slug") || urlParams.get("casa") || "casa-pinha";
+      if (!window.SanityClient) return;
+
+      const house = await window.SanityClient.fetchHouseBySlug(slug);
+      if (!house) return;
+
+      // 1. Título e Meta Description
+      try {
+        if (house.name) {
+          const archName = house.architect?.name || "Polesello + Müller Arquitetura";
+          document.title = `${house.name} — ${archName} | BY ARCH Maxicon`;
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) {
+            metaDesc.content = `${house.name} por ${archName} no ${house.condominium || "Noah Reserva Natural"}${house.lot ? ", " + house.lot : ""}. ${house.privateArea || ""} privativos, ${house.suites || ""}, ${house.garage || ""}.`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Meta:", e);
+      }
+
+      // 2. Hero Slider & Imagem Principal
+      try {
+        const heroSlider = document.getElementById("hero-slider") || document.querySelector(".house-main-visual");
+        if (heroSlider) {
+          const titleOverlay = heroSlider.querySelector(".house-title-overlay");
+          if (titleOverlay && house.name) titleOverlay.textContent = house.name;
+
+          const slidesWrapper = document.getElementById("hero-slides-wrapper") || heroSlider.querySelector(".hero-slides-wrapper");
+          const dotsContainer = document.getElementById("hero-slider-dots") || heroSlider.querySelector(".hero-slider-dots");
+
+          const sliderImages = Array.isArray(house.heroSlider) && house.heroSlider.length > 0 
+            ? house.heroSlider 
+            : (house.heroImage ? [house.heroImage] : []);
+
+          if (sliderImages.length > 0 && slidesWrapper) {
+            slidesWrapper.innerHTML = sliderImages.map((imgItem, idx) => {
+              const src = window.SanityClient.urlForImage(imgItem, 1920);
+              const caption = imgItem.caption || `${house.name} - Imagem ${idx + 1}`;
+              return `
+                <div class="hero-slide ${idx === 0 ? 'active' : ''}">
+                  <img src="${src}" alt="${caption}">
+                </div>
+              `;
+            }).join("");
+
+            if (dotsContainer) {
+              if (sliderImages.length > 1) {
+                dotsContainer.style.display = "flex";
+                dotsContainer.innerHTML = sliderImages.map((_, idx) => `
+                  <button class="hero-dot ${idx === 0 ? 'active' : ''}" type="button" aria-label="Slide ${idx + 1}" data-index="${idx}"></button>
+                `).join("");
+              } else {
+                dotsContainer.style.display = "none";
+                dotsContainer.innerHTML = "";
+              }
+            }
+
+            if (sliderImages.length > 1 && window.initHeroSlider) {
+              window.initHeroSlider();
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Hero:", e);
+      }
+
+      // 3. Conceito & Autoria
+      try {
+        const conceptCard = document.querySelector(".house-concept-card");
+        if (conceptCard) {
+          const conceptSquareImg = conceptCard.querySelector(".concept-square-img");
+          if (conceptSquareImg) {
+            const cImg = house.conceptImage || house.heroImage;
+            if (cImg) conceptSquareImg.src = window.SanityClient.urlForImage(cImg, 800, 800);
+            conceptSquareImg.alt = `Conceito Arquitetônico ${house.name}`;
+          }
+
+          const authorLogo = conceptCard.querySelector(".concept-author-logo-img");
+          if (authorLogo && house.architect?.logo) {
+            authorLogo.src = window.SanityClient.urlForImage(house.architect.logo, 300);
+            authorLogo.alt = house.architect.name || "";
+          }
+
+          const mainTitle = conceptCard.querySelector(".concept-main-title");
+          if (mainTitle && (house.headline || house.tagline)) {
+            mainTitle.textContent = house.headline || house.tagline;
+          }
+
+          const textBody = conceptCard.querySelector(".concept-text-body");
+          if (textBody && house.description) {
+            const html = window.SanityClient.blocksToHtml(house.description);
+            if (html) textBody.innerHTML = html;
+          }
+
+          // Specs (Suítes, Vagas, Lote, Área)
+          const specsItems = conceptCard.querySelectorAll(".concept-minimal-spec-item .concept-spec-text");
+          if (specsItems.length >= 2) {
+            if (house.suites) specsItems[0].textContent = house.suites;
+            if (house.garage) specsItems[1].textContent = house.garage;
+          }
+
+          const lotTag = conceptCard.querySelector(".concept-lot-tag");
+          if (lotTag && (house.lot || house.lotArea)) {
+            const rawLot = (house.lot || "").trim();
+            const lotPrefix = rawLot ? (rawLot.toLowerCase().startsWith("lote") ? rawLot : `Lote ${rawLot}`) : "";
+            const lotLabel = lotPrefix ? `<strong>${lotPrefix}</strong> ` : "";
+            const rawArea = (house.lotArea || "").trim();
+            const lotAreaLabel = rawArea ? (rawArea.includes("m²") ? rawArea : `${rawArea} m²`) : "";
+            lotTag.innerHTML = `${lotLabel}${lotAreaLabel}`;
+          }
+
+          const lotArea = conceptCard.querySelector(".concept-lot-area");
+          if (lotArea && house.privateArea) {
+            const rawPriv = String(house.privateArea).trim();
+            const privLabel = rawPriv.includes("m²") ? rawPriv : `${rawPriv} m²`;
+            lotArea.innerHTML = `<strong>${privLabel}</strong> área privativa`;
+          }
+
+          // Destaques / Tópicos (filtra strings vazias)
+          const cleanHighlights = Array.isArray(house.highlights) ? house.highlights.filter(h => h && h.trim()) : [];
+          const featuresGrid = conceptCard.querySelector(".concept-features-grid");
+          if (featuresGrid) {
+            if (cleanHighlights.length > 0) {
+              featuresGrid.style.display = "";
+              const mid = Math.ceil(cleanHighlights.length / 2);
+              const col1 = cleanHighlights.slice(0, mid);
+              const col2 = cleanHighlights.slice(mid);
+              featuresGrid.innerHTML = `
+                <ul class="concept-features-col">
+                  ${col1.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+                </ul>
+                <ul class="concept-features-col">
+                  ${col2.map(h => `<li class="concept-feature-item"><span class="concept-feature-bullet" aria-hidden="true"></span><span>${h}</span></li>`).join("")}
+                </ul>
+              `;
+            } else {
+              featuresGrid.style.display = "none";
+              featuresGrid.innerHTML = "";
+            }
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Conceito:", e);
+      }
+
+      // 4. Vídeo Conceitual
+      try {
+        if (house.videoUrl) {
+          currentVideoUrl = house.videoUrl;
+        }
+
+        const videoSection = document.querySelector(".house-video-section");
+        if (videoSection) {
+          const headline = videoSection.querySelector(".house-video-headline");
+          if (headline && house.videoHeadline) {
+            headline.textContent = house.videoHeadline;
+          }
+          const coverImg = videoSection.querySelector(".house-video-cover-img");
+          if (coverImg) {
+            const vCover = house.videoCover || house.heroImage;
+            if (vCover) coverImg.src = window.SanityClient.urlForImage(vCover, 1600);
+            coverImg.alt = `Vídeo Conceitual ${house.name}`;
+          }
+          const ctaBtn = videoSection.querySelector(".house-video-cta-btn");
+          if (ctaBtn && house.name) {
+            ctaBtn.textContent = `Tenho interesse na ${house.name}`;
+          }
+        }
+
+        // Modal de Vídeo
+        const vModalImg = document.querySelector(".video-modal-viewport img");
+        if (vModalImg) {
+          const vCover = house.videoCover || house.heroImage;
+          if (vCover) {
+            vModalImg.src = window.SanityClient.urlForImage(vCover, 1600);
+            vModalImg.alt = `Vídeo Conceitual ${house.name}`;
+          }
+        }
+        const vModalBadge = document.querySelector(".video-modal-badge-title");
+        if (vModalBadge && house.name) {
+          const lotLabel = house.condominium || house.lot ? ` (${house.condominium || ""}${house.lot ? ", " + house.lot : ""})` : "";
+          vModalBadge.innerHTML = `Experiência Audiovisual &bull; ${house.name}${lotLabel}`;
+        }
+      } catch (e) {
+        console.warn("[Sanity] Vídeo:", e);
+      }
+
+      // 5. Apresentação do Escritório de Arquitetura
+      try {
+        const archSection = document.getElementById("escritorio-arquiteto");
+        if (archSection && house.architect) {
+          const archImg = archSection.querySelector(".architect-img");
+          if (archImg && house.architect.photo) {
+            archImg.src = window.SanityClient.urlForImage(house.architect.photo, 800);
+            archImg.alt = house.architect.name || "";
+          }
+          const archTitle = archSection.querySelector(".architect-title");
+          if (archTitle && house.name) {
+            archTitle.innerHTML = `${house.name} <span class="architect-by">by</span>`;
+          }
+          const archLogo = archSection.querySelector(".architect-logo-img");
+          if (archLogo && house.architect.logo) {
+            archLogo.src = window.SanityClient.urlForImage(house.architect.logo, 400);
+            archLogo.alt = house.architect.name || "";
+          }
+          const archCta = archSection.querySelector(".architect-cta-btn");
+          if (archCta) {
+            const archSlug = house.architect.slug || "";
+            archCta.href = archSlug ? `escritorio-template.html?slug=${archSlug}` : `arquitetos.html`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Arquiteto:", e);
+      }
+
+      // 6. Momentos de Vida (Stack Cards)
+      try {
+        const momentsContainer = document.getElementById("moments-stack");
+        if (momentsContainer && Array.isArray(house.moments) && house.moments.length > 0) {
+          momentsContainer.innerHTML = house.moments.map((moment, idx) => {
+            const imgSrc = window.SanityClient.urlForImage(moment.image, 1200);
+            const label = moment.collapsedLabel || moment.title || `Momento ${idx + 1}`;
+            const title = moment.title || label;
+            const desc = moment.description || "";
+            return `
+              <div class="moment-stack-card ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
+                <div class="moment-card-bg-wrap">
+                  <img src="${imgSrc}" alt="${title} - ${house.name}" class="moment-card-img" loading="lazy">
+                  <div class="moment-card-overlay"></div>
+                </div>
+                <div class="moment-card-collapsed-label" aria-hidden="true">
+                  <span>${label}</span>
+                </div>
+                <div class="moment-card-content">
+                  <h3 class="moment-card-title">${title}</h3>
+                  <p class="moment-card-desc">${desc}</p>
+                </div>
+              </div>
+            `;
+          }).join("");
+
+          if (window.initMomentsStackCards) {
+            window.initMomentsStackCards();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Momentos:", e);
+      }
+
+      // 7. Carrossel Completo de Fotos da Casa
+      try {
+        const fullCarouselViewport = document.getElementById("full-carousel-viewport");
+        if (fullCarouselViewport && Array.isArray(house.gallery) && house.gallery.length > 0) {
+          fullCarouselViewport.innerHTML = house.gallery.map((item, idx) => {
+            const fullSrc = window.SanityClient.urlForImage(item, 1920);
+            const caption = item.caption || `${house.name} - Foto ${idx + 1}`;
+            return `
+              <div class="full-carousel-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" data-full="${fullSrc}">
+                <img src="${fullSrc}" alt="${caption}" ${idx > 0 ? 'loading="lazy"' : ''}>
+              </div>
+            `;
+          }).join("");
+
+          if (window.initFullHouseCarousel) {
+            window.initFullHouseCarousel();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Galeria:", e);
+      }
+
+      // 8. Plantas Técnicas (Pranchas & Miniaturas)
+      try {
+        const plantsSection = document.getElementById("plantas-projeto");
+        if (plantsSection) {
+          const pTitle = plantsSection.querySelector(".plants-main-title");
+          if (pTitle && house.plantsHeadline) pTitle.textContent = house.plantsHeadline;
+          const pSub = plantsSection.querySelector(".plants-subtitle");
+          if (pSub && house.plantsSubtitle) pSub.textContent = house.plantsSubtitle;
+        }
+
+        const plantsViewport = document.getElementById("plants-viewport");
+        const plantsThumbsBar = document.getElementById("plants-thumbnails-bar");
+        if (plantsViewport && plantsThumbsBar && Array.isArray(house.plants) && house.plants.length > 0) {
+          plantsViewport.innerHTML = house.plants.map((plant, idx) => {
+            const fullSrc = window.SanityClient.urlForImage(plant.image, 1920);
+            const title = plant.title || `Prancha ${idx + 1}`;
+            return `
+              <div class="plants-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}" data-full="${fullSrc}" data-title="${title}">
+                <img src="${fullSrc}" alt="${title} - ${house.name}" ${idx > 0 ? 'loading="lazy"' : ''}>
+              </div>
+            `;
+          }).join("");
+
+          plantsThumbsBar.innerHTML = house.plants.map((plant, idx) => {
+            const thumbSrc = window.SanityClient.urlForImage(plant.image, 300);
+            const label = plant.shortLabel || plant.title || `Prancha ${idx + 1}`;
+            return `
+              <button type="button" class="plants-thumb-item ${idx === 0 ? 'active' : ''}" data-index="${idx}" aria-label="${plant.title || label}">
+                <div class="plants-thumb-preview">
+                  <img src="${thumbSrc}" alt="Miniatura ${label}" loading="lazy">
+                </div>
+                <span class="plants-thumb-label">${label}</span>
+              </button>
+            `;
+          }).join("");
+
+          if (window.initPlantsCarousel) {
+            window.initPlantsCarousel();
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Plantas:", e);
+      }
+
+      // 9. Explore o Projeto Completo & Download de PDF
+      try {
+        const exploreSection = document.getElementById("explore-projeto");
+        if (exploreSection) {
+          const headline = exploreSection.querySelector(".explore-headline");
+          if (headline && house.presentationHeadline) headline.textContent = house.presentationHeadline;
+
+          const desc = exploreSection.querySelector(".explore-description");
+          if (desc && house.presentationDescription) desc.textContent = house.presentationDescription;
+
+          const coverImg = exploreSection.querySelector(".explore-visual-box img");
+          if (coverImg) {
+            const cImg = house.presentationCoverImage || (house.plants && house.plants[0]?.image) || house.heroImage;
+            if (cImg) {
+              coverImg.src = window.SanityClient.urlForImage(cImg, 1000);
+              coverImg.alt = `Apresentação Completa - ${house.name}`;
+            }
+          }
+
+          const pdfUrl = house.presentationPdfUrl || (house.presentationPdf ? window.SanityClient.urlForFile(house.presentationPdf) : "") || "assets/casa-pinha/apresentacao-casa-pinha.pdf";
+          const pdfFilename = house.name ? `Apresentacao-${house.name.replace(/\s+/g, "-")}.pdf` : "Apresentacao-BY-ARCH.pdf";
+
+          const dlBtn = document.getElementById("open-download-modal");
+          if (dlBtn) {
+            dlBtn.setAttribute("data-pdf", pdfUrl);
+            dlBtn.setAttribute("data-filename", pdfFilename);
+          }
+
+          const hiddenPdfUrl = document.getElementById("download-pdf-url");
+          if (hiddenPdfUrl) hiddenPdfUrl.value = pdfUrl;
+
+          const hiddenPdfFilename = document.getElementById("download-pdf-filename");
+          if (hiddenPdfFilename) hiddenPdfFilename.value = pdfFilename;
+
+          const modalBadgeText = document.querySelector(".download-modal-badge-text");
+          if (modalBadgeText && house.name) {
+            modalBadgeText.textContent = `Material Exclusivo \u2022 ${house.name}`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Explore:", e);
+      }
+
+      // 10. Valor do Investimento & Atendimento Exclusivo
+      try {
+        const priceSection = document.getElementById("contato-reserva");
+        if (priceSection) {
+          const eyebrow = priceSection.querySelector(".price-banner-eyebrow");
+          if (eyebrow && house.pricePrefix) eyebrow.textContent = house.pricePrefix;
+
+          const priceNum = priceSection.querySelector(".price-banner-number");
+          if (priceNum) priceNum.textContent = house.price || "Consulte-nos";
+
+          const priceSub = priceSection.querySelector(".price-banner-sub");
+          if (priceSub) {
+            priceSub.textContent = house.priceSubtitle || (house.condominium ? `ARQUITETURA + LOTE NO ${house.condominium.toUpperCase()} + CONSTRUÇÃO` : "ARQUITETURA + LOTE NO NOAH + CONSTRUÇÃO");
+          }
+
+          const tooltip = priceSection.querySelector(".price-tooltip-balloon");
+          if (tooltip && house.priceTooltip) {
+            tooltip.textContent = house.priceTooltip;
+          }
+
+          const formBtn = priceSection.querySelector(".interest-form-submit-btn span");
+          if (formBtn && house.name) {
+            formBtn.textContent = `QUERO CONHECER A ${house.name.toUpperCase()}`;
+          }
+        }
+      } catch (e) {
+        console.warn("[Sanity] Preço:", e);
+      }
+    })();
   </script>
 </body>
 </html>

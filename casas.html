@@ -367,13 +367,34 @@
           const slug = house.slug ? (house.slug.current || house.slug) : '';
           if (!slug) return;
 
-          // Se a casa já existe no HTML estático (ex: Casa Alva, Casa Origem), sincroniza o status
+          // Se a casa já existe no HTML estático (ex: Casa Pinha, Casa Alva, Casa Origem), sincroniza com o Sanity
           const existingLink = document.querySelector(`[href*="${slug}"]`);
           if (existingLink) {
             const cardEl = existingLink.closest('.residence-card');
-            if (cardEl && house.status) {
-              const statusBadge = cardEl.querySelector('.badge-status');
-              if (statusBadge) statusBadge.textContent = house.status;
+            if (cardEl) {
+              if (house.status) {
+                const statusBadge = cardEl.querySelector('.badge-status');
+                if (statusBadge) statusBadge.textContent = house.status;
+              }
+              if (house.heroImage) {
+                const cardImg = cardEl.querySelector('.residence-img');
+                if (cardImg) cardImg.src = window.SanityClient.urlForImage(house.heroImage, 800);
+              }
+              if (house.name) {
+                const titleEl = cardEl.querySelector('.residence-title a');
+                if (titleEl) titleEl.textContent = house.name;
+              }
+              if (house.suites) {
+                const numMatch = String(house.suites).match(/\d+/);
+                if (numMatch) cardEl.setAttribute('data-category', `${numMatch[0]}-suites`);
+              }
+              const specItems = cardEl.querySelectorAll('.residence-specs-row .spec-text');
+              if (specItems.length >= 4) {
+                if (house.privateArea) specItems[0].textContent = formatSpec(house.privateArea, 'area');
+                if (house.suites) specItems[1].textContent = formatSpec(house.suites, 'suites');
+                if (house.lotArea) specItems[2].textContent = formatSpec(house.lotArea, 'lot');
+                if (house.garage) specItems[3].textContent = formatSpec(house.garage, 'garage');
+              }
             }
             return;
           }
