@@ -4374,10 +4374,23 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
 }
 
 .architect-logo-img {
-  max-width: clamp(260px, 30vw, 360px);
+  max-width: clamp(220px, 25vw, 320px);
+  max-height: 90px;
+  width: auto;
   height: auto;
   object-fit: contain;
   display: block;
+}
+
+/* Logos compactos / verticais / quadrados (ex: W. Arquitetura) */
+.architect-logo-compact,
+.architect-logo-img[alt*="W. Arquitetura"],
+.architect-logo-img[alt*="W."],
+.architect-logo-img[src*="0146c2e9d1de096411c7c05edb722c876a3c904f"],
+.architect-logo-img[src*="W.png"],
+.architect-logo-img[src*="w.webp"] {
+  max-height: 75px;
+  max-width: 95px;
 }
 
 /* Botão Conheça o Escritório */
@@ -4482,7 +4495,18 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   }
 
   .architect-logo-img {
-    max-width: 240px;
+    max-width: 220px;
+    max-height: 70px;
+  }
+
+  .architect-logo-compact,
+  .architect-logo-img[alt*="W. Arquitetura"],
+  .architect-logo-img[alt*="W."],
+  .architect-logo-img[src*="0146c2e9d1de096411c7c05edb722c876a3c904f"],
+  .architect-logo-img[src*="W.png"],
+  .architect-logo-img[src*="w.webp"] {
+    max-height: 60px;
+    max-width: 80px;
   }
 
   .architect-logo-wrap {

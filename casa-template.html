@@ -911,6 +911,12 @@
           if (archLogo && house.architect.logo) {
             archLogo.src = window.SanityClient.urlForImage(house.architect.logo, 400);
             archLogo.alt = house.architect.name || "";
+            const isW = (house.architect.slug && String(house.architect.slug).includes("w-arquitetura")) ||
+                        (house.architect.name && String(house.architect.name).startsWith("W.")) ||
+                        (slug === "casa-zyma");
+            if (isW) {
+              archLogo.classList.add("architect-logo-compact");
+            }
           }
           const archCta = archSection.querySelector(".architect-cta-btn");
           if (archCta) {
