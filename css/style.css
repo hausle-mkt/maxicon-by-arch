@@ -4327,9 +4327,18 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   height: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
   border-radius: 0;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Enquadramento superior para fotos de arquitetos com rostos/cabeças próximas ao topo (ex: Polesello + Müller) */
+.architect-img.pos-top,
+.architect-img-top,
+.architect-img[src*="polesello"],
+.architect-img[alt*="Polesello"] {
+  object-position: center top !important;
 }
 
 .architect-presentation-card:hover .architect-img {
@@ -7153,6 +7162,12 @@ body.reveal-ready .scroll-reveal[data-reveal="right"]:not(.is-revealed) {
   object-position: center 25%;
   display: block;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.office-photo-img[src*="polesello"],
+.office-photo-img[alt*="Polesello"],
+.office-photo-img.pos-top {
+  object-position: center 5% !important;
 }
 
 .office-photo-card:hover .office-photo-img {

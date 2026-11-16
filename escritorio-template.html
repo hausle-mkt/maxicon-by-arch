@@ -362,6 +362,9 @@
       if (photoImg && office.photo) {
         photoImg.src = window.SanityClient.urlForImage(office.photo, 900);
         photoImg.alt = `Retrato oficial de ${office.name}`;
+        if (office.name && office.name.toLowerCase().includes("polesello")) {
+          photoImg.style.objectPosition = "center 5%";
+        }
       }
 
       // Tag de curadoria

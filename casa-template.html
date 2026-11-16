@@ -902,6 +902,9 @@
           if (archImg && house.architect.photo) {
             archImg.src = window.SanityClient.urlForImage(house.architect.photo, 800);
             archImg.alt = house.architect.name || "";
+            if (house.architect.name && house.architect.name.toLowerCase().includes("polesello")) {
+              archImg.style.objectPosition = "center top";
+            }
           }
           const archTitle = archSection.querySelector(".architect-title");
           if (archTitle && house.name) {
